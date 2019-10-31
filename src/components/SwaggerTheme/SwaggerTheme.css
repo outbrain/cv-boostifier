@@ -1,3 +1,8 @@
 #swagger-wrapper {
     flex-grow: 1;
 }
+
+
+.responses-inner > div > div > div:nth-child(1), .responses-inner > div > div > div:nth-child(2) {
+    display: none;
+}
