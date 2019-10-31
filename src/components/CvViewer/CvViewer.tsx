@@ -13,6 +13,6 @@ export const CvViewer: React.FC = () => {
   } else if (theme === 'swagger') {
     return <SwaggerTheme profile={profile}/>
   } else {
-    return <div>No viewer...</div>
+    return <div>TBD...</div>
   }
 };
