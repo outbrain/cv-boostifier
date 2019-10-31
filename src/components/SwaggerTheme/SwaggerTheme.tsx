@@ -10,13 +10,18 @@ export function SwaggerTheme(props: PropsWithChildren<any>) {
   };
 
   const responseInterceptor = (res: any) => {
+  debugger;
     console.log('res', res);
-    res.body = res.text = res.data = res.obj = JSON.stringify(profile.personal, null, 2);
+    const i  = res.url.indexOf('?')
+    const q = res.url.substr(i+3)
+    console.log('q='+q);
+    res.body = res.text = res.data = res.obj = JSON.stringify(profile[q], null, 2);
     return res;
   };
   const requestInterceptor = (req: any) => {
     console.log('req', req);
-    req.url = 'https://api.flickr.com/services/rest';
+    const q = req.url.split('/')[3]
+    req.url = 'https://api.flickr.com/services/rest?q='+q;
     return req;
   };
   return (
