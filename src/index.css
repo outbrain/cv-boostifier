@@ -18,3 +18,25 @@ code {
   display: flex;
   flex-direction: column;
 }
+
+
+.btn {
+  font-size: 14px;
+  white-space: nowrap;
+  padding: 2px 15px;
+  cursor: pointer;
+  border-radius: 3px;
+  border: 1px solid #cbcace;
+  display: inline-block;
+
+}
+
+.btn:hover {
+  border-color: #5465ab;
+  color: #5465ab;
+}
+
+.btn.btn-action {
+  background: #323c67;
+  color: #323c67;
+}

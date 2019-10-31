@@ -13,9 +13,9 @@ export function Settings() {
         <div className="form-group">
           <div className="form-label">Change Theme</div>
           <div className="form-field">
-            <button onClick={() => changeTheme('sql')}>SQL</button>
-            <button onClick={() => changeTheme('swagger')}>Swagger</button>
-            <button onClick={() => changeTheme('frontend')}>Frontend</button>
+            <button className="btn" onClick={() => changeTheme('sql')}>SQL</button>
+            <button className="btn" onClick={() => changeTheme('swagger')}>Swagger</button>
+            <button className="btn" onClick={() => changeTheme('frontend')}>Frontend</button>
           </div>
         </div>
       </div>
