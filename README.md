@@ -10,7 +10,7 @@
 
 #### TODO:
 * Add Frontend theme
-* Add Theme selector
+* Improve settings UI
 * Add Profile builder
 * Find a way to import profile from linkedin
 * SQL theme
