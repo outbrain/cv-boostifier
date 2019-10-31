@@ -2,7 +2,7 @@ export interface IProfile {
   personal: IPersonalInfo;
   experience: ICompany[];
   education: ISchool[];
-  skills: string[];
+  skills: ISkill[];
 }
 
 export interface IPersonalInfo {
@@ -29,10 +29,13 @@ export interface ISchool {
   description?: string;
 }
 
+export interface ISkill {
+  name: string
+}
 
 export const defaultProfile: IProfile = {
   personal: {
-    firstName: 'Tsachi',
+    firstName: 'Yonatan',
     lastName: 'Shushan',
     email: 'tsachi@gmaiul.com',
     github: 'tsachis',
@@ -55,5 +58,8 @@ export const defaultProfile: IProfile = {
       field: 'CS',
     }
   ],
-  skills: ['js', 'angular']
+  skills: [
+    { name: 'js' },
+    { name: 'angular'}
+  ]
 };
