@@ -30,12 +30,16 @@ export function SqlTheme(props: PropsWithChildren<any>) {
         try {
           let res;
           const table = new AsciiTable();
+          if (!command.length) {
+            resolve('<br>')
+          } else
           if (command.toLowerCase() === 'show tables') {
             Object.keys(profileDb.current.tables).forEach((key: any) => {
               table.addRow(key);
             });
             resolve(table.toString().split('\n').join('<br>'));
-          } else if (command.toLowerCase() === 'help') {
+          } else
+            if (command.toLowerCase() === 'help') {
             resolve(`<small>Typing "show tables" will print the list of tables.<br>Typing an SQL query will print the results<br>Example: "select * from education"</small>`);
           } else {
             res = profileDb.current.exec(command);
