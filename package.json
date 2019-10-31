@@ -2,6 +2,7 @@
   "name": "cv-geekifier",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "https://outbrain.github.io/cv-geekifier/build",
   "dependencies": {
     "@types/jest": "24.0.21",
     "@types/node": "12.12.0",
