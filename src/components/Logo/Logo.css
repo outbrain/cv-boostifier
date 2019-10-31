@@ -1,0 +1,15 @@
+.logo-wrapper {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 10px;
+    font-size: 12px;
+}
+
+.logo-wrapper > img {
+    margin-top: 2px;
+    width: 150px;
+}
