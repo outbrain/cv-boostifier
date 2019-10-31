@@ -18,5 +18,4 @@
 * Swagger theme
     * find a way to mock responses
     * map profile to swagger spec object
-    
-    
+   
