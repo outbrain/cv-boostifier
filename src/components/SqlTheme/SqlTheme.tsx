@@ -9,7 +9,7 @@ declare const AsciiTable: any;
 export function SqlTheme(props: PropsWithChildren<any>) {
   const {profile} = props;
 
-  const termWrapper = useRef( document.getElementById('term-wrapper') as HTMLDivElement);
+  const termWrapper = useRef(document.getElementById('term-wrapper') as HTMLDivElement);
   const profileDb = useRef(null as any);
   const initDB = (profile: IProfile) => {
     const db = new alasql.Database();
@@ -32,26 +32,26 @@ export function SqlTheme(props: PropsWithChildren<any>) {
           const table = new AsciiTable();
           if (!command.length) {
             resolve('<br>')
-          } else
-          if (command.toLowerCase() === 'show tables') {
-            Object.keys(profileDb.current.tables).forEach((key: any) => {
-              table.addRow(key);
-            });
-            resolve(table.toString().split('\n').join('<br>'));
-          } else
-            if (command.toLowerCase() === 'help') {
-            resolve(`<small>Typing "show tables" will print the list of tables.<br>Typing an SQL query will print the results<br>Example: "select * from education"</small>`);
           } else {
-            res = profileDb.current.exec(command);
-            const keys = Object.keys(res[0]) || ['N/A'];
-            table.setHeading.apply(table, [...keys])
-            res.forEach((row: any) => {
-              table.addRow.apply(table, Object.values(row).map(val => val || 'NULL'));
-            });
+            if (command.toLowerCase() === 'show tables') {
+              Object.keys(profileDb.current.tables).forEach((key: any) => {
+                table.addRow(key);
+              });
+              resolve(table.toString().split('\n').join('<br>'));
+            } else if (command.toLowerCase() === 'help') {
+              resolve(`<small>Typing "show tables" will print the list of tables.<br>Typing an SQL query will print the results<br>Example: "select * from education"</small>`);
+            } else {
+              res = profileDb.current.exec(command);
+              const keys = Object.keys(res[0]) || ['N/A'];
+              table.setHeading.apply(table, [...keys])
+              res.forEach((row: any) => {
+                table.addRow.apply(table, Object.values(row).map(val => val || 'NULL'));
+              });
 
-            console.log(table.toString());
-            resolve(table.toString().split('\n').join('<br>'));
-            // resolve(JSON.stringify(res));
+              console.log(table.toString());
+              resolve(table.toString().split('\n').join('<br>'));
+              // resolve(JSON.stringify(res));
+            }
           }
         } catch (e) {
           console.error(e);
