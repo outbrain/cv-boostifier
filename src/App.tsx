@@ -2,15 +2,16 @@ import React from 'react';
 import {ProfileProvider} from './context/ProfileContext';
 import {ThemeProvider} from './context/ThemeContext';
 import {CvViewer} from './components/CvViewer/CvViewer';
-import {Logo} from './components/Logo/Logo';
 import {Settings} from './components/Settings/Settings';
 
 const App: React.FC = () => {
+  const searchParams = new URLSearchParams(window.location.search);
+  const hideSettings = searchParams.get('hideSettings') === 'true';
   return (
     <ThemeProvider>
       <ProfileProvider>
         <CvViewer/>
-        <Settings />
+        {!hideSettings && <Settings />}
       </ProfileProvider>
     </ThemeProvider>
   );

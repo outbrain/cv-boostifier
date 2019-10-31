@@ -2,7 +2,6 @@ import React, {useContext, useState} from 'react';
 import './Settings.css';
 import {ThemeContext} from '../../context/ThemeContext';
 import {Logo} from '../Logo/Logo';
-import {ProfileProvider} from '../../context/ProfileContext';
 export function Settings() {
   const [open, setOpen] = useState(false);
   const toggleOpen = () => setOpen(!open);
@@ -12,7 +11,7 @@ export function Settings() {
     <div className={'settings-wrapper ' + (open ? 'settings-wrapper-open' : '')}>
       <div className="settings-page">
         <div className="form-group">
-          <div className="form-label">Select Theme</div>
+          <div className="form-label">Change Theme</div>
           <div className="form-field">
             <button onClick={() => changeTheme('sql')}>SQL</button>
             <button onClick={() => changeTheme('swagger')}>Swagger</button>
