@@ -35,6 +35,8 @@ export function SqlTheme(props: PropsWithChildren<any>) {
               table.addRow(key);
             });
             resolve(table.toString().split('\n').join('<br>'));
+          } else if (command.toLowerCase() === 'help') {
+            resolve(`<small>Typing "show tables" will print the list of tables.<br>Typing an SQL query will print the results<br>Example: "select * from education"</small>`);
           } else {
             res = profileDb.current.exec(command);
             const keys = Object.keys(res[0]) || ['N/A'];
@@ -57,7 +59,7 @@ export function SqlTheme(props: PropsWithChildren<any>) {
 
   const inputLoop = (term: any) => {
     term.input('', (command: any) => {
-      processCommand(command.substring(1).trim()).then(res => {
+      processCommand(command.trim()).then(res => {
         term.print(res, true);
         inputLoop(term);
       }).catch(err => {
@@ -70,7 +72,7 @@ export function SqlTheme(props: PropsWithChildren<any>) {
 
   useEffect(() => {
     const term = new Terminal();
-    term.print(`Welcome to CV SQL terminal! You can use SQL syntax here. <br><small>*Print "show tables" to view tables</small><br><br>`, true);
+    term.print(`Welcome to CV SQL terminal! <br><small>Type "help" to get help</small><br><br>`, true);
     profileDb.current = initDB(profile);
     if (termWrapper.current) {
       termWrapper.current.appendChild(term.html);

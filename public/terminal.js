@@ -28,7 +28,7 @@ var Terminal = (function () {
     inputField.style.opacity = '0'
     inputField.style.fontSize = '0.2em'
 
-    terminalObj._inputLine.textContent = '$ '
+    terminalObj._inputLine.textContent = ''
     terminalObj._input.style.display = 'block'
     terminalObj.html.appendChild(inputField)
     fireCursorInterval(inputField, terminalObj)
@@ -61,7 +61,7 @@ var Terminal = (function () {
       if (PROMPT_TYPE === PROMPT_CONFIRM || e.which === 13) {
         terminalObj._input.style.display = 'none'
         var inputValue = inputField.value
-        if (shouldDisplayInput) terminalObj.print(inputValue)
+        if (shouldDisplayInput) terminalObj.print(inputValue, false, 'user-input')
         terminalObj.html.removeChild(inputField)
         if (typeof(callback) === 'function') {
           if (PROMPT_TYPE === PROMPT_CONFIRM) {
@@ -97,6 +97,7 @@ var Terminal = (function () {
     this._inputLine = document.createElement('span') //the span element where the users input is put
     this._cursor = document.createElement('span')
     this._input = document.createElement('p') //the full element administering the user input, including cursor
+    this._input.classList.add('input-line')
 
     this._shouldBlinkCursor = true
 
@@ -105,8 +106,9 @@ var Terminal = (function () {
       terminalBeep.play()
     }
 
-    this.print = function (message, isHTML) {
+    this.print = function (message, isHTML, type) {
       var newLine = document.createElement('div')
+      type && newLine.classList.add(type);
       if (isHTML) {
         newLine.innerHTML = message
       } else {

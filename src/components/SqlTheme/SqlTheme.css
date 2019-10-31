@@ -6,3 +6,13 @@
     white-space: pre;
 }
 
+.user-input, .input-line {
+    position: relative;
+    padding-left: 70px;
+}
+.user-input:before, .input-line:before {
+    content: 'mysql> ';
+    position: absolute;
+    left: 0;
+
+}
