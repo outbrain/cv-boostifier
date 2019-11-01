@@ -16,11 +16,27 @@ var Terminal = (function () {
     }, 500)
   }
 
+
+
   var firstPrompt = true;
   promptInput = function (terminalObj, message, PROMPT_TYPE, callback) {
     var shouldDisplayInput = (PROMPT_TYPE === PROMPT_INPUT)
     var inputField = document.createElement('input')
-
+    var historyIndex = -1;
+    var showHistoryInput = () => {
+      const history = Array.from(terminalObj.html.querySelectorAll('.user-input')).reverse();
+      if (historyIndex >= history.length) {
+        historyIndex = history.length -1;
+      }
+      if (historyIndex < 0) {
+        historyIndex = -1;
+      }
+      if (historyIndex === -1) {
+        terminalObj._inputLine.textContent = inputField.value = '';
+      } else {
+        history[historyIndex] && (terminalObj._inputLine.textContent = inputField.value = history[historyIndex].innerText);
+      }
+    };
     inputField.style.position = 'absolute'
     inputField.style.zIndex = '-100'
     inputField.style.outline = 'none'
@@ -68,6 +84,12 @@ var Terminal = (function () {
             callback(inputValue.toUpperCase()[0] === 'Y' ? true : false)
           } else callback(inputValue)
         }
+      } else if (e.code === 'ArrowUp') {
+        historyIndex++;
+        showHistoryInput();
+      } else if (e.code === 'ArrowDown') {
+        historyIndex--;
+        showHistoryInput();
       }
     }
     if (firstPrompt) {
