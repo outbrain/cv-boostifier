@@ -8,7 +8,10 @@ export function Settings() {
   const [open, setOpen] = useState(false);
   const toggleOpen = () => setOpen(!open);
   const themeContext = useContext(ThemeContext);
-  const changeTheme = (theme: string) => themeContext.setTheme(theme);
+  const changeTheme = (theme: string) => {
+    themeContext.setTheme(theme);
+    setOpen(false);
+  };
   return (
     <div className={'settings-wrapper ' + (open ? 'settings-wrapper-open' : '')}>
       <div className="settings-page">

@@ -2,7 +2,7 @@ import * as React from 'react'
 import {createContext, PropsWithChildren, useState} from 'react';
 import {defaultProfile, IProfile} from '../models';
 
-interface IProfileContext {
+export interface IProfileContext {
   profile: IProfile;
   setProfile: (profile: IProfile) => void;
 }
