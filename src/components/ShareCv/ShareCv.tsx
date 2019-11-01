@@ -21,7 +21,7 @@ export function ShareCv() {
   };
 
   return (
-    <button className='share-btn' onClick={copyLink} title="Share Link to CV">
+    <button className='share-btn' onClick={copyLink} title="Copy sharable link">
       <img width="64" src={shareImg} alt="Share Link to CV" />
     </button>
   );

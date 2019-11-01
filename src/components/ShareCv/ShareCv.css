@@ -1,8 +1,17 @@
 .share-btn {
     position: fixed;
-    bottom: 10px;
-    right: 10px;
+    bottom: 20px;
+    right: 30px;
     outline: none;
     z-index: 100;
+    border: solid 1px #ccc;
+    border-radius: 50%;
+    opacity: .7;
+    padding: 4px 8px;
+    background: white;
+}
+
+.share-btn:hover {
+    opacity: 1;
 }
 
