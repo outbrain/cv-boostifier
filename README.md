@@ -14,8 +14,8 @@
 * Add Profile builder
 * Find a way to import profile from linkedin
 * SQL theme
-    * Fix terminal UI (borders style, prompt)
+    * Fix terminal UI (borders style)
 * Swagger theme
-    * find a way to mock responses
-    * map profile to swagger spec object
+    * add POST\PUT endpoints to edit edit profile
+    
    
