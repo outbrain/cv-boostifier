@@ -10,6 +10,7 @@
     transition: right 200ms linear;
     background-color: white;
     border-left: 1px solid #717075;
+    z-index: 200;
 }
 
 .settings-wrapper-open {
