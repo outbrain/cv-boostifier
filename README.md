@@ -18,4 +18,5 @@
 * Swagger theme
     * find a way to mock responses
     * map profile to swagger spec object
-   
+* add history to SQL and Terminal
+* add some nice easter egg in the HTML and console (maybe with this http://asciiset.com/figletserver.html)
