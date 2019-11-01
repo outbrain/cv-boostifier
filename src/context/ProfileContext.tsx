@@ -3,8 +3,8 @@ import {createContext, PropsWithChildren, useState} from 'react';
 import {defaultProfile, IProfile} from '../models';
 
 interface IProfileContext {
-  profile?: IProfile;
-  setProfile?: (profile: IProfile) => void;
+  profile: IProfile;
+  setProfile: (profile: IProfile) => void;
 }
 const encodeProfile = (profile: IProfile) => btoa(JSON.stringify(profile));
 const decodeProfile = (profileStr: string) => JSON.parse(atob(profileStr));

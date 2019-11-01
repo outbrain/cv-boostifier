@@ -10,6 +10,8 @@
     "@types/react-dom": "16.9.3",
     "@types/swagger-ui-react": "^3.23.0",
     "ascii-table": "0.0.9",
+    "jsoneditor": "^7.2.1",
+    "jsoneditor-react": "^2.0.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-scripts": "3.2.0",

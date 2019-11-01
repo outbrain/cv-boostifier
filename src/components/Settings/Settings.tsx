@@ -2,6 +2,8 @@ import React, {useContext, useState} from 'react';
 import './Settings.css';
 import {ThemeContext} from '../../context/ThemeContext';
 import {Logo} from '../Logo/Logo';
+import {ProfileEditor} from '../ProfileEditor/ProfileEditor';
+
 export function Settings() {
   const [open, setOpen] = useState(false);
   const toggleOpen = () => setOpen(!open);
@@ -16,6 +18,12 @@ export function Settings() {
             <button className="btn" onClick={() => changeTheme('sql')}>SQL</button>
             <button className="btn" onClick={() => changeTheme('swagger')}>Swagger</button>
             <button className="btn" onClick={() => changeTheme('frontend')}>Frontend</button>
+          </div>
+        </div>
+        <div className="form-group">
+          <div className="form-label">Edit Your Profile</div>
+          <div className="form-field">
+            <ProfileEditor />
           </div>
         </div>
       </div>
