@@ -43,9 +43,12 @@
 
 
 .form-label {
-    margin-bottom: 10px;
-    font-size: 14px;
+    margin-bottom: 20px;
     text-align: center;
+    margin-top: 25px;
+    font-size: 16px;
+    font-weight: lighter;
+    border-bottom: 1px solid #ccc;
 }
 .form-field {
     text-align: center;
