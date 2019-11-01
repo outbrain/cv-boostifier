@@ -76,8 +76,8 @@ export function SqlTheme(props: PropsWithChildren<any>) {
   useEffect(() => {
     profileDb.current = initDB(profile);
     if (termWrapper.current && !termWrapper.current.children.length) {
-    const term = new Terminal();
-    term.print(`Welcome to CV SQL terminal! <br><small>Type "help" to get help</small><br><br>`, true);
+      const term = new Terminal();
+      term.print(`Welcome to CV SQL terminal! <br><small>Type "help" to get help</small><br><br>`, true);
       termWrapper.current.innerHTML = '';
       termWrapper.current.appendChild(term.html);
       inputLoop(term);
