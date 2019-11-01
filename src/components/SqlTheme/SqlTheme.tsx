@@ -8,7 +8,6 @@ declare const AsciiTable: any;
 
 export function SqlTheme(props: PropsWithChildren<any>) {
   const {profile} = props;
-
   const termWrapper = useRef(document.getElementById('term-wrapper') as HTMLDivElement);
   const profileDb = useRef(null as any);
   const initDB = (profile: IProfile) => {
@@ -75,10 +74,11 @@ export function SqlTheme(props: PropsWithChildren<any>) {
   };
 
   useEffect(() => {
-    const term = new Terminal();
-    term.print(`Welcome to CV SQL terminal! <br><small>Type "help" to get help</small><br><br>`, true);
     profileDb.current = initDB(profile);
-    if (termWrapper.current) {
+    if (termWrapper.current && !termWrapper.current.children.length) {
+      const term = new Terminal();
+      term.print(`Welcome to CV SQL terminal! <br><small>Type "help" to get help</small><br><br>`, true);
+      termWrapper.current.innerHTML = '';
       termWrapper.current.appendChild(term.html);
       inputLoop(term);
     }
