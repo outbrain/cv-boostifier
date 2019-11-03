@@ -40,16 +40,33 @@ export function SqlTheme(props: PropsWithChildren<any>) {
             } else if (command.toLowerCase() === 'help') {
               resolve(`<small>Typing "show tables" will print the list of tables.<br>Typing an SQL query will print the results<br>Example: "select * from education"</small>`);
             } else {
+              const hasBackslahG = command.indexOf('\\G')
+              console.log(`hasBackslahG = ${hasBackslahG}`)
+              if (hasBackslahG > 0) {
+                command = command.substr(0, hasBackslahG)
+              }
               res = profileDb.current.exec(command);
               const keys = Object.keys(res[0]) || ['N/A'];
-              table.setHeading.apply(table, [...keys])
-              res.forEach((row: any) => {
-                table.addRow.apply(table, Object.values(row).map(val => val || 'NULL'));
-              });
 
-              console.log(table.toString());
-              resolve(table.toString().split('\n').join('<br>'));
-              // resolve(JSON.stringify(res));
+              if (hasBackslahG > 0) {
+                let i=0;
+                const output = res.map((row:any)=> {
+                  i++;
+                  const h = `*************************** ${i}. row ***************************<br>`
+                  return h+ keys.map((k)=>{
+                    return `${' '.repeat(Math.max(27-k.length,0))}${k}: ${row[k] || 'NULL' }`
+                  }).join('<br>')
+                }).join('<br>')
+                resolve(output);
+              } else {
+                table.setHeading.apply(table, [...keys])
+                res.forEach((row: any) => {
+                  table.addRow.apply(table, Object.values(row).map(val => val || 'NULL'));
+                });
+//              console.log(table.toString());
+                resolve(table.toString().split('\n').join('<br>'));
+              }
+              // console.log(JSON.stringify(res));
             }
           }
         } catch (e) {
