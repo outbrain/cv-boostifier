@@ -1,19 +1,20 @@
 import * as React from 'react'
 import {createContext, PropsWithChildren, useState} from 'react';
-import {defaultProfile, IProfile} from '../models';
+import defaultProfile from '../default.profile.json';
+import {Resume} from '../models';
 
 export interface IProfileContext {
-  profile: IProfile;
-  setProfile: (profile: IProfile) => void;
+  profile: Resume;
+  setProfile: (profile: Resume) => void;
 }
-const encodeProfile = (profile: IProfile) => btoa(JSON.stringify(profile));
-const decodeProfile = (profileStr: string) => JSON.parse(atob(profileStr));
+const encodeProfile = (profile: Resume) => btoa(escape(JSON.stringify(profile)));
+const decodeProfile = (profileStr: string) => JSON.parse(unescape(atob(profileStr)));
 
 const ProfileContext = createContext({} as IProfileContext);
 
 function ProfileProvider(props: PropsWithChildren<any>) {
   const {hash} = window.location;
-  let initialProfile: IProfile;
+  let initialProfile: Resume;
   if (hash) {
     initialProfile = decodeProfile(hash.substring(1));
   } else {

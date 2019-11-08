@@ -18,7 +18,9 @@
 }
 
 .settings-page {
-    flex-grow: 1;
+    height: calc(100% - 150px);
+    display: flex;
+    flex-direction: column;
 }
 
 .settings-page button {
@@ -40,6 +42,18 @@
     background-size: 20px;
     background-color: white;
     cursor: pointer;
+}
+
+.form-group.profile-edit {
+    flex-grow: 1;
+}
+
+.form-group.profile-edit .form-field {
+    height: 100%;
+}
+
+.profile-editor-wrapper, .profile-editor-wrapper > div {
+    height: 100%;
 }
 
 

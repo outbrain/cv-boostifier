@@ -1,28 +1,17 @@
 import React, {PropsWithChildren, useEffect, useRef} from 'react';
 import './SqlTheme.css';
-import {IProfile} from '../../models';
+import {createDb} from './SqlTheme.helper';
 
 declare const Terminal: any;
 declare const alasql: any;
 declare const AsciiTable: any;
 
 export function SqlTheme(props: PropsWithChildren<any>) {
+  const CLEAR = 'clear';
   const {profile} = props;
   const termWrapper = useRef(document.getElementById('term-wrapper') as HTMLDivElement);
   const profileDb = useRef(null as any);
-  const initDB = (profile: IProfile) => {
-    const db = new alasql.Database();
-    db.exec('CREATE TABLE personal (firstName string, lastName string, email string, github string, phone string)');
-    db.exec('CREATE TABLE experience (companyName string, fromDate string, toDate string, title string, description string)');
-    db.exec('CREATE TABLE education (schoolName string, fromDate string, toDate string, field string, description string)');
-    db.exec('CREATE TABLE skills (name string)');
-    db.tables.personal.data = [profile.personal];
-    db.tables.experience.data = profile.experience;
-    db.tables.education.data = profile.education;
-    db.tables.skills.data = profile.skills;
-    console.log('db initialized!');
-    return db;
-  };
+  const terminal = useRef(new Terminal());
   const processCommand = async (command: string) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -32,7 +21,9 @@ export function SqlTheme(props: PropsWithChildren<any>) {
           if (!command.length) {
             resolve('<br>')
           } else {
-            if (command.toLowerCase() === 'show tables') {
+            if (command.toLowerCase() === CLEAR) {
+              resolve(CLEAR);
+            } else if (command.toLowerCase() === 'show tables') {
               Object.keys(profileDb.current.tables).forEach((key: any) => {
                 table.addRow(key);
               });
@@ -61,7 +52,9 @@ export function SqlTheme(props: PropsWithChildren<any>) {
               } else {
                 table.setHeading.apply(table, [...keys])
                 res.forEach((row: any) => {
-                  table.addRow.apply(table, Object.values(row).map(val => val || 'NULL'));
+                  table.addRow.apply(table, Object.values(row)
+                    .map(val => val || 'NULL')
+                    .map(val => typeof val === 'string' ? val.split('\n').join('') : val));
                 });
 //              console.log(table.toString());
                 resolve(table.toString().split('\n').join('<br>'));
@@ -73,14 +66,18 @@ export function SqlTheme(props: PropsWithChildren<any>) {
           console.error(e);
           reject(e);
         }
-      }, 300)
+      }, 200)
     });
   };
 
   const inputLoop = (term: any) => {
     term.input('', (command: any) => {
       processCommand(command.trim()).then(res => {
-        term.print(res, true);
+        if (res === CLEAR) {
+          term.clear();
+        } else {
+          term.print(res, true);
+        }
         inputLoop(term);
       }).catch(err => {
         console.log(err);
@@ -91,15 +88,18 @@ export function SqlTheme(props: PropsWithChildren<any>) {
   };
 
   useEffect(() => {
-    profileDb.current = initDB(profile);
+    profileDb.current = createDb(alasql,profile);
+    const name = profile.basics && profile.basics.name;
+    const term = terminal.current;
+    const welcomeMessage = `Welcome to ${name} Resume SQL terminal! <br><small>Type "help" to get help</small><br><br>`;
+    term.clear();
+    term.print(welcomeMessage, true);
     if (termWrapper.current && !termWrapper.current.children.length) {
-      const term = new Terminal();
-      term.print(`Welcome to CV SQL terminal! <br><small>Type "help" to get help</small><br><br>`, true);
       termWrapper.current.innerHTML = '';
       termWrapper.current.appendChild(term.html);
       inputLoop(term);
     }
-  },[profile]);
+  },[profile, inputLoop]);
 
   return (
     <>

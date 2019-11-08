@@ -2,12 +2,12 @@ import React, {PropsWithChildren, useEffect, useRef} from 'react';
 import './SwaggerTheme.css';
 import SwaggerUI from "swagger-ui-react"
 import "swagger-ui-react/swagger-ui.css"
-import {swaggerSpec} from './swaggerSpec';
+import {getSpec} from './swaggerSpec';
 
 export function SwaggerTheme(props: PropsWithChildren<any>) {
   const {profile} = props;
   const generateSpec = (profile: any) => {
-    return swaggerSpec;
+    return getSpec(profile);
   };
 
   const requestInterceptor = (req: any) => {
@@ -25,9 +25,10 @@ export function SwaggerTheme(props: PropsWithChildren<any>) {
     <>
       <div id="swagger-wrapper">
         <SwaggerUI spec={generateSpec(profile)}
-                   docExpansion="none"
+                   docExpansion="list"
                    requestInterceptor={requestInterceptor}
                    responseInterceptor={responseInterceptor}
+
         />
       </div>
     </>

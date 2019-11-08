@@ -4,6 +4,7 @@ import {ThemeProvider} from './context/ThemeContext';
 import {CvViewer} from './components/CvViewer/CvViewer';
 import {Settings} from './components/Settings/Settings';
 import {ShareCv} from './components/ShareCv/ShareCv';
+import {LinkedinImport} from './components/LinkedinImport/LinkedinImport';
 
 const App: React.FC = () => {
   console.log(`
@@ -23,14 +24,14 @@ const App: React.FC = () => {
              |___/                                |___/
 `)
   const searchParams = new URLSearchParams(window.location.search);
-  const hideSettings = searchParams.get('hideSettings') === 'true';
-  const hideShare = searchParams.get('hideShare') === 'true';
+  const viewMode = searchParams.get('viewMode') === 'true';
   return (
     <ThemeProvider>
       <ProfileProvider>
         <CvViewer/>
-        {!hideSettings && <Settings />}
-        {!hideShare && <ShareCv />}
+        {!viewMode && <Settings />}
+        {!viewMode && <ShareCv />}
+        {!viewMode && <LinkedinImport />}
       </ProfileProvider>
     </ThemeProvider>
   );

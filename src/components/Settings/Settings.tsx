@@ -8,6 +8,7 @@ export function Settings() {
   const [open, setOpen] = useState(false);
   const toggleOpen = () => setOpen(!open);
   const themeContext = useContext(ThemeContext);
+
   const changeTheme = (theme: string) => {
     themeContext.setTheme(theme);
     setOpen(false);
@@ -23,7 +24,7 @@ export function Settings() {
             <button className="btn" onClick={() => changeTheme('frontend')}>Frontend</button>
           </div>
         </div>
-        <div className="form-group">
+        <div className="form-group profile-edit">
           <div className="form-label">Edit Your Profile</div>
           <div className="form-field">
             <ProfileEditor />

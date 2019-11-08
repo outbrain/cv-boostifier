@@ -1,3 +1,11 @@
 .jsoneditor-tree {
     max-height: 500px;
 }
+
+.jsoneditor-menu {
+    display: none;
+}
+
+.jsoneditor.jsoneditor-mode-code {
+    border-color: #ccc;
+}

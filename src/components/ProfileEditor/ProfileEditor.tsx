@@ -1,11 +1,10 @@
 /// <reference path="./jsoneditor-react.d.ts" />
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import './ProfileEditor.css';
 import {ProfileContext} from '../../context/ProfileContext';
 import { JsonEditor as Editor } from 'jsoneditor-react';
 import 'jsoneditor-react/es/editor.min.css';
-import {IProfile} from '../../models';
-
+import {Resume} from '../../models';
 
 export function ProfileEditor() {
   const profileContext = useContext(ProfileContext);
@@ -13,7 +12,8 @@ export function ProfileEditor() {
     <div className="profile-editor-wrapper">
       <Editor
         value={profileContext.profile}
-        onChange={(profile:IProfile) => profileContext.setProfile(profile)}
+        onChange={(profile: Resume) => profileContext.setProfile(profile)}
+        mode='code'
       />
     </div>
   )
