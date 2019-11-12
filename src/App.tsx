@@ -33,7 +33,7 @@ const App: React.FC = () => {
     <ThemeProvider>
       <ProfileProvider>
         {viewMode && <CvViewer mode='view'/>}
-        {!viewMode && <Router>
+        {!viewMode && <Router basename={process.env.PUBLIC_URL}>
             <Switch>
               <Route exact path="/">
                 <HomeView />
