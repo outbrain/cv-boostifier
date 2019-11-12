@@ -2,16 +2,18 @@
     position: fixed;
     bottom: 20px;
     right: 30px;
+    width: 64px;
+    height: 64px;
     outline: none;
     z-index: 100;
-    border: solid 1px #ccc;
-    border-radius: 50%;
-    opacity: .7;
-    background: white;
-    display: flex;
+    background-image: url("./share.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: all .1s linear;
 }
 
 .share-btn:hover {
-    opacity: 1;
+    width: 75px;
+    height: 75px;
 }
 

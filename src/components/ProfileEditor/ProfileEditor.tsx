@@ -6,6 +6,8 @@ import { JsonEditor as Editor } from 'jsoneditor-react';
 import 'jsoneditor-react/es/editor.min.css';
 import {Resume} from '../../models';
 
+declare const ace: any;
+
 export function ProfileEditor() {
   const profileContext = useContext(ProfileContext);
   return (
@@ -14,6 +16,7 @@ export function ProfileEditor() {
         value={profileContext.profile}
         onChange={(profile: Resume) => profileContext.setProfile(profile)}
         mode='code'
+        ace={ace}
       />
     </div>
   )

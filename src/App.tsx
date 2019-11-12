@@ -2,10 +2,14 @@ import React from 'react';
 import {ProfileProvider} from './context/ProfileContext';
 import {ThemeProvider} from './context/ThemeContext';
 import {CvViewer} from './components/CvViewer/CvViewer';
-import {Settings} from './components/Settings/Settings';
-import {ShareCv} from './components/ShareCv/ShareCv';
-import {LinkedinImport} from './components/LinkedinImport/LinkedinImport';
-
+import {HomeView} from './components/HomeView/HomeView';
+import {ThemesView} from './components/ThemesView/ThemesView';
+import {ProfileView} from './components/ProfileView/ProfileView';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
 const App: React.FC = () => {
   console.log(`
   made with ♥ by
@@ -22,19 +26,32 @@ const App: React.FC = () => {
 | |___| | | | (_| | | | | |  __/  __/ |  | | | | | (_| |
 |_____|_| |_|\\__, |_|_| |_|\\___|\\___|_|  |_|_| |_|\\__, |
              |___/                                |___/
-`)
+`);
   const searchParams = new URLSearchParams(window.location.search);
-  const viewMode = searchParams.get('viewMode') === 'true';
+  const viewMode = searchParams.get('mode') === 'view';
   return (
     <ThemeProvider>
       <ProfileProvider>
-        <CvViewer/>
-        {!viewMode && <Settings />}
-        {!viewMode && <ShareCv />}
-        {!viewMode && <LinkedinImport />}
+        {viewMode && <CvViewer mode='view'/>}
+        {!viewMode && <Router>
+            <Switch>
+              <Route exact path="/">
+                <HomeView />
+              </Route>
+              <Route path="/themes">
+                <ThemesView />
+              </Route>
+              <Route path="/profile">
+                <ProfileView />
+              </Route>
+              <Route path="/viewer">
+                <CvViewer />
+              </Route>
+            </Switch>
+        </Router>}
       </ProfileProvider>
     </ThemeProvider>
   );
-}
+};
 
 export default App;

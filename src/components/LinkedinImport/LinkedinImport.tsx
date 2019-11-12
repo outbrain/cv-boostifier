@@ -1,7 +1,6 @@
 import React, {useContext, useEffect, useState} from 'react';
 import copy from 'copy-to-clipboard';
 import './LinkedinImport.css';
-import linkedinImg from './linkedin.png';
 
 export function LinkedinImport() {
   const [linkedinExportJs, setLinkedinExportJs] = useState('');
@@ -13,25 +12,20 @@ export function LinkedinImport() {
 
   const copyLink = () => {
     copy(linkedinExportJs);
-    alert(`
-Code copied clipboard! Now follow these steps to import your resume from Linkedin:
-1. Log in to linkedin, go to your profile page
-2. Open devtools and paste the code snippet in the console tab
-3. Run it, you should see a downloaded file named json-resume.json
-4. Drag the file back to this window
-            `);
+    alert(`Code copied!`);
   };
 
   return (
-    <button className='linkedin-btn' onClick={copyLink} title={`
-To import your resume from Linkedin:
-1. Click here to copy the code snippet to your your clipboard
-2. Log in to linkedin, go to your profile page
-3. Open devtools and paste the code snippet in the console tab
-4. Run it, you should see a downloaded file named json-resume.json
-5. Drag the file back to this window
-    `}>
-      <img width="64" src={linkedinImg} alt="" />
-    </button>
+    <>
+      <div className="import-title">To import your resume from Linkedin</div>
+      <ol>
+        <li><a href="#" onClick={copyLink}>Click here</a>&nbsp;to copy the code snippet to your your clipboard</li>
+        <li>Go to your Linkedin profile page (make sure you're logged in)</li>
+        <li>Open devtools and paste the code snippet in the console tab</li>
+        <li>Run it. You should see a downloaded file named json-resume.json</li>
+        <li>Drag the file back to this window</li>
+      </ol>
+      <button className='linkedin-btn' onClick={copyLink}></button>
+    </>
   );
 }

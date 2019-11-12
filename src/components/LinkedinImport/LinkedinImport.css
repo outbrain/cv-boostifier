@@ -15,3 +15,31 @@
     opacity: 1;
 }
 
+.import-title {
+    color: #666;
+    font-size: 28px;
+    margin-top: 60px;
+}
+
+ol {
+    list-style: none;
+    counter-reset: my-counter;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    margin: 0;
+    padding: 0;
+}
+ol li {
+    counter-increment: my-counter;
+    display: flex;
+    margin-bottom: 5px;
+    align-items: center;
+}
+ol li::before {
+    content: counter(my-counter);
+    font-size: 40px;
+    margin-right: 10px;
+    font-weight: bold;
+    color: #666;
+}

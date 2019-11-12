@@ -1,0 +1,8 @@
+.view-header {
+    background-image: url(../../images/logo_transparent.png);
+    width: 250px;
+    height: 250px;
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+}

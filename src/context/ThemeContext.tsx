@@ -10,9 +10,9 @@ interface IThemeContext {
 const ThemeContext = createContext({} as IThemeContext);
 
 function ThemeProvider(props: PropsWithChildren<any>) {
- const themes = ['sql', 'swagger', 'frontend', 'backend'];
+ const themes = ['sql', 'swagger'];
   const searchParams = new URLSearchParams(window.location.search);
-  const initialTheme = searchParams.get('theme') || themes[0];
+  const initialTheme = searchParams.get('theme') || 'sql';
   const [theme, setTheme] = useState(initialTheme);
 
   return (

@@ -8,6 +8,7 @@
     "@types/node": "12.12.0",
     "@types/react": "16.9.11",
     "@types/react-dom": "16.9.3",
+    "@types/react-router-dom": "^5.1.2",
     "@types/swagger-ui-react": "^3.23.0",
     "ascii-table": "0.0.9",
     "copy-to-clipboard": "^3.2.0",
@@ -16,6 +17,7 @@
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-dropzone": "^10.1.10",
+    "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
     "swagger-ui-react": "^3.24.0",
     "typescript": "3.6.4"

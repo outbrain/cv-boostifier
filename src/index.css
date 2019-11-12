@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+a {
+  color: #0d5aa7;
+}
+
 #root {
   width: 100vw;
   height: 100vh;
@@ -39,4 +43,30 @@ code {
 .btn.btn-action {
   background: #323c67;
   color: #323c67;
+}
+
+
+.footer {
+  padding: 30px;
+  color: #666;
+  font-size: 25px;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.footer a {
+  color: #666 !important;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+  text-decoration-width: 1px;
+  text-decoration-color: #ccc;
+}
+
+
+.title {
+  font-size: 40px;
+  color: #666;
 }
