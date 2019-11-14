@@ -1,21 +1,7 @@
 .logo-wrapper {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    color: white;
-    padding: 20px;
-    font-size: 12px;
-    background: #ef841f;
-}
-
-.logo-wrapper  div {
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
-}
-.logo-wrapper  img {
-    margin-top: 2px;
-    width: 150px;
+    justify-content: center;
 }

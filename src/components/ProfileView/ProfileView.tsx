@@ -37,9 +37,8 @@ export function ProfileView() {
     <div className="profile-view" {...getRootProps()}>
       <input {...getInputProps()} />
       {isDragActive && <div className="drag-active">Drop your JSON Resume here...</div>}
-      <ViewHeader/>
+      <ViewHeader title="Set Your Profile Data"/>
       <div className="profile-wrapper">
-        <div className="title">Set Profile Data</div>
         <div className="profile-edit-import-selection">
           <div className="profile-edit-import-selection-title">
             CV Geekifier supports the <a href="https://jsonresume.org/" target="_blank">JSON Resume</a> format

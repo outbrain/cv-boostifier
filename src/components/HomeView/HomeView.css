@@ -1,18 +1,15 @@
 .home-view {
-    background-image: url(../../images/logo_transparent.png);
     width: 100%;
     height: 100%;
-    background-repeat: no-repeat;
-    background-position: top center;
-    background-size: contain;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: center;
 }
 
 .home-view > a {
     margin-bottom: 10vh;
-    font-size: 40px;
+    font-size: calc(2vw + 20px);
     letter-spacing: 5px;
     color: #00ACB5;
     border: 1px solid #00ACB5;
@@ -20,12 +17,18 @@
     padding: 5px 0;
     animation: heartbeat 4s both infinite;
     animation-delay: 2s;
-    transition: font-size .1s;
+    transition: all .1s;
 }
 
 .home-view > a:hover {
-    font-size: 44px;
+    font-weight: bolder;
     animation: none;
+}
+
+.logo-container {
+    width:100%;
+    height: 100%;
+    max-width: 80vh;
 }
 
 

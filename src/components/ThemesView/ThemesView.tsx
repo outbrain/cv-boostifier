@@ -9,9 +9,8 @@ export function ThemesView() {
   const {setTheme, theme} = useContext(ThemeContext);
   return (
     <div className="themes-view">
-      <ViewHeader/>
+      <ViewHeader title="Choose Theme"/>
       <div className="themes-wrapper">
-        <div className="title">Select a Theme</div>
         <div className="themes">
           <div className={"theme " + (theme ==='sql' ? 'active' : '')} onClick={() => setTheme('sql')}>
             <div>SQL Terminal</div>
