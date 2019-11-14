@@ -14,11 +14,11 @@ export function ThemesView() {
         <div className="themes">
           <div className={"theme " + (theme ==='sql' ? 'active' : '')} onClick={() => setTheme('sql')}>
             <div>SQL Terminal</div>
-            <img src={term} />
+            <img src={term} alt=""/>
           </div>
           <div className={"theme " + (theme ==='swagger' ? 'active' : '')} onClick={() => setTheme('swagger')}>
             <div>Swagger</div>
-            <img src={swagger} />
+            <img src={swagger} alt="" />
           </div>
         </div>
       </div>

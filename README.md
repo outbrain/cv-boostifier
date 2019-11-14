@@ -2,7 +2,7 @@
 
 ### Create your own geeky CV!
 
-[Start here](https://outbrain.github.io/cv-geekifier/)
+[Start here](https://romantic-ardinghelli-e7f0cc.netlify.com/)
 
 
 <sup>* Powered by Outbrain Engineering</sup>

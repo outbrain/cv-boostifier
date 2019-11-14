@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import copy from 'copy-to-clipboard';
 import './LinkedinImport.css';
 

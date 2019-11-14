@@ -1,4 +1,4 @@
-import React, {PropsWithChildren, useEffect, useRef} from 'react';
+import React, {PropsWithChildren} from 'react';
 import './SwaggerTheme.css';
 import SwaggerUI from "swagger-ui-react"
 import "swagger-ui-react/swagger-ui.css"

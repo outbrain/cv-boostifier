@@ -40,14 +40,18 @@
 
 .profile-edit-import-selection li {
     margin: 10px;
-    padding: 20px;
+    padding: 20px 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    padding-left: 56px;
     cursor: pointer;
-    background-repeat: no-repeat;
-    background-size: 32px;
-    background-position: 12px;
+    display: flex;
+    width: 230px;
+    justify-content: center;
+}
+
+.profile-edit-import-selection li > img {
+    width: 24px;
+    margin-right: 8px;
 }
 
 .profile-edit-import-selection li.active {
@@ -57,18 +61,6 @@
 
 .profile-edit-import-selection li:hover {
     border-color: #888;
-}
-
-.profile-edit-import-selection li.type-linkedin {
-    background-image: url("../../images/linkedin.png");
-}
-
-.profile-edit-import-selection li.type-json {
-    background-image: url("../../images/json.png");
-}
-
-.profile-edit-import-selection li.type-file {
-    background-image: url("../../images/file.png");
 }
 
 .profile-editor {
