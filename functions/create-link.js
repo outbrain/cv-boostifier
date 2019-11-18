@@ -1,5 +1,5 @@
 const faunadb = require('faunadb');
-const utils = require('../utils');
+const utils = require('./utils');
 
 const q = faunadb.query;
 const client = new faunadb.Client({
@@ -25,7 +25,7 @@ exports.handler = async (event) => {
 
 async function saveData(id, data, theme) {
   const encryptedData = utils.encrypt(data);
-  const response = await client.query(q.Create(q.Ref('classes/resumes'), {
+  await client.query(q.Create(q.Ref('classes/resumes'), {
     data: { id, encryptedData, theme }
   }));
   console.log(`successfully saved id ${id}`);

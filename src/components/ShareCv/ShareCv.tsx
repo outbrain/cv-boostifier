@@ -26,12 +26,13 @@ export function ShareCv() {
     try {
       const link = await getCvLink(profileContext, themeContext.theme);
       copy(link);
+      toast.info('Share link copied clipboard!');
     }
     catch (err) {
+      toast.error('Failed creating link :(');
       console.log(err);
     }
     setLoading(false);
-    toast.info('Share link copied clipboard!');
   };
 
   return (

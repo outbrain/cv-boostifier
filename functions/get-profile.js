@@ -1,5 +1,5 @@
 const faunadb = require('faunadb');
-const utils = require('../utils');
+const utils = require('./utils');
 
 const q = faunadb.query;
 const client = new faunadb.Client({
