@@ -10,12 +10,15 @@ import {ShareCv} from '../ShareCv/ShareCv';
 export const CvViewer = (props: any) => {
   const {theme}= useContext(ThemeContext);
   const profileContext = useContext(ProfileContext);
+  const hasProfile = profileContext.hasProfile();
+  const viewMode = props.mode === 'view';
   return (
     <div className="cv-viewer-wrapper">
-      {theme === 'sql' && <SqlTheme profile={profileContext.profile}></SqlTheme>}
-      {theme === 'swagger' && <SwaggerTheme profile={profileContext.profile}/>}
-      { props.mode !== 'view' && <div className="cv-viewer-footer"><Link to='/profile'>X</Link></div>}
-      { props.mode !== 'view' && <ShareCv />}
+      { hasProfile && theme === 'sql' && <SqlTheme profile={profileContext.profile}></SqlTheme>}
+      { hasProfile && theme === 'swagger' && <SwaggerTheme profile={profileContext.profile}/>}
+      { !hasProfile && viewMode && <div className="cv-viewer-loader">Loading...</div>}
+      { !viewMode && <div className="cv-viewer-footer"><Link to='/profile'>X</Link></div>}
+      { !viewMode && <ShareCv />}
     </div>
   )
 };

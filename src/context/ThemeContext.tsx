@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {createContext, PropsWithChildren, useState} from 'react';
+import {getURLParam} from '../utils';
 
 interface IThemeContext {
   theme: string;
@@ -10,9 +11,8 @@ interface IThemeContext {
 const ThemeContext = createContext({} as IThemeContext);
 
 function ThemeProvider(props: PropsWithChildren<any>) {
- const themes = ['sql', 'swagger'];
-  const searchParams = new URLSearchParams(window.location.search);
-  const initialTheme = searchParams.get('theme') || 'sql';
+  const themes = ['sql', 'swagger'];
+  const initialTheme = getURLParam('theme') || 'sql';
   const [theme, setTheme] = useState(initialTheme);
 
   return (

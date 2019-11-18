@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import copy from 'copy-to-clipboard';
 import './LinkedinImport.css';
+import {toast} from 'react-toastify';
 
 export function LinkedinImport() {
   const [linkedinExportJs, setLinkedinExportJs] = useState('');
@@ -12,7 +13,7 @@ export function LinkedinImport() {
 
   const copyLink = () => {
     copy(linkedinExportJs);
-    alert(`Code copied!`);
+    toast.info(`Code snippet copied to clipboard!`);
   };
 
   return (

@@ -5,11 +5,14 @@ import {CvViewer} from './components/CvViewer/CvViewer';
 import {HomeView} from './components/HomeView/HomeView';
 import {ThemesView} from './components/ThemesView/ThemesView';
 import {ProfileView} from './components/ProfileView/ProfileView';
+import 'react-toastify/dist/ReactToastify.min.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
 } from 'react-router-dom';
+import {getURLParam} from './utils';
+import {ToastContainer} from 'react-toastify';
 const App: React.FC = () => {
   console.log(`
   made with ♥ by
@@ -27,11 +30,11 @@ const App: React.FC = () => {
 |_____|_| |_|\\__, |_|_| |_|\\___|\\___|_|  |_|_| |_|\\__, |
              |___/                                |___/
 `);
-  const searchParams = new URLSearchParams(window.location.search);
-  const viewMode = searchParams.get('mode') === 'view';
+  const viewMode = !!getURLParam('v');
   return (
     <ThemeProvider>
       <ProfileProvider>
+        <ToastContainer/>
         {viewMode && <CvViewer mode='view'/>}
         {!viewMode && <Router basename={process.env.PUBLIC_URL}>
             <Switch>

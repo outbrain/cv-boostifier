@@ -1,0 +1,2 @@
+[build]
+  functions = "functions" # netlify dev uses this to know where to scaffold and serve your functions

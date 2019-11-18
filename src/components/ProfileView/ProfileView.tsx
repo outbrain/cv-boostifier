@@ -10,6 +10,7 @@ import {useDropzone} from 'react-dropzone';
 import linkedinImg from '../../images/linkedin.png';
 import fileImg from '../../images/file.png';
 import jsonImg from '../../images/json.png';
+import {toast} from 'react-toastify';
 
 export function ProfileView() {
   const [type, setType] = useState('');
@@ -23,9 +24,15 @@ export function ProfileView() {
       try {
         const decoder = new TextDecoder("utf-8");
         const data = decoder.decode(reader.result as ArrayBuffer);
-        profileContext.setProfile(JSON.parse(data) as Resume);
+        const resume = JSON.parse(data) as Resume;
+        if (!resume.basics || !resume.basics.name) {
+          throw new Error('Wrong resume format');
+        }
+        profileContext.setProfile(resume);
+        toast.info(`Data imported successfully for '${resume.basics.name}'`);
       } catch (err) {
         console.error(err);
+        toast.error(`Could not load JSON Resume file :( Please make sure it's the valid format`);
       }
     };
 
