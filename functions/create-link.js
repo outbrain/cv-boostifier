@@ -1,7 +1,6 @@
 const faunadb = require('faunadb');
 const utils = require('./utils');
 
-const linkBaseUrl = process.env.URL;
 const q = faunadb.query;
 const client = new faunadb.Client({
   secret: process.env.FAUNA_DB_SECRET
@@ -9,6 +8,8 @@ const client = new faunadb.Client({
 
 exports.handler = async (event) => {
   try {
+    const linkBaseUrl = process.env.URL;
+    console.log('linkBaseUrl', linkBaseUrl);
     const {data, theme, name} = JSON.parse(event.body);
     const id = utils.getDbId(name);
     await saveData(id, data, theme);
