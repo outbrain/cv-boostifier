@@ -15,7 +15,7 @@ import {getURLParam} from './utils';
 import {ToastContainer} from 'react-toastify';
 import {consoleLogo} from './console-logo';
 const App: React.FC = () => {
-  console.log(consoleLogo, 'font-size: 15px; color: #EE6412');
+  console.log(consoleLogo, 'font-size: 12px; color: #EE6412');
   const viewMode = !!getURLParam('v');
   return (
     <ThemeProvider>
