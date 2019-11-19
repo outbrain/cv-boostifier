@@ -105,7 +105,7 @@ module.exports = (function () {
   var TerminalConstructor = function (id) {
     if (!terminalBeep) {
       terminalBeep = document.createElement('audio')
-      var source = '<source src="http://www.erikosterberg.com/terminaljs/beep.'
+      var source = '<source src="//www.erikosterberg.com/terminaljs/beep.'
       terminalBeep.innerHTML = source + 'mp3" type="audio/mpeg">' + source + 'ogg" type="audio/ogg">'
       terminalBeep.volume = 0.05
     }

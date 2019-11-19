@@ -34,5 +34,3 @@ export function SwaggerTheme(props: PropsWithChildren<any>) {
     </>
   )
 }
-
-
