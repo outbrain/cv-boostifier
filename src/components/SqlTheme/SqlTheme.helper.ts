@@ -15,7 +15,5 @@ export const createDb = (alasql: any, resume: any) => {
     db.tables[dbTableName].data = Array.isArray(resume[table]) ? resume[table] : [resume[table]];
   });
 
-  console.log('DB initialized!');
-
   return db;
 };

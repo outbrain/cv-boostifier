@@ -14,7 +14,7 @@ export const CvViewer = (props: any) => {
   const viewMode = props.mode === 'view';
   return (
     <div className="cv-viewer-wrapper">
-      { hasProfile && theme === 'sql' && <SqlTheme profile={profileContext.profile}></SqlTheme>}
+      { hasProfile && theme === 'sql' && <SqlTheme profile={profileContext.profile} />}
       { hasProfile && theme === 'swagger' && <SwaggerTheme profile={profileContext.profile}/>}
       { !hasProfile && viewMode && <div className="cv-viewer-loader">Loading...</div>}
       { !viewMode && <div className="cv-viewer-footer"><Link to='/profile'>X</Link></div>}

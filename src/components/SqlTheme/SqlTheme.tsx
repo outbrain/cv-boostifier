@@ -1,10 +1,10 @@
+/// <reference path="./ascii-table.d.ts" />
 import React, {PropsWithChildren, useEffect, useRef} from 'react';
 import './SqlTheme.css';
 import {createDb} from './SqlTheme.helper';
-
-declare const Terminal: any;
-declare const alasql: any;
-declare const AsciiTable: any;
+import alasql from 'alasql';
+import AsciiTable from 'ascii-table';
+import Terminal from './terminal';
 
 export function SqlTheme(props: PropsWithChildren<any>) {
   const CLEAR = 'clear';
