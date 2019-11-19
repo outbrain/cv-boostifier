@@ -4,6 +4,7 @@ import defaultProfile from '../default.profile.json';
 import {Resume} from '../models';
 import {getURLParam} from '../utils';
 import {ThemeContext} from './ThemeContext';
+import {ITheme} from '../themes/themes';
 
 export interface IProfileContext {
   profile: Resume;
@@ -17,7 +18,7 @@ const decodeProfile = (profileStr: string) => JSON.parse(unescape(atob(profileSt
 const ProfileContext = createContext({} as IProfileContext);
 
 function ProfileProvider(props: PropsWithChildren<any>) {
-  const themeContent = useContext(ThemeContext);
+  const themeContext = useContext(ThemeContext);
   const profileId = getURLParam('v');
   let initialProfile: Resume = profileId ? {} : defaultProfile;
   const [profile, setProfile] = useState(initialProfile);
@@ -38,7 +39,7 @@ function ProfileProvider(props: PropsWithChildren<any>) {
         const response = await fetch(`/.netlify/functions/get-profile?id=${id}`);
         const { data: res} = await response.json();
         setProfile(decodeProfile(res.data));
-        themeContent.setTheme(res.theme);
+        themeContext.setTheme( themeContext.getTheme(res.theme) as ITheme);
       } catch (err) {
         console.error(err);
       }

@@ -24,7 +24,7 @@ export function ShareCv() {
   const copyLink = async () => {
     setLoading(true);
     try {
-      const link = await getCvLink(profileContext, themeContext.theme);
+      const link = await getCvLink(profileContext, themeContext.theme.name);
       copy(link);
       toast.info('Share link copied clipboard!');
     }
