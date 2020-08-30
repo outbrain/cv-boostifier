@@ -3,8 +3,9 @@ import './SwaggerTheme.css';
 import SwaggerUI from "swagger-ui-react"
 import "swagger-ui-react/swagger-ui.css"
 import {getSpec} from './swaggerSpec';
+import {IProfileProps} from '../../models';
 
-export function SwaggerTheme(props: PropsWithChildren<any>) {
+export function SwaggerTheme(props: PropsWithChildren<IProfileProps>) {
   const {profile} = props;
   const generateSpec = (profile: any) => {
     return getSpec(profile);
@@ -17,6 +18,7 @@ export function SwaggerTheme(props: PropsWithChildren<any>) {
   };
   const responseInterceptor = (res: any) => {
     const type = res.url.split('=').reverse()[0];
+    // @ts-ignore
     res.body = res.text = res.data = res.obj = JSON.stringify(profile[type], null, 2);
     return res;
   };
@@ -34,3 +36,5 @@ export function SwaggerTheme(props: PropsWithChildren<any>) {
     </>
   )
 }
+
+

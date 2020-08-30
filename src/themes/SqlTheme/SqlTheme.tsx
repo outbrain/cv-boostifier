@@ -5,8 +5,9 @@ import {createDb} from './SqlTheme.helper';
 import alasql from 'alasql';
 import AsciiTable from 'ascii-table';
 import Terminal from './terminal';
+import {IProfileProps} from '../../models';
 
-export function SqlTheme(props: PropsWithChildren<any>) {
+export function SqlTheme(props: PropsWithChildren<IProfileProps>) {
   const CLEAR = 'clear';
   const {profile} = props;
   const termWrapper = useRef(document.getElementById('term-wrapper') as HTMLDivElement);

@@ -350,3 +350,8 @@ export interface Work {
    */
   url?: string;
 }
+
+
+export interface IProfileProps {
+  profile: Resume
+}
