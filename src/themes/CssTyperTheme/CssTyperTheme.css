@@ -1,0 +1,48 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700);
+
+pre {
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    transition: left 500ms;
+    overflow: auto;
+    background-color: #313744;
+    color: #a6c3d4;
+    padding: 24px 12px;
+    margin: 0;
+}
+
+/*
+ * Syntax highlighting
+ * Colors based on Base16 Ocean Dark
+ */
+
+pre em:not(.comment) { font-style: normal; }
+
+.comment       { color: #707e84; }
+.selector      { color: #c66c75; }
+.selector .key { color: #c66c75; }
+.key           { color: #c7ccd4; }
+.value         { color: #d5927b; }
+
+.ct-output {
+    display: none;
+    font-family: Lato, sans-serif;
+}
+
+.ct-container {
+    background-color: #1a1c24; color: #fff;
+    font-size: 13px; line-height: 1.4;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+
+
+
+
+
+/**********************************************/
+
