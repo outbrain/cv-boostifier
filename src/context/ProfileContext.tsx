@@ -33,7 +33,7 @@ function ProfileProvider(props: PropsWithChildren<any>) {
     return profile && Object.keys(profile).length > 0;
   };
 
-  useEffect(() => {
+  useEffect( () => {
     async function fetchProfile(id: string) {
       try {
         const response = await fetch(`/.netlify/functions/get-profile?id=${id}`);
@@ -47,7 +47,7 @@ function ProfileProvider(props: PropsWithChildren<any>) {
     if (profileId && !(profile && Object.keys(profile).length > 0)) {
       fetchProfile(profileId);
     }
-  }, []);
+  }, [profileId, profile, themeContext]);
 
   return (
     <ProfileContext.Provider value={{

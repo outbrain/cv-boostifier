@@ -71,24 +71,24 @@ export function SqlTheme(props: PropsWithChildren<IProfileProps>) {
     });
   };
 
-  const inputLoop = (term: any) => {
-    term.input('', (command: any) => {
-      processCommand(command.trim()).then(res => {
-        if (res === CLEAR) {
-          term.clear();
-        } else {
-          term.print(res, true);
-        }
-        inputLoop(term);
-      }).catch(err => {
-        console.log(err);
-        term.print(`${command}: command not found or wrong sql syntax`);
-        inputLoop(term);
-      });
-    });
-  };
-
   useEffect(() => {
+    const inputLoop = (term: any) => {
+      term.input('', (command: any) => {
+        processCommand(command.trim()).then(res => {
+          if (res === CLEAR) {
+            term.clear();
+          } else {
+            term.print(res, true);
+          }
+          inputLoop(term);
+        }).catch(err => {
+          console.log(err);
+          term.print(`${command}: command not found or wrong sql syntax`);
+          inputLoop(term);
+        });
+      });
+    };
+
     profileDb.current = createDb(alasql,profile);
     const name = profile.basics && profile.basics.name;
     const term = terminal.current;
@@ -100,7 +100,7 @@ export function SqlTheme(props: PropsWithChildren<IProfileProps>) {
       termWrapper.current.appendChild(term.html);
       inputLoop(term);
     }
-  },[profile, inputLoop]);
+  },[profile]);
 
   return (
     <>

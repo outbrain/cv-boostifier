@@ -43,3 +43,7 @@ ol li::before {
     font-weight: bold;
     color: #666;
 }
+
+ol > li > button {
+    color: #0d5aa7;
+}

@@ -20,7 +20,7 @@ export function LinkedinImport() {
     <>
       <div className="import-title">To import your resume from Linkedin</div>
       <ol>
-        <li><a href="#" onClick={copyLink}>Click here</a>&nbsp;to copy the code snippet to your your clipboard</li>
+        <li><button onClick={copyLink}>Click here</button>&nbsp;to copy the code snippet to your your clipboard</li>
         <li>Go to your Linkedin profile page (make sure you're logged in)</li>
         <li>Open devtools and paste the code snippet in the console tab</li>
         <li>Run it. You should see a downloaded file named json-resume.json</li>

@@ -50,7 +50,7 @@ export function CssTyperTheme(props: PropsWithChildren<IProfileProps>) {
             <section id="work">
               <aside>Work</aside>
               <div className="ct-section-body">
-                {profile.work?.map(w => <div className="ct-wrapper">
+                {profile.work?.map((w, ix) => <div className="ct-wrapper" key={ix}>
                                                     <div className="ct-title">
                                                       <span>{w.name || (w as any).company}</span>
                                                       <span className="date">{w.startDate} — {w.endDate || 'Current'}</span>
@@ -63,7 +63,7 @@ export function CssTyperTheme(props: PropsWithChildren<IProfileProps>) {
                                                     {w.highlights && !!w.highlights.length && <div className="work-highlights">
                                                       <h4>Highlights</h4>
                                                       <ul className="highlights">
-                                                        {w.highlights?.map(h => <li className="bullet">{h}</li>)}
+                                                        {w.highlights?.map(h => <li className="bullet" key={h}>{h}</li>)}
                                                       </ul>
                                                     </div>}
                                                   </div>)
@@ -73,7 +73,7 @@ export function CssTyperTheme(props: PropsWithChildren<IProfileProps>) {
             <section id="education">
               <aside>Education</aside>
               <div className="ct-section-body">
-                {profile.education?.map(edu => <div className="ct-wrapper">
+                {profile.education?.map(edu => <div key={edu.startDate} className="ct-wrapper">
                   <div className="ct-title">
                     <span>{edu.institution}</span>
                     <span className="date">{edu.startDate} — {edu.endDate || 'Current'}</span>
@@ -85,7 +85,7 @@ export function CssTyperTheme(props: PropsWithChildren<IProfileProps>) {
                   {edu.courses && !!edu.courses.length && <div className="work-highlights">
                     <h4>Courses</h4>
                     <ul className="highlights">
-                      {edu.courses?.map(c => <li className="bullet">{c}</li>)}
+                      {edu.courses?.map(c => <li key={c} className="bullet">{c}</li>)}
                     </ul>
                   </div>}
                 </div>)
@@ -96,7 +96,7 @@ export function CssTyperTheme(props: PropsWithChildren<IProfileProps>) {
             <section id="skills">
               <aside>Skills</aside>
               <div className="ct-section-body-skills">
-                {profile.skills?.map(s => <div className="work-highlights">
+                {profile.skills?.map(s => <div key={s.name} className="work-highlights">
                   <div className="skill">{s.name}</div>
                 </div>)
                 }
@@ -106,7 +106,7 @@ export function CssTyperTheme(props: PropsWithChildren<IProfileProps>) {
             <section id="languages">
               <aside>Languages</aside>
               <div className="ct-section-body">
-                {profile.languages?.map(l => <div className="ct-detail">
+                {profile.languages?.map(l => <div key={l.language} className="ct-detail">
                   <div className="ct-detail-title">{l.language && getLanguage(l.language)}</div>
                   <div>{l.fluency}</div>
                 </div>)}
@@ -343,8 +343,11 @@ section aside {
   let openComment = false
 
   const writeStyleChar = (which: string) => {
-    let styleText: any = document.getElementById('style-text') || {};
-    let styleTag: any = document.getElementById('style-tag') || {};
+    let styleText: any = document.getElementById('style-text');
+    let styleTag: any = document.getElementById('style-tag');
+    if (!styleTag || !styleText) {
+      return;
+    }
     let html: string;
     html = styleText.innerHTML;
     if (which === '/' && !openComment) {
@@ -352,7 +355,7 @@ section aside {
       html += which;
     } else if (which === '/' && openComment) {
       openComment = false;
-      html = html.replace(/(\/[^\/]*\*)$/, '<em class="comment">$1/</em>');
+      html = html.replace(/(\/[^/]*\*)$/, '<em class="comment">$1/</em>');
     } else if (which === ':') {
       html = html.replace(/([a-zA-Z- ^\n]*)$/, '<em class="key">$1</em>:');
     } else if (which === ';') {
@@ -371,9 +374,11 @@ section aside {
   const writeStyles = (message: string, index: number, interval: number) => {
     if (index < message.length) {
       const pre: any = document.getElementById( 'style-text');
-      pre.scrollTop = pre.scrollHeight;
-      writeStyleChar(message[index++]);
-      setTimeout(() => writeStyles(message, index, interval), interval * (openComment ? 4 : 1));
+      if (pre) {
+        pre.scrollTop = pre.scrollHeight;
+        writeStyleChar(message[index++]);
+        setTimeout(() => writeStyles(message, index, interval), interval * (openComment ? 4 : 1));
+      }
     }
   }
 
