@@ -12,7 +12,7 @@ export function SqlTheme(props: PropsWithChildren<IProfileProps>) {
   const {profile} = props;
   const termWrapper = useRef(document.getElementById('term-wrapper') as HTMLDivElement);
   const profileDb = useRef(null as any);
-  const terminal = useRef(new Terminal());
+  const terminal = useRef(new Terminal('termId'));
   const processCommand = async (command: string) => {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -94,7 +94,7 @@ export function SqlTheme(props: PropsWithChildren<IProfileProps>) {
     const term = terminal.current;
     const welcomeMessage = `Welcome to ${name} Resume SQL terminal! <br><small>Type "help" to get help</small><br><br>`;
     term.clear();
-    term.print(welcomeMessage, true);
+    (term as any).print(welcomeMessage, true);
     if (termWrapper.current && !termWrapper.current.children.length) {
       termWrapper.current.innerHTML = '';
       termWrapper.current.appendChild(term.html);

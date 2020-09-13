@@ -23,7 +23,7 @@
     "react-scripts": "^3.4.3",
     "react-toastify": "^5.4.1",
     "swagger-ui-react": "^3.24.0",
-    "typescript": "3.6.4"
+    "typescript": "^3.9.7"
   },
   "scripts": {
     "start": "react-scripts start",
