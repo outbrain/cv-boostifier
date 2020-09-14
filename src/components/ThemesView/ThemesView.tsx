@@ -2,27 +2,33 @@ import React, {useContext} from 'react';
 import './ThemesView.css';
 import {ThemeContext} from '../../context/ThemeContext';
 import {Link} from 'react-router-dom';
-import {ViewHeader} from '../ViewHeader/ViewHeader';
 import {ITheme} from '../../themes/themes';
+import {Header} from '../Header/Header';
 export function ThemesView() {
-  const {setTheme, theme, themes} = useContext(ThemeContext);
+  const {setTheme, themes} = useContext(ThemeContext);
   const getThemeEl = (t: ITheme) => {
-    return <div key={t.name} className={"theme " + (t.name === theme.name ? 'active' : '')} onClick={() => setTheme(t)}>
-            <div>{t.displayName}</div>
+    return <div key={t.name} className="theme">
             <img src={t.image} alt=""/>
+            <div className="theme-details">
+              <div className="theme-name">{t.displayName}</div>
+              <div className="theme-created-by">By {t.createdBy || 'unknown'}</div>
+            </div>
+            <div className="theme-btn">
+              <Link to="/viewer"><button className="btn-view-theme" onClick={() => setTheme(t)}>View</button></Link>
+            </div>
           </div>
   };
   return (
     <div className="themes-view">
-      <ViewHeader title="Choose Theme"/>
+      <Header />
+      <div className="view-title">Skins</div>
       <div className="themes-wrapper">
         <div className="themes">
           {themes.map(t => getThemeEl(t))}
         </div>
       </div>
       <div className="footer">
-        <Link to="/">{"<< Back"}</Link>
-        {theme && <Link to="/profile">{"Next >>"}</Link>}
+        <Link to="/profile">{"< Back"}</Link>
       </div>
     </div>
   );

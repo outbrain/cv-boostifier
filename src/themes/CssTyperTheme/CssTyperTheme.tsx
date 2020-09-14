@@ -135,7 +135,7 @@ function run(profile: Resume) {
 * First, let's make some room for my page
 */
 
-pre { left: 70%; }
+pre#style-text { left: 70%; }
 
 
 /*

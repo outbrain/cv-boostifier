@@ -1,0 +1,23 @@
+.header-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #eee;
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    margin-left: 10px;
+}
+
+.header-title {
+    font-size: 18px;
+    font-family: "Fira Mono";
+    margin-left: 18px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    color: #393e46;
+}

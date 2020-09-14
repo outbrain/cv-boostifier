@@ -2,22 +2,20 @@ import React, {useCallback, useContext, useState} from 'react';
 import './ProfileView.css';
 import {ProfileEditor} from '../ProfileEditor/ProfileEditor';
 import {Link} from 'react-router-dom';
-import {ViewHeader} from '../ViewHeader/ViewHeader';
 import {LinkedinImport} from '../LinkedinImport/LinkedinImport';
 import {ProfileContext} from '../../context/ProfileContext';
 import {Resume} from '../../models';
 import {useDropzone} from 'react-dropzone';
-import linkedinImg from '../../images/linkedin.png';
-import fileImg from '../../images/file.png';
-import jsonImg from '../../images/json.png';
 import {toast} from 'react-toastify';
+import {Header} from '../Header/Header';
 
 export function ProfileView() {
-  const [type, setType] = useState('');
+  const [linkedinOpen, setLinkedinOpen] = useState(false);
+  const [showEditor, setShowEditor] = useState(true);
   const profileContext = useContext(ProfileContext);
   const onDrop = useCallback(acceptedFiles => {
     const reader = new FileReader();
-
+    setShowEditor(false);
     reader.onabort = () => console.log('file reading was aborted');
     reader.onerror = () => console.log('file reading has failed');
     reader.onload = () => {
@@ -29,9 +27,12 @@ export function ProfileView() {
           throw new Error('Wrong resume format');
         }
         profileContext.setProfile(resume);
+        setLinkedinOpen(false);
+        setShowEditor(true);
         toast.info(`Data imported successfully for '${resume.basics.name}'`);
       } catch (err) {
         console.error(err);
+        setShowEditor(true);
         toast.error(`Could not load JSON Resume file :( Please make sure it's the valid format`);
       }
     };
@@ -47,34 +48,24 @@ export function ProfileView() {
     <div className="profile-view" {...getRootProps()}>
       <input {...getInputProps()} />
       {isDragActive && <div className="drag-active">Drop your JSON Resume here...</div>}
-      <ViewHeader title="Set Your Profile Data"/>
+      <Header />
       <div className="profile-wrapper">
+        <div className="view-title">Drop Your CV Here</div>
         <div className="profile-edit-import-selection">
           <div className="profile-edit-import-selection-title">
-            CV Geekifier supports the <a href="https://jsonresume.org/" target="_blank" rel="noopener noreferrer">JSON Resume</a> format
+            <div>CV Geekifier supports files in the <a href="https://jsonresume.org/" target="_blank" rel="noopener noreferrer">JSON Resume</a> format</div>
+            <div>To export your CV from Linkedin <button onClick={() => setLinkedinOpen(!linkedinOpen)}>Click here</button></div>
           </div>
-          <ul>
-            <li className={type === 'linkedin' ? ' active' : ''} onClick={() => setType('linkedin')}>
-              <img src={linkedinImg} alt=""/>
-              <span>Import from Linkedin</span>
-            </li>
-            <li className={type === 'file' ? ' active' : ''}  onClick={() => setType('file')}>
-              <img src={fileImg} alt=""/>
-              <span>Import from File</span>
-            </li>
-            <li className={type === 'json' ? ' active' : ''} onClick={() => setType('json')}>
-              <img src={jsonImg} alt=""/>
-              <span>Edit Manually</span>
-            </li>
-          </ul>
+          {linkedinOpen && <LinkedinImport />}
+          <div className="profile-editor">
+            <span className="profile-editor-msg">You can also edit the data here:</span>
+            {showEditor && <ProfileEditor profile={profileContext.profile}/>}
+          </div>
         </div>
-        {type === 'linkedin' && <LinkedinImport />}
-        {type === 'file' && <div className="file-import">Drop your <a href="https://jsonresume.org/" target="_blank" rel="noopener noreferrer">JSON Resume</a>&nbsp; file here</div> }
-        {type === 'json' && <div className="profile-editor"><ProfileEditor /></div>}
+
       </div>
       <div className="footer">
-        <Link to="/themes">{"<< Back"}</Link>
-        <Link to="/viewer">{"Go!"}</Link>
+        <Link to="/themes">{"Next >"}</Link>
       </div>
     </div>
   );

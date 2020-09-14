@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700);
 
-pre {
+pre#style-text {
     position: fixed;
     height: 100vh;
     top: 0;
@@ -20,13 +20,13 @@ pre {
  * Colors based on Base16 Ocean Dark
  */
 
-pre em:not(.comment) { font-style: normal; }
+pre#style-text em:not(.comment) { font-style: normal; }
 
-.comment       { color: #707e84; }
-.selector      { color: #c66c75; }
-.selector .key { color: #c66c75; }
-.key           { color: #c7ccd4; }
-.value         { color: #d5927b; }
+pre#style-text .comment       { color: #707e84; }
+pre#style-text .selector      { color: #c66c75; }
+pre#style-text .selector .key { color: #c66c75; }
+pre#style-text .key           { color: #c7ccd4; }
+pre#style-text .value         { color: #d5927b; }
 
 .ct-output {
     display: none;

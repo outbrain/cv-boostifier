@@ -5,13 +5,14 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding-top: 90px;
+
 }
 
 .profile-wrapper {
     flex-grow: 1;
     display: flex;
     width: 100%;
-    padding: 20px;
     flex-direction: column;
     align-items: center;
 }
@@ -22,58 +23,41 @@
     text-align: center;
 }
 
-.profile-edit-import-selection-title a {
+.profile-edit-import-selection-title > div {
+    margin-bottom: 20px;
+}
+
+.profile-edit-import-selection-title a, .profile-edit-import-selection-title button {
     color: #0d5aa7;
 }
 
 
 .profile-edit-import-selection {
     width: 100%;
-}
-
-.profile-edit-import-selection ul {
-    margin-top: 20px;
-    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: center;
-}
-
-.profile-edit-import-selection li {
-    margin: 10px;
-    padding: 20px 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
-    display: flex;
-    width: 230px;
-    justify-content: center;
-}
-
-.profile-edit-import-selection li > img {
-    width: 24px;
-    margin-right: 8px;
-}
-
-.profile-edit-import-selection li.active {
-    background-color: #eee;
-    border-color: #888;
-}
-
-.profile-edit-import-selection li:hover {
-    border-color: #888;
+    flex-direction: column;
+    align-items: center;
 }
 
 .profile-editor {
-    width: 100%;
-    flex-grow: 1;
+    width: 90%;
+    height: 100%;
+    margin-top: 30px;
 }
 
 .profile-editor-wrapper {
     height: 100%;
+    max-height: 400px;
 }
 
 .profile-editor-wrapper > div {
     height: 100%;
+}
+
+.profile-editor-msg {
+    font-size: 14px;
+    color: #666;
 }
 
 div.jsoneditor-outer.has-main-menu-bar {
@@ -101,4 +85,5 @@ div.jsoneditor-outer.has-main-menu-bar {
     justify-content: center;
     font-size: 50px;
     padding: 10px;
+    z-index: 10;
 }

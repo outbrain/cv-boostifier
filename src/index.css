@@ -47,16 +47,13 @@ a {
 
 
 .footer {
-  padding: 30px;
-  color: #666;
-  font-size: 25px;
-  display: flex;
-  width: 100%;
-  justify-content: space-evenly;
+  position: fixed;
+  top: 20px;
+  right: 20px;
 }
 
 .footer a {
-  color: #666 !important;
+  color: #666;
 }
 
 .footer a:hover {
@@ -66,7 +63,8 @@ a {
 }
 
 
-.title {
+.view-title {
   font-size: 40px;
   color: #666;
+  margin-bottom: 40px;
 }

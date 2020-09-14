@@ -15,7 +15,7 @@ export const CvViewer = (props: any) => {
     <div className="cv-viewer-wrapper">
       { hasProfile && <ThemeComponent profile={profileContext.profile} />}
       { !hasProfile && viewMode && <div className="cv-viewer-loader">Loading...</div>}
-      { !viewMode && <div className="cv-viewer-footer"><Link to='/profile'>X</Link></div>}
+      { !viewMode && <div className="footer"><Link to='/themes'>{"< Back"}</Link></div>}
       { !viewMode && <ShareCv />}
     </div>
   )

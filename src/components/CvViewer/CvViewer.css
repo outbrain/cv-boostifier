@@ -4,24 +4,6 @@
     display: flex;
 }
 
-.cv-viewer-footer {
-    position: fixed;
-    right: 10px;
-    top: 10px;
-    width: 30px;
-    height: 30px;
-    font-size: 20px;
-    font-weight: bold;
-    cursor: pointer;
-    background: white;
-    display: flex;
-    justify-content: center;
-    border-radius: 50%;
-}
-
-.cv-viewer-footer a {
-    color: #666 !important;
-}
 
 
 .cv-viewer-loader {

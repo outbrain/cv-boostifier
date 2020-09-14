@@ -8,8 +8,10 @@ import cssTyperImage from './CssTyperTheme/CssTyper.png';
 export interface ITheme {
   name: string;
   displayName: string;
+  createdBy?: string;
   component: any;
   image?: any;
+  previewImage?: any;
 }
 
 export const THEMES: ITheme[] = [
@@ -17,13 +19,15 @@ export const THEMES: ITheme[] = [
     name: 'csstyper',
     displayName: 'CSS Typer',
     component: CssTyperTheme,
-    image: cssTyperImage
+    image: cssTyperImage,
+    createdBy: 'Tsachi Shushan'
   },
   {
     name: 'sql',
     displayName: 'SQL Terminal',
     component: SqlTheme,
-    image: sqlImage
+    image: sqlImage,
+    createdBy: 'Tsachi Shushan'
   },
   {
     name: 'swagger',
