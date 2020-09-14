@@ -70,7 +70,7 @@ export function CssTyperTheme(props: PropsWithChildren<IProfileProps>) {
               }
               </div>
             </section>
-            <section id="education">
+            {profile.education && profile.education.length && <section id="education">
               <aside>Education</aside>
               <div className="ct-section-body">
                 {profile.education?.map(edu => <div key={edu.startDate} className="ct-wrapper">
@@ -91,7 +91,7 @@ export function CssTyperTheme(props: PropsWithChildren<IProfileProps>) {
                 </div>)
                 }
               </div>
-            </section>
+            </section>}
 
             <section id="skills">
               <aside>Skills</aside>
@@ -322,10 +322,7 @@ section aside {
     border: 1px solid #eee;
     border-radius: 4px;
     background: #eff9f0;
-    text-align: center;
     white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
 }
 
 /*
