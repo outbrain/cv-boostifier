@@ -1,8 +1,8 @@
 .themes-view {
     width: 100%;
-    margin-top: 90px;
+    margin-top: 70px;
+    padding-top: 20px;
     display: flex;
-    justify-content: center;
     align-items: center;
     flex-direction: column;
 }
@@ -15,7 +15,7 @@
 
 .themes {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-wrap: wrap;
 }
 .theme {
@@ -33,6 +33,7 @@
 .theme > img {
     height: 200px;
     width: 100%;
+    padding: 10px;
 }
 
 .theme.active {
@@ -41,14 +42,14 @@
 
 .theme-details {
     border-top: 1px solid rgba(208,208,208,.5);
-    padding-top: 20px;
-    text-align: center;
+    padding-top: 10px;
+    padding-left: 10px;
 }
 
 .theme-name {
     font-size: 16px;
-    color: #00adb5;
-
+    color: #669;
+    font-weight: bold;
 }
 
 .theme-created-by {
@@ -59,15 +60,20 @@
 .theme-btn {
     height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
 .theme-btn button {
-    border: 2px solid #669;
+    border: 1px solid #8b8bad;
     padding: 2px 0;
-    color: #669;
+    color: #8b8bad;
     border-radius: 5px;
-    width: 150px;
+    width: 120px;
+}
+
+.theme-btn button:hover {
+    border: 2px solid #669;
+    color: #669;
 }
 

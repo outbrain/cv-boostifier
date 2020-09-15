@@ -20,7 +20,6 @@ a {
   width: 100vw;
   height: 100vh;
   display: flex;
-  flex-direction: column;
 }
 
 
@@ -45,25 +44,12 @@ a {
   color: #323c67;
 }
 
-
-.footer {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-}
-
-.footer a {
-  color: #666;
-}
-
-.footer a:hover {
-  text-decoration: underline;
-  text-decoration-width: 1px;
-  text-decoration-color: #ccc;
-}
-
-
 .view-title {
   font-size: 40px;
   color: #666;
+}
+
+.view-title > span {
+  font-size: 30px;
+  color: #999;
 }

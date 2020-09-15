@@ -14,6 +14,7 @@ import {
 import {getURLParam} from './utils';
 import {ToastContainer} from 'react-toastify';
 import {consoleLogo} from './console-logo';
+import {Header} from './components/Header/Header';
 const App: React.FC = () => {
   console.log(consoleLogo, 'font-size: 12px; color: #EE6412');
   const viewMode = !!getURLParam('v');
@@ -28,10 +29,9 @@ const App: React.FC = () => {
                 <HomeView />
               </Route>
               <Route path="/themes">
-                <ThemesView />
-              </Route>
-              <Route path="/profile">
+                <Header />
                 <ProfileView />
+                <ThemesView />
               </Route>
               <Route path="/viewer">
                 <CvViewer />

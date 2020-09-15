@@ -38,7 +38,7 @@ export function ShareCv() {
   return (
     <>
       {loading && <div className="share-loading"></div>}
-      <button className='share-btn' onClick={copyLink} title="Copy sharable link"> </button>
+      <button onClick={copyLink} title="Copy sharable link">Share</button>
     </>
   );
 }

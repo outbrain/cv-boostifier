@@ -12,6 +12,7 @@ export interface ITheme {
   component: any;
   image?: any;
   previewImage?: any;
+  createdByLink?: string;
 }
 
 export const THEMES: ITheme[] = [
@@ -20,14 +21,16 @@ export const THEMES: ITheme[] = [
     displayName: 'CSS Typer',
     component: CssTyperTheme,
     image: cssTyperImage,
-    createdBy: 'Tsachi Shushan'
+    createdBy: 'Tsachi Shushan',
+    createdByLink: 'https://github.com/tsachis'
   },
   {
     name: 'sql',
     displayName: 'SQL Terminal',
     component: SqlTheme,
     image: sqlImage,
-    createdBy: 'Tsachi Shushan'
+    createdBy: 'Tsachi Shushan',
+    createdByLink: 'https://github.com/tsachis'
   },
   {
     name: 'swagger',

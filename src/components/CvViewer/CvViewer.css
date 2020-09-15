@@ -4,7 +4,16 @@
     display: flex;
 }
 
-
+.back-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    color: #fff;
+    padding: 3px 7px;
+    background: #7d8586;
+}
 
 .cv-viewer-loader {
     position: fixed;
