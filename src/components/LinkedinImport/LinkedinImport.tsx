@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import copy from 'copy-to-clipboard';
-import './LinkedinImport.css';
+import './LinkedinImport.scss';
 import {toast} from 'react-toastify';
 
 export function LinkedinImport() {

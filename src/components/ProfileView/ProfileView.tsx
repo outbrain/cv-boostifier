@@ -1,5 +1,5 @@
 import React, {useCallback, useContext, useState} from 'react';
-import './ProfileView.css';
+import './ProfileView.scss';
 import {ProfileEditor} from '../ProfileEditor/ProfileEditor';
 import {LinkedinImport} from '../LinkedinImport/LinkedinImport';
 import {ProfileContext} from '../../context/ProfileContext';

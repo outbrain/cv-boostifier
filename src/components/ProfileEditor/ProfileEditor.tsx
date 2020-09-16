@@ -1,6 +1,6 @@
 /// <reference path="./jsoneditor-react.d.ts" />
 import React, {PropsWithChildren, useContext} from 'react';
-import './ProfileEditor.css';
+import './ProfileEditor.scss';
 import {ProfileContext} from '../../context/ProfileContext';
 import { JsonEditor as Editor } from 'jsoneditor-react';
 import 'jsoneditor-react/es/editor.min.css';

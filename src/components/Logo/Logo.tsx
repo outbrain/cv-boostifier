@@ -1,5 +1,5 @@
 import React from 'react';
-import './Logo.css';
+import './Logo.scss';
 export function Logo() {
   return (
     <div className="logo-wrapper">

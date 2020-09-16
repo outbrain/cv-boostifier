@@ -1,5 +1,5 @@
 import React, {PropsWithChildren} from 'react';
-import './CssTyperTheme.css';
+import './CssTyperTheme.scss';
 import {IProfileProps, Resume} from '../../models';
 
 export function CssTyperTheme(props: PropsWithChildren<IProfileProps>) {
@@ -7,7 +7,7 @@ export function CssTyperTheme(props: PropsWithChildren<IProfileProps>) {
   const url = profile.basics?.url || (profile.basics as any).website;
   setTimeout(() => run(profile), 2000);
   return (
-    <div className='ct-container'>
+    <div className="ct-container">
       <style id="style-tag">
       </style>
       <pre id="style-text"></pre>
@@ -120,7 +120,7 @@ export function CssTyperTheme(props: PropsWithChildren<IProfileProps>) {
   )
 }
 
-
+export const cssTyperImage = require('./CssTyper.png');
 
 function run(profile: Resume) {
   const styles = `

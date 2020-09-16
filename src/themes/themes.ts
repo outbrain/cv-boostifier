@@ -1,9 +1,7 @@
-import {SqlTheme} from './SqlTheme/SqlTheme';
-import sqlImage from './SqlTheme/sql.png';
-import {SwaggerTheme} from './SwaggerTheme/SwaggerTheme';
-import swaggerImage from './SwaggerTheme/swagger.png';
-import {CssTyperTheme} from './CssTyperTheme/CssTyperTheme';
-import cssTyperImage from './CssTyperTheme/CssTyper.png';
+import {BasicTheme, basicImage} from './BasicTheme/BasicTheme';
+import {SqlTheme, sqlImage} from './SqlTheme/SqlTheme';
+import {SwaggerTheme, swaggerImage} from './SwaggerTheme/SwaggerTheme';
+import {CssTyperTheme, cssTyperImage} from './CssTyperTheme/CssTyperTheme';
 
 export interface ITheme {
   name: string;
@@ -16,6 +14,14 @@ export interface ITheme {
 }
 
 export const THEMES: ITheme[] = [
+  {
+    name: 'basic',
+    displayName: 'Basic',
+    component: BasicTheme,
+    image: basicImage,
+    createdBy: 'Daniel Sternlicht',
+    createdByLink: 'https://github.com/dsternlicht'
+  },
   {
     name: 'csstyper',
     displayName: 'CSS Typer',

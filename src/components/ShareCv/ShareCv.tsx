@@ -1,6 +1,6 @@
 import React, {useContext, useState} from 'react';
 import copy from 'copy-to-clipboard';
-import './ShareCv.css';
+import './ShareCv.scss';
 import {encodeProfile, IProfileContext, ProfileContext} from '../../context/ProfileContext';
 import {ThemeContext} from '../../context/ThemeContext';
 import { toast } from 'react-toastify';

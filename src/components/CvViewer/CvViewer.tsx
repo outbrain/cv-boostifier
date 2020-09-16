@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import './CvViewer.css';
+import './CvViewer.scss';
 import {ThemeContext} from '../../context/ThemeContext';
 import {ProfileContext} from '../../context/ProfileContext';
 import {Link} from 'react-router-dom';
