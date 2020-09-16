@@ -19,7 +19,7 @@ function ProfileProvider(props: PropsWithChildren<any>) {
   let profileObj = null;
   if (profileStr) {
     try {
-      profileObj = decodeProfile(profileStr);;
+      profileObj = decodeProfile(profileStr);
     } catch (e) {
       console.log('Failed to decode profile', e);
     }
