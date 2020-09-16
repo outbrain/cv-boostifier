@@ -14,8 +14,8 @@ export function ThemesView() {
               <div className="theme-created-by">By <a href={t.createdByLink || '#'}>{t.createdBy || 'unknown'}</a></div>
             </div>
             <div className="theme-btn" onClick={() => setTheme(t)}>
-              <Link to="/viewer"><button >Preview</button></Link>
-              <ShareCv />
+              <Link to="/viewer"><button>Preview</button></Link>
+              <ShareCv theme={t} />
             </div>
           </div>
   };
