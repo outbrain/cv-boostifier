@@ -8,7 +8,7 @@ export function ThemesView() {
   const {setTheme, themes} = useContext(ThemeContext);
   const getThemeEl = (t: ITheme) => {
     return <div key={t.name} className="theme">
-            <img src={t.image} alt=""/>
+            <img src={require(`../../themes/${t.component}/preview.png`)} alt=""/>
             <div className="theme-details">
               <div className="theme-name">{t.displayName}</div>
               <div className="theme-created-by">By <a href={t.createdByLink || '#'}>{t.createdBy || 'unknown'}</a></div>
