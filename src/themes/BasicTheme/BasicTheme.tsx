@@ -224,5 +224,3 @@ export function BasicTheme(props: PropsWithChildren<IProfileProps>) {
     </div>
   );
 }
-
-export const basicImage = require('./Basic.png');

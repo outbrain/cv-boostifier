@@ -108,5 +108,3 @@ export function SqlTheme(props: PropsWithChildren<IProfileProps>) {
     </>
   )
 }
-
-export const sqlImage = require('./Sql.png');

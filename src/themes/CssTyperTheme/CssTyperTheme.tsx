@@ -120,8 +120,6 @@ export function CssTyperTheme(props: PropsWithChildren<IProfileProps>) {
   )
 }
 
-export const cssTyperImage = require('./CssTyper.png');
-
 function run(profile: Resume) {
   const styles = `
 

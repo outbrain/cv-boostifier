@@ -37,5 +37,3 @@ export function SwaggerTheme(props: PropsWithChildren<IProfileProps>) {
     </>
   )
 }
-
-export const swaggerImage = require('./Swagger.png');
