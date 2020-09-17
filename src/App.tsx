@@ -11,13 +11,12 @@ import {
   Switch,
   Route,
 } from 'react-router-dom';
-import {getURLParam} from './utils';
 import {ToastContainer} from 'react-toastify';
 import {consoleLogo} from './console-logo';
 import {Header} from './components/Header/Header';
 const App: React.FC = () => {
   console.log(consoleLogo, 'font-size: 12px; color: #EE6412');
-  const viewMode = !!getURLParam('v');
+  const viewMode = !!document.location.hash;
   return (
     <ThemeProvider>
       <ProfileProvider>
