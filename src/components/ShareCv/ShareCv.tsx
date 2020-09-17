@@ -1,6 +1,6 @@
 import React, {PropsWithChildren, useContext, useState} from 'react';
 import copy from 'copy-to-clipboard';
-import './ShareCv.css';
+import './ShareCv.scss';
 import {encodeProfile, IProfileContext, ProfileContext} from '../../context/ProfileContext';
 import { toast } from 'react-toastify';
 export const getCvLink = async (profileContext: IProfileContext, theme: string): Promise<string> => {

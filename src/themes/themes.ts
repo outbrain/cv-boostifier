@@ -8,6 +8,13 @@ export interface ITheme {
 
 export const THEMES: ITheme[] = [
   {
+    name: 'basic',
+    displayName: 'Basic',
+    component: 'BasicTheme',
+    createdBy: 'Daniel Sternlicht',
+    createdByLink: 'https://github.com/dsternlicht'
+  },
+  {
     name: 'csstyper',
     displayName: 'CSS Typer',
     component: 'CssTyperTheme',

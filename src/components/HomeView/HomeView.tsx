@@ -1,5 +1,5 @@
 import React from 'react';
-import './HomeView.css';
+import './HomeView.scss';
 import {Link} from 'react-router-dom';
 import {Logo} from '../Logo/Logo';
 

@@ -1,6 +1,6 @@
 /// <reference path="./ascii-table.d.ts" />
 import React, {PropsWithChildren, useEffect, useRef} from 'react';
-import './SqlTheme.css';
+import './SqlTheme.scss';
 import {createDb} from './SqlTheme.helper';
 import alasql from 'alasql';
 import AsciiTable from 'ascii-table';
@@ -108,5 +108,3 @@ export function SqlTheme(props: PropsWithChildren<IProfileProps>) {
     </>
   )
 }
-
-

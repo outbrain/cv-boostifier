@@ -1,5 +1,5 @@
 import React, {PropsWithChildren} from 'react';
-import './SwaggerTheme.css';
+import './SwaggerTheme.scss';
 import SwaggerUI from "swagger-ui-react"
 import "swagger-ui-react/swagger-ui.css"
 import {getSpec} from './swaggerSpec';
@@ -37,5 +37,3 @@ export function SwaggerTheme(props: PropsWithChildren<IProfileProps>) {
     </>
   )
 }
-
-

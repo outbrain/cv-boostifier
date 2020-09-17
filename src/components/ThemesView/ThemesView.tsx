@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import './ThemesView.css';
+import './ThemesView.scss';
 import {ThemeContext} from '../../context/ThemeContext';
 import {Link} from 'react-router-dom';
 import {ITheme} from '../../themes/themes';

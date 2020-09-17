@@ -61,7 +61,7 @@ export interface Basics {
   /**
    * URL (as per RFC 3986) to a image in JPEG or PNG format
    */
-  image?: string;
+  picture?: string;
   /**
    * e.g. Web Developer
    */
@@ -251,7 +251,7 @@ export interface Publication {
   /**
    * e.g. http://www.computer.org.example.com/csdl/mags/co/1996/10/rx069-abs.html
    */
-  url?: string;
+  website?: string;
 }
 
 export interface Reference {
