@@ -1,8 +1,8 @@
 import React, {PropsWithChildren} from 'react';
-import './CssTyperTheme.scss';
+import './CssTyper.scss';
 import {IProfileProps, Resume} from '../../models';
 
-export function CssTyperTheme(props: PropsWithChildren<IProfileProps>) {
+export function CssTyper(props: PropsWithChildren<IProfileProps>) {
   const {profile} = props;
   const url = profile.basics?.url || (profile.basics as any).website;
   setTimeout(() => run(profile), 2000);

@@ -76,6 +76,13 @@
     border: 2px dashed #666;
     padding: 10px 20px;
     border-radius: 3px;
+
+    > button {
+        font-weight: bold;
+        color: #669;
+        text-decoration: underline;
+        outline: none;
+    }
 }
 
 div.jsoneditor-outer.has-main-menu-bar {

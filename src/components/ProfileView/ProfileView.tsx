@@ -36,22 +36,24 @@ export function ProfileView() {
 
     acceptedFiles.forEach((file:any) => reader.readAsArrayBuffer(file));
   }, [profileContext]);
-  const {getRootProps, getInputProps, isDragActive} = useDropzone({
+  const {getRootProps, getInputProps, isDragActive, open} = useDropzone({
     onDrop,
     noClick: true,
     noKeyboard: true
   });
   return (
     <div className="profile-view" {...getRootProps()}>
-      <input {...getInputProps()} />
-      {isDragActive && <div className="drag-active">Drop your JSON Resume here...</div>}
+      <div className="file-upload-wrapper">
+        <input {...getInputProps()} />
+        {isDragActive && <div className="drag-active">Drop your JSON Resume here...</div>}
+      </div>
       <div className="profile-wrapper">
         <div className="view-title">STEP 1: <span>Set your Data</span></div>
         <div className="profile-edit-import-selection">
           <div className="profile-edit-import-selection-title">
             <div>* CV Geekifier supports the <a href="https://jsonresume.org/" target="_blank" rel="noopener noreferrer">JSON Resume</a> format</div>
           </div>
-          <div className="profile-edit-drop-msg">Drop your JSON file anywhere on this page</div>
+          <div className="profile-edit-drop-msg"><button onClick={open}>Click here </button> to upload your JSON file or just drop it anywhere on this page</div>
           <div className="profile-edit-btns">
             <button onClick={() => setLinkedinOpen(!linkedinOpen)}>Export from Linkedin</button>
             <button onClick={() => setShowEditor(!showEditor)}>Edit JSON</button>

@@ -1,8 +1,8 @@
 import React, {PropsWithChildren} from 'react';
-import './BasicTheme.scss';
+import './Basic.scss';
 import {IProfileProps} from '../../models';
 
-export function BasicTheme(props: PropsWithChildren<IProfileProps>) {
+export function Basic(props: PropsWithChildren<IProfileProps>) {
   const {basics, skills, work, education, references, projects, publications, languages} = props.profile;
   
   return (

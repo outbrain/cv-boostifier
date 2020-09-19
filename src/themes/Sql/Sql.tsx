@@ -1,7 +1,7 @@
 /// <reference path="./ascii-table.d.ts" />
 import React, {PropsWithChildren, useEffect, useRef} from 'react';
-import './SqlTheme.scss';
-import {createDb} from './SqlTheme.helper';
+import './Sql.scss';
+import {createDb} from './Sql.helper';
 import alasql from 'alasql';
 import AsciiTable from 'ascii-table';
 import Terminal from './terminal';

@@ -28,10 +28,11 @@
     "typescript": "^3.9.7"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "npm run generate-themes && react-scripts start",
+    "build": "npm run generate-themes && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "generate-themes": "node generate-themes.js"
   },
   "eslintConfig": {
     "extends": "react-app"

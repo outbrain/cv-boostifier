@@ -1,11 +1,11 @@
 import React, {PropsWithChildren} from 'react';
-import './SwaggerTheme.scss';
+import './Swagger.scss';
 import SwaggerUI from "swagger-ui-react"
 import "swagger-ui-react/swagger-ui.css"
 import {getSpec} from './swaggerSpec';
 import {IProfileProps} from '../../models';
 
-export function SwaggerTheme(props: PropsWithChildren<IProfileProps>) {
+export function Swagger(props: PropsWithChildren<IProfileProps>) {
   const {profile} = props;
   console.log('swagger')
   const generateSpec = (profile: any) => {
