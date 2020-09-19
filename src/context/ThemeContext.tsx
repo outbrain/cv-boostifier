@@ -1,7 +1,8 @@
 import * as React from 'react'
 import {createContext, PropsWithChildren, useState} from 'react';
 import {getURLParam} from '../utils';
-import {ITheme, THEMES} from '../themes/themes';
+import {THEMES} from '../themes/themes';
+import {ITheme} from '../themes/models';
 
 interface IThemeContext {
   theme: ITheme;
