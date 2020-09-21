@@ -32,7 +32,8 @@
     "build": "npm run generate-themes && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "generate-themes": "node generate-themes.js"
+    "generate-themes": "node generate-themes.js",
+    "deploy": "npm run build && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
