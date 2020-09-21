@@ -22,7 +22,7 @@ npm i
 git checkout -b my-theme
 ```
 
-4. Go to `src/themes`, and open a new folder with the name of your theme (the name of the folder should be capitalized).
+4. Go to `src/themes`, and open a new folder with the name of your theme (the name of the folder should be in Pascal case).
 
 5. The new folder should include the following files:
 
