@@ -8,12 +8,12 @@ In this file you'll find instructions on how to contibute and develop **new them
 In order to add a theme to CV Boostifier, please follow the instructions below.
 
 1. Clone the CV Boostifier repository:
-```
+```sh
 git clone https://github.com/outbrain/cv-boostifier.git
 ```
 
 2. Install all dependencies:
-```
+```sh
 npm i
 ```
 
@@ -45,7 +45,7 @@ Learn more about each file [below](#required-files-for-a-theme).
 
 This is in fact the main component of your theme. It should export a React component with the name of your theme. Here's a basic example:
 
-```
+```javascript
 import React, {PropsWithChildren} from 'react';
 import {IProfileProps} from '../../models';
 import './MyTheme.scss';
@@ -57,7 +57,7 @@ export function MyTheme(props: PropsWithChildren<IProfileProps>) {
 
 By default, your theme's components receive the user `profile` as a prop, and you may access its data as follows:
 
-```
+```javascript
 const {basics, skills, work, education, references, projects, publications, languages} = props.profile;
 ```
 
@@ -67,7 +67,7 @@ In order to learn more about the data model, please take a look at the `models.t
 
 This will be the main CSS file of your theme. We expect that all of the styles will be nested under a main class or ID:
 
-```
+```css
 .my-theme {
   // ...
 }
@@ -83,7 +83,7 @@ A preview image that will be used in the wizard. Recommended size is **500x500**
 
 The manifest file is important, and the theme won't work without it, as it contains metadata about the theme. This is where you get a credit for your work. Here's an example:
 
-```
+```json
 {
   "displayName": "My Theme",
   "createdBy": [
