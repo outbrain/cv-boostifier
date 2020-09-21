@@ -9,7 +9,7 @@ In order to add a theme to CV Boostifier, please follow the instructions below.
 
 1. Clone the CV Boostifier repository:
 ```
-https://github.com/outbrain/cv-boostifier.git
+git clone https://github.com/outbrain/cv-boostifier.git
 ```
 
 2. Install all dependencies:
