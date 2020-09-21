@@ -1,7 +1,8 @@
 {
-  "name": "cv-geekifier",
+  "name": "cv-boostifier",
   "version": "0.1.0",
   "private": true,
+  "homepage": "cv-boostifier",
   "dependencies": {
     "@loadable/component": "^5.13.2",
     "@types/jest": "24.0.21",
