@@ -5,7 +5,7 @@ import {encodeProfile, IProfileContext, ProfileContext} from '../../context/Prof
 import { toast } from 'react-toastify';
 export const getCvLink = async (profileContext: IProfileContext, theme: string): Promise<string> => {
   const data = encodeProfile(profileContext.profile);
-  const link = `${document.location.origin}/viewer?theme=${theme}#${data}`;
+  const link = `${document.location.origin}/cv-boostifier/viewer?theme=${theme}#${data}`;
   console.log(`Link is: ${link}`);
   return link;
 };
