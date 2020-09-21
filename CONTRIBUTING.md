@@ -73,7 +73,7 @@ This will be the main CSS file of your theme. We expect that all of the styles w
 }
 ```
 
-**Note**: The name of the main wrapper, should be endded with `-theme`.
+**Note**: The name of the main wrapper, should have the `-theme` suffix, and **it should be unique**.
 
 #### preview.png
 
