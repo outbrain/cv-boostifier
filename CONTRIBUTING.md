@@ -48,9 +48,9 @@ This is in fact the main component of your theme. It should export a React compo
 ```javascript
 import React, {PropsWithChildren} from 'react';
 import {IProfileProps} from '../../models';
-import './MyTheme.scss';
+import './TheUtlimateCVTheme.scss';
 
-export function MyTheme(props: PropsWithChildren<IProfileProps>) {
+export function TheUtlimateCVTheme(props: PropsWithChildren<IProfileProps>) {
   return <div className="TheUtlimateCV-theme"></div>;
 }
 ```
@@ -85,7 +85,7 @@ The manifest file is important, and the theme won't work without it, as it conta
 
 ```json
 {
-  "displayName": "My Theme",
+  "displayName": "The Utlimate CV Theme",
   "createdBy": [
     {
       "name": "Daniel Sternlicht",
