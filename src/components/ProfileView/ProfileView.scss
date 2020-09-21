@@ -1,6 +1,5 @@
 .profile-view {
     width: 100%;
-    max-width: 600px;
     margin-top: 70px;
     padding-top: 20px;
     display: flex;
@@ -25,7 +24,7 @@
 }
 
 .profile-edit-import-selection-title > div {
-    margin-bottom: 20px;
+    margin-top: 20px;
     font-size: 13px;
 }
 
@@ -50,7 +49,7 @@
 }
 
 .profile-editor-wrapper {
-    height: 90%;
+    height: 100%;
 }
 
 .profile-editor-wrapper > div {
@@ -63,19 +62,49 @@
 }
 
 .profile-edit-btns > button {
-    color: #669;
+    border: 2px solid transparent;
     border-radius: 5px;
+    padding: 5px 10px;
+    padding-left: 40px;
+    color: #666;
     margin: 20px;
-    text-decoration: underline;
     outline: none;
+    position: relative;
+    background: #cacaf3;
+    text-align: left;
+
+    &:hover {
+        border: 2px solid #666;
+    }
+
+    &:before {
+        position: absolute;
+        content: ' ';
+        top: 4px;
+        left: 5px;
+        width: 25px;
+        height: 25px;
+        background-size: cover;
+    }
+
+    &.btn-linkedIn {
+        &:before {
+            background-image: url("../../images/linkedin.png");
+        }
+    }
+
+    &.btn-json {
+        &:before {
+            background-image: url("../../images/json.png");
+        }
+    }
 }
 
 .profile-edit-drop-msg {
-    font-weight: bold;
     color: #666;
-    border: 2px dashed #666;
-    padding: 10px 20px;
-    border-radius: 3px;
+    border: 3px dashed #eee;
+    padding: 50px;
+    border-radius: 10px;
 
     > button {
         font-weight: bold;
@@ -111,4 +140,21 @@ div.jsoneditor-outer.has-main-menu-bar {
     font-size: 50px;
     padding: 10px;
     z-index: 10;
+}
+
+.profile-footer {
+    margin: 20px 0;
+    font-size: 30px;
+    a {
+        border: 2px solid transparent;
+        border-radius: 5px;
+        padding: 10px 30px;
+        color: #666;
+        margin: 20px;
+        outline: none;
+        background: #eee;
+        &:hover {
+            background: #ccc;
+        };
+    }
 }

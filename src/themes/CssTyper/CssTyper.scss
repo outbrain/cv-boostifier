@@ -1,13 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:400,700);
 
 pre#style-text {
-    position: fixed;
-    height: 100vh;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    transition: left 500ms;
+    height: 100%;
+    width: 30%;
+    max-width: 400px;
     overflow: auto;
     background-color: #313744;
     color: #a6c3d4;
@@ -34,15 +30,13 @@ pre#style-text .value         { color: #d5927b; }
 }
 
 .ct-container {
-    background-color: #1a1c24; color: #fff;
+    background-color: #fff;
+    color: #fff;
     font-size: 13px; line-height: 1.4;
     -webkit-font-smoothing: subpixel-antialiased;
+    width: 100%;
+    display: flex;
 }
 
 
-
-
-
-
 /**********************************************/
-

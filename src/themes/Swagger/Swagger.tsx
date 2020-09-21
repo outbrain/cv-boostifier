@@ -7,7 +7,6 @@ import {IProfileProps} from '../../models';
 
 export function Swagger(props: PropsWithChildren<IProfileProps>) {
   const {profile} = props;
-  console.log('swagger')
   const generateSpec = (profile: any) => {
     return getSpec(profile);
   };

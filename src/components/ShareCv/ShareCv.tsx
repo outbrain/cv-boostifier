@@ -31,7 +31,7 @@ export function ShareCv(props: PropsWithChildren<any>) {
   return (
     <>
       {loading && <div className="share-loading"></div>}
-      <button onClick={copyLink} title="Copy sharable link">Share</button>
+      <button onClick={copyLink} title="Copy sharable link">Get Sharable link</button>
     </>
   );
 }

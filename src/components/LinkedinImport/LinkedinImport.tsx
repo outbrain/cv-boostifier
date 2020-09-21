@@ -18,7 +18,7 @@ export function LinkedinImport() {
 
   return (
     <>
-      <div className="import-title">How to export your CV data from Linkedin</div>
+      <div className="import-title">How to import your CV data from Linkedin</div>
       <ol>
         <li><button onClick={copyLink}>Click here</button>&nbsp;to copy the code snippet to your your clipboard</li>
         <li>Go to your Linkedin profile page (make sure you're logged in)</li>

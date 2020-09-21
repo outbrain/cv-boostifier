@@ -6,6 +6,7 @@ import {ProfileContext} from '../../context/ProfileContext';
 import {Resume} from '../../models';
 import {useDropzone} from 'react-dropzone';
 import {toast} from 'react-toastify';
+import {Link} from 'react-router-dom';
 
 export function ProfileView() {
   const [linkedinOpen, setLinkedinOpen] = useState(false);
@@ -50,17 +51,18 @@ export function ProfileView() {
       <div className="profile-wrapper">
         <div className="view-title">STEP 1: <span>Set your Data</span></div>
         <div className="profile-edit-import-selection">
+          <div className="profile-edit-drop-msg"><button onClick={open}>Click here </button> to upload your JSON file or just drop it anywhere on this page</div>
           <div className="profile-edit-import-selection-title">
             <div>* CV Geekifier supports the <a href="https://jsonresume.org/" target="_blank" rel="noopener noreferrer">JSON Resume</a> format</div>
           </div>
-          <div className="profile-edit-drop-msg"><button onClick={open}>Click here </button> to upload your JSON file or just drop it anywhere on this page</div>
           <div className="profile-edit-btns">
-            <button onClick={() => setLinkedinOpen(!linkedinOpen)}>Export from Linkedin</button>
-            <button onClick={() => setShowEditor(!showEditor)}>Edit JSON</button>
+            <button className="btn-linkedIn" onClick={() => setLinkedinOpen(!linkedinOpen)}>Import from Linkedin</button>
+            <button className="btn-json" onClick={() => setShowEditor(!showEditor)}>Edit Data</button>
           </div>
           {linkedinOpen && <LinkedinImport />}
-          <div className="profile-editor">
-            {showEditor && <ProfileEditor profile={profileContext.profile}/>}
+          {showEditor &&<div className="profile-editor"><ProfileEditor profile={profileContext.profile}/></div>}
+          <div className="profile-footer">
+            <Link to={'/themes'}>{" Next > "}</Link>
           </div>
         </div>
 

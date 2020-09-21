@@ -7,7 +7,7 @@ export function HomeView() {
   return (
     <div className="home-view">
       <div className="logo-container"><Logo/></div>
-      <Link to="/themes">START</Link>
+      <Link to="/profile">START</Link>
     </div>
   );
 }

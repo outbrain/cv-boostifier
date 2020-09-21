@@ -93,10 +93,10 @@
     padding: 80px 40px;
     background-color: $lead-color;
     color: #fff;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    height: 100vh;
+    height: 100%;
     overflow: auto;
 
     @media screen and (max-width: $breakpoint) {

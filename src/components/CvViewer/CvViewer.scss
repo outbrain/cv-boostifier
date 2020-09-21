@@ -2,6 +2,7 @@
     width: 100%;
     height: 100%;
     display: flex;
+    position: relative;
 }
 
 .back-btn {
@@ -15,15 +16,11 @@
     background: #7d8586;
 }
 
-.cv-viewer-loader {
-    position: fixed;
-    right: 0;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 30px;
-    color: #666;
+.viewer-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    color: #999999;
 }

@@ -27,9 +27,12 @@ const App: React.FC = () => {
               <Route exact path="/">
                 <HomeView />
               </Route>
-              <Route path="/themes">
+              <Route path="/profile">
                 <Header />
                 <ProfileView />
+              </Route>
+              <Route path="/themes">
+                <Header />
                 <ThemesView />
               </Route>
               <Route path="/viewer">

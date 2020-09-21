@@ -122,32 +122,24 @@ export function CssTyper(props: PropsWithChildren<IProfileProps>) {
 
 function run(profile: Resume) {
   const styles = `
-
-
 /*
 *
 * Hi! It's me, ${profile.basics?.name}
 *
 * I'm styling my CV right now, want to watch?
 *
-* First, let's make some room for my page
 */
 
-pre#style-text { left: 70%; }
 
 
 /*
- * Now let's add some data
+ * Let's start by adding some data
  */
 
 .ct-output {
     display: block;
-    position: fixed;
-    width: 70vw;
-    height: 100vh;
-    top: 0;
-    bottom: 0;
-    left: 0;
+    width: 100%;
+    height: 100%;
     background: #fff;
     color: #333;
     overflow: auto;
@@ -327,11 +319,9 @@ section aside {
  *  Much better now, isn't it?
  *
  *
- *  ***This was heavily inspired by the awesome work 
- *     of Jake Albaugh (https://codepen.io/jakealbaugh) 
+ *  *** This skin was inspired by the awesome work
+ *     of Jake Albaugh (https://codepen.io/jakealbaugh)
  */
-
-
 
   `;
 

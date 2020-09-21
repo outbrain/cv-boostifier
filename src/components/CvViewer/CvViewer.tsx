@@ -1,24 +1,25 @@
 import React, {useContext} from 'react';
 import './CvViewer.scss';
-import {ThemeContext} from '../../context/ThemeContext';
-import {ProfileContext} from '../../context/ProfileContext';
-import {Link} from 'react-router-dom';
 import loadable from '@loadable/component';
+import {ProfileContext} from '../../context/ProfileContext';
+import {ThemeContext} from '../../context/ThemeContext';
 
 const DynamicComponent = loadable((props: any) => import(`../../themes/${props.name}/${props.name}`), {
-    resolveComponent: (module, props) => module[props.name]
+    resolveComponent: (module, props) => module[props.name],
+    cacheKey: props => props.name,
+    fallback: <div className="viewer-loading">Loading...</div>
   });
 
 export const CvViewer = (props: any) => {
-  const {theme}= useContext(ThemeContext);
+  let {theme} = props;
+  const themeContext = useContext(ThemeContext);
+  if (!theme) {
+    theme = themeContext.theme;
+  }
   const profileContext = useContext(ProfileContext);
-  const hasProfile = profileContext.hasProfile();
-  const viewMode = props.mode === 'view';
   return (
     <div className="cv-viewer-wrapper">
-      { hasProfile && <DynamicComponent name={theme.component} profile={profileContext.profile} />}
-      { !hasProfile && viewMode && <div className="cv-viewer-loader">Loading...</div>}
-      { !viewMode && <Link className="back-btn" to='/themes'>{"< Back"}</Link>}
+      <DynamicComponent name={theme.component} profile={profileContext.profile} />
     </div>
   )
 };

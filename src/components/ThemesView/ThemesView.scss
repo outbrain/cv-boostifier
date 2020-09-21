@@ -9,15 +9,26 @@
 
 .themes-wrapper {
     width: 100%;
-    max-width: 1200px;
-    padding: 20px;
+    height: 100%;
+    border-top: 1px solid #ccc;
+    display: flex;
+    overflow: hidden;
 }
 
 .themes {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    width: 300px;
+    border-right: 1px solid #ccc;
+    max-height: calc(100vh - 165px);
+    overflow: auto;}
+
+.theme-preview {
+    margin: 30px;
+    flex-grow: 1;
+    max-width: calc(100vw - 360px);
+    overflow: auto;
+    border: 2px solid #000;
 }
+
 .theme {
     margin: 10px;
     width: 270px;
@@ -28,6 +39,10 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
+    &.theme-selected {
+        border: 1px solid #666;
+    }
 }
 
 .theme > img {
@@ -66,10 +81,9 @@
 
 .theme-btn button {
     border: 1px solid #8b8bad;
-    padding: 2px 0;
+    padding: 3px 20px;
     color: #8b8bad;
     border-radius: 5px;
-    width: 120px;
 }
 
 .theme-btn button:hover {
