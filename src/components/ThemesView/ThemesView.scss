@@ -18,8 +18,9 @@
 .themes {
     width: 300px;
     border-right: 1px solid #ccc;
-    max-height: calc(100vh - 165px);
-    overflow: auto;}
+    max-height: calc(100vh - 250px);
+    overflow: auto;
+}
 
 .theme-preview {
     margin: 30px;
@@ -27,6 +28,7 @@
     max-width: calc(100vw - 360px);
     overflow: auto;
     border: 2px solid #000;
+    max-height: calc(100vh - 280px);
 }
 
 .theme {
