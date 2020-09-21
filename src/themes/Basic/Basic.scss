@@ -4,10 +4,33 @@
   position: relative;
   line-height: 1.5em;
   font-family: 'Merriweather', serif;
-
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  word-break: break-word;
+  
   $lead-color: #124c41;
   $sidebar-width: 400px;
   $breakpoint: 800px;
+
+  @media screen and (max-width: $breakpoint) {
+    flex-direction: column;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    background-color: $lead-color;
+    top: 0;
+    left: 0;
+    width: $sidebar-width;
+    min-height: 100%;
+
+    @media screen and (max-width: $breakpoint) {
+      display: none;
+    }
+  }
 
   * {
     box-sizing: border-box;
@@ -91,20 +114,16 @@
   aside {
     width: $sidebar-width;
     padding: 80px 40px;
-    background-color: $lead-color;
     color: #fff;
-    position: absolute;
+    position: relative;
+    position: sticky;
     top: 0;
-    left: 0;
-    height: 100%;
-    overflow: auto;
 
     @media screen and (max-width: $breakpoint) {
       position: relative;
-      height: auto;
-      overflow: visible;
       width: 100%;
       padding: 50px 20px;
+      background-color: $lead-color;
     }
 
     a {
@@ -170,13 +189,14 @@
   }
 
   main {
-    margin-left: $sidebar-width;
     padding: 80px 40px;
     color: #222;
+    flex: 1;
 
     @media screen and (max-width: $breakpoint) {
       margin-left: 0;
       padding: 50px 20px;
+      width: 100%;
     }
 
     a {
