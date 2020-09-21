@@ -12,7 +12,7 @@ export function Header() {
           </g>
         </svg>
       </div>
-      <div className="header-title">CV Geekifier</div>
+      <div className="header-title">CV Boostifier</div>
     </div>
   );
 }

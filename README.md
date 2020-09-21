@@ -1,6 +1,6 @@
-# CV Geekifier
+# CV Boostifier
 
-### Create your own geeky CV!
+### Make Your CV Cool Again!
 
 [Start here](https://outbrain.github.io/cv-boostifier/)
 

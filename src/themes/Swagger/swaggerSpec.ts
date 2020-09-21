@@ -22,7 +22,7 @@ export const getSpec = (resume: any) => {
 
   return {
     "swagger": "2.0",
-    "host": "https://cv.geekifier.io",
+    "host": "https://cv.boostifier.io",
     "basePath": "",
     "info": {
       "description": `Fully working Swagger API for ${name} Resume`,

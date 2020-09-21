@@ -53,7 +53,7 @@ export function ProfileView() {
         <div className="profile-edit-import-selection">
           <div className="profile-edit-drop-msg"><button onClick={open}>Click here </button> to upload your JSON file or just drop it anywhere on this page</div>
           <div className="profile-edit-import-selection-title">
-            <div>* CV Geekifier supports the <a href="https://jsonresume.org/" target="_blank" rel="noopener noreferrer">JSON Resume</a> format</div>
+            <div>* CV Boostifier supports the <a href="https://jsonresume.org/" target="_blank" rel="noopener noreferrer">JSON Resume</a> format</div>
           </div>
           <div className="profile-edit-btns">
             <button className="btn-linkedIn" onClick={() => setLinkedinOpen(!linkedinOpen)}>Import from Linkedin</button>

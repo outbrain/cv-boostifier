@@ -5,14 +5,14 @@
       <rect id="Rectangle" x="0" y="0" width="420" height="48"></rect>
       <text id="headerText.accent" font-family="Fira Mono" font-size="46" font-weight="700" line-spacing="48"
             letter-spacing="2.76" fill="#393e46" data-text-alignment="C" font-style="normal">
-        <tspan x="29.21875" y="42">CV Geekifier</tspan>
+        <tspan x="29.21875" y="42">CV Boostifier</tspan>
       </text>
     </g>
     <g id="Group" transform="translate(40.000000, 360.000000)">
       <rect id="Rectangle-3" x="0" y="0" width="420" height="30"></rect>
       <text id="captionText.accent" opacity=".5" font-family="Fira Mono" font-size="25" font-weight="400"
             letter-spacing="1.5" fill="#393e46" data-text-alignment="C" font-style="normal">
-        <tspan x="37.5" y="21">Your Own Geeky Resume</tspan>
+        <tspan x="37.5" y="21">Make Your CV Cool Again</tspan>
       </text>
     </g>
     <rect id="icon.secondary" x="175" y="91" width="150" height="150" display="none" fill="#00adb5"></rect>
