@@ -19,7 +19,7 @@ npm i
 
 3. Create a new branch with the name of your theme. The branch name must have the suffix `-theme`:
 ```
-git checkout -b my-theme
+git checkout -b TheUtlimateCV-theme
 ```
 
 4. Go to `src/themes`, and open a new folder with the name of your theme (the name of the folder should be in Pascal case).
@@ -51,7 +51,7 @@ import {IProfileProps} from '../../models';
 import './MyTheme.scss';
 
 export function MyTheme(props: PropsWithChildren<IProfileProps>) {
-  return <div className="my-theme"></div>;
+  return <div className="TheUtlimateCV-theme"></div>;
 }
 ```
 
@@ -68,7 +68,7 @@ In order to learn more about the data model, please take a look at the `models.t
 This will be the main CSS file of your theme. We expect that all of the styles will be nested under a main class or ID:
 
 ```css
-.my-theme {
+.TheUtlimateCV-theme {
   // ...
 }
 ```
