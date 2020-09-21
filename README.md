@@ -17,5 +17,3 @@ Let's help other developers to get a job.
 We invite everyone who want to contribute to the project to join!
 
 See our [contribution guide](CONTRIBUTING.md).
-
-<sup>* Powered by [Outbrain Engineering](https://medium.com/outbrain-engineering)</sup>
