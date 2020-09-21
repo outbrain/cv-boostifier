@@ -8,13 +8,13 @@ export function Logo() {
           <g id="Group" transform="translate(40.000000, 360.000000)">
             <text id="captionText.accent" opacity=".5" fontFamily="Fira Mono" fontSize="25" fontWeight="400"
                   letterSpacing="1.5" fill="#393e46" data-text-alignment="C" fontStyle="normal">
-              <tspan x="37.5" y="21">Your Own Geeky Resume</tspan>
+              <tspan x="37.5" y="21">Make Your CV Cool Again</tspan>
             </text>
           </g>
           <g id="Group-2" transform="translate(40.000000, 297.000000)">
             <text id="headerText.accent" fontFamily="Fira Mono" fontSize="46" fontWeight="700"
                   letterSpacing="2.76" fill="#393e46"  fontStyle="normal">
-              <tspan x="29.21875" y="42">CV Geekifier</tspan>
+              <tspan x="29.21875" y="42">CV Boostifier</tspan>
             </text>
           </g>
           <svg viewBox="0 0 50 50" fill="#00adb5" id="svg_icon.secondary" x="175" y="91" width="150" height="150">

@@ -34,7 +34,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "generate-themes": "node generate-themes.js",
-    "deploy": "npm run build && gh-pages -d build"
+    "copy-404": "cp build/index.html build/404.html ",
+    "deploy": "npm run build && npm run copy-404 && gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
