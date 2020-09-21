@@ -31,7 +31,7 @@ git checkout -b my-theme
 * `preview.png` - A preview image of your theme (will be used in the editor).
 * `manifest.json` - A JSON file that includes some meta data about your theme.
 
-Learn more about each file below. 
+Learn more about each file [below](#required-files-for-a-theme). 
 
 **Note**: If needed, you may add addition files to your folder.
 
