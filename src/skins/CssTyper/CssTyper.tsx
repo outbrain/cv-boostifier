@@ -357,6 +357,8 @@ section aside {
   }
 
   const writeStyles = (message: string, index: number, interval: number) => {
+    // (document.getElementById( 'style-text') as any).innerHTML = styles;
+    // return (document.getElementById( 'style-tag') as any).innerHTML = styles;
     if (index < message.length) {
       const pre: any = document.getElementById( 'style-text');
       if (pre) {
