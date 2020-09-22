@@ -1,4 +1,4 @@
-export interface ITheme {
+export interface ISkin {
   name: string;
   displayName: string;
   component: string;

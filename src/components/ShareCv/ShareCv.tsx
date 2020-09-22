@@ -3,9 +3,9 @@ import copy from 'copy-to-clipboard';
 import './ShareCv.scss';
 import {encodeProfile, IProfileContext, ProfileContext} from '../../context/ProfileContext';
 import { toast } from 'react-toastify';
-export const getCvLink = async (profileContext: IProfileContext, theme: string): Promise<string> => {
+export const getCvLink = async (profileContext: IProfileContext, skin: string): Promise<string> => {
   const data = encodeProfile(profileContext.profile);
-  const link = `${document.location.origin}/cv-boostifier/viewer?theme=${theme}#${data}`;
+  const link = `${document.location.origin}/cv-boostifier/viewer?skin=${skin}#${data}`;
   console.log(`Link is: ${link}`);
   return link;
 };
@@ -13,11 +13,11 @@ export const getCvLink = async (profileContext: IProfileContext, theme: string):
 export function ShareCv(props: PropsWithChildren<any>) {
   const profileContext = useContext(ProfileContext);
   const [loading, setLoading] = useState(false);
-  const { theme } = props;
+  const { skin } = props;
   const copyLink = async () => {
     setLoading(true);
     try {
-      const link = await getCvLink(profileContext, theme.name);
+      const link = await getCvLink(profileContext, skin.name);
       copy(link);
       toast.info('Share link copied clipboard!');
     }

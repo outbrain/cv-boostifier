@@ -10,7 +10,7 @@
 
 # production
 /build
-/src/themes/themes.ts
+/src/skins/skins.ts
 
 # misc
 .DS_Store

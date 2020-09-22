@@ -1,9 +1,9 @@
 import React from 'react';
 import {ProfileProvider} from './context/ProfileContext';
-import {ThemeProvider} from './context/ThemeContext';
+import {SkinProvider} from './context/SkinContext';
 import {CvViewer} from './components/CvViewer/CvViewer';
 import {HomeView} from './components/HomeView/HomeView';
-import {ThemesView} from './components/ThemesView/ThemesView';
+import {SkinsView} from './components/SkinsView/SkinsView';
 import {ProfileView} from './components/ProfileView/ProfileView';
 import 'react-toastify/dist/ReactToastify.min.css';
 import {
@@ -18,7 +18,7 @@ const App: React.FC = () => {
   console.log(consoleLogo, 'font-size: 12px; color: #EE6412');
   const viewMode = !!document.location.hash;
   return (
-    <ThemeProvider>
+    <SkinProvider>
       <ProfileProvider>
         <ToastContainer/>
         {viewMode && <CvViewer mode='view'/>}
@@ -31,9 +31,9 @@ const App: React.FC = () => {
                 <Header />
                 <ProfileView />
               </Route>
-              <Route path="/themes">
+              <Route path="/skins">
                 <Header />
-                <ThemesView />
+                <SkinsView />
               </Route>
               <Route path="/viewer">
                 <CvViewer />
@@ -41,7 +41,7 @@ const App: React.FC = () => {
             </Switch>
         </Router>}
       </ProfileProvider>
-    </ThemeProvider>
+    </SkinProvider>
   );
 };
 

@@ -62,7 +62,7 @@ export function ProfileView() {
           {linkedinOpen && <LinkedinImport />}
           {showEditor &&<div className="profile-editor"><ProfileEditor profile={profileContext.profile}/></div>}
           <div className="profile-footer">
-            <Link to={'/themes'}>{" Next > "}</Link>
+            <Link to={'/skins'}>{" Next > "}</Link>
           </div>
         </div>
 

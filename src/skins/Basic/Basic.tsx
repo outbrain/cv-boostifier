@@ -6,7 +6,7 @@ export function Basic(props: PropsWithChildren<IProfileProps>) {
   const {basics, skills, work, education, references, projects, publications, languages} = props.profile;
   
   return (
-    <div className="basic-theme">
+    <div className="basic-skin">
       <aside>
         <header>
           {
@@ -46,9 +46,9 @@ export function Basic(props: PropsWithChildren<IProfileProps>) {
               </p>
             }
             {
-              (basics?.profiles || []).map((profile) => {
+              (basics?.profiles || []).map((profile, ix) => {
                 return (
-                  <p>
+                  <p key={ix}>
                     <label>{profile.network}:</label>
                     <span><a href={profile.url}>{profile.username || profile.url}</a></span>
                   </p>
@@ -65,7 +65,7 @@ export function Basic(props: PropsWithChildren<IProfileProps>) {
               {
                 (skills || []).map((skill) => {
                   return (
-                    <span>{skill.name}</span>
+                    <span key={skill.name}>{skill.name}</span>
                   )
                 })
               }
@@ -88,9 +88,9 @@ export function Basic(props: PropsWithChildren<IProfileProps>) {
           <section>
             <h2>Experience</h2>
             {
-              (work || []).map((workItem) => {
+              (work || []).map((workItem, ix) => {
                 return (
-                  <article>
+                  <article key={ix}>
                     <hgroup>
                       <h4>{workItem.position}{workItem.position && workItem.name ? ', ' : ''}{workItem.name}</h4>
                       <h6>{workItem.startDate} - {workItem.endDate}</h6>
@@ -100,7 +100,7 @@ export function Basic(props: PropsWithChildren<IProfileProps>) {
                       {
                         (workItem.highlights || []).map((highlight) => {
                           return (
-                            <li>{highlight}</li>
+                            <li key={highlight}>{highlight}</li>
                           );
                         })
                       }
@@ -144,9 +144,9 @@ export function Basic(props: PropsWithChildren<IProfileProps>) {
           <section>
             <h2>Education</h2>
             {
-              (education || []).map((educationItem) => {
+              (education || []).map((educationItem, ix) => {
                 return (
-                  <article>
+                  <article key={ix}>
                     <hgroup>
                       <h4>{educationItem.studyType}, {educationItem.area}, {educationItem.institution}</h4>
                       <h6>{educationItem.startDate} - {educationItem.endDate}</h6>
@@ -155,7 +155,7 @@ export function Basic(props: PropsWithChildren<IProfileProps>) {
                       {
                         (educationItem.courses || []).map((course) => {
                           return (
-                            <li>{course}</li>
+                            <li key={course}>{course}</li>
                           );
                         })
                       }
@@ -174,7 +174,7 @@ export function Basic(props: PropsWithChildren<IProfileProps>) {
             {
               (languages || []).map((language) => {
                 return (
-                  <li>
+                  <li key={language.language}>
                     {language.language} - {language.fluency}
                   </li>
                 );
@@ -191,7 +191,7 @@ export function Basic(props: PropsWithChildren<IProfileProps>) {
             {
               (references || []).map((reference) => {
                 return (
-                  <li>
+                  <li key={reference.name}>
                     <h4>{reference.name}</h4>
                     <p>{reference.reference}</p>
                   </li>
@@ -207,9 +207,9 @@ export function Basic(props: PropsWithChildren<IProfileProps>) {
             <h2>Publications</h2>
             <ul>
             {
-              (publications || []).map((publication) => {
+              (publications || []).map((publication, ix) => {
                 return (
-                  <li>
+                  <li key={ix}>
                     <h4>{publication.name}, {publication.publisher}</h4>
                     <p>{publication.summary}</p>
                     <p><a href={publication.website}>{publication.website}</a></p>

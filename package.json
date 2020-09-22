@@ -29,11 +29,11 @@
     "typescript": "^3.9.7"
   },
   "scripts": {
-    "start": "npm run generate-themes && react-scripts start",
-    "build": "npm run generate-themes && react-scripts build",
+    "start": "npm run generate-skins && react-scripts start",
+    "build": "npm run generate-skins && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "generate-themes": "node generate-themes.js",
+    "generate-skins": "node generate-skins.js",
     "copy-404": "cp build/index.html build/404.html ",
     "deploy": "npm run build && npm run copy-404 && gh-pages -d build"
   },
