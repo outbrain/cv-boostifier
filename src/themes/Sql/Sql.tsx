@@ -7,7 +7,7 @@ import AsciiTable from 'ascii-table';
 import Terminal from './terminal';
 import {IProfileProps} from '../../models';
 
-export function SqlTheme(props: PropsWithChildren<IProfileProps>) {
+export function Sql(props: PropsWithChildren<IProfileProps>) {
   const CLEAR = 'clear';
   const {profile} = props;
   const termWrapper = useRef(document.getElementById('term-wrapper') as HTMLDivElement);

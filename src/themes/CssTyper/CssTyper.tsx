@@ -368,7 +368,7 @@ section aside {
   }
 
 
-  writeStyles(styles, 0, 15)
+  writeStyles(styles, 0, 10)
 }
 
 function getLanguage(lang: string): string {

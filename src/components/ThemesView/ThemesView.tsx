@@ -5,18 +5,20 @@ import {ITheme} from '../../themes/models';
 import {ShareCv} from '../ShareCv/ShareCv';
 import {CvViewer} from '../CvViewer/CvViewer';
 export function ThemesView() {
-  const {themes} = useContext(ThemeContext);
-  const [theme, setTheme] = useState(null as any);
+  const {themes, theme, setTheme} = useContext(ThemeContext);
+  const [selectedTheme, setSelectedTheme] = useState(theme);
 
-  const setThemeAndLog = (t: any) => {
+  const setThemeAndContext = (t: any) => {
+    setSelectedTheme(t);
     setTheme(t);
   }
+
   const getThemeEl = (t: ITheme) => {
     const createdBy = (t.createdBy || []);
     if (!createdBy.length) {
       createdBy.push({ name: 'Unknown' });
     }
-    return <div key={t.name} className={"theme " + ((t === theme) ? " theme-selected" : "")} onClick={() => setThemeAndLog(t)}>
+    return <div key={t.name} className={"theme " + ((t === selectedTheme) ? " theme-selected" : "")} onClick={() => setThemeAndContext(t)}>
             <img src={require(`../../themes/${t.component}/preview.png`)} alt=""/>
             <div className="theme-details">
               <div className="theme-name">{t.displayName}</div>
@@ -26,7 +28,7 @@ export function ThemesView() {
                 </span>)}
               </div>
             </div>
-            <div className="theme-btn" onClick={() => setTheme(t)}>
+            <div className="theme-btn" onClick={() => setThemeAndContext(t)}>
               <ShareCv theme={t} />
             </div>
           </div>
@@ -40,7 +42,7 @@ export function ThemesView() {
           {themes.map(t => getThemeEl(t))}
         </div>
         <div className="theme-preview">
-          {theme && <CvViewer theme={theme}></CvViewer> }
+          {selectedTheme && <CvViewer theme={selectedTheme}></CvViewer> }
         </div>
       </div>
     </div>
