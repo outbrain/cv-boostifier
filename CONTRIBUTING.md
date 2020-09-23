@@ -1,7 +1,7 @@
 # Contributing to CV Boostifier
 
 First of all - thank you for taking your time to contribute to our project 🙂 
-In this file you'll find instructions on how to contibute and develop **new themes** to CV Boostifiter.
+In this file you'll find instructions on how to contibute and develop **new skins** to CV Boostifiter.
 
 ## Adding a Skin
 
