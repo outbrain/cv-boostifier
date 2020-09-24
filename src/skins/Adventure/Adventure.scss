@@ -1,0 +1,27 @@
+.adventure{
+  display: flex;
+  flex-direction: row;
+  flex-flow: wrap;
+  .figure{
+    height: 100px;
+    width: 100px;
+    background: #ffc800;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+  div{
+  width: 100vw;
+  height: 100vh;
+    display: block;
+  }
+  .basics{
+    background-color: tomato;
+
+  }
+  .awards{
+    background-color: #72fafa;
+  }
+
+}
