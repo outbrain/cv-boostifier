@@ -1,27 +1,51 @@
-.adventure{
-  display: flex;
-  flex-direction: row;
-  flex-flow: wrap;
-  .figure{
-    height: 100px;
-    width: 100px;
-    background: #ffc800;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+@import "assets/styles/styles.scss";
+.outer-wrapper {
+  width: 100vh;
+  height: 100vw;
+  transform: rotate(-90deg) translateX(-100vh);
+  transform-origin: top left;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: absolute;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 400vw;
+    transform: rotate(90deg) translateY(-100vh);
+    transform-origin: top left;
+
+    .slide {
+      width: 100vw;
+      height: 100vh;
     }
-  div{
-  width: 100vw;
-  height: 100vh;
-    display: block;
-  }
-  .basics{
-    background-color: tomato;
+    .one {
+      background: url("assets/bkg2.png");
+      background-size: auto 100vh;
+      background-repeat: repeat-x;
+      width: 400vw;
+    }
 
   }
-  .awards{
-    background-color: #72fafa;
-  }
 
+}
+
+
+
+.figure{
+  height: 100px;
+  width: 100px;
+  background: #ffc800;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+
+::-webkit-scrollbar {
+  display:none;
 }
