@@ -8,19 +8,18 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
   return (
     <div className="adventure flex">
       <div className="figure"></div>
-      <div className="basics"></div>
-      <div className="awards"></div>
-      <section className="education"></section>
-      <section className="interests"></section>
-      <section className="languages"></section>
-      <section className="meta"></section>
-      <section className="projects"></section>
-      <section className="publications"></section>
-      <section className="references"></section>
-      <section className="skills"></section>
-      <section className="volunteer"></section>
-      <section className="work"></section>
-
+      <div className="section basics"></div>
+      <div className="section awards"></div>
+      <div className="section education"></div>
+      <div className="section interests"></div>
+      <div className="section languages"></div>
+      <div className="section meta"></div>
+      <div className="section projects"></div>
+      <div className="section publications"></div>
+      <div className="section references"></div>
+      <div className="section skills"></div>
+      <div className="section volunteer"></div>
+      <div className="section work"></div>
     </div>
   );
 }
