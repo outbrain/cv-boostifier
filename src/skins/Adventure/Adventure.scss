@@ -22,7 +22,7 @@
       height: 100vh;
     }
     .one {
-      background: url("assets/bkg2.png");
+      background: url("assets/Cartoon_Forest_BG_04/Layers/Middle_Decor.png"), url("assets/Cartoon_Forest_BG_04/Layers/BG_Decor.png");
       background-size: auto 100vh;
       background-repeat: repeat-x;
       width: 400vw;
@@ -32,14 +32,22 @@
 
 }
 
-
+.tree {
+  height: 100px;
+  width: 100px;
+  background:green;
+  position: absolute;
+  bottom: 100px;
+  left: 1000px;
+  z-index: 101;
+}
 
 .figure{
   height: 100px;
   width: 100px;
   background: #ffc800;
   position: fixed;
-  top: 50%;
+  top: 85%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 100;
