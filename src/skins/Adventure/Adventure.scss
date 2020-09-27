@@ -31,17 +31,6 @@
   }
 }
 
-.figure{
-  height: 520px;
-  width: 420px;
-  background: url("assets/Walking/Satyr_03_Walking_000.png");
-  position: fixed;
-  top: 85%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 100;
-}
-
 ::-webkit-scrollbar {
   display:none;
 }

@@ -2,6 +2,7 @@ import React, {PropsWithChildren, useState} from 'react';
 import './Adventure.scss';
 import {IProfileProps} from '../../models';
 import { EducationComponent } from './components/Education/EducationComponent';
+import { Figure } from './components/Figure/Figure';
 
 export function Adventure(props: PropsWithChildren<IProfileProps>) {
   const {basics, skills, work, education, references, projects, publications, languages} = props.profile;
@@ -15,10 +16,10 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
     setScrollLeft(leftScroll); 
     setScrollTop(topScroll); 
   }
-  
+
   return (
     <div>
-      <div className="figure"></div>
+      <Figure scrollLeft={scrollLeft}/>
       <div id="scrollWrapper" className="adventure outer-wrapper" onScroll={handleScroll}>
         <div className="wrapper">
           <section className="lvl-basics slide one"></section>
