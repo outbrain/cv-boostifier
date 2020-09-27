@@ -8,7 +8,7 @@
     background-image: url("../game_background_1/layers/clouds_2.png");
     height: 100vh;
     width: 100vw;
-    max-height: 100%;
-    max-width: 100%;
+    top: -100px;
+    transform: scale(0.8);
     z-index: 101;
 }

@@ -8,13 +8,16 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
   const {basics, skills, work, education, references, projects, publications, languages} = props.profile;
   const [scrollLeft, setScrollLeft] = useState(0);
   const [scrollTop, setScrollTop] = useState(0);
+  const [screenSize, setScreenSize] = useState(0);
 
   const handleScroll = () => {
     const containerElement = document.getElementById("scrollWrapper");
     const leftScroll = containerElement === null ? 0 : containerElement.scrollTop;
     const topScroll = containerElement === null ? 0 : containerElement.scrollLeft;
+    const screenSize = containerElement === null ? 0 : containerElement.scrollHeight;
     setScrollLeft(leftScroll); 
     setScrollTop(topScroll); 
+    setScreenSize(screenSize);
   }
 
   return (
@@ -23,7 +26,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
       <div id="scrollWrapper" className="adventure outer-wrapper" onScroll={handleScroll}>
         <div className="wrapper">
           <section className="lvl-basics slide one"></section>
-          {education !== undefined ? <EducationComponent data={education} scrollLeft={scrollLeft} scrollTop={scrollTop}/> : <div/> }
+          {education !== undefined ? <EducationComponent data={education} screenSize={screenSize} scrollLeft={scrollLeft} scrollTop={scrollTop}/> : <div/> }
           <section className="lvl-awards slide"></section>
           <section className="lvl-interests slide"></section>
           <section className="languages"></section>
