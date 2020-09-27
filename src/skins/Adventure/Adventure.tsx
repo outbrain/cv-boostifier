@@ -14,7 +14,6 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
     const topScroll = containerElement === null ? 0 : containerElement.scrollLeft;
     setScrollLeft(leftScroll); 
     setScrollTop(topScroll); 
-    console.log(`left: ${scrollLeft}\n top: ${scrollTop}`);
   }
   return (
     <div>
