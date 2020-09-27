@@ -1,26 +1,14 @@
 .lvl-education {
     background-image: url("../game_background_1/layers/sky.png");
+    background-size: auto 100vw;
+    width: 100vw;
 }
-.lvl-cloud-1 {
+.lvl-clouds {
     position: absolute;
-    background-image: url("../game_background_1/layers/clouds_1.png");
+    background-image: url("../game_background_1/layers/clouds_2.png");
     height: 100vh;
     width: 100vw;
-    z-index: 101;
-}
-.lvl-cloud-3 {
-    position: absolute;
-    top: -200px;
-    right: -100px;
-    background-image: url("../game_background_1/layers/clouds_3.png");
-    height: 100vh;
-    width: 100vw;
-    z-index: 101;
-}
-.lvl-cloud-4 {
-    position: absolute;
-    background-image: url("../game_background_1/layers/clouds_4.png");
-    height: 100vh;
-    width: 100vw;
+    max-height: 100%;
+    max-width: 100%;
     z-index: 101;
 }

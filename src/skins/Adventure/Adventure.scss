@@ -25,34 +25,22 @@
       background: url("assets/game_background_3/layers/sky.png");
       background-size: auto 100vh;
       background-repeat: repeat-x;
-      width: 400vw;
+      width: 100vw;
     }
 
   }
-
-}
-
-.tree {
-  height: 100px;
-  width: 100px;
-  background:green;
-  position: absolute;
-  bottom: 100px;
-  left: 1000px;
-  z-index: 101;
 }
 
 .figure{
-  height: 100px;
-  width: 100px;
-  background: #ffc800;
+  height: 520px;
+  width: 420px;
+  background: url("assets/Walking/Satyr_03_Walking_000.png");
   position: fixed;
   top: 85%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 100;
 }
-
 
 ::-webkit-scrollbar {
   display:none;

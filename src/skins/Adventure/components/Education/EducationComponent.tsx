@@ -2,9 +2,11 @@ import React from 'react';
 import {Education} from '../../../../models';
 
 export function EducationComponent(props: { data: Education[], scrollLeft: number, scrollTop: number }) {
+    const CLOUDS_MOVEMENT_RATIO = 0.6;
+    const CLOUDS_STARTING_POSITION = 5500;
+    const moveElement = (startingPosition: number, movingRatio: number) => startingPosition - movingRatio * props.scrollLeft;
+
     return <div className="lvl-education slide">
-        <div id="cloud-1" className="lvl-cloud-1"></div>
-        <div id="cloud-3" className="lvl-cloud-3"></div>
-        <div id="cloud-4" className="lvl-cloud-4"></div>
+        <div id="clouds" className="lvl-clouds" style={{right:moveElement(CLOUDS_STARTING_POSITION, CLOUDS_MOVEMENT_RATIO)}}></div>
     </div>
 }

@@ -15,13 +15,14 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
     setScrollLeft(leftScroll); 
     setScrollTop(topScroll); 
   }
+  
   return (
     <div>
       <div className="figure"></div>
       <div id="scrollWrapper" className="adventure outer-wrapper" onScroll={handleScroll}>
         <div className="wrapper">
           <section className="lvl-basics slide one"></section>
-          {education != undefined ? <EducationComponent data={education} scrollLeft={scrollLeft} scrollTop={scrollTop}/> : <div/> }
+          {education !== undefined ? <EducationComponent data={education} scrollLeft={scrollLeft} scrollTop={scrollTop}/> : <div/> }
           <section className="lvl-awards slide"></section>
           <section className="lvl-interests slide"></section>
           <section className="languages"></section>
