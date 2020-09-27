@@ -36,7 +36,7 @@ const App: React.FC = () => {
                 <SkinsView />
               </Route>
               <Route path="/viewer">
-                <CvViewer />
+                <CvViewer mode="view"/>
               </Route>
             </Switch>
         </Router>}
