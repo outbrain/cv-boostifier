@@ -1,4 +1,4 @@
-import React , {useEffect, useRef, useState} from 'react';
+import React , {useEffect, useRef} from 'react';
 
 export function Figure(props: {scrollLeft: number}) {
     const FIGURE_IMAGES_COUNT = 18;
