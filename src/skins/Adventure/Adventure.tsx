@@ -8,10 +8,18 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
   const [scrollLeft, setScrollLeft] = useState(0);
   const [scrollTop, setScrollTop] = useState(0);
 
+  const handleScroll = () => {
+    const containerElement = document.getElementById("scrollWrapper");
+    const leftScroll = containerElement === null ? 0 : containerElement.scrollTop;
+    const topScroll = containerElement === null ? 0 : containerElement.scrollLeft;
+    setScrollLeft(leftScroll); 
+    setScrollTop(topScroll); 
+    console.log(`left: ${scrollLeft}\n top: ${scrollTop}`);
+  }
   return (
-    <div onScroll={(e) => {setScrollLeft(e.target.scrollTop); setScrollTop(e.target.scrollLeft);} }>
+    <div>
       <div className="figure"></div>
-      <div className="adventure outer-wrapper">
+      <div id="scrollWrapper" className="adventure outer-wrapper" onScroll={handleScroll}>
         <div className="wrapper">
           <section className="lvl-basics slide one"></section>
           {education != undefined ? <EducationComponent data={education} scrollLeft={scrollLeft} scrollTop={scrollTop}/> : <div/> }
