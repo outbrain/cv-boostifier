@@ -1,0 +1,44 @@
+.sky{
+  height: 50%;
+  width: inherit;
+  position: absolute;
+  top:0;
+  left: 0;
+  background: url("../../assets/game_background_1/layers/clouds_1.png") repeat;
+  background-size: contain;
+  transform-style: preserve-3d;
+  -webkit-animation: floats 30s infinite alternate;
+  animation: floats 30s infinite alternate;
+  animation-timing-function: linear;
+
+  .clouds2{
+    background: url("../../assets/game_background_1/layers/clouds_2.png") no-repeat;
+    background-size: contain;
+    position: absolute;
+    height: 100%;
+    width: inherit;
+    top: 30%;
+    left: 5%;
+    transform: scale(1.5);
+    transform: translateZ(60px) ;
+    transform-origin: 100% 50%;
+  }
+
+  @-webkit-keyframes floats {
+    0% {
+      top:500px;
+    }
+    100% {
+      top: 0px;
+    }
+  }
+  @keyframes floats {
+    0% {
+      left:500px;
+    }
+    100% {
+      right: 0px;
+    }
+  }
+
+}
