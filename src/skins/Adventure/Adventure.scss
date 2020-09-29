@@ -11,6 +11,7 @@ div {
   overflow-y: scroll;
   overflow-x: hidden;
   position: absolute;
+  scroll-behavior: smooth;
   scrollbar-width: none;
   -ms-overflow-style: none;
 
@@ -20,19 +21,57 @@ div {
     width: 1200vw;
     transform: rotate(90deg) translateY(-100vh);
     transform-origin: top left;
-    background:url("assets/game_background_1/layers/sky.png");
 
     .slide {
       width: 100vw;
       height: 100vh;
     }
+    .day{
+      background:url("assets/game_background_1/layers/sky.png");
+      z-index: 0;
+    }
     .one {
       background: url("assets/game_background_1/layers/rocks_2.png");
       background-size: auto 100vh;
       background-repeat: repeat-x;
-      width: 400vw;
+      width: 200vw;
     }
-    .rocks {
+    .night{
+      background:url("assets/game_background_3/layers/sky.png");
+      z-index: 0;
+
+    }
+    .ground-night{
+      background: url("assets/game_background_3/layers/ground_1.png");
+      background-size: auto 100vh;
+      background-repeat: repeat-x;
+      width: 200vw;
+    }
+    .wooden-ground-night {
+      background-size: auto 100vh;
+      background-repeat: repeat-x;
+      width: inherit;
+      //position: absolute;
+      background-image: url("assets/game_background_3/layers/ground_2.png");
+      height: 100vh;
+      top: -100px;
+      //transform: scale(0.8);
+      z-index: 0;
+      left: 0;
+    }
+    .wooden-ground-night-2 {
+      background-size: auto 100vh;
+      background-repeat: repeat-x;
+      width: inherit;
+      //position: absolute;
+      background-image: url("assets/game_background_3/layers/ground_3.png");
+      height: 100vh;
+      top: -100px;
+      //transform: scale(0.8);
+      //z-index: -1;
+      left: 0;
+    }
+    .mountains {
       background-size: auto 100vh;
       background-repeat: repeat-x;
       width: inherit;

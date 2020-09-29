@@ -1,6 +1,6 @@
 import React from 'react';
 import {Education} from '../../../../models';
-import {utils} from "../../Utils/Utils";
+import {utils} from "../../utils/Utils";
 
 export function EducationComponent(props: { data: Education[], screenSize: number, scrollLeft: number, scrollTop: number }) {
     const CLOUDS_MOVEMENT_RATIO = 0.6;
