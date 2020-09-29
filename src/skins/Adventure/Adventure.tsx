@@ -5,7 +5,7 @@ import { EducationComponent } from './components/Education/EducationComponent';
 import { Figure } from './components/Figure/Figure';
 
 export function Adventure(props: PropsWithChildren<IProfileProps>) {
-  const {basics, skills, work, education, references, projects, publications, languages} = props.profile;
+  const {basics/*TODO: Daniel*/, skills/*TODO: Daniel*/, work /*TODO: Ohad*/, education/*TODO: Yonatan*/, references, projects/*TODO: Yonatan*/, publications, languages/*TODO: Ohad*/} = props.profile;
   const [scrollLeft, setScrollLeft] = useState(0);
   const [scrollTop, setScrollTop] = useState(0);
   const [screenSize, setScreenSize] = useState(0);
