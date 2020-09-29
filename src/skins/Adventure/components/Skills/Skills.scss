@@ -1,8 +1,16 @@
 .lvl-skills{
-li.skill-item{
-  font-size: 2.6em;
-  padding: 8px;
-}
+  ul{
+    display: flex;
+    flex-flow: column;
+    height: 97%;
+    flex-wrap: wrap;
+    position: relative;
+    li.skill-item{
+      font-size: 2.6em;
+      padding: 8px;
+    }
+  }
+
 }
 
 .sky{

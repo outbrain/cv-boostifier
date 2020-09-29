@@ -31,7 +31,7 @@ export function SkillsComponent(props: { data: Skill[], screenSize: number, scro
           <ul>
             {
               props.data.map((value, index) => {
-                return <li className="skill-item" key={index}>{value.name} - {value.keywords} :  {value.level}</li>
+                return <li className="skill-item" key={index}>{value.name} {value?.keywords} {value?.level}</li>
               })
             }
           </ul>
