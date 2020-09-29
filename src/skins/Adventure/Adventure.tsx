@@ -4,6 +4,7 @@ import {IProfileProps} from '../../models';
 import { EducationComponent } from './components/Education/EducationComponent';
 import { Figure } from './components/Figure/Figure';
 import {BasicsComponent} from "./components/Basics/Basics";
+import {SkillsComponent} from "./components/Skills/Skills";
 
 export function Adventure(props: PropsWithChildren<IProfileProps>) {
   const {basics/*TODO: Daniel*/, skills/*TODO: Daniel*/, work /*TODO: Ohad*/, education/*TODO: Yonatan*/, references, projects/*TODO: Yonatan*/, publications, languages/*TODO: Ohad*/} = props.profile;
@@ -28,7 +29,9 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
       <div id="scrollWrapper" className="adventure outer-wrapper" onScroll={handleScroll}>
         <div className="wrapper">
           {basics !== undefined ? <BasicsComponent   data={basics} screenSize={screenSize} scrollLeft={scrollLeft} scrollTop={scrollTop}/> : <div/> }
-          {/*{education !== undefined ? <EducationComponent data={education} screenSize={screenSize} scrollLeft={scrollLeft} scrollTop={scrollTop}/> : <div/> }*/}
+          {education !== undefined ? <EducationComponent data={education} screenSize={screenSize} scrollLeft={scrollLeft} scrollTop={scrollTop}/> : <div/> }
+          {skills !== undefined ? <SkillsComponent data={skills} screenSize={screenSize} scrollLeft={scrollLeft} scrollTop={scrollTop}/> : <div/> }
+          <section className="skills"></section>
           <section className="lvl-awards slide"></section>
           <section className="lvl-interests slide"></section>
           <section className="languages"></section>
@@ -36,7 +39,6 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
           <section className="projects"></section>
           <section className="publications"></section>
           <section className="references"></section>
-          <section className="skills"></section>
           <section className="volunteer"></section>
           <section className="work"></section>
         </div>
