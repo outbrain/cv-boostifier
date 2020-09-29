@@ -1,3 +1,29 @@
 @import './_colors.scss';
 @import '../../components/Figure/_figure.scss';
 @import '../../components/Education/_education.scss';
+@import '../../components/Basics/basics.scss';
+
+body{
+  font-size: 12px;
+}
+.user-details{
+  position: absolute;
+  top: 12vh;
+  left: 24vw;
+  color: #ffffff;
+  text-shadow: 3px 1px 2px #474747;
+  h1{
+    font-size: 7em;
+    margin: 0;
+  }
+  h2{
+    font-size: 3em;
+  }
+}
+.subtitle{
+  position: absolute;
+  top: 12vh;
+  left: 24vw;
+  color: #ffffff;
+  font-size: 90px;
+}

@@ -20,20 +20,35 @@ div {
     width: 1200vw;
     transform: rotate(90deg) translateY(-100vh);
     transform-origin: top left;
+    background:url("assets/game_background_1/layers/sky.png");
 
     .slide {
       width: 100vw;
       height: 100vh;
     }
     .one {
-      background: url("assets/game_background_3/layers/sky.png");
+      background: url("assets/game_background_1/layers/rocks_2.png");
       background-size: auto 100vh;
       background-repeat: repeat-x;
-      width: 100vw;
+      width: 400vw;
+    }
+    .rocks {
+      background-size: auto 100vh;
+      background-repeat: repeat-x;
+      width: inherit;
+      position: absolute;
+      background-image: url("assets/game_background_1/layers/rocks_1.png");
+      height: 100vh;
+      top: -100px;
+      //transform: scale(0.8);
+      z-index: -1;
+      left: 0;
     }
 
   }
 }
+
+
 
 ::-webkit-scrollbar {
   display:none;
