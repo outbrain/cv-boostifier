@@ -9,5 +9,7 @@ export function Figure(props: {scrollLeft: number}) {
 
     const getImageByScroll = (scrollPosition : number) => Math.round(scrollPosition / FIGURE_CHANGE_RATE) % FIGURE_IMAGES_COUNT
 
-    return <div className={`figure ${prevScrollRef.current / FIGURE_CHANGE_RATE <= props.scrollLeft / FIGURE_CHANGE_RATE ? undefined : "backward"} image-${getImageByScroll(props.scrollLeft)}`}></div>
+    return <div className="figure" id="walk-container">
+        <div id="walk"></div>
+    </div>
 }
