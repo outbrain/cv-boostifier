@@ -3,7 +3,7 @@ import {Basics} from "../../../../models";
 import {utils} from "../../Utils/Utils";
 
 export function BasicsComponent(props: { data: Basics, screenSize: number, scrollLeft: number, scrollTop: number }) {
-  const CLOUDS_MOVEMENT_RATIO = 0.6;
+  const CLOUDS_MOVEMENT_RATIO = -1;
   const CLOUDS_STARTING_OFFSET = 0.9;
 
   return (
