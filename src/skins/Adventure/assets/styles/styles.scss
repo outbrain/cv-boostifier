@@ -1,60 +1,56 @@
-@import './_colors.scss';
-@import '../../components/Figure/_figure.scss';
-@import '../../components/Education/_education.scss';
-@import '../../components/Basics/basics.scss';
-
-body{
+@import "./_colors.scss";
+@import "../../components/Figure/_figure.scss";
+@import "../../components/Education/_education.scss";
+@import "../../components/Basics/basics.scss";
+@import "../../components/Work/work.scss";
+.adventure-skin {
   font-size: 12px;
   color: #ffffff;
-  text-shadow: 3px 1px 2px #474747;
+  h1 {
+    font-size: 7em;
+    margin: 0;
+  }
+  h2 {
+    font-size: 3em;
+  }
 
-}
-h1{
-  font-size: 7em;
-  margin: 0;
-}
-h2{
-  font-size: 3em;
-}
+  h3 {
+    font-size: 2em;
+  }
 
-h3{
-  font-size: 2em;
-}
+  .heading {
+    position: absolute;
+    top: 12vh;
+  }
 
+  .user-details {
+    left: 6vw;
+  }
 
-.heading {
-  position: absolute;
-  top: 12vh;
-}
+  .summary {
+    left: 100vw;
+    width: 780px;
+  }
 
-.user-details{
-  left: 6vw;
-}
+  .skills {
+    left: 320vw;
+    z-index: -3;
+  }
+  .skills-list {
+    width: 100vw;
+    height: 55%;
+    display: block;
+    left: 360vw;
+    z-index: -3;
+  }
 
-.summary{
-  left: 100vw;
-  width: 780px;
-}
-
-.skills{
-  left: 320vw;
-  z-index: -3;
-}
-.skills-list{
-  width: 100vw;
-  height: 55%;
-  display: block;
-  left: 360vw;
-  z-index: -3;
-}
-
-.about{
-
-}
-.subtitle{
-  position: absolute;
-  top: 12vh;
-  left: 24vw;
-  color: #ffffff;
-  font-size: 90px;
+  .about {
+  }
+  .subtitle {
+    position: absolute;
+    top: 12vh;
+    left: 24vw;
+    color: #ffffff;
+    font-size: 90px;
+  }
 }

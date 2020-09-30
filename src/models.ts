@@ -316,7 +316,7 @@ export interface Work {
   /**
    * e.g. Social Media Company
    */
-  description?: string;
+  name?: string; // name isn't shown on jsonresume org
   /**
    * e.g. 2012-06-29
    */
@@ -332,7 +332,7 @@ export interface Work {
   /**
    * e.g. Facebook
    */
-  name?: string;
+  company?: string;
   /**
    * e.g. Software Engineer
    */

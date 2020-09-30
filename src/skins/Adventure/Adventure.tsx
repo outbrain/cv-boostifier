@@ -1,20 +1,11 @@
-<<<<<<< HEAD
 import React, { PropsWithChildren, useState } from "react";
 import "./Adventure.scss";
 import { IProfileProps } from "../../models";
 import { EducationComponent } from "./components/Education/EducationComponent";
 import { Figure } from "./components/Figure/Figure";
 import { BasicsComponent } from "./components/Basics/Basics";
+import { SkillsComponent } from "./components/Skills/Skills";
 import { WorkComponent } from "./components/Work/Work";
-=======
-import React, {PropsWithChildren, useState} from 'react';
-import './Adventure.scss';
-import {IProfileProps} from '../../models';
-import { EducationComponent } from './components/Education/EducationComponent';
-import { Figure } from './components/Figure/Figure';
-import {BasicsComponent} from "./components/Basics/Basics";
-import {SkillsComponent} from "./components/Skills/Skills";
->>>>>>> 3860218edb10ce3d55be85377c8052f46a143443
 
 export function Adventure(props: PropsWithChildren<IProfileProps>) {
   const {
@@ -45,7 +36,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
   };
 
   return (
-    <div>
+    <div className="adventure-skin">
       <Figure scrollLeft={scrollLeft} />
       <div
         id="scrollWrapper"
@@ -53,9 +44,27 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
         onScroll={handleScroll}
       >
         <div className="wrapper">
-          {basics !== undefined ? <BasicsComponent   data={basics} screenSize={screenSize} scrollLeft={scrollLeft} scrollTop={scrollTop}/> : <div/> }
-          {education !== undefined ? <EducationComponent data={education} screenSize={screenSize} scrollLeft={scrollLeft} scrollTop={scrollTop}/> : <div/> }
-                    {work !== undefined ? (
+          {basics !== undefined ? (
+            <BasicsComponent
+              data={basics}
+              screenSize={screenSize}
+              scrollLeft={scrollLeft}
+              scrollTop={scrollTop}
+            />
+          ) : (
+            <div />
+          )}
+          {education !== undefined ? (
+            <EducationComponent
+              data={education}
+              screenSize={screenSize}
+              scrollLeft={scrollLeft}
+              scrollTop={scrollTop}
+            />
+          ) : (
+            <div />
+          )}
+          {work !== undefined ? (
             <WorkComponent
               data={work}
               screenSize={screenSize}
