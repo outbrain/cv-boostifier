@@ -6,6 +6,7 @@ import { Figure } from "./components/Figure/Figure";
 import { BasicsComponent } from "./components/Basics/Basics";
 import { SkillsComponent } from "./components/Skills/Skills";
 import { WorkComponent } from "./components/Work/Work";
+import { ReferencesComponent } from "./components/References/ReferencesComponent";
 
 export function Adventure(props: PropsWithChildren<IProfileProps>) {
   const {
@@ -13,8 +14,8 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
     skills /*TODO: Daniel*/,
     work /*TODO: Ohad*/,
     education /*TODO: Yonatan*/,
-    references,
-    projects /*TODO: Yonatan*/,
+    references /*TODO: Yonatan*/,
+    projects,
     publications,
     languages /*TODO: Ohad*/,
   } = props.profile;
@@ -56,13 +57,23 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
           )}
           {education !== undefined ? (
             <EducationComponent
-              data={education}
+              education={education}
               screenSize={screenSize}
               scrollLeft={scrollLeft}
               scrollTop={scrollTop}
             />
           ) : (
             <div />
+          )}
+          {references !== undefined ? (
+            <ReferencesComponent
+              references={[...references,...references,...references]}
+              screenSize={screenSize}
+              scrollLeft={scrollLeft}
+              scrollTop={scrollTop}
+            />
+          ) : (
+            <div className="undefiend-projects"/>
           )}
           {work !== undefined ? (
             <WorkComponent
@@ -82,7 +93,6 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
           <section className="meta"></section>
           <section className="projects"></section>
           <section className="publications"></section>
-          <section className="references"></section>
           <section className="volunteer"></section>
           <section className="work"></section>
         </div>
