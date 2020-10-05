@@ -156,33 +156,22 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
 
     // TODO (jgosar): add props types
     class BoxDataGroup extends React.Component<any> {
-        private boxes: JSX.Element[];
-        private boxCount: number;
-        private boxesInWidth: number;
-        private boxSpace: number;
-        private boxWidth: number;
-        private boxHeight: number;
-
-        constructor(props: any) {
-            super(props);
-            
-            this.boxes = [];
-            this.boxCount = (this.props as any).data.length;
-            this.boxesInWidth = Math.ceil(Math.sqrt(this.boxCount));
-            this.boxSpace = (this.props as any).groupWidth / this.boxesInWidth;
-            this.boxWidth = (1 - 2 * BOX_MARGIN) * this.boxSpace;
-            this.boxHeight = this.boxWidth / 5;
-        }
-
         render() {
+            const boxes: JSX.Element[] = [];
+            const boxCount = (this.props as any).data.length;
+            const boxesInWidth = Math.ceil(Math.sqrt(boxCount));
+            const boxSpace = (this.props as any).groupWidth / boxesInWidth;
+            const boxWidth = (1 - 2 * BOX_MARGIN) * boxSpace;
+            const boxHeight = boxWidth / 5;
+
             (this.props as any).data.forEach((box: BoxProps, index: number) => {
-                const xPos = index % this.boxesInWidth;
-                const zPos = Math.floor(index / this.boxesInWidth);
+                const xPos = index % boxesInWidth;
+                const zPos = Math.floor(index / boxesInWidth);
     
                 const boxPosition = {
-                    x: (xPos + BOX_MARGIN) * this.boxSpace,
-                    y: 0 - this.boxHeight,
-                    z: (zPos + BOX_MARGIN) * this.boxSpace,
+                    x: (xPos + BOX_MARGIN) * boxSpace,
+                    y: 0 - boxHeight,
+                    z: (zPos + BOX_MARGIN) * boxSpace,
                 };
     
                 const boxAbsolutePosition = addPositions(
@@ -194,18 +183,18 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                     <BoxDataGroup
                         absolutePosition={boxAbsolutePosition}
                         data={box.children}
-                        groupWidth={this.boxWidth}
+                        groupWidth={boxWidth}
                         hue={(this.props as any).hue + HUE_INCREMENT}
                         onClick={(this.props as any).onClick}
                     />
                 ) : undefined;
     
-                this.boxes.push(
+                boxes.push(
                     <Box
                         position={boxPosition}
                         absolutePosition={boxAbsolutePosition}
-                        width={this.boxWidth}
-                        height={this.boxHeight}
+                        width={boxWidth}
+                        height={boxHeight}
                         hue={(this.props as any).hue}
                         id={box.id}
                         key={box.id}
@@ -217,16 +206,12 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                 );
             });
     
-            return <>{this.boxes}</>;
+            return <>{boxes}</>;
         }
     }
 
     // TODO (jgosar): add props types
     class Box extends React.Component<any> {
-        constructor(props: any) {
-            super(props);
-        }
-
         render() {
             return (
                 <PositionedContainer position={(this.props as any).position}>
@@ -256,17 +241,11 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
 
     // TODO (jgosar): add props types
     class PositionedContainer extends React.Component<any> {
-        private className: string;
-
-        constructor(props: any) {
-            super(props);
-            this.className = "jurassic-unix__three-d-container" + ((this.props as any).animated ? " jurassic-unix__animated" : "");
-        }
-
         render() {
+            const className = "jurassic-unix__three-d-container" + ((this.props as any).animated ? " jurassic-unix__animated" : "");
             return (
                 <div
-                    className={this.className}
+                    className={className}
                     style={{
                         transform: get3DRotation('x', (this.props as any).viewRotation||0) + get3DTranslation((this.props as any).position),
                     }}
