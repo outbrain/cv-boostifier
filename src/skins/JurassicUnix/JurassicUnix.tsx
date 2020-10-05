@@ -10,7 +10,8 @@ import {
     isBrowserFirefox,
     addCoordinates,
     get3DTranslation,
-    get3DRotation
+    get3DRotation, 
+    mapBoxData,
 } from './JurassicUnix.helpers';
 import {PerspectiveType} from "./types/perspective-type";
 import {Perspective} from "./types/perspective";
@@ -20,9 +21,8 @@ import {BoxDataGroupProps} from "./types/box-data-group-props";
 import {BoxProps} from "./types/box-props";
 import {PositionedContainerProps} from "./types/positioned-container-props";
 
-export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
-    const {basics, skills, work, education, references, projects, publications, languages} = props.profile;
 
+export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
     const SELECTED_THEME = THEME_DEPRESSING;
     const DEFAULT_PERSPECTIVE: Perspective = getPerspectiveFor(
         0,
@@ -32,54 +32,7 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
         PerspectiveType.SIDE_VIEW
     );
 
-    // TODO (msuber): add mapping helper
-    const BOX_STRUCTURE: BoxData[] = [
-        { id: "box0" },
-        {
-            id: "box1",
-            children: [
-                {
-                    id: "box10",
-                    children: [
-                        {
-                            id: "box100",
-                            children: [
-                                {
-                                    id: "box1000",
-                                    children: [
-                                        { id: "box10000", children: [{ id: "box100000" }] },
-                                    ],
-                                },
-                            ],
-                        },
-                    ],
-                },
-            ],
-        },
-        {
-            id: "box2",
-            children: [
-                { id: "box20" },
-                {
-                    id: "box21",
-                    children: [
-                        { id: "box210" },
-                        { id: "box211", textContent: "This is a test" },
-                        { id: "box212" },
-                        { id: "box213" },
-                        { id: "box214" },
-                    ],
-                },
-            ],
-        },
-        { id: "box3" },
-        { id: "box4" },
-        { id: "box5" },
-        { id: "box6" },
-        { id: "box7" },
-        { id: "box8" },
-        { id: "box9" },
-    ];
+    const BOX_STRUCTURE: BoxData[] = mapBoxData(props.profile);
 
     class SceneContainer extends React.Component<SceneContainerProps, JurassicUnixState> {
         constructor(props: SceneContainerProps) {
@@ -98,7 +51,7 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                 this.state.focusedBoxId === undefined ||
                 this.state.focusedBoxId !== boxProps.id
             ) {
-                const perspectiveType: PerspectiveType = boxProps.textContent===undefined?PerspectiveType.SIDE_VIEW:PerspectiveType.TOP_VIEW;
+                const perspectiveType: PerspectiveType = boxProps.data ? PerspectiveType.TOP_VIEW : PerspectiveType.SIDE_VIEW;
                 // Focus on the clicked box
                 const newState = {
                     perspective: getPerspectiveFor(
@@ -198,7 +151,7 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                         hue={this.props.hue}
                         id={box.id}
                         key={box.id}
-                        textContent={box.textContent}
+                        data={box.data}
                         onClick={this.props.onClick}
                     >
                         {childGroup}
@@ -212,7 +165,7 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
 
     class Box extends React.Component<BoxProps> {
         render() {
-            const boxTextDiv = this.props.textContent===undefined?undefined:<div className="jurassic-unix__box-text">{this.props.textContent}</div>;
+            const boxTextDiv = this.props.data ? <div className="jurassic-unix__box-text">{this.props.id}</div> : undefined;
             return (
                 <PositionedContainer position={this.props.position}>
                     <div
@@ -256,6 +209,6 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
     }
 
     return (
-        <SceneContainer />
+        <SceneContainer/>
     );
 }

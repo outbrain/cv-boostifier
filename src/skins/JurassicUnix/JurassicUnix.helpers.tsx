@@ -2,6 +2,7 @@ import {SIZE_UNIT} from "./JurassicUnix.constants";
 import {Coordinates} from './types/coordinates';
 import {PerspectiveType} from "./types/perspective-type";
 import {Perspective} from "./types/perspective";
+import {BoxData} from "./types/box-data";
 
 export function getPerspectiveFor(x: number, y: number, z: number, width: number, perspectiveType: PerspectiveType): Perspective {
     // x, y, z: coordinates of the lower left corner of the object closest to the observer (with maximum z)
@@ -57,4 +58,94 @@ export function addCoordinates(position1?: Coordinates, position2?: Coordinates)
 
 export function isBrowserFirefox() {
     return navigator.userAgent.includes("Firefox");
+}
+
+export function isPrimitive(value: any) {
+    return value !== Object(value);
+}
+
+export function mapBoxData(root: any): BoxData[] {
+    let result: BoxData[] = [];
+    const keys = Object.keys(root)
+    keys.forEach((key) => {
+        const node = mapBoxDataChildren(root[key], key + '-' + keys.indexOf(key))
+        if (node) {
+            result.push(node);
+        }
+    });
+    return result;
+}
+
+function mapBoxDataChildren(root: any, boxKey: string): BoxData | null {
+    if (isPrimitive(root)) {
+        return null;
+    }
+
+    if (Array.isArray(root)) {
+        if (root.length === 0) {
+            return null;
+        }
+        if (root.length === 1) {
+            return mapBoxDataChildren(root[0], boxKey);
+        }
+
+        const node: BoxData = {
+            id: boxKey,
+            name: boxKey,
+            children: [],
+        };
+        root.forEach(item => {
+            const childBoxKey = boxKey + '-' + root.indexOf(item);
+            const childNode = mapBoxDataChildren(item, childBoxKey);
+            if (childNode) {
+                node.children.push(childNode);
+            }
+        });
+
+        return node;
+    }
+
+    const keys = Object.keys(root);
+    const hasProperties = keys.some(key => {return !Array.isArray(root[key])});
+    const childrenKeys = keys.filter(key => {return Array.isArray(root[key]) && root[key].length > 0 && !isPrimitive(root[key][0])});
+
+    if (hasProperties && childrenKeys.length === 0) {
+        return {
+            id: boxKey,
+            name: boxKey,
+            data: root,
+            children: [],
+        };
+    }
+
+    if (!hasProperties && childrenKeys.length === 1) {
+        const childBoxKey = boxKey + '-' + childrenKeys[0];
+        return mapBoxDataChildren(root[childrenKeys[0]], childBoxKey + '-' + 0);
+    }
+
+    const node: BoxData = {
+        id: boxKey,
+        name: boxKey,
+        children: [],
+    };
+
+    if (hasProperties) {
+        const childBoxKey = boxKey + '-' + 0;
+        node.children.push({
+            id: childBoxKey,
+            name: childBoxKey,
+            data: root,
+            children: [],
+        });
+    }
+
+    childrenKeys.forEach(childKey => {
+        const childBoxKey = boxKey + '-' + childKey + '-' + childrenKeys.indexOf(childKey);
+        const childNode = mapBoxDataChildren(root[childKey], childBoxKey);
+        if (childNode) {
+            node.children.push(childNode);
+        }
+    });
+
+    return node;
 }
