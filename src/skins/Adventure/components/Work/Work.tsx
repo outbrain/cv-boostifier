@@ -23,7 +23,7 @@ export function WorkComponent(props: {
           <div className="name">
             {work?.position} @ {work?.company}
             <div className="website">
-              <a href={work?.url}>{work?.url}</a>
+              <a href={work?.website}>{work?.url}</a>
             </div>
           </div>
           <div className="summary">{work?.summary}</div>
