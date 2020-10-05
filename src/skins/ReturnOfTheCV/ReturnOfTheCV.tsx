@@ -20,7 +20,10 @@ export function ReturnOfTheCV(props: PropsWithChildren<IProfileProps>) {
       const canvas = canvasRef.current;
       const canvasContext = canvas.getContext("2d");
 
-      if (canvasContext) {
+      const crawl = document.getElementById("crawl");
+      const crawlContent = document.getElementById("crawl-content");
+
+      if (canvasContext && crawl && crawlContent) {
         let width: number;
         let height: number;
 
@@ -32,6 +35,21 @@ export function ReturnOfTheCV(props: PropsWithChildren<IProfileProps>) {
         };
 
         setCanvasExtents();
+
+        const crawlContentStyle = crawlContent.style;
+        // start crawl at bottom of 3d plane
+        let crawlPosition = crawl.clientHeight;
+
+        const moveCrawl = (distance: number) => {
+          crawlPosition -= distance;
+          crawlContentStyle.top = crawlPosition + "px";
+
+          // if we've scrolled all content past the top edge
+          // of the plane, reposition content at bottom of plane
+          if (crawlPosition < -crawlContent.clientHeight) {
+            crawlPosition = crawl.clientHeight;
+          }
+        };
 
         window.onresize = () => {
           setCanvasExtents();
@@ -75,22 +93,9 @@ export function ReturnOfTheCV(props: PropsWithChildren<IProfileProps>) {
           }
         };
 
-        let prevTime: number;
-        const init = (time: number) => {
-          prevTime = time;
-          requestAnimationFrame(tick);
-        };
-
-        const tick = (time: number) => {
-          let elapsed = time - prevTime;
-          prevTime = time;
-
-          moveStars(elapsed * 0.1);
-
-          clear();
-
-          const cx = width / 2;
-          const cy = height / 2;
+        const paintStars = () => {
+          const cx = canvas.width / 2;
+          const cy = canvas.height / 2;
 
           const count = stars.length;
           for (var i = 0; i < count; i++) {
@@ -108,6 +113,25 @@ export function ReturnOfTheCV(props: PropsWithChildren<IProfileProps>) {
 
             putPixel(x, y, b);
           }
+        };
+
+        let prevTime: number;
+        const init = (time: number) => {
+          prevTime = time;
+          requestAnimationFrame(tick);
+        };
+
+        const tick = (time: number) => {
+          let elapsed = time - prevTime;
+          prevTime = time;
+
+          moveStars(elapsed * 0.1);
+
+          // time-scale of crawl, increase factor to go faster
+          moveCrawl(elapsed * 0.06);
+
+          clear();
+          paintStars();
 
           requestAnimationFrame(tick);
         };
@@ -121,9 +145,28 @@ export function ReturnOfTheCV(props: PropsWithChildren<IProfileProps>) {
     <>
       <canvas
         ref={canvasRef}
+        className="stretch"
         width={window.innerWidth}
         height={window.innerHeight}
       />
+      <div id="crawl-container" className="stretch">
+        <div id="crawl">
+          <div id="crawl-content">
+            <h1>Episode IV</h1>
+            <h2>A NEW HOPE</h2>
+            <p>
+              It is a period of civil war. Rebel spaceships, striking from a
+              hidden base, have won their first victory against the evil
+              Galactic Empire.
+            </p>
+            <p>
+              During the battle, rebel spies managed to steal secret plans to
+              the Empire’s ultimate weapon, the DEATH STAR, an armored space
+              station with enough power to destroy an entire planet.
+            </p>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
