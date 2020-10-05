@@ -91,7 +91,7 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
             this.handleClick = this.handleClick.bind(this);
         }
 
-        handleClick(boxProps: any, e: any) {
+        handleClick(boxProps: BoxProps, e: MouseEvent) {
             e.preventDefault();
             e.stopPropagation();
             if (
@@ -245,9 +245,9 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                 <div
                     className={className}
                     style={{
-                        transform: get3DRotation('x', this.props.viewRotation||0) + get3DTranslation((this.props as any).position),
+                        transform: get3DRotation('x', this.props.viewRotation||0) + get3DTranslation(this.props.position),
                     }}
-                >{(this.props as any).children}</div>
+                >{this.props.children}</div>
             );
         }
     }

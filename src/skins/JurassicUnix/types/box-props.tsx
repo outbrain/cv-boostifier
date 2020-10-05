@@ -8,5 +8,5 @@ export interface BoxProps{
     hue: number,
     id: string,
     textContent?: string,
-    onClick: (boxProps: any, e: any)=>void // TODO (jgosar): add types
+    onClick: (boxProps: BoxProps, e: MouseEvent)=>void
 }
