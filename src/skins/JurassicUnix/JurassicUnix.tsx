@@ -17,6 +17,8 @@ import {Perspective} from "./types/perspective";
 import {JurassicUnixState} from "./types/jurassic-unix-state";
 import {SceneContainerProps} from "./types/scene-container-props";
 import {BoxDataGroupProps} from "./types/box-data-group-props";
+import {BoxProps} from "./types/box-props";
+import {PositionedContainerProps} from "./types/positioned-container-props";
 
 export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
     const {basics, skills, work, education, references, projects, publications, languages} = props.profile;
@@ -93,8 +95,8 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
             e.preventDefault();
             e.stopPropagation();
             if (
-                (this.state as any).focusedBoxId === undefined ||
-                (this.state as any).focusedBoxId !== boxProps.id
+                this.state.focusedBoxId === undefined ||
+                this.state.focusedBoxId !== boxProps.id
             ) {
                 const perspectiveType: PerspectiveType = boxProps.textContent===undefined?PerspectiveType.SIDE_VIEW:PerspectiveType.TOP_VIEW;
                 // Focus on the clicked box
@@ -125,8 +127,8 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                 <div className={"jurassic-unix__wrapper " + themeClass}>
                     <div className="jurassic-unix__three-d-container jurassic-unix__translated-to-screen-centre">
                         <PositionedContainer
-                            position={(this.state as any).perspective.viewPoint}
-                            viewRotation={(this.state as any).perspective.perspectiveType==PerspectiveType.SIDE_VIEW?-35:-90}
+                            position={this.state.perspective.viewPoint}
+                            viewRotation={this.state.perspective.perspectiveType==PerspectiveType.SIDE_VIEW?-35:-90}
                             animated={!isBrowserFirefox()}
                         >
                             <Box
@@ -208,44 +210,42 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
         }
     }
 
-    // TODO (jgosar): add props types
-    class Box extends React.Component<any> {
+    class Box extends React.Component<BoxProps> {
         render() {
             return (
-                <PositionedContainer position={(this.props as any).position}>
+                <PositionedContainer position={this.props.position}>
                     <div
                         className="jurassic-unix__box"
-                        onClick={(e) => (this.props as any).onClick(this.props, e as any)}
+                        onClick={(e) => this.props.onClick(this.props, e as any)}
                         style={{
-                            "--box-length": (this.props as any).width + SIZE_UNIT,
-                            "--box-width": (this.props as any).width + SIZE_UNIT,
-                            "--box-height": (this.props as any).height + SIZE_UNIT,
-                            "--hue": (this.props as any).hue,
+                            "--box-length": this.props.width + SIZE_UNIT,
+                            "--box-width": this.props.width + SIZE_UNIT,
+                            "--box-height": this.props.height + SIZE_UNIT,
+                            "--hue": this.props.hue,
                         } as any}
                     >
-                        {(this.props as any).children}
-                        <div className="jurassic-unix__box-side jurassic-unix__box-top">{(this.props as any).textContent}</div>
+                        {this.props.children}
+                        <div className="jurassic-unix__box-side jurassic-unix__box-top">{this.props.textContent}</div>
                         <div className="jurassic-unix__box-side jurassic-unix__box-back"></div>
                         <div className="jurassic-unix__box-side jurassic-unix__box-front"></div>
                         <div className="jurassic-unix__box-side jurassic-unix__box-right"></div>
                         <div className="jurassic-unix__box-side jurassic-unix__box-left"></div>
                         <div className="jurassic-unix__box-side jurassic-unix__box-bottom"></div>
-                        <div className="jurassic-unix__box-label">{(this.props as any).id}</div>
+                        <div className="jurassic-unix__box-label">{this.props.id}</div>
                     </div>
                 </PositionedContainer>
             );   
         }
     }
 
-    // TODO (jgosar): add props types
-    class PositionedContainer extends React.Component<any> {
+    class PositionedContainer extends React.Component<PositionedContainerProps> {
         render() {
-            const className = "jurassic-unix__three-d-container" + ((this.props as any).animated ? " jurassic-unix__animated" : "");
+            const className = "jurassic-unix__three-d-container" + (this.props.animated ? " jurassic-unix__animated" : "");
             return (
                 <div
                     className={className}
                     style={{
-                        transform: get3DRotation('x', (this.props as any).viewRotation||0) + get3DTranslation((this.props as any).position),
+                        transform: get3DRotation('x', this.props.viewRotation||0) + get3DTranslation((this.props as any).position),
                     }}
                 >{(this.props as any).children}</div>
             );
