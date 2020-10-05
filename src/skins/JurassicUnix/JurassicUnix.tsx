@@ -8,7 +8,7 @@ import {BoxData} from './types/box-data';
 import {
     getPerspectiveFor,
     isBrowserFirefox,
-    addPositions,
+    addCoordinates,
     get3DTranslation,
     get3DRotation
 } from './JurassicUnix.helpers';
@@ -16,6 +16,7 @@ import {PerspectiveType} from "./types/perspective-type";
 import {Perspective} from "./types/perspective";
 import {JurassicUnixState} from "./types/jurassic-unix-state";
 import {SceneContainerProps} from "./types/scene-container-props";
+import {BoxDataGroupProps} from "./types/box-data-group-props";
 
 export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
     const {basics, skills, work, education, references, projects, publications, languages} = props.profile;
@@ -78,7 +79,6 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
         { id: "box9" },
     ];
 
-    // TODO (jgosar): add props types and state
     class SceneContainer extends React.Component<SceneContainerProps, JurassicUnixState> {
         constructor(props: SceneContainerProps) {
             super(props);
@@ -153,17 +153,16 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
         }
     }
 
-    // TODO (jgosar): add props types
-    class BoxDataGroup extends React.Component<any> {
+    class BoxDataGroup extends React.Component<BoxDataGroupProps> {
         render() {
             const boxes: JSX.Element[] = [];
-            const boxCount = (this.props as any).data.length;
+            const boxCount = this.props.data.length;
             const boxesInWidth = Math.ceil(Math.sqrt(boxCount));
-            const boxSpace = (this.props as any).groupWidth / boxesInWidth;
+            const boxSpace = this.props.groupWidth / boxesInWidth;
             const boxWidth = (1 - 2 * BOX_MARGIN) * boxSpace;
             const boxHeight = boxWidth / 5;
 
-            (this.props as any).data.forEach((box: BoxData, index: number) => {
+            this.props.data.forEach((box: BoxData, index: number) => {
                 const xPos = index % boxesInWidth;
                 const zPos = Math.floor(index / boxesInWidth);
     
@@ -173,9 +172,9 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                     z: (zPos + BOX_MARGIN) * boxSpace,
                 };
     
-                const boxAbsolutePosition = addPositions(
+                const boxAbsolutePosition = addCoordinates(
                     boxPosition,
-                    (this.props as any).absolutePosition
+                    this.props.absolutePosition
                 );
     
                 const childGroup = box.children ? (
@@ -183,8 +182,8 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                         absolutePosition={boxAbsolutePosition}
                         data={box.children}
                         groupWidth={boxWidth}
-                        hue={(this.props as any).hue + HUE_INCREMENT}
-                        onClick={(this.props as any).onClick}
+                        hue={this.props.hue + HUE_INCREMENT}
+                        onClick={this.props.onClick}
                     />
                 ) : undefined;
     
@@ -194,11 +193,11 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                         absolutePosition={boxAbsolutePosition}
                         width={boxWidth}
                         height={boxHeight}
-                        hue={(this.props as any).hue}
+                        hue={this.props.hue}
                         id={box.id}
                         key={box.id}
                         textContent={box.textContent}
-                        onClick={(this.props as any).onClick}
+                        onClick={this.props.onClick}
                     >
                         {childGroup}
                     </Box>

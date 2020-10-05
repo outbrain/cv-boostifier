@@ -18,7 +18,7 @@ export function getPerspectiveFor(x: number, y: number, z: number, width: number
         offset= { x: 0, y: width*1.2, z: 0 };
     }
 
-    return {viewPoint:addPositions(objectTopCentre, offset), perspectiveType};
+    return {viewPoint:addCoordinates(objectTopCentre, offset), perspectiveType};
 }
 
 export function get3DTranslation(offset: Coordinates): string {
@@ -44,7 +44,7 @@ export function get3DRotation(direction: 'x'|'y'|'z', degrees: number): string {
     );
 }
 
-export function addPositions(position1: Coordinates, position2: Coordinates): Coordinates {
+export function addCoordinates(position1?: Coordinates, position2?: Coordinates): Coordinates {
     const pos1 = position1 || { x: 0, y: 0, z: 0 };
     const pos2 = position2 || { x: 0, y: 0, z: 0 };
 
