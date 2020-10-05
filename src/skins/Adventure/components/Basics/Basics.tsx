@@ -3,7 +3,7 @@ import {Basics} from "../../../../models";
 import {utils} from "../../utils/Utils";
 
 export function BasicsComponent(props: { data: Basics, screenSize: number, scrollLeft: number, scrollTop: number }) {
-  const MOUNTS_MOVEMENT_RATIO = -1;
+  const MOUNTS_MOVEMENT_RATIO = 0.1;
   const MOUNTS_STARTING_OFFSET = 0.9;
 
   return (

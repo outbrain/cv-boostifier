@@ -85,7 +85,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
           ) : (
             <div />
           )}
-          {/* {skills !== undefined ? <SkillsComponent data={skills} screenSize={screenSize} scrollLeft={scrollLeft} scrollTop={scrollTop}/> : <div/> } */}
+           {skills !== undefined ? <SkillsComponent data={skills} screenSize={screenSize} scrollLeft={scrollLeft} scrollTop={scrollTop}/> : <div/> }
           <section className="skills"></section>
           <section className="lvl-awards slide"></section>
           <section className="lvl-interests slide"></section>
