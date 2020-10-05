@@ -13,18 +13,20 @@ import {
     get3DRotation
 } from './JurassicUnix.helpers';
 import {PerspectiveType} from "./types/perspective-type";
+import {Perspective} from "./types/perspective";
+import {JurassicUnixState} from "./types/jurassic-unix-state";
+import {SceneContainerProps} from "./types/scene-container-props";
 
 export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
     const {basics, skills, work, education, references, projects, publications, languages} = props.profile;
 
     const SELECTED_THEME = THEME_DEPRESSING;
-    const DEFAULT_PERSPECTIVE_TYPE=PerspectiveType.SIDE_VIEW;
-    const DEFAULT_PERSPECTIVE = getPerspectiveFor(
+    const DEFAULT_PERSPECTIVE: Perspective = getPerspectiveFor(
         0,
         0,
         SCENE_WIDTH,
         SCENE_WIDTH,
-        DEFAULT_PERSPECTIVE_TYPE
+        PerspectiveType.SIDE_VIEW
     );
 
     // TODO (msuber): add mapping helper
@@ -77,12 +79,11 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
     ];
 
     // TODO (jgosar): add props types and state
-    class SceneContainer extends React.Component<any> {
-        constructor(props: any) {
+    class SceneContainer extends React.Component<SceneContainerProps, JurassicUnixState> {
+        constructor(props: SceneContainerProps) {
             super(props);
             this.state = {
                 perspective: { ...DEFAULT_PERSPECTIVE },
-                perspectiveType: DEFAULT_PERSPECTIVE_TYPE,
                 focusedBoxId: undefined,
             };
             this.handleClick = this.handleClick.bind(this);
@@ -105,16 +106,13 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                         boxProps.width,
                         perspectiveType
                     ),
-                    perspectiveType,
                     focusedBoxId: boxProps.id,
                 };
                 this.setState(newState)
             } else {
-                const perspectiveType: PerspectiveType = PerspectiveType.SIDE_VIEW;
                 // The clicked box was already focused, zoom out to wide view
                 const newState = {
-                    perspective: { ...DEFAULT_PERSPECTIVE, perspectiveType },
-                    perspectiveType,
+                    perspective: { ...DEFAULT_PERSPECTIVE },
                     focusedBoxId: undefined,
                 };
                 this.setState(newState)
@@ -127,8 +125,8 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                 <div className={"jurassic-unix__wrapper " + themeClass}>
                     <div className="jurassic-unix__three-d-container jurassic-unix__translated-to-screen-centre">
                         <PositionedContainer
-                            position={(this.state as any).perspective}
-                            viewRotation={(this.state as any).perspectiveType==PerspectiveType.SIDE_VIEW?-35:-90}
+                            position={(this.state as any).perspective.viewPoint}
+                            viewRotation={(this.state as any).perspective.perspectiveType==PerspectiveType.SIDE_VIEW?-35:-90}
                             animated={!isBrowserFirefox()}
                         >
                             <Box

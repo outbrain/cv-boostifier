@@ -1,8 +1,9 @@
 import {SIZE_UNIT} from "./JurassicUnix.constants";
 import {Coordinates} from './types/coordinates';
 import {PerspectiveType} from "./types/perspective-type";
+import {Perspective} from "./types/perspective";
 
-export function getPerspectiveFor(x: number, y: number, z: number, width: number, perspectiveType: PerspectiveType): Coordinates {
+export function getPerspectiveFor(x: number, y: number, z: number, width: number, perspectiveType: PerspectiveType): Perspective {
     // x, y, z: coordinates of the lower left corner of the object closest to the observer (with maximum z)
     // width: the width of the object we're looking at (size in direction x)
     // output: offset to which we need to move the view in order to see the object
@@ -17,7 +18,7 @@ export function getPerspectiveFor(x: number, y: number, z: number, width: number
         offset= { x: 0, y: width*1.2, z: 0 };
     }
 
-    return addPositions(objectTopCentre, offset);
+    return {viewPoint:addPositions(objectTopCentre, offset), perspectiveType};
 }
 
 export function get3DTranslation(offset: Coordinates): string {
