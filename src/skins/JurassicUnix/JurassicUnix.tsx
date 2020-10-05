@@ -212,6 +212,7 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
 
     class Box extends React.Component<BoxProps> {
         render() {
+            const boxTextDiv = this.props.textContent===undefined?undefined:<div className="jurassic-unix__box-text">{this.props.textContent}</div>;
             return (
                 <PositionedContainer position={this.props.position}>
                     <div
@@ -225,7 +226,9 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                         } as any}
                     >
                         {this.props.children}
-                        <div className="jurassic-unix__box-side jurassic-unix__box-top">{this.props.textContent}</div>
+                        <div className="jurassic-unix__box-side jurassic-unix__box-top">
+                            {boxTextDiv}
+                        </div>
                         <div className="jurassic-unix__box-side jurassic-unix__box-back"></div>
                         <div className="jurassic-unix__box-side jurassic-unix__box-front"></div>
                         <div className="jurassic-unix__box-side jurassic-unix__box-right"></div>

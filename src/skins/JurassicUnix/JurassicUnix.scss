@@ -122,6 +122,13 @@
   font-family: monospace;
 }
 
+.jurassic-unix__box-text{
+  width: 100%;
+  height: 100%;
+  padding: 10%;
+  font-size: calc(var(--box-length) / 40);
+}
+
 /*THEMES*/
 /*theme-depressing*/
 .jurassic-unix__wrapper.jurassic-unix__theme-depressing {
