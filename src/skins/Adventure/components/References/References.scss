@@ -1,0 +1,41 @@
+.lvl-references-background {
+    background-image: url("../../assets/City4/Sky.png");
+    background-size:contain;
+    width: 100vw;
+    z-index: 0;
+}
+.lvl-references-item {
+    position: absolute;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+}
+
+.lvl-references-road{
+    background-image: url("../../assets/City4/road.png");
+    z-index: 1;
+}
+.lvl-references-houses-1{
+    background-image: url("../../assets/City4/houses.png");
+    z-index: 2;
+}
+.lvl-references-houses-2{
+    background-image: url("../../assets/City4/houses1.png");
+    z-index: 4;
+}
+.lvl-references-houses-3{
+    background-image: url("../../assets/City4/houses2.png");
+    z-index: 3;
+}
+.lvl-references-fountain{
+    background-image: url("../../assets/City4/fountain&bush.png");
+    z-index: 5;
+}
+.lvl-references-decortions{
+    background-image: url("../../assets/City4/umbrella&policebox.png");
+    z-index: 6;
+}
+.lvl-references-data {
+    position: relative;
+    z-index: 7;
+}
