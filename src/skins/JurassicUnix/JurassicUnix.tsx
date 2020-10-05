@@ -80,10 +80,10 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
         { id: "box9" },
     ];
 
-    let state = {
-        perspective: { ...DEFAULT_PERSPECTIVE },
-        focusedBoxId: undefined,
-    };
+    // let state = {
+    //     perspective: { ...DEFAULT_PERSPECTIVE },
+    //     focusedBoxId: undefined,
+    // };
 
     function getPerspectiveFor(x: number, y: number, z: number, width: number): Coordinates {
         // x, y, z: coordinates of the lower left corner of the object closest to the observer (with maximum z)
@@ -123,13 +123,51 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
     }
 
     class SceneContainer extends React.Component {
+        constructor(props: any) {
+            super(props);
+            this.state = {
+                perspective: { ...DEFAULT_PERSPECTIVE },
+                focusedBoxId: undefined,
+            };
+            this.handleClick = this.handleClick.bind(this);
+        }
+
+        handleClick(boxProps: any, e: any) {
+            e.preventDefault();
+            e.stopPropagation();
+            if (
+                (this.state as any).focusedBoxId === undefined ||
+                (this.state as any).focusedBoxId !== boxProps.id
+            ) {
+                // Focus on the clicked box
+                const newState = {
+                    perspective: getPerspectiveFor(
+                        boxProps.absolutePosition.x,
+                        boxProps.absolutePosition.y,
+                        boxProps.absolutePosition.z + boxProps.width,
+                        boxProps.width
+                    ),
+                    focusedBoxId: boxProps.id,
+                };
+                this.setState(newState)
+            } else {
+                // The clicked box was already focused, zoom out to wide view
+                const newState = {
+                    perspective: { ...DEFAULT_PERSPECTIVE },
+                    focusedBoxId: undefined,
+                };
+                this.setState(newState)
+            }
+            //renderScene();
+        }
+
         render() {
             const themeClass = SELECTED_THEME.name;
             return (
                 <div className={"jurassic-unix__wrapper " + themeClass}>
                     <div className="jurassic-unix__three-d-container jurassic-unix__translated-to-screen-centre">
                         <PositionedContainer
-                            position={state.perspective}
+                            position={(this.state as any).perspective}
                             animated={!isBrowserFirefox()}
                         >
                             <Box
@@ -139,12 +177,13 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                                 height={SCENE_WIDTH / 5}
                                 hue={SELECTED_THEME.baseHue}
                                 id={"base"}
-                                key={"base"}
+                                key={"base"}                                
                             >
                                 <BoxDataGroup
                                     data={BOX_STRUCTURE}
                                     groupWidth={SCENE_WIDTH}
                                     hue={SELECTED_THEME.baseHue + SELECTED_THEME.hueIncrement}
+                                    onClick={this.handleClick}
                                 />
                             </Box>
                         </PositionedContainer>
@@ -184,6 +223,7 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                     data={box.children}
                     groupWidth={boxWidth}
                     hue={props.hue + HUE_INCREMENT}
+                    onClick={props.onClick}
                 />
             ) : undefined;
 
@@ -196,6 +236,7 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                     hue={props.hue}
                     id={box.id}
                     key={box.id}
+                    onClick={props.onClick}
                 >
                     {childGroup}
                 </Box>
@@ -225,7 +266,7 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
             <PositionedContainer position={props.position}>
                 <div
                     className="jurassic-unix__box"
-                    onClick={(e) => handleClick(props, e as any)}
+                    onClick={(e) => props.onClick(props, e as any)}
                     style={{
                         "--box-length": props.width + SIZE_UNIT,
                         "--box-width": props.width + SIZE_UNIT,
@@ -246,36 +287,63 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
         );
     }
 
-    function handleClick(boxProps: any, e: any) {
-        e.preventDefault();
-        e.stopPropagation();
-        if (
-            state.focusedBoxId === undefined ||
-            state.focusedBoxId !== boxProps.id
-        ) {
-            // Focus on the clicked box
-            state = {
-                perspective: getPerspectiveFor(
-                    boxProps.absolutePosition.x,
-                    boxProps.absolutePosition.y,
-                    boxProps.absolutePosition.z + boxProps.width,
-                    boxProps.width
-                ),
-                focusedBoxId: boxProps.id,
-            };
-        } else {
-            // The clicked box was already focused, zoom out to wide view
-            state = {
-                perspective: { ...DEFAULT_PERSPECTIVE },
-                focusedBoxId: undefined,
-            };
-        }
-        //renderScene();
-    }
+    // function handleClick(boxProps: any, e: any) {
+    //     e.preventDefault();
+    //     e.stopPropagation();
+    //     if (
+    //         state.focusedBoxId === undefined ||
+    //         state.focusedBoxId !== boxProps.id
+    //     ) {
+    //         // Focus on the clicked box
+    //         state = {
+    //             perspective: getPerspectiveFor(
+    //                 boxProps.absolutePosition.x,
+    //                 boxProps.absolutePosition.y,
+    //                 boxProps.absolutePosition.z + boxProps.width,
+    //                 boxProps.width
+    //             ),
+    //             focusedBoxId: boxProps.id,
+    //         };
+    //     } else {
+    //         // The clicked box was already focused, zoom out to wide view
+    //         state = {
+    //             perspective: { ...DEFAULT_PERSPECTIVE },
+    //             focusedBoxId: undefined,
+    //         };
+    //     }
+    //     //renderScene();
+    // }
 
     /*function renderScene() {
         ReactDOM.render(<SceneContainer />, document.getElementById("root"));
     }*/
+
+    // class TestComponent extends React.Component {
+    //     constructor(props: any) {
+    //         super(props);
+    //         this.state = { value: '' };
+    //     }
+
+    //     handleChange = (event: any) => {
+    //         this.setState({ value: event.target.value });
+    //     };
+
+    //     render() {
+    //         return (
+    //           <form>
+    //             <label>
+    //               Name:
+    //               <input
+    //                 type="text"
+    //                 value={(this.state as any).value}
+    //                 onChange={this.handleChange}
+    //               />
+    //             </label>
+    //             <input type="submit" value="Submit" />
+    //           </form>
+    //         );
+    //     }
+    // }
 
     return (
         <SceneContainer />
