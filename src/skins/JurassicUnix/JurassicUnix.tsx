@@ -122,7 +122,8 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                                 height={SCENE_WIDTH / 5}
                                 hue={SELECTED_THEME.baseHue}
                                 id={"base"}
-                                key={"base"}                                
+                                key={"base"}
+                                onClick={this.handleClick}
                             >
                                 <BoxDataGroup
                                     data={BOX_STRUCTURE}
