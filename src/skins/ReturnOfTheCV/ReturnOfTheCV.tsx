@@ -2,10 +2,12 @@ import React, {PropsWithChildren} from 'react';
 import './ReturnOfTheCV.scss';
 import {IProfileProps} from '../../models';
 
-export function Basic(props: PropsWithChildren<IProfileProps>) {
+export function ReturnOfTheCV(props: PropsWithChildren<IProfileProps>) {
   const {basics, skills, work, education, references, projects, publications, languages} = props.profile;
   
   return (
-    <div>Hello world</div>
+    <>
+      <div>Hello world</div>
+    </>
   );
 }
