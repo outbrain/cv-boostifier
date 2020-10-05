@@ -1,11 +1,22 @@
 import {SIZE_UNIT} from "./JurassicUnix.constants";
 import {Coordinates} from './types/coordinates';
 
-export function getPerspectiveFor(x: number, y: number, z: number, width: number): Coordinates {
+export function getPerspectiveFor(x: number, y: number, z: number, width: number, viewRotation: number): Coordinates {
     // x, y, z: coordinates of the lower left corner of the object closest to the observer (with maximum z)
     // width: the width of the object we're looking at (size in direction x)
     // output: offset to which we need to move the view in order to see the object
-    return { x: -width / 2 - x, y: width / 2.5 - y, z: -width / 3.5 - z };
+
+    // First we determine where the centre of the object's top side is (For the sake of simplicity we assume the object's width equals its length)
+    const objectTopCentre: Coordinates = { x: -width*0.5 - x, y: -y, z: width*0.5 - z };
+    let offset: Coordinates;
+
+    if(viewRotation===-35){
+        offset= { x: 0, y: width*0.4, z: -width*0.8 };
+    } else{
+        offset= { x: 0, y: width*1.2, z: 0 };
+    }
+
+    return addPositions(objectTopCentre, offset);
 }
 
 export function get3DTranslation(offset: Coordinates): string {
@@ -20,6 +31,14 @@ export function get3DTranslation(offset: Coordinates): string {
         offset.z +
         SIZE_UNIT +
         ")"
+    );
+}
+
+export function get3DRotation(direction: 'x'|'y'|'z', degrees: number): string {
+    return (
+        "rotate"+direction.toUpperCase()+"(" +
+        degrees+
+        "deg)"
     );
 }
 

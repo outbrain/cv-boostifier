@@ -43,7 +43,7 @@
 }
 
 .jurassic-unix__translated-to-screen-centre {
-  transform: translate3d(50vw, 50vh, var(--perspective)) rotateX(-35deg);
+  transform: translate3d(50vw, 50vh, var(--perspective));
   position: absolute;
   z-index: 1;
 }

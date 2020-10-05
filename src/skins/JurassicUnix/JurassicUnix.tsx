@@ -5,19 +5,27 @@ import {IProfileProps} from '../../models';
 import {THEME_DEPRESSING} from './JurassicUnix.config';
 import {BOX_MARGIN, HUE_INCREMENT, SCENE_WIDTH, SIZE_UNIT} from './JurassicUnix.constants';
 import {BoxProps} from './types/box-props';
-import {getPerspectiveFor, isBrowserFirefox, addPositions, get3DTranslation} from './JurassicUnix.helpers';
+import {
+    getPerspectiveFor,
+    isBrowserFirefox,
+    addPositions,
+    get3DTranslation,
+    get3DRotation
+} from './JurassicUnix.helpers';
 
 export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
     const {basics, skills, work, education, references, projects, publications, languages} = props.profile;
 
     const SELECTED_THEME = THEME_DEPRESSING;
+    const DEFAULT_ROTATION=-35;
     const DEFAULT_PERSPECTIVE = getPerspectiveFor(
         0,
         0,
         SCENE_WIDTH,
-        SCENE_WIDTH
+        SCENE_WIDTH,
+        DEFAULT_ROTATION
     );
-    
+
     // TODO (msuber): add mapping helper
     const BOX_STRUCTURE: BoxProps[] = [
         { id: "box0" },
@@ -50,7 +58,7 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                     id: "box21",
                     children: [
                         { id: "box210" },
-                        { id: "box211" },
+                        { id: "box211", textContent: "This is a test" },
                         { id: "box212" },
                         { id: "box213" },
                         { id: "box214" },
@@ -73,6 +81,7 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
             super(props);
             this.state = {
                 perspective: { ...DEFAULT_PERSPECTIVE },
+                viewRotation: DEFAULT_ROTATION,
                 focusedBoxId: undefined,
             };
             this.handleClick = this.handleClick.bind(this);
@@ -85,21 +94,26 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                 (this.state as any).focusedBoxId === undefined ||
                 (this.state as any).focusedBoxId !== boxProps.id
             ) {
+                const viewRotation: number = boxProps.textContent===undefined?-35:-90;
                 // Focus on the clicked box
                 const newState = {
                     perspective: getPerspectiveFor(
                         boxProps.absolutePosition.x,
                         boxProps.absolutePosition.y,
                         boxProps.absolutePosition.z + boxProps.width,
-                        boxProps.width
+                        boxProps.width,
+                        viewRotation
                     ),
+                    viewRotation,
                     focusedBoxId: boxProps.id,
                 };
                 this.setState(newState)
             } else {
+                const viewRotation: number = -35;
                 // The clicked box was already focused, zoom out to wide view
                 const newState = {
-                    perspective: { ...DEFAULT_PERSPECTIVE },
+                    perspective: { ...DEFAULT_PERSPECTIVE, viewRotation },
+                    viewRotation,
                     focusedBoxId: undefined,
                 };
                 this.setState(newState)
@@ -113,6 +127,7 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                     <div className="jurassic-unix__three-d-container jurassic-unix__translated-to-screen-centre">
                         <PositionedContainer
                             position={(this.state as any).perspective}
+                            viewRotation={(this.state as any).viewRotation}
                             animated={!isBrowserFirefox()}
                         >
                             <Box
@@ -194,6 +209,7 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                         hue={(this.props as any).hue}
                         id={box.id}
                         key={box.id}
+                        textContent={box.textContent}
                         onClick={(this.props as any).onClick}
                     >
                         {childGroup}
@@ -225,7 +241,7 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                         } as any}
                     >
                         {(this.props as any).children}
-                        <div className="jurassic-unix__box-side jurassic-unix__box-top"></div>
+                        <div className="jurassic-unix__box-side jurassic-unix__box-top">{(this.props as any).textContent}</div>
                         <div className="jurassic-unix__box-side jurassic-unix__box-back"></div>
                         <div className="jurassic-unix__box-side jurassic-unix__box-front"></div>
                         <div className="jurassic-unix__box-side jurassic-unix__box-right"></div>
@@ -252,7 +268,7 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                 <div
                     className={this.className}
                     style={{
-                        transform: get3DTranslation((this.props as any).position),
+                        transform: get3DRotation('x', (this.props as any).viewRotation||0) + get3DTranslation((this.props as any).position),
                     }}
                 >{(this.props as any).children}</div>
             );
