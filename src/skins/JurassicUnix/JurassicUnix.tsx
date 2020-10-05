@@ -1,37 +1,24 @@
-import React, {PropsWithChildren} from 'react';
 import './JurassicUnix.scss';
+
+import React, {PropsWithChildren} from 'react';
 import {IProfileProps} from '../../models';
+import {THEME_DEPRESSING} from './JurassicUnix.config';
+import {BOX_MARGIN, HUE_INCREMENT, SCENE_WIDTH, SIZE_UNIT} from './JurassicUnix.constants';
+import {BoxProps} from './types/box-props';
+import {getPerspectiveFor, isBrowserFirefox, addPositions, get3DTranslation} from './JurassicUnix.helpers';
 
 export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
     const {basics, skills, work, education, references, projects, publications, languages} = props.profile;
 
-    interface Coordinates{
-        x: number, y: number, z: number
-    }
-
-    interface BoxProps{
-        id: string,
-        children?: BoxProps[]
-    }
-
-    const THEME_NICE = { name: "jurassic-unix__theme-nice", baseHue: 200, hueIncrement: 90 };
-    const THEME_DEPRESSING = {
-        name: "jurassic-unix__theme-depressing",
-        baseHue: 340,
-        hueIncrement: -130,
-    };
     const SELECTED_THEME = THEME_DEPRESSING;
-    const SIZE_UNIT = "vw";
-    const SCENE_WIDTH = 1000;
     const DEFAULT_PERSPECTIVE = getPerspectiveFor(
         0,
         0,
         SCENE_WIDTH,
         SCENE_WIDTH
     );
-    const BASE_HUE = 340;
-    const HUE_INCREMENT = -130;
-    const BOX_MARGIN = 0.2; // How much extra space there is around each box
+    
+    // TODO (msuber): add mapping helper
     const BOX_STRUCTURE: BoxProps[] = [
         { id: "box0" },
         {
@@ -80,49 +67,8 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
         { id: "box9" },
     ];
 
-    // let state = {
-    //     perspective: { ...DEFAULT_PERSPECTIVE },
-    //     focusedBoxId: undefined,
-    // };
-
-    function getPerspectiveFor(x: number, y: number, z: number, width: number): Coordinates {
-        // x, y, z: coordinates of the lower left corner of the object closest to the observer (with maximum z)
-        // width: the width of the object we're looking at (size in direction x)
-        // output: offset to which we need to move the view in order to see the object
-        return { x: -width / 2 - x, y: width / 2.5 - y, z: -width / 3.5 - z };
-    }
-
-    function get3DTranslation(offset: Coordinates): string {
-        return (
-            "translate3d(" +
-            offset.x +
-            SIZE_UNIT +
-            ", " +
-            offset.y +
-            SIZE_UNIT +
-            ", " +
-            offset.z +
-            SIZE_UNIT +
-            ")"
-        );
-    }
-
-    function addPositions(position1: Coordinates, position2: Coordinates): Coordinates {
-        const pos1 = position1 || { x: 0, y: 0, z: 0 };
-        const pos2 = position2 || { x: 0, y: 0, z: 0 };
-
-        return {
-            x: pos1.x + pos2.x,
-            y: pos1.y + pos2.y,
-            z: pos1.z + pos2.z,
-        };
-    }
-
-    function isBrowserFirefox() {
-        return navigator.userAgent.includes("Firefox");
-    }
-
-    class SceneContainer extends React.Component {
+    // TODO (jgosar): add props types and state
+    class SceneContainer extends React.Component<any> {
         constructor(props: any) {
             super(props);
             this.state = {
@@ -158,7 +104,6 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                 };
                 this.setState(newState)
             }
-            //renderScene();
         }
 
         render() {
@@ -193,157 +138,125 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
         }
     }
 
-    function BoxDataGroup(props: any): JSX.Element {
-        const boxes: JSX.Element[] = [];
-        const boxCount = props.data.length;
-        const boxesInWidth = Math.ceil(Math.sqrt(boxCount));
-        const boxSpace = props.groupWidth / boxesInWidth;
+    // TODO (jgosar): add props types
+    class BoxDataGroup extends React.Component<any> {
+        private boxes: JSX.Element[];
+        private boxCount: number;
+        private boxesInWidth: number;
+        private boxSpace: number;
+        private boxWidth: number;
+        private boxHeight: number;
 
-        const boxWidth = (1 - 2 * BOX_MARGIN) * boxSpace;
-        const boxHeight = boxWidth / 5;
+        constructor(props: any) {
+            super(props);
+            
+            this.boxes = [];
+            this.boxCount = (this.props as any).data.length;
+            this.boxesInWidth = Math.ceil(Math.sqrt(this.boxCount));
+            this.boxSpace = (this.props as any).groupWidth / this.boxesInWidth;
+            this.boxWidth = (1 - 2 * BOX_MARGIN) * this.boxSpace;
+            this.boxHeight = this.boxWidth / 5;
+        }
 
-        props.data.forEach((box: BoxProps, index: number) => {
-            const xPos = index % boxesInWidth;
-            const zPos = Math.floor(index / boxesInWidth);
-
-            const boxPosition = {
-                x: (xPos + BOX_MARGIN) * boxSpace,
-                y: 0 - boxHeight,
-                z: (zPos + BOX_MARGIN) * boxSpace,
-            };
-
-            const boxAbsolutePosition = addPositions(
-                boxPosition,
-                props.absolutePosition
-            );
-
-            const childGroup = box.children ? (
-                <BoxDataGroup
-                    absolutePosition={boxAbsolutePosition}
-                    data={box.children}
-                    groupWidth={boxWidth}
-                    hue={props.hue + HUE_INCREMENT}
-                    onClick={props.onClick}
-                />
-            ) : undefined;
-
-            boxes.push(
-                <Box
-                    position={boxPosition}
-                    absolutePosition={boxAbsolutePosition}
-                    width={boxWidth}
-                    height={boxHeight}
-                    hue={props.hue}
-                    id={box.id}
-                    key={box.id}
-                    onClick={props.onClick}
-                >
-                    {childGroup}
-                </Box>
-            );
-        });
-
-        return <>{boxes}</>;
+        render() {
+            (this.props as any).data.forEach((box: BoxProps, index: number) => {
+                const xPos = index % this.boxesInWidth;
+                const zPos = Math.floor(index / this.boxesInWidth);
+    
+                const boxPosition = {
+                    x: (xPos + BOX_MARGIN) * this.boxSpace,
+                    y: 0 - this.boxHeight,
+                    z: (zPos + BOX_MARGIN) * this.boxSpace,
+                };
+    
+                const boxAbsolutePosition = addPositions(
+                    boxPosition,
+                    (this.props as any).absolutePosition
+                );
+    
+                const childGroup = box.children ? (
+                    <BoxDataGroup
+                        absolutePosition={boxAbsolutePosition}
+                        data={box.children}
+                        groupWidth={this.boxWidth}
+                        hue={(this.props as any).hue + HUE_INCREMENT}
+                        onClick={(this.props as any).onClick}
+                    />
+                ) : undefined;
+    
+                this.boxes.push(
+                    <Box
+                        position={boxPosition}
+                        absolutePosition={boxAbsolutePosition}
+                        width={this.boxWidth}
+                        height={this.boxHeight}
+                        hue={(this.props as any).hue}
+                        id={box.id}
+                        key={box.id}
+                        onClick={(this.props as any).onClick}
+                    >
+                        {childGroup}
+                    </Box>
+                );
+            });
+    
+            return <>{this.boxes}</>;
+        }
     }
 
-    function PositionedContainer(props: any): JSX.Element {
-        const className =
-            "jurassic-unix__three-d-container" + (props.animated ? " jurassic-unix__animated" : "");
-        return (
-            <div
-                className={className}
-                style={{
-                    transform: get3DTranslation(props.position),
-                }}
-            >
-                {props.children}
-            </div>
-        );
+    // TODO (jgosar): add props types
+    class Box extends React.Component<any> {
+        constructor(props: any) {
+            super(props);
+        }
+
+        render() {
+            return (
+                <PositionedContainer position={(this.props as any).position}>
+                    <div
+                        className="jurassic-unix__box"
+                        onClick={(e) => (this.props as any).onClick(this.props, e as any)}
+                        style={{
+                            "--box-length": (this.props as any).width + SIZE_UNIT,
+                            "--box-width": (this.props as any).width + SIZE_UNIT,
+                            "--box-height": (this.props as any).height + SIZE_UNIT,
+                            "--hue": (this.props as any).hue,
+                        } as any}
+                    >
+                        {(this.props as any).children}
+                        <div className="jurassic-unix__box-side jurassic-unix__box-top"></div>
+                        <div className="jurassic-unix__box-side jurassic-unix__box-back"></div>
+                        <div className="jurassic-unix__box-side jurassic-unix__box-front"></div>
+                        <div className="jurassic-unix__box-side jurassic-unix__box-right"></div>
+                        <div className="jurassic-unix__box-side jurassic-unix__box-left"></div>
+                        <div className="jurassic-unix__box-side jurassic-unix__box-bottom"></div>
+                        <div className="jurassic-unix__box-label">{(this.props as any).id}</div>
+                    </div>
+                </PositionedContainer>
+            );   
+        }
     }
 
-    function Box(props: any): JSX.Element {
-        return (
-            <PositionedContainer position={props.position}>
+    // TODO (jgosar): add props types
+    class PositionedContainer extends React.Component<any> {
+        private className: string;
+
+        constructor(props: any) {
+            super(props);
+            this.className = "jurassic-unix__three-d-container" + ((this.props as any).animated ? " jurassic-unix__animated" : "");
+        }
+
+        render() {
+            return (
                 <div
-                    className="jurassic-unix__box"
-                    onClick={(e) => props.onClick(props, e as any)}
+                    className={this.className}
                     style={{
-                        "--box-length": props.width + SIZE_UNIT,
-                        "--box-width": props.width + SIZE_UNIT,
-                        "--box-height": props.height + SIZE_UNIT,
-                        "--hue": props.hue,
-                    } as any}
-                >
-                    {props.children}
-                    <div className="jurassic-unix__box-side jurassic-unix__box-top"></div>
-                    <div className="jurassic-unix__box-side jurassic-unix__box-back"></div>
-                    <div className="jurassic-unix__box-side jurassic-unix__box-front"></div>
-                    <div className="jurassic-unix__box-side jurassic-unix__box-right"></div>
-                    <div className="jurassic-unix__box-side jurassic-unix__box-left"></div>
-                    <div className="jurassic-unix__box-side jurassic-unix__box-bottom"></div>
-                    <div className="jurassic-unix__box-label">{props.id}</div>
-                </div>
-            </PositionedContainer>
-        );
+                        transform: get3DTranslation((this.props as any).position),
+                    }}
+                >{(this.props as any).children}</div>
+            );
+        }
     }
-
-    // function handleClick(boxProps: any, e: any) {
-    //     e.preventDefault();
-    //     e.stopPropagation();
-    //     if (
-    //         state.focusedBoxId === undefined ||
-    //         state.focusedBoxId !== boxProps.id
-    //     ) {
-    //         // Focus on the clicked box
-    //         state = {
-    //             perspective: getPerspectiveFor(
-    //                 boxProps.absolutePosition.x,
-    //                 boxProps.absolutePosition.y,
-    //                 boxProps.absolutePosition.z + boxProps.width,
-    //                 boxProps.width
-    //             ),
-    //             focusedBoxId: boxProps.id,
-    //         };
-    //     } else {
-    //         // The clicked box was already focused, zoom out to wide view
-    //         state = {
-    //             perspective: { ...DEFAULT_PERSPECTIVE },
-    //             focusedBoxId: undefined,
-    //         };
-    //     }
-    //     //renderScene();
-    // }
-
-    /*function renderScene() {
-        ReactDOM.render(<SceneContainer />, document.getElementById("root"));
-    }*/
-
-    // class TestComponent extends React.Component {
-    //     constructor(props: any) {
-    //         super(props);
-    //         this.state = { value: '' };
-    //     }
-
-    //     handleChange = (event: any) => {
-    //         this.setState({ value: event.target.value });
-    //     };
-
-    //     render() {
-    //         return (
-    //           <form>
-    //             <label>
-    //               Name:
-    //               <input
-    //                 type="text"
-    //                 value={(this.state as any).value}
-    //                 onChange={this.handleChange}
-    //               />
-    //             </label>
-    //             <input type="submit" value="Submit" />
-    //           </form>
-    //         );
-    //     }
-    // }
 
     return (
         <SceneContainer />
