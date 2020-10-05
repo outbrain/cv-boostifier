@@ -4,7 +4,7 @@ import React, {PropsWithChildren} from 'react';
 import {IProfileProps} from '../../models';
 import {THEME_DEPRESSING} from './JurassicUnix.config';
 import {BOX_MARGIN, HUE_INCREMENT, SCENE_WIDTH, SIZE_UNIT} from './JurassicUnix.constants';
-import {BoxProps} from './types/box-props';
+import {BoxData} from './types/box-data';
 import {
     getPerspectiveFor,
     isBrowserFirefox,
@@ -28,7 +28,7 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
     );
 
     // TODO (msuber): add mapping helper
-    const BOX_STRUCTURE: BoxProps[] = [
+    const BOX_STRUCTURE: BoxData[] = [
         { id: "box0" },
         {
             id: "box1",
@@ -165,7 +165,7 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
             const boxWidth = (1 - 2 * BOX_MARGIN) * boxSpace;
             const boxHeight = boxWidth / 5;
 
-            (this.props as any).data.forEach((box: BoxProps, index: number) => {
+            (this.props as any).data.forEach((box: BoxData, index: number) => {
                 const xPos = index % boxesInWidth;
                 const zPos = Math.floor(index / boxesInWidth);
     
