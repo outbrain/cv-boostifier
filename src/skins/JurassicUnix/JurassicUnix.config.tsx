@@ -4,8 +4,8 @@ export const THEME_NICE = {
     hueIncrement: 90,
 };
 
-export const THEME_DEPRESSING = {
-    name: "jurassic-unix__theme-depressing",
+export const THEME_MOVIE = {
+    name: "jurassic-unix__theme-movie",
     baseHue: 340,
     hueIncrement: -130,
 };

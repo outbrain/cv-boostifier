@@ -48,6 +48,12 @@
   z-index: 1;
 }
 
+.skin-preview .jurassic-unix__translated-to-screen-centre {
+  //Fixed screen centering in skin preview mode
+  //Offset=(skins div width (300px) + skin-preview div margin (2*30px) + skin-preview div border (2*2px))/2
+  transform: translate3d(calc(50vw - 182px), 50vh, var(--perspective));
+}
+
 .jurassic-unix__box-back {
   width: var(--box-width);
   height: var(--box-height);
@@ -111,7 +117,7 @@
   bottom: 0;
   left: 0;
   width: var(--box-width);
-  height: calc(var(--box-length) / 3);
+  height: calc(var(--box-length) / 6);
   font-size: calc(var(--box-length) / 6);
   transform: translate3d(
                   0px,
@@ -130,8 +136,8 @@
 }
 
 /*THEMES*/
-/*theme-depressing*/
-.jurassic-unix__wrapper.jurassic-unix__theme-depressing {
+/*theme-movie*/
+.jurassic-unix__wrapper.jurassic-unix__theme-movie {
   background: linear-gradient(
                   180deg,
                   rgba(0, 0, 0, 1) 0%,
@@ -142,27 +148,27 @@
   --saturation: 40%;
 }
 
-.jurassic-unix__theme-depressing .jurassic-unix__box-back {
+.jurassic-unix__theme-movie .jurassic-unix__box-back {
   background-color: hsl(var(--hue), var(--saturation), 0%);
 }
 
-.jurassic-unix__theme-depressing .jurassic-unix__box-front {
+.jurassic-unix__theme-movie .jurassic-unix__box-front {
   background-color: hsl(var(--hue), var(--saturation), 50%);
 }
 
-.jurassic-unix__theme-depressing .jurassic-unix__box-left {
+.jurassic-unix__theme-movie .jurassic-unix__box-left {
   background-color: hsl(var(--hue), var(--saturation), 30%);
 }
 
-.jurassic-unix__theme-depressing .jurassic-unix__box-right {
+.jurassic-unix__theme-movie .jurassic-unix__box-right {
   background-color: hsl(var(--hue), var(--saturation), 20%);
 }
 
-.jurassic-unix__theme-depressing .jurassic-unix__box-top {
+.jurassic-unix__theme-movie .jurassic-unix__box-top {
   background-color: hsl(var(--hue), var(--saturation), 40%);
 }
 
-.jurassic-unix__theme-depressing .jurassic-unix__box-bottom {
+.jurassic-unix__theme-movie .jurassic-unix__box-bottom {
   background-color: hsl(var(--hue), var(--saturation), 10%);
 }
 

@@ -2,7 +2,7 @@ import './JurassicUnix.scss';
 
 import React, {PropsWithChildren} from 'react';
 import {IProfileProps} from '../../models';
-import {THEME_DEPRESSING} from './JurassicUnix.config';
+import {THEME_MOVIE} from './JurassicUnix.config';
 import {BOX_MARGIN, HUE_INCREMENT, SCENE_WIDTH, SIZE_UNIT} from './JurassicUnix.constants';
 import {BoxData} from './types/box-data';
 import {
@@ -23,7 +23,7 @@ import {PositionedContainerProps} from "./types/positioned-container-props";
 
 
 export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
-    const SELECTED_THEME = THEME_DEPRESSING;
+    const SELECTED_THEME = THEME_MOVIE;
     const DEFAULT_PERSPECTIVE: Perspective = getPerspectiveFor(
         0,
         0,
@@ -81,7 +81,7 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                     <div className="jurassic-unix__three-d-container jurassic-unix__translated-to-screen-centre">
                         <PositionedContainer
                             position={this.state.perspective.viewPoint}
-                            viewRotation={this.state.perspective.perspectiveType==PerspectiveType.SIDE_VIEW?-35:-90}
+                            viewRotation={this.state.perspective.perspectiveType===PerspectiveType.SIDE_VIEW?-35:-90}
                             animated={!isBrowserFirefox()}
                         >
                             <Box
