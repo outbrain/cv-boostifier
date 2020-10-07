@@ -6,73 +6,86 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
   const {basics, skills, work, education, references, projects, publications, languages} = props.profile;
   
   return (
-    <div className="basic-skin">
-      <aside>
-        <header>
-          {
-            basics?.picture &&
-            <img src={basics?.picture} alt={basics?.name} />
-          }
-          <h1>{basics?.name}</h1>
-          <h4>{basics?.label}</h4>
-        </header>
-        <section>
-          <h3>Details</h3>
-          <p>
+    <div className="comics-skin">
+      <div className="basics-info">
+        <img src={require(`./images/comix-woman.png`)} alt={basics?.name} />
+        <aside className="basics-content">
+          <header>
             {
-              basics?.location?.address &&
-              `${basics?.location?.address}, `
+              basics?.picture &&
+              <img src={basics?.picture} alt={basics?.name} />
             }
-            {
-              basics?.location?.city &&
-              `${basics?.location?.city}, `
-            }
-            {
-              basics?.location?.countryCode &&
-              basics?.location?.countryCode
-            }
-          </p>
-          <p>{basics?.phone}</p>
-          <p><a href={`mailto:${basics?.email}`}>{basics?.email}</a></p>
-        </section>
-        <section>
-          <h3>Links</h3>
-          <div className="links">
-            {
-              basics?.url &&
-              <p>
-                <label>Website:</label>
-                <span>{basics?.url}</span>
-              </p>
-            }
-            {
-              (basics?.profiles || []).map((profile, ix) => {
-                return (
-                  <p key={ix}>
-                    <label>{profile.network}:</label>
-                    <span><a href={profile.url}>{profile.username || profile.url}</a></span>
-                  </p>
-                );
-              })
-            }
-          </div>
-        </section>
-        {
-          (skills || []).length > 0 &&
-          <section>
-            <h3>Skills</h3>
-            <div className="skills">
+            <h1 className="name">{basics?.name}</h1>
+            <h4>{basics?.label}</h4>
+          </header>
+          <main>
+            <div className="personal">
+              <section className="details">
+                <h3>Details</h3>
+                <p>
+                  {
+                    basics?.location?.address &&
+                    `${basics?.location?.address}, `
+                  }
+                  {
+                    basics?.location?.city &&
+                    `${basics?.location?.city}, `
+                  }
+                  {
+                    basics?.location?.countryCode &&
+                    basics?.location?.countryCode
+                  }
+                </p>
+                <p>{basics?.phone}</p>
+                <p><a href={`mailto:${basics?.email}`}>{basics?.email}</a></p>
+              </section>
+              <section className="links">
+                <h3>Links</h3>
+                <div className="links">
+                  {
+                    basics?.url &&
+                    <p>
+                      <label>Website:</label>
+                      <span>{basics?.url}</span>
+                    </p>
+                  }
+                  {
+                    (basics?.profiles || []).map((profile, ix) => {
+                      return (
+                        <p key={ix}>
+                          <label>{profile.network}:</label>
+                          <span><a href={profile.url}>{profile.username || profile.url}</a></span>
+                        </p>
+                      );
+                    })
+                  }
+                </div>
+              </section>
+            </div>
+            {/*<img src={require(`./images/bubble.png`)} alt={basics?.name} />*/}
+
+            <div className="skills-list">
+
               {
-                (skills || []).map((skill) => {
-                  return (
-                    <span key={skill.name}>{skill.name}</span>
-                  )
-                })
+                (skills || []).length > 0 &&
+                <section>
+                  <h3>Skills</h3>
+                  <div className="skills">
+                    {
+                      (skills || []).map((skill) => {
+                        return (
+                          <span key={skill.name}>{skill.name}</span>
+                        )
+                      })
+                    }
+                  </div>
+                </section>
               }
             </div>
-          </section>
-        }
-      </aside>
+          </main>
+        </aside>
+      </div>
+
       <main>
         {
           basics?.summary &&
