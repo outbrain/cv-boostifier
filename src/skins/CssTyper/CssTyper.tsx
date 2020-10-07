@@ -57,7 +57,7 @@ export function CssTyper(props: PropsWithChildren<IProfileProps>) {
                                                     </div>
                                                     <div className="work-details">
                                                       <div className="position">{w.position}</div>
-                                                      <div className="website"><a href={w.url || (w as any).website}>{w.url || (w as any).website}</a></div>
+                                                      <div className="website"><a href={(w as any).url || w.website}>{(w as any).url || w.website}</a></div>
                                                     </div>
                                                     {w.summary && <div className="summary"><p>{w.summary}</p></div>}
                                                     {w.highlights && !!w.highlights.length && <div className="work-highlights">

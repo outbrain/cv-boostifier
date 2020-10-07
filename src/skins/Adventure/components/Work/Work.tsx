@@ -18,12 +18,15 @@ export function WorkComponent(props: {
       <div key={index} className="sky slide">
         <div className="company-description">
           <div className="dates">
-            {work?.startDate} - {work?.endDate || "Present"}
+            {utils.formatDate(work?.startDate)} -{" "}
+            {utils.formatDate(work?.endDate) || "Present"}
           </div>
           <div className="name">
             {work?.position} @ {work?.company}
             <div className="website">
-              <a href={work?.url}>{work?.url}</a>
+              <a href={work?.website} target="_blank" rel="noopener noreferrer">
+                {work?.website}
+              </a>
             </div>
           </div>
           <div className="summary">{work?.summary}</div>

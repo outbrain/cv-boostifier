@@ -24,19 +24,20 @@ export function SkillsComponent(props: { data: Skill[], screenSize: number, scro
         <div className="sky">
           <div className="clouds2"></div>
         </div>
-        <div className="heading skills">
-          <h1>Skills</h1>
-        </div>
-        <div className="heading skills-list">
-          <ul>
-            {
-              props.data.map((value, index) => {
-                return <li className="skill-item" key={index}>{value.name} {value?.keywords} {value?.level}</li>
-              })
-            }
-          </ul>
-        </div>
 
+
+      </div>
+      <div className="heading skills">
+        <h1>Skills</h1>
+      </div>
+      <div className="heading skills-list">
+        <ul>
+          {
+            props.data.map((value, index) => {
+              return <li className="skill-item" key={index}>{value.name} {value?.keywords} {value?.level}</li>
+            })
+          }
+        </ul>
       </div>
     </div>
   );

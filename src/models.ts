@@ -348,7 +348,7 @@ export interface Work {
   /**
    * e.g. http://facebook.example.com
    */
-  url?: string;
+  website?: string;
 }
 
 
