@@ -62,7 +62,6 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
                 </div>
               </section>
             </div>
-            {/*<img src={require(`./images/bubble.png`)} alt={basics?.name} />*/}
 
             <div className="skills-list">
 
@@ -86,10 +85,10 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
         </aside>
       </div>
 
-      <main>
+      <main className="main-info">
         {
           basics?.summary &&
-          <section>
+          <section className="summary">
             <h2>Profile</h2>
             <p>
               {basics?.summary}
@@ -98,7 +97,7 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
         }
         {
           (work || []).length > 0 &&
-          <section>
+          <section className="experience">
             <h2>Experience</h2>
             {
               (work || []).map((workItem, ix) => {
