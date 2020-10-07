@@ -13,9 +13,9 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
     skills /*TODO: Daniel*/,
     work /*TODO: Ohad*/,
     education /*TODO: Yonatan*/,
-    references,
+    references /*TODO: Ohad*/,
     projects /*TODO: Yonatan*/,
-    publications,
+    publications /*TODO: Yonatan*/,
     languages /*TODO: Ohad*/,
   } = props.profile;
   const [scrollLeft, setScrollLeft] = useState(0);
