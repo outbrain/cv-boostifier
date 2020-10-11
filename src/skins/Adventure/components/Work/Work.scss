@@ -1,24 +1,11 @@
-.sky {
-  background-image: url("../../assets/game_background_1/layers/sky.png");
-  background-size: auto 100vw;
-  width: 100vw;
-}
-.clouds {
-  position: absolute;
-  background-image: url("../../assets/game_background_1/layers/clouds_2.png");
-  height: 100vh;
-  width: 100vw;
-  top: -100px;
-  transform: scale(0.8);
-  z-index: 101;
-}
-
 .company-description {
   padding: 20px;
   border: 5px solid #777;
   width: fit-content;
   font-size: 20px;
   background: #444;
+  position: absolute;
+  top: 0;
 }
 .dates {
   font-size: 30px;

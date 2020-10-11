@@ -55,7 +55,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
           ) : (
             <div />
           )}
-          {education !== undefined ? (
+          {/* {education !== undefined ? (
             <EducationComponent
               education={education}
               screenSize={screenSize}
@@ -64,8 +64,8 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
             />
           ) : (
             <div />
-          )}
-          {references !== undefined ? (
+          )} */}
+          {/* {references !== undefined ? (
             <ReferencesComponent
               references={[...references,...references,...references]}
               screenSize={screenSize}
@@ -74,7 +74,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
             />
           ) : (
             <div className="undefiend-projects"/>
-          )}
+          )} */}
           {work !== undefined ? (
             <WorkComponent
               data={work}

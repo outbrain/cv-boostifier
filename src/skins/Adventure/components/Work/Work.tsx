@@ -15,7 +15,9 @@ export function WorkComponent(props: {
   const listItems = props.data.map((work: Work, index) => {
     console.log(work, index);
     return (
-      <div key={index} className="sky slide">
+      <div key={index} className="sky-day slide">
+        <div className="mountains"></div>
+        <div className="mountains-far"></div>
         <div className="company-description">
           <div className="dates">
             {utils.formatDate(work?.startDate)} -{" "}

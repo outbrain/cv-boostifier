@@ -1,17 +1,29 @@
-import React from 'react';
-import {Basics} from "../../../../models";
-import {utils} from "../../utils/Utils";
+import React from "react";
+import { Basics } from "../../../../models";
+import { utils } from "../../utils/Utils";
 
-export function BasicsComponent(props: { data: Basics, screenSize: number, scrollLeft: number, scrollTop: number }) {
+export function BasicsComponent(props: {
+  data: Basics;
+  screenSize: number;
+  scrollLeft: number;
+  scrollTop: number;
+}) {
   const MOUNTS_MOVEMENT_RATIO = 0.1;
   const MOUNTS_STARTING_OFFSET = 0.9;
 
   return (
-
-    <div className="lvl-basics day">
-      <div className=" slide one">
-        <div className="mountains"
-             style={{backgroundPositionX: utils.moveElement(props.screenSize * MOUNTS_STARTING_OFFSET, props.scrollLeft, MOUNTS_MOVEMENT_RATIO)}}></div>
+    <div className="lvl-basics sky-day">
+      <div className=" slide mountains one">
+        <div
+          className="mountains-far"
+          style={{
+            backgroundPositionX: utils.moveElement(
+              props.screenSize * MOUNTS_STARTING_OFFSET,
+              props.scrollLeft,
+              MOUNTS_MOVEMENT_RATIO
+            ),
+          }}
+        ></div>
         <div className="sky">
           <div className="clouds2"></div>
         </div>

@@ -22,23 +22,26 @@
     .slide {
       width: 100vw;
       height: 100vh;
+      position: relative;
     }
-    .day{
-      background:url("assets/game_background_1/layers/sky.png");
+    .sky-day {
+      background: url("assets/game_background_1/layers/sky.png");
       z-index: 0;
     }
     .one {
+      width: 221vw;
+    }
+    .mountains {
       background: url("assets/game_background_1/layers/rocks_2.png");
       background-size: auto 100vh;
       background-repeat: repeat-x;
-      width: 200vw;
+      height: 100vh;
     }
-    .night{
-      background:url("assets/game_background_3/layers/sky.png");
+    .night {
+      background: url("assets/game_background_3/layers/sky.png");
       z-index: 0;
-
     }
-    .ground-night{
+    .ground-night {
       background: url("assets/game_background_3/layers/ground_1.png");
       background-size: auto 100vh;
       background-repeat: repeat-x;
@@ -68,7 +71,7 @@
       //z-index: -1;
       left: 0;
     }
-    .mountains {
+    .mountains-far {
       background-size: auto 100vh;
       background-repeat: repeat-x;
       width: inherit;
@@ -80,12 +83,66 @@
       z-index: -1;
       left: 0;
     }
-
   }
 }
 
-
-
 ::-webkit-scrollbar {
-  display:none;
+  display: none;
+}
+
+// .sky {
+//   background-image: url("/assets/game_background_1/layers/sky.png");
+//   background-size: auto 100vw;
+//   width: 100vw;
+// }
+// .clouds {
+//   position: absolute;
+//   background-image: url("/assets/game_background_1/layers/clouds_2.png");
+//   height: 100vh;
+//   width: 100vw;
+//   top: -100px;
+//   transform: scale(0.8);
+//   z-index: 101;
+// }
+
+.sky {
+  height: 50%;
+  width: inherit;
+  position: relative;
+  background: url("/assets/game_background_1/layers/clouds_1.png") repeat;
+  //background-size: contain;
+  transform-style: preserve-3d;
+  animation-timing-function: linear;
+  background-position: 0px 0px;
+
+  animation: animatedBackground 500s linear infinite;
+}
+.clouds2 {
+  background: url("/assets/game_background_1/layers/clouds_2.png") no-repeat;
+  background-size: contain;
+  position: absolute;
+  height: 100%;
+  width: inherit;
+  top: 30%;
+  left: 5%;
+  transform: translateZ(1px);
+  transform-origin: 100% 50%;
+}
+
+@keyframes animatedBackground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -300vw 0;
+  }
+}
+
+@-webkit-keyframes animatedBackground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -300vw 0;
+  }
 }
