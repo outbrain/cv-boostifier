@@ -2,7 +2,7 @@ import React, {PropsWithChildren} from 'react';
 import './Comix.scss';
 import {IProfileProps} from '../../models';
 
-export function Comix(props: PropsWithChildren<IProfileProps>) {
+export function Comix(props: PropsWithChildren<IProfileProps>) {/
   const {basics, skills, work, education, references, projects, publications, languages} = props.profile;
   
   return (
