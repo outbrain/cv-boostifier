@@ -1,11 +1,14 @@
-import React, {PropsWithChildren} from 'react';
+import React, {Component, PropsWithChildren} from 'react';
 import './BackTo90s.scss';
 import {IProfileProps} from '../../models';
 import CardSideBg from './images/card-side.svg';
 import ProfilePicture from './images/profile-picture.svg';
+import {Work90s} from "./components/Work90s";
 
 export function BackTo90s(props: PropsWithChildren<IProfileProps>) {
     const {basics, skills, work, education, references, projects, publications, languages} = props.profile;
+
+    const workProfile = work;
 
     return (
         <div className="BackTo90s-skin">
@@ -15,10 +18,7 @@ export function BackTo90s(props: PropsWithChildren<IProfileProps>) {
                     {/*    Placeholder for menu*/}
                     {/*</menu>*/}
                     <div className="top-card">
-                        <div className="social-icons">
-                            <span className="twitter"></span>
-                            <span className="linkedin"></span>
-                        </div>
+
                         <div className="card-container">
                             <div className="card-container-left">
                                 <img src={CardSideBg} alt="icon" />
@@ -43,6 +43,10 @@ export function BackTo90s(props: PropsWithChildren<IProfileProps>) {
                                     <p><a href={`mailto:${basics?.email}`}>{basics?.email}</a></p>
                                 </div>
                                 <div className="card-box website">
+                                    <div className="social-icons">
+                                        <span className="twitter"></span>
+                                        <span className="linkedin"></span>
+                                    </div>
                                     {
                                         basics?.url &&
                                         <p>
@@ -53,7 +57,7 @@ export function BackTo90s(props: PropsWithChildren<IProfileProps>) {
                                         (basics?.profiles || []).map((profile, ix) => {
                                             return (
                                                 <p key={ix}>
-                                                    <span><a href={profile.url}>{profile.username || profile.url}</a></span>
+                                                    <span className={profile.network}><a href={profile.url}>{profile.username || profile.url}</a></span>
                                                 </p>
                                             );
                                         })
@@ -75,10 +79,6 @@ export function BackTo90s(props: PropsWithChildren<IProfileProps>) {
                     <h1>{basics?.name}</h1>
                     <h4>{basics?.label}</h4>
                 </header>
-
-
-
-
 
                 {
                     (skills || []).length > 0 &&
@@ -107,31 +107,12 @@ export function BackTo90s(props: PropsWithChildren<IProfileProps>) {
                     </section>
                 }
                 {
+                   //Put work experience component here
                     (work || []).length > 0 &&
                     <section>
-                        <h2>Experience</h2>
-                        {
-                            (work || []).map((workItem, ix) => {
-                                return (
-                                    <article key={ix}>
-                                        <hgroup>
-                                            <h4>{workItem.position}{workItem.position && workItem.name ? ', ' : ''}{workItem.name}</h4>
-                                            <h6>{workItem.startDate} - {workItem.endDate}</h6>
-                                        </hgroup>
-                                        <p>{workItem.summary}</p>
-                                        <ul>
-                                            {
-                                                (workItem.highlights || []).map((highlight) => {
-                                                    return (
-                                                        <li key={highlight}>{highlight}</li>
-                                                    );
-                                                })
-                                            }
-                                        </ul>
-                                    </article>
-                                );
-                            })
-                        }
+
+
+                        <Work90s  />
                     </section>
                 }
                 {
@@ -243,7 +224,10 @@ export function BackTo90s(props: PropsWithChildren<IProfileProps>) {
                         </ul>
                     </section>
                 }
+
             </main>
         </div>
+
     );
 }
+

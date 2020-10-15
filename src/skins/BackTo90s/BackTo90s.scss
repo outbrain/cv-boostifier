@@ -39,6 +39,9 @@
           }
         }
       }
+      .card-container-right img{
+        transform: rotate(180deg)
+      }
     }
   }
 }
