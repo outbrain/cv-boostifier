@@ -1,0 +1,43 @@
+
+.BackTo90s-skin {
+  background-color: #E3E7ED;
+  width: 100%;
+  margin:0 auto;
+  padding: 0 3vw;
+
+  .top-card {
+    margin: 0 auto;
+
+    .social-icons {
+      .twitter{
+        background: url(/images/twitter.png);
+        width: 40px;
+        height: 40px;
+      }
+      .linkedin{
+
+      }
+    }
+    .card-container {
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      .card-container-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows:  repeat(3, 100px);
+        grid-gap: 10px;
+        .card-box {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 1.5em;
+          &:nth-child(2) {
+            grid-column: 2 / 3;
+            grid-row: 1 / 3;
+          }
+        }
+      }
+    }
+  }
+}
