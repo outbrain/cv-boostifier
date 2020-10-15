@@ -1,8 +1,8 @@
 import React, {PropsWithChildren} from 'react';
 import './BackTo90s.scss';
 import {IProfileProps} from '../../models';
-import { ReactComponent as CardSideBg } from './images/card-left.svg';
-import { ReactComponent as ProfilePicture } from './images/profile-picture.svg';
+import CardSideBg from './images/card-left.svg';
+import ProfilePicture from './images/profile-picture.svg';
 
 export function BackTo90s(props: PropsWithChildren<IProfileProps>) {
     const {basics, skills, work, education, references, projects, publications, languages} = props.profile;
@@ -21,7 +21,7 @@ export function BackTo90s(props: PropsWithChildren<IProfileProps>) {
                         </div>
                         <div className="card-container">
                             <div className="card-container-left">
-                                <CardSideBg />
+                                <img src={CardSideBg} alt="icon" />
                             </div>
                             <div className="card-container-grid">
                                 <div className="card-box address">
@@ -36,7 +36,7 @@ export function BackTo90s(props: PropsWithChildren<IProfileProps>) {
                                 </div>
                                 <div className="card-box picture">
                                     {
-                                        <ProfilePicture />
+                                        <img src={ProfilePicture} alt="icon" />
                                     }
                                 </div>
                                 <div className="card-box email">
@@ -67,7 +67,7 @@ export function BackTo90s(props: PropsWithChildren<IProfileProps>) {
                             </div>
 
                             <div className="card-container-right">
-                                <CardSideBg/>
+                                <img src={CardSideBg} alt="icon" />
                             </div>
                         </div>
                     </div>
