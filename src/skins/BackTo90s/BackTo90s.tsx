@@ -1,7 +1,7 @@
 import React, {PropsWithChildren} from 'react';
 import './BackTo90s.scss';
 import {IProfileProps} from '../../models';
-import CardSideBg from './images/card-left.svg';
+import CardSideBg from './images/card-side.svg';
 import ProfilePicture from './images/profile-picture.svg';
 
 export function BackTo90s(props: PropsWithChildren<IProfileProps>) {
