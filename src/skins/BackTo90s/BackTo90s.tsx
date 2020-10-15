@@ -12,7 +12,6 @@ export function BackTo90s(props: PropsWithChildren<IProfileProps>) {
 
     return (
         <div className="BackTo90s-skin">
-            <aside>
                 <header>
                     {/*<menu>*/}
                     {/*    Placeholder for menu*/}
@@ -95,7 +94,6 @@ export function BackTo90s(props: PropsWithChildren<IProfileProps>) {
                         </div>
                     </section>
                 }
-            </aside>
             <main>
                 {
                     basics?.summary &&
@@ -110,8 +108,6 @@ export function BackTo90s(props: PropsWithChildren<IProfileProps>) {
                    //Put work experience component here
                     (work || []).length > 0 &&
                     <section>
-
-
                         <Work90s  />
                     </section>
                 }
