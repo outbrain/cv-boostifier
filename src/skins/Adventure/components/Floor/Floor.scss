@@ -1,5 +1,5 @@
 .floor {
-    height: 5vh;
+    height: 40px;
     background-image: url(../../assets/Tiles/surface8.png);
     background-size: contain;
     background-repeat: repeat;
@@ -27,7 +27,7 @@
 .ramp-general {
     display: flex;
     left: 0.4%;
-    top: -200%;
+    bottom: 40px;
     position: absolute;
     z-index: 10;   
 }

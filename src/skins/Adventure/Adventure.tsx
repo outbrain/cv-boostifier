@@ -39,7 +39,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
 
   return (
     <div className="adventure-skin">
-      <Figure scrollLeft={scrollLeft} />
+      <Figure scrollLeft={scrollLeft} isFemale={true} />
       <div
         id="scrollWrapper"
         className="adventure outer-wrapper"

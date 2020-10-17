@@ -1,71 +1,138 @@
-.figure {
-  height: 30vh;
-  width: 30vw;
+.backward{
+  -webkit-transform: scaleX(-1) translate(-50%, -50%);
+  transform: scaleX(-1) translate(90%, -50%);
+}
+
+.forward{
+  -webkit-transform: scaleX(1) translate(-50%, -50%);
+  transform: scaleX(1) translate(-50%, -50%);
+}
+
+.girl {
+  height: 150px;
+  width: 150px;
   position: fixed;
-  top: 87%;
+  bottom: -35px;
   left: 50%;
   z-index: 100;
   background-size: contain;
   background-repeat: no-repeat;
-  transform: translate(-50%, -50%);
 }
 
-.backward {
-  -webkit-transform: scaleX(-1) translate(-50%, -50%);;
-  transform: scaleX(-1) translate(90%, -50%);
+.image-girl-0 {
+  background-image: url("../../assets/Girl/Walk/Walk_20.png");
+}
+.image-girl-1 {
+  background-image: url("../../assets//Girl/Walk/Walk_1.png");
+}
+.image-girl-2 {
+  background-image: url("../../assets//Girl/Walk/Walk_2.png");
+}
+.image-girl-3 {
+  background-image: url("../../assets//Girl/Walk/Walk_3.png");
+}
+.image-girl-4 {
+  background-image: url("../../assets//Girl/Walk/Walk_4.png");
+}
+.image-girl-5 {
+  background-image: url("../../assets//Girl/Walk/Walk_5.png");
+}
+.image-girl-6 {
+  background-image: url("../../assets//Girl/Walk/Walk_6.png");
+}
+.image-girl-7 {
+  background-image: url("../../assets//Girl/Walk/Walk_7.png");
+}
+.image-girl-8 {
+  background-image: url("../../assets//Girl/Walk/Walk_8.png");
+}
+.image-girl-9 {
+  background-image: url("../../assets//Girl/Walk/Walk_9.png");
+}
+.image-girl-10 {
+  background-image: url("../../assets//Girl/Walk/Walk_10.png");
+}
+.image-girl-11 {
+  background-image: url("../../assets//Girl/Walk/Walk_11.png");
+}
+.image-girl-12 {
+  background-image: url("../../assets//Girl/Walk/Walk_12.png");
+}
+.image-girl-13 {
+  background-image: url("../../assets//Girl/Walk/Walk_13.png");
+}
+.image-girl-14 {
+  background-image: url("../../assets//Girl/Walk/Walk_14.png");
+}
+.image-girl-15 {
+  background-image: url("../../assets//Girl/Walk/Walk_15.png");
+}
+.image-girl-16 {
+  background-image: url("../../assets//Girl/Walk/Walk_16.png");
+}
+.image-girl-17 {
+  background-image: url("../../assets//Girl/Walk/Walk_17.png");
+}
+.image-girl-18 {
+  background-image: url("../../assets//Girl/Walk/Walk_18.png");
+}
+.image-girl-19 {
+  background-image: url("../../assets//Girl/Walk/Walk_19.png");
 }
 
-.image-0 {
-  background-image: url("../../assets/Walking/Satyr_03_Walking_000.png");
+.boy {
+  height: 200px;
+  width: 110px;
+  position: fixed;
+  bottom: -90px;
+  left: 50%;
+  z-index: 100;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
-.image-1 {
-  background-image: url("../../assets/Walking/Satyr_03_Walking_001.png");
+
+.image-boy-0 {
+  background-image: url("../../assets/Boy/Walk/Walk_15.png");
 }
-.image-2 {
-  background-image: url("../../assets/Walking/Satyr_03_Walking_002.png");
+.image-boy-1 {
+  background-image: url("../../assets//Boy/Walk/Walk_1.png");
 }
-.image-3 {
-  background-image: url("../../assets/Walking/Satyr_03_Walking_003.png");
+.image-boy-2 {
+  background-image: url("../../assets//Boy/Walk/Walk_2.png");
 }
-.image-4 {
-  background-image: url("../../assets/Walking/Satyr_03_Walking_004.png");
+.image-boy-3 {
+  background-image: url("../../assets//Boy/Walk/Walk_3.png");
 }
-.image-5 {
-  background-image: url("../../assets/Walking/Satyr_03_Walking_005.png");
+.image-boy-4 {
+  background-image: url("../../assets//Boy/Walk/Walk_4.png");
 }
-.image-6 {
-  background-image: url("../../assets/Walking/Satyr_03_Walking_006.png");
+.image-boy-5 {
+  background-image: url("../../assets//Boy/Walk/Walk_5.png");
 }
-.image-7 {
-  background-image: url("../../assets/Walking/Satyr_03_Walking_007.png");
+.image-boy-6 {
+  background-image: url("../../assets//Boy/Walk/Walk_6.png");
 }
-.image-8 {
-  background-image: url("../../assets/Walking/Satyr_03_Walking_008.png");
+.image-boy-7 {
+  background-image: url("../../assets//Boy/Walk/Walk_7.png");
 }
-.image-9 {
-  background-image: url("../../assets/Walking/Satyr_03_Walking_009.png");
+.image-boy-8 {
+  background-image: url("../../assets//Boy/Walk/Walk_8.png");
 }
-.image-10 {
-  background-image: url("../../assets/Walking/Satyr_03_Walking_010.png");
+.image-boy-9 {
+  background-image: url("../../assets//Boy/Walk/Walk_9.png");
 }
-.image-11 {
-  background-image: url("../../assets/Walking/Satyr_03_Walking_011.png");
+.image-boy-10 {
+  background-image: url("../../assets//Boy/Walk/Walk_10.png");
 }
-.image-12 {
-  background-image: url("../../assets/Walking/Satyr_03_Walking_012.png");
+.image-boy-11 {
+  background-image: url("../../assets//Boy/Walk/Walk_11.png");
 }
-.image-13 {
-  background-image: url("../../assets/Walking/Satyr_03_Walking_013.png");
+.image-boy-12 {
+  background-image: url("../../assets//Boy/Walk/Walk_12.png");
 }
-.image-14 {
-  background-image: url("../../assets/Walking/Satyr_03_Walking_014.png");
+.image-boy-13 {
+  background-image: url("../../assets//Boy/Walk/Walk_13.png");
 }
-.image-15 {
-  background-image: url("../../assets/Walking/Satyr_03_Walking_015.png");
-}
-.image-16 {
-  background-image: url("../../assets/Walking/Satyr_03_Walking_016.png");
-}
-.image-17 {
-  background-image: url("../../assets/Walking/Satyr_03_Walking_017.png");
+.image-boy-14 {
+  background-image: url("../../assets//Boy/Walk/Walk_14.png");
 }
