@@ -7,6 +7,7 @@ import { BasicsComponent } from "./components/Basics/Basics";
 import { SkillsComponent } from "./components/Skills/Skills";
 import { WorkComponent } from "./components/Work/Work";
 import { ReferencesComponent } from "./components/References/ReferencesComponent";
+import { Floor } from "./components/Floor/Floor";
 
 export function Adventure(props: PropsWithChildren<IProfileProps>) {
   const {
@@ -95,6 +96,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
           <section className="publications"></section>
           <section className="volunteer"></section>
           <section className="work"></section>
+          <Floor worldSize={20000}/>
         </div>
       </div>
     </div>

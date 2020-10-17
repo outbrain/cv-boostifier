@@ -1,0 +1,33 @@
+.floor {
+    height: 5vh;
+    background-image: url(../../assets/Tiles/surface8.png);
+    background-size: contain;
+    background-repeat: repeat;
+    position: absolute;
+    top: 95%;
+    z-index: 10;
+}
+
+.ramp-part-1 {
+    background-image: url(../../assets/Tiles/square.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 72px;
+    height: 72px;
+}
+
+.ramp-part-2 {
+    background-image: url(../../assets/Tiles/square2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 72px;
+    height: 72px;
+}
+
+.ramp-general {
+    display: flex;
+    left: 0.4%;
+    top: -200%;
+    position: absolute;
+    z-index: 10;   
+}

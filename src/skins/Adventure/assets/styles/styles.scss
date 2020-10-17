@@ -1,9 +1,11 @@
 @import "./_colors.scss";
-@import "../../components/Figure/_figure.scss";
+@import "../../components/Figure/Figure.scss";
 @import "../../components/Education/Education.scss";
 @import "../../components/References/References.scss";
 @import "../../components/Basics/basics.scss";
 @import "../../components/Work/work.scss";
+@import "../../components/Floor/Floor.scss";
+
 .adventure-skin {
   font-size: 12px;
   color: #ffffff;

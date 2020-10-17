@@ -1,0 +1,71 @@
+.figure {
+  height: 30vh;
+  width: 30vw;
+  position: fixed;
+  top: 87%;
+  left: 50%;
+  z-index: 100;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: translate(-50%, -50%);
+}
+
+.backward {
+  -webkit-transform: scaleX(-1) translate(-50%, -50%);;
+  transform: scaleX(-1) translate(90%, -50%);
+}
+
+.image-0 {
+  background-image: url("../../assets/Walking/Satyr_03_Walking_000.png");
+}
+.image-1 {
+  background-image: url("../../assets/Walking/Satyr_03_Walking_001.png");
+}
+.image-2 {
+  background-image: url("../../assets/Walking/Satyr_03_Walking_002.png");
+}
+.image-3 {
+  background-image: url("../../assets/Walking/Satyr_03_Walking_003.png");
+}
+.image-4 {
+  background-image: url("../../assets/Walking/Satyr_03_Walking_004.png");
+}
+.image-5 {
+  background-image: url("../../assets/Walking/Satyr_03_Walking_005.png");
+}
+.image-6 {
+  background-image: url("../../assets/Walking/Satyr_03_Walking_006.png");
+}
+.image-7 {
+  background-image: url("../../assets/Walking/Satyr_03_Walking_007.png");
+}
+.image-8 {
+  background-image: url("../../assets/Walking/Satyr_03_Walking_008.png");
+}
+.image-9 {
+  background-image: url("../../assets/Walking/Satyr_03_Walking_009.png");
+}
+.image-10 {
+  background-image: url("../../assets/Walking/Satyr_03_Walking_010.png");
+}
+.image-11 {
+  background-image: url("../../assets/Walking/Satyr_03_Walking_011.png");
+}
+.image-12 {
+  background-image: url("../../assets/Walking/Satyr_03_Walking_012.png");
+}
+.image-13 {
+  background-image: url("../../assets/Walking/Satyr_03_Walking_013.png");
+}
+.image-14 {
+  background-image: url("../../assets/Walking/Satyr_03_Walking_014.png");
+}
+.image-15 {
+  background-image: url("../../assets/Walking/Satyr_03_Walking_015.png");
+}
+.image-16 {
+  background-image: url("../../assets/Walking/Satyr_03_Walking_016.png");
+}
+.image-17 {
+  background-image: url("../../assets/Walking/Satyr_03_Walking_017.png");
+}
