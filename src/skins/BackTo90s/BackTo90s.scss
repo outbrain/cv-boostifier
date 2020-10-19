@@ -107,6 +107,23 @@
         background-position: center;
         margin-bottom: 2vw;
       }
+      .extra-summary {
+        overflow: hidden;
+        height: 140px;
+        &.visible {
+          overflow: visible;
+          transition: 0.3s all ease;
+          height: 100%;
+        }
+
+      }
+      .read-more {
+        color: #EE6513;
+        font-size: 1.44vw;
+        text-decoration: underline;
+        padding-top: 15px;
+
+      }
     }
     .about-circle {
       position: absolute;
@@ -129,6 +146,7 @@
       background-size: cover;
       width: 100%;
     }
+
   }
 
 }

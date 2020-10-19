@@ -15,8 +15,17 @@ export function BackTo90s(props: PropsWithChildren<IProfileProps>) {
     const {basics, skills, work, education, references, projects, publications, languages} = props.profile;
 
     const workProfile = work;
+    let expanded:boolean = false;
+
+
+    function readMore() {
+        expanded = true;
+        console.log('clicked read more', expanded);
+
+    }
 
     return (
+
         <div className="BackTo90s-skin">
                 <header>
                     {/*<menu>*/}
@@ -101,10 +110,17 @@ export function BackTo90s(props: PropsWithChildren<IProfileProps>) {
                         <span className="main-divider"></span>
                         {
                             basics?.summary &&
-                                <p>
-                                    {basics?.summary}
-                                </p>
+                            <div className={`extra-summary ${expanded ? 'visible' : ''}`}>
+                                {basics?.summary}
+                            </div>
                         }
+                        <div className="read-more" onClick={()=>readMore()}>
+                            {
+                                basics?.summary && basics?.summary.length > 255 ? 'Read more' : 'Read less'
+                            }
+                        </div>
+
+
                     </div>
                     <div className="color-background"></div>
                 </section>
