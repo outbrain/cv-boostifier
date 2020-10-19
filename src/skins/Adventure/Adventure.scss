@@ -14,6 +14,7 @@
 
   .wrapper {
     display: flex;
+    position: relative;
     flex-direction: row;
     width: 1200vw;
     transform: rotate(90deg) translateY(-100vh);
@@ -24,18 +25,28 @@
       height: 100vh;
       position: relative;
     }
-    .sky-day {
-      background: url("assets/game_background_1/layers/sky.png");
+    &.sky-day {
+      background: linear-gradient(to bottom, rgba(73,226,237,1) 0%, rgba(242,230,202,1) 100%);
       z-index: 0;
     }
-    .one {
-      width: 221vw;
+    .full-width {
+      width: 100%;
     }
     .mountains {
+      display: flex;
       background: url("assets/game_background_1/layers/rocks_2.png");
       background-size: auto 100vh;
       background-repeat: repeat-x;
       height: 100vh;
+    }
+
+    .mountains-far {
+      background-size: auto 100vh;
+      background-repeat: repeat-x;
+      background-image: url("assets/game_background_1/layers/rocks_1.png");
+      //transform: scale(0.8);
+
+
     }
     .night {
       background: url("assets/game_background_3/layers/sky.png");
@@ -71,18 +82,7 @@
       //z-index: -1;
       left: 0;
     }
-    .mountains-far {
-      background-size: auto 100vh;
-      background-repeat: repeat-x;
-      width: inherit;
-      position: absolute;
-      background-image: url("assets/game_background_1/layers/rocks_1.png");
-      height: 100vh;
-      top: -100px;
-      //transform: scale(0.8);
-      z-index: -1;
-      left: 0;
-    }
+
   }
 }
 
