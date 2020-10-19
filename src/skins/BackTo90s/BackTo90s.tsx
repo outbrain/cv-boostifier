@@ -106,15 +106,20 @@ export function BackTo90s(props: PropsWithChildren<IProfileProps>) {
                         </p>
                     </section>
                 }
+
+
+
+
                 {
                    //Put work experience component here
                     (work || []).length > 0 &&
                     <section>
-
-
-                        <Work90s  />
+                        <Work90s workObj={work}/>
                     </section>
                 }
+
+
+
                 {
                     (projects || []).length > 0 &&
                     <section>

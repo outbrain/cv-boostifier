@@ -1,4 +1,6 @@
 @import "./fonts/oswald/oswald.css";
+@import "./fonts/Arkipelago/arkipelago.css";
+
 
 .BackTo90s-skin {
   background-color: #E3E7ED;
@@ -43,6 +45,36 @@
       }
       .card-container-right img{
         transform: rotate(180deg)
+      }
+    }
+  }
+
+  .career-card {
+
+    background-image: url("./images/career-card-frame.png");
+    background-repeat: no-repeat;
+    width: 795px;
+    height: 555px;
+    margin: 0 auto;
+
+    h2 {
+      font-family: 'Arkipelago', Arial;
+      font-size: 94px;
+      font-weight: bold;
+    }
+
+    .career-slider-holder {
+      border: 5px solid #000;
+      width: 95%;
+      margin: 0 auto;
+      padding: 10px;
+      box-sizing: border-box;
+      display: grid;
+      grid-template-columns: auto auto;
+
+      .building-image {
+        background-image: url("./images/career-card-building.png");
+        background-repeat: no-repeat;
       }
     }
   }
