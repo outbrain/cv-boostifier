@@ -2,7 +2,13 @@ import React, {Component, PropsWithChildren} from 'react';
 import './BackTo90s.scss';
 import {IProfileProps} from '../../models';
 import CardSideBg from './images/card-side.svg';
+import LocIcon from './images/loc-icon.svg';
+import PhoneIcon from './images/phone-icon.svg';
+import PlayIcon from './images/play-icon.svg';
+import EmailIcon from './images/mail-icon.svg';
 import ProfilePicture from './images/profile-picture.svg';
+import CenterCircle from './images/about-center-circle.png';
+import OuterCircle from './images/about-outer-circle.svg';
 import {Work90s} from "./components/Work90s";
 
 export function BackTo90s(props: PropsWithChildren<IProfileProps>) {
@@ -24,6 +30,7 @@ export function BackTo90s(props: PropsWithChildren<IProfileProps>) {
                             </div>
                             <div className="card-container-grid">
                                 <div className="card-box address">
+                                    <img src={LocIcon} alt="address" />
                                     {
                                         basics?.location?.city &&
                                         `${basics?.location?.city}, `
@@ -39,6 +46,7 @@ export function BackTo90s(props: PropsWithChildren<IProfileProps>) {
                                     }
                                 </div>
                                 <div className="card-box email">
+                                    <img src={EmailIcon} alt="email" />
                                     <p><a href={`mailto:${basics?.email}`}>{basics?.email}</a></p>
                                 </div>
                                 <div className="card-box website">
@@ -56,7 +64,7 @@ export function BackTo90s(props: PropsWithChildren<IProfileProps>) {
                                         (basics?.profiles || []).map((profile, ix) => {
                                             return (
                                                 <p key={ix}>
-                                                    <span className={profile.network}><a href={profile.url}>{profile.username || profile.url}</a></span>
+                                                    <span className={profile.network}><a href={profile.url}><img src={`images/${profile.network}.png`} /></a></span>
                                                 </p>
                                             );
                                         })
@@ -65,6 +73,8 @@ export function BackTo90s(props: PropsWithChildren<IProfileProps>) {
 
 
                                 <div className="card-box phone">
+                                    <img src={PhoneIcon} alt="phone" />
+
                                     <p>{basics?.phone}</p>
                                 </div>
                             </div>
@@ -75,9 +85,29 @@ export function BackTo90s(props: PropsWithChildren<IProfileProps>) {
                         </div>
                     </div>
 
+
+                </header>
+                <section className="main-section">
+                    <span className="blue-triangle"></span>
                     <h1>{basics?.name}</h1>
                     <h4>{basics?.label}</h4>
-                </header>
+
+                    <div className="about-circle">
+                        <img src={OuterCircle} className='outer'/>
+                        <img src={CenterCircle} className='center'/>
+                    </div>
+
+                    <div className="main-description">
+                        <span className="main-divider"></span>
+                        {
+                            basics?.summary &&
+                                <p>
+                                    {basics?.summary}
+                                </p>
+                        }
+                    </div>
+                    <div className="color-background"></div>
+                </section>
 
                 {
                     (skills || []).length > 0 &&
