@@ -152,7 +152,7 @@ export class BackTo90s extends Component<any, IProfileProps> {
                         //Put work experience component here
                         (work || []).length > 0 &&
                         <section>
-                            <Work90s {...this.props.profile.work} />
+                            <Work90s {...work} />
                         </section>
                     }
 
