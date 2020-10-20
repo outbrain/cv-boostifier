@@ -12,7 +12,7 @@ import OuterCircle from './images/about-outer-circle.svg';
 import {Work90s} from "./components/Work90s";
 
 
-export class BackTo90s extends React.Component<any, IProfileProps> {
+export class BackTo90s extends Component<any, IProfileProps> {
     constructor(props: any) {
         super(props);
     }
@@ -59,10 +59,7 @@ export class BackTo90s extends React.Component<any, IProfileProps> {
                                         <p><a href={`mailto:${basics?.email}`}>{basics?.email}</a></p>
                                     </div>
                                     <div className="card-box website">
-                                        <div className="social-icons">
-                                            <span className="twitter"></span>
-                                            <span className="linkedin"></span>
-                                        </div>
+
                                         {
                                             basics?.url &&
                                             <p>
