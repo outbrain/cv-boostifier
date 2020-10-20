@@ -6,7 +6,7 @@ import { Figure } from "./components/Figure/Figure";
 import { BasicsComponent } from "./components/Basics/Basics";
 import { SkillsComponent } from "./components/Skills/Skills";
 import { WorkComponent } from "./components/Work/Work";
-import { ReferencesComponent } from "./components/References/ReferencesComponent";
+import { ReferenceComponent } from "./components/References/ReferenceComponent";
 import { Floor } from "./components/Floor/Floor";
 import { utils } from "./utils/Utils";
 
@@ -82,16 +82,16 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
               ) : (
                 <div />
               )}
-              {/* {references !== undefined ? (
-            <ReferencesComponent
-              references={[...references,...references,...references]}
-              screenSize={screenSize}
-              scrollLeft={scrollLeft}
-              scrollTop={scrollTop}
-            />
-          ) : (
-            <div className="undefiend-projects"/>
-          )} */}
+              {references !== undefined ? (
+                <ReferenceComponent
+                  data={references}
+                  screenSize={screenSize}
+                  scrollLeft={scrollLeft}
+                  scrollTop={scrollTop}
+                />
+              ) : (
+                <div />
+              )}
               {work !== undefined ? (
                 <WorkComponent
                   data={work}
@@ -112,7 +112,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
               ) : (
                 <div />
               )}
-              <section className="skills"></section>
+              {/* <section className="skills"></section> */}
               <section className="lvl-awards slide"></section>
               <section className="lvl-interests slide"></section>
               <section className="languages"></section>
