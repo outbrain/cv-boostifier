@@ -28,8 +28,8 @@ export function EducationComponent(props: {
         {education?.courses && education.courses.length && (
           <div className="courses box">
             <div className="name">Courses</div>
-            {education.courses.map((course, index) => (
-              <div key={index}>{course}</div>
+            {education.courses.map((course, indexA) => (
+              <div key={indexA}>{course}</div>
             ))}
           </div>
         )}
