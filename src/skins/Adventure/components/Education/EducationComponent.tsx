@@ -9,7 +9,6 @@ export function EducationComponent(props: {
   scrollTop: number;
 }) {
   const listItems = props.data.map((education: Education, index) => {
-
     return (
       <div key={index} className="slide">
         <div className="box">
@@ -26,10 +25,10 @@ export function EducationComponent(props: {
           </div>
         </div>
         {education?.courses && education.courses.length && (
-          <div className="courses box">
+          <div className="courses half-box">
             <div className="name">Courses</div>
             {education.courses.map((course, indexA) => (
-              <div key={indexA}>{course}</div>
+              <li key={indexA}>{course}</li>
             ))}
           </div>
         )}
@@ -37,5 +36,12 @@ export function EducationComponent(props: {
     );
   });
 
-  return <div>{listItems}</div>;
+  return (
+    <div>
+      <div>
+        <h1>Education</h1>
+      </div>
+      <div>{listItems}</div>;
+    </div>
+  );
 }

@@ -24,6 +24,11 @@
       width: 100vw;
       height: 100vh;
       position: relative;
+      margin-right: 50px;
+    }
+    .half-slide {
+      @extend .slide;
+      width: 50vw;
     }
     &.sky-day {
       background: linear-gradient(
@@ -157,6 +162,10 @@
   position: absolute;
   top: 0;
 }
+.half-box {
+  @extend .box;
+  max-width: 50vw;
+}
 .dates {
   font-size: 30px;
   font-weight: 600;
@@ -178,7 +187,9 @@
   max-height: 50vh;
   overflow: auto;
 }
-
+.margin-right {
+  margin-right: 20px;
+}
 .space-between {
   display: flex;
   justify-content: space-between;

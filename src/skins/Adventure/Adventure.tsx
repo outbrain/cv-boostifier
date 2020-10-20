@@ -6,20 +6,28 @@ import { Figure } from "./components/Figure/Figure";
 import { BasicsComponent } from "./components/Basics/Basics";
 import { SkillsComponent } from "./components/Skills/Skills";
 import { WorkComponent } from "./components/Work/Work";
-import { ReferenceComponent } from "./components/References/ReferenceComponent";
+import { ReferenceComponent } from "./components/Reference/ReferenceComponent";
 import { Floor } from "./components/Floor/Floor";
 import { utils } from "./utils/Utils";
+import { AwardComponent } from "./components/Award/Award";
+import { LanguageComponent } from "./components/Language/Language";
+import { ProjectComponent } from "./components/Project/ProjectComponent";
+import { PublicationComponent } from "./components/Publication/Publication";
+import { VolunteerComponent } from "./components/Volunteer/Volunteer";
 
 export function Adventure(props: PropsWithChildren<IProfileProps>) {
   const {
-    basics /*TODO: Daniel*/,
-    skills /*TODO: Daniel*/,
-    work /*TODO: Ohad*/,
-    education /*TODO: Yonatan*/,
-    references /*TODO: Ohad*/,
-    projects /*TODO: Yonatan*/,
-    publications /*TODO: Yonatan*/,
-    languages /*TODO: Ohad*/,
+    basics,
+    skills,
+    work,
+    education,
+    references,
+    awards,
+    interests,
+    projects,
+    publications,
+    languages,
+    volunteer,
   } = props.profile;
   const [scrollLeft, setScrollLeft] = useState(0);
   const [scrollTop, setScrollTop] = useState(0);
@@ -62,65 +70,96 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
               <div className="sky">
                 <div className="clouds2"></div>
               </div>
-              {basics !== undefined ? (
+              {basics && (
                 <BasicsComponent
                   data={basics}
                   screenSize={screenSize}
                   scrollLeft={scrollLeft}
                   scrollTop={scrollTop}
                 />
-              ) : (
-                <div />
               )}
-              {education !== undefined ? (
+              {education && (
                 <EducationComponent
                   data={education}
                   screenSize={screenSize}
                   scrollLeft={scrollLeft}
                   scrollTop={scrollTop}
                 />
-              ) : (
-                <div />
               )}
-              {references !== undefined ? (
+              {references && (
                 <ReferenceComponent
                   data={references}
                   screenSize={screenSize}
                   scrollLeft={scrollLeft}
                   scrollTop={scrollTop}
                 />
-              ) : (
-                <div />
               )}
-              {work !== undefined ? (
+              {work && (
                 <WorkComponent
                   data={work}
                   screenSize={screenSize}
                   scrollLeft={scrollLeft}
                   scrollTop={scrollTop}
                 />
-              ) : (
-                <div />
               )}
-              {skills !== undefined ? (
+              {skills && (
                 <SkillsComponent
                   data={skills}
                   screenSize={screenSize}
                   scrollLeft={scrollLeft}
                   scrollTop={scrollTop}
+                  title="Skills"
                 />
-              ) : (
-                <div />
               )}
-              {/* <section className="skills"></section> */}
-              <section className="lvl-awards slide"></section>
-              <section className="lvl-interests slide"></section>
-              <section className="languages"></section>
-              <section className="meta"></section>
-              <section className="projects"></section>
-              <section className="publications"></section>
-              <section className="volunteer"></section>
-              <section className="work"></section>
+              {awards && (
+                <AwardComponent
+                  data={awards}
+                  screenSize={screenSize}
+                  scrollLeft={scrollLeft}
+                  scrollTop={scrollTop}
+                />
+              )}
+              {interests && (
+                <SkillsComponent
+                  data={interests}
+                  screenSize={screenSize}
+                  scrollLeft={scrollLeft}
+                  scrollTop={scrollTop}
+                  title="Interests"
+                />
+              )}
+              {languages && (
+                <LanguageComponent
+                  data={languages}
+                  screenSize={screenSize}
+                  scrollLeft={scrollLeft}
+                  scrollTop={scrollTop}
+                />
+              )}
+              {projects && (
+                <ProjectComponent
+                  data={projects}
+                  screenSize={screenSize}
+                  scrollLeft={scrollLeft}
+                  scrollTop={scrollTop}
+                />
+              )}
+              {publications && (
+                <PublicationComponent
+                  data={publications}
+                  screenSize={screenSize}
+                  scrollLeft={scrollLeft}
+                  scrollTop={scrollTop}
+                />
+              )}
+              {volunteer && (
+                <VolunteerComponent
+                  data={volunteer}
+                  screenSize={screenSize}
+                  scrollLeft={scrollLeft}
+                  scrollTop={scrollTop}
+                />
+              )}
               <Floor worldSize={20000} />
             </div>
           </div>

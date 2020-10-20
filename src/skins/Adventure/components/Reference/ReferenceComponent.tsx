@@ -15,7 +15,7 @@ export function ReferenceComponent(props: {
 
       {props.data.map((reference: Reference, index: number) => (
         <div key={index} className="slide">
-          <div className="box">
+          <div className="half-box">
             <div className="name">{reference?.name}</div>
             <div className="summary">{reference?.reference}</div>
           </div>

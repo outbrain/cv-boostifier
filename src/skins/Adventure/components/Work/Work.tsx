@@ -11,7 +11,7 @@ export function WorkComponent(props: {
   const listItems = props.data.map((work: Work, index) => {
     return (
       <div key={index} className="slide">
-        <div className="box">
+        <div className="half-box">
           <div className="dates">
             {utils.formatDate(work?.startDate)} -{" "}
             {utils.formatDate(work?.endDate) || "Present"}
@@ -30,5 +30,12 @@ export function WorkComponent(props: {
     );
   });
 
-  return <div>{listItems}</div>;
+  return (
+    <div>
+      <div>
+        <h1>Experience</h1>
+      </div>
+      <div>{listItems}</div>;
+    </div>
+  );
 }
