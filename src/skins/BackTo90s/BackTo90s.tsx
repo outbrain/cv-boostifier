@@ -10,6 +10,7 @@ import ProfilePicture from './images/profile-picture.svg';
 import CenterCircle from './images/about-center-circle.png';
 import OuterCircle from './images/about-outer-circle.svg';
 import {Work90s} from "./components/Work90s";
+import {Edu90s} from "./components/Edu90s";
 
 
 export class BackTo90s extends Component<any, IProfileProps> {
@@ -122,6 +123,19 @@ export class BackTo90s extends Component<any, IProfileProps> {
                         <div className="color-background"></div>
                     </section>
 
+
+                <main>
+                    {
+                        //Put work experience component here
+                        (work || []).length > 0 &&
+                        <section>
+                            <Work90s {...work} />
+                        </section>
+                    }
+                    {
+                        (education || []).length > 0 &&
+                        <Edu90s {...education} />
+                    }
                     {
                         (skills || []).length > 0 &&
                         <section>
@@ -135,80 +149,6 @@ export class BackTo90s extends Component<any, IProfileProps> {
                                     })
                                 }
                             </div>
-                        </section>
-                    }
-                <main>
-                    {
-                        basics?.summary &&
-                        <section>
-                            <h2>Profile</h2>
-                            <p>
-                                {basics?.summary}
-                            </p>
-                        </section>
-                    }
-
-                    {
-                        //Put work experience component here
-                        (work || []).length > 0 &&
-                        <section>
-                            <Work90s {...work} />
-                        </section>
-                    }
-
-                    {
-                        (projects || []).length > 0 &&
-                        <section>
-                            <h2>Projects</h2>
-                            {
-                                (projects || []).map((project: any) => {
-                                    return (
-                                        <article>
-                                            <hgroup>
-                                                <h4>{project.name}, {project.entity}</h4>
-                                                <h6>{project.startDate} - {project.endDate}</h6>
-                                            </hgroup>
-                                            <p>{project.description}</p>
-                                            <ul>
-                                                {
-                                                    (project.highlights || []).map((highlight: string) => {
-                                                        return (
-                                                            <li>{highlight}</li>
-                                                        );
-                                                    })
-                                                }
-                                            </ul>
-                                        </article>
-                                    );
-                                })
-                            }
-                        </section>
-                    }
-                    {
-                        (education || []).length > 0 &&
-                        <section>
-                            <h2>Education</h2>
-                            {
-                                (education || []).map((educationItem: any, ix: number) => {
-                                    return (
-                                        <article key={ix}>
-                                            <hgroup>
-                                                <h4>{educationItem.studyType}, {educationItem.area}, {educationItem.institution}</h4>
-                                                <h6>{educationItem.startDate} - {educationItem.endDate}</h6>
-                                            </hgroup>
-                                            <ul>
-                                                {
-                                                    (educationItem.courses || []).map((course: string) => {
-                                                        return (
-                                                            <li key={course}>{course}</li>
-                                                        );
-                                                    })
-                                                }
-                                            </ul>
-                                        </article>
-                                    );
-                                })
-                            }
                         </section>
                     }
                     {
@@ -246,26 +186,6 @@ export class BackTo90s extends Component<any, IProfileProps> {
                             </ul>
                         </section>
                     }
-                    {
-                        (publications || []).length > 0 &&
-                        <section>
-                            <h2>Publications</h2>
-                            <ul>
-                                {
-                                    (publications || []).map((publication: any, ix: number) => {
-                                        return (
-                                            <li key={ix}>
-                                                <h4>{publication.name}, {publication.publisher}</h4>
-                                                <p>{publication.summary}</p>
-                                                <p><a href={publication.website}>{publication.website}</a></p>
-                                            </li>
-                                        );
-                                    })
-                                }
-                            </ul>
-                        </section>
-                    }
-
                 </main>
             </div>
 
