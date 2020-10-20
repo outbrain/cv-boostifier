@@ -8,7 +8,7 @@ import { SkillsComponent } from "./components/Skills/Skills";
 import { WorkComponent } from "./components/Work/Work";
 import { ReferencesComponent } from "./components/References/ReferencesComponent";
 import { Floor } from "./components/Floor/Floor";
-import {utils} from "./utils/Utils";
+import { utils } from "./utils/Utils";
 
 export function Adventure(props: PropsWithChildren<IProfileProps>) {
   const {
@@ -48,37 +48,40 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
         onScroll={handleScroll}
       >
         <div className="wrapper sky-day">
-          <div className="mountains-far full-width"  style={{
-            backgroundPositionX: utils.moveElement(
-              screenSize * MOUNTS_STARTING_OFFSET,
-              scrollLeft,
-              MOUNTS_MOVEMENT_RATIO
-            ),
-          }}>
+          <div
+            className="mountains-far full-width"
+            style={{
+              backgroundPositionX: utils.moveElement(
+                screenSize * MOUNTS_STARTING_OFFSET,
+                scrollLeft,
+                MOUNTS_MOVEMENT_RATIO
+              ),
+            }}
+          >
             <div className="mountains">
               <div className="sky">
                 <div className="clouds2"></div>
               </div>
               {basics !== undefined ? (
-              <BasicsComponent
-                data={basics}
-                screenSize={screenSize}
-                scrollLeft={scrollLeft}
-                scrollTop={scrollTop}
-              />
-            ) : (
-              <div/>
-            )}
-              {/* {education !== undefined ? (
-            <EducationComponent
-              education={education}
-              screenSize={screenSize}
-              scrollLeft={scrollLeft}
-              scrollTop={scrollTop}
-            />
-          ) : (
-            <div />
-          )} */}
+                <BasicsComponent
+                  data={basics}
+                  screenSize={screenSize}
+                  scrollLeft={scrollLeft}
+                  scrollTop={scrollTop}
+                />
+              ) : (
+                <div />
+              )}
+              {education !== undefined ? (
+                <EducationComponent
+                  data={education}
+                  screenSize={screenSize}
+                  scrollLeft={scrollLeft}
+                  scrollTop={scrollTop}
+                />
+              ) : (
+                <div />
+              )}
               {/* {references !== undefined ? (
             <ReferencesComponent
               references={[...references,...references,...references]}
@@ -97,11 +100,18 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                   scrollTop={scrollTop}
                 />
               ) : (
-                <div/>
+                <div />
               )}
-              {skills !== undefined ?
-                <SkillsComponent data={skills} screenSize={screenSize} scrollLeft={scrollLeft} scrollTop={scrollTop}/> :
-                <div/>}
+              {skills !== undefined ? (
+                <SkillsComponent
+                  data={skills}
+                  screenSize={screenSize}
+                  scrollLeft={scrollLeft}
+                  scrollTop={scrollTop}
+                />
+              ) : (
+                <div />
+              )}
               <section className="skills"></section>
               <section className="lvl-awards slide"></section>
               <section className="lvl-interests slide"></section>
@@ -111,9 +121,9 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
               <section className="publications"></section>
               <section className="volunteer"></section>
               <section className="work"></section>
-              <Floor worldSize={20000}/>
+              <Floor worldSize={20000} />
+            </div>
           </div>
-        </div>
         </div>
       </div>
     </div>

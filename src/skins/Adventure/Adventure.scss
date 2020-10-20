@@ -26,7 +26,11 @@
       position: relative;
     }
     &.sky-day {
-      background: linear-gradient(to bottom, rgba(73,226,237,1) 0%, rgba(242,230,202,1) 100%);
+      background: linear-gradient(
+        to bottom,
+        rgba(73, 226, 237, 1) 0%,
+        rgba(242, 230, 202, 1) 100%
+      );
       z-index: 0;
     }
     .full-width {
@@ -45,8 +49,6 @@
       background-repeat: repeat-x;
       background-image: url("assets/game_background_1/layers/rocks_1.png");
       //transform: scale(0.8);
-
-
     }
     .night {
       background: url("assets/game_background_3/layers/sky.png");
@@ -82,7 +84,6 @@
       //z-index: -1;
       left: 0;
     }
-
   }
 }
 
@@ -145,4 +146,40 @@
   100% {
     background-position: -300vw 0;
   }
+}
+
+.box {
+  padding: 20px;
+  border: 5px solid #777;
+  width: fit-content;
+  font-size: 20px;
+  background: #444;
+  position: absolute;
+  top: 0;
+}
+.dates {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.name {
+  font-weight: 900;
+  font-size: 40px;
+}
+
+.website {
+  display: inline;
+  font-size: 15px;
+  margin-left: 20px;
+}
+
+.courses {
+  top: 25vh;
+  max-height: 50vh;
+  overflow: auto;
+}
+
+.space-between {
+  display: flex;
+  justify-content: space-between;
 }

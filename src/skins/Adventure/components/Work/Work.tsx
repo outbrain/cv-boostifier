@@ -8,14 +8,10 @@ export function WorkComponent(props: {
   scrollLeft: number;
   scrollTop: number;
 }) {
-  const CLOUDS_MOVEMENT_RATIO = -1;
-  const CLOUDS_STARTING_OFFSET = 0.9;
-  console.log(props.data);
-
   const listItems = props.data.map((work: Work, index) => {
     return (
       <div key={index} className="slide">
-        <div className="company-description">
+        <div className="box">
           <div className="dates">
             {utils.formatDate(work?.startDate)} -{" "}
             {utils.formatDate(work?.endDate) || "Present"}
@@ -30,16 +26,6 @@ export function WorkComponent(props: {
           </div>
           <div className="summary">{work?.summary}</div>
         </div>
-        <div
-          className="clouds"
-          style={{
-            right: utils.moveElement(
-              props.screenSize * CLOUDS_STARTING_OFFSET,
-              props.scrollLeft,
-              CLOUDS_MOVEMENT_RATIO
-            ),
-          }}
-        ></div>
       </div>
     );
   });
