@@ -64,11 +64,15 @@ export function isPrimitive(value: any) {
     return value !== Object(value);
 }
 
+export function capitalize(str: string) {
+    return `${str.charAt(0).toUpperCase()}${str.slice(1)}`;
+}
+
 export function mapBoxData(root: any): BoxData[] {
     let result: BoxData[] = [];
     const keys = Object.keys(root)
     keys.forEach((key) => {
-        const node = mapBoxDataChildren(root[key], key + '-' + keys.indexOf(key))
+        const node = mapBoxDataChildren(root[key], key + '-' + keys.indexOf(key), capitalize(key))
         if (node) {
             result.push(node);
         }
@@ -76,7 +80,7 @@ export function mapBoxData(root: any): BoxData[] {
     return result;
 }
 
-function mapBoxDataChildren(root: any, boxKey: string): BoxData | null {
+function mapBoxDataChildren(root: any, boxKey: string, boxName: string): BoxData | null {
     if (isPrimitive(root)) {
         return null;
     }
@@ -86,17 +90,17 @@ function mapBoxDataChildren(root: any, boxKey: string): BoxData | null {
             return null;
         }
         if (root.length === 1) {
-            return mapBoxDataChildren(root[0], boxKey);
+            return mapBoxDataChildren(root[0], boxKey, boxName);
         }
 
         const node: BoxData = {
             id: boxKey,
-            name: boxKey,
+            name: boxName,
             children: [],
         };
         root.forEach(item => {
             const childBoxKey = boxKey + '-' + root.indexOf(item);
-            const childNode = mapBoxDataChildren(item, childBoxKey);
+            const childNode = mapBoxDataChildren(item, childBoxKey, boxName);
             if (childNode) {
                 node.children.push(childNode);
             }
@@ -112,7 +116,7 @@ function mapBoxDataChildren(root: any, boxKey: string): BoxData | null {
     if (hasProperties && childrenKeys.length === 0) {
         return {
             id: boxKey,
-            name: boxKey,
+            name: boxName,
             data: root,
             children: [],
         };
@@ -120,12 +124,12 @@ function mapBoxDataChildren(root: any, boxKey: string): BoxData | null {
 
     if (!hasProperties && childrenKeys.length === 1) {
         const childBoxKey = boxKey + '-' + childrenKeys[0];
-        return mapBoxDataChildren(root[childrenKeys[0]], childBoxKey + '-' + 0);
+        return mapBoxDataChildren(root[childrenKeys[0]], childBoxKey + '-' + 0, boxName);
     }
 
     const node: BoxData = {
         id: boxKey,
-        name: boxKey,
+        name: boxName,
         children: [],
     };
 
@@ -133,7 +137,7 @@ function mapBoxDataChildren(root: any, boxKey: string): BoxData | null {
         const childBoxKey = boxKey + '-' + 0;
         node.children.push({
             id: childBoxKey,
-            name: childBoxKey,
+            name: boxName,
             data: root,
             children: [],
         });
@@ -141,7 +145,7 @@ function mapBoxDataChildren(root: any, boxKey: string): BoxData | null {
 
     childrenKeys.forEach(childKey => {
         const childBoxKey = boxKey + '-' + childKey + '-' + childrenKeys.indexOf(childKey);
-        const childNode = mapBoxDataChildren(root[childKey], childBoxKey);
+        const childNode = mapBoxDataChildren(root[childKey], childBoxKey, capitalize(childKey));
         if (childNode) {
             node.children.push(childNode);
         }

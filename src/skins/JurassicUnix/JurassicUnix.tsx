@@ -10,8 +10,9 @@ import {
     isBrowserFirefox,
     addCoordinates,
     get3DTranslation,
-    get3DRotation, 
+    get3DRotation,
     mapBoxData,
+    capitalize,
 } from './JurassicUnix.helpers';
 import {PerspectiveType} from "./types/perspective-type";
 import {Perspective} from "./types/perspective";
@@ -20,6 +21,7 @@ import {SceneContainerProps} from "./types/scene-container-props";
 import {BoxDataGroupProps} from "./types/box-data-group-props";
 import {BoxProps} from "./types/box-props";
 import {PositionedContainerProps} from "./types/positioned-container-props";
+import {DataDisplayProps} from "./types/data-display-props";
 
 
 export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
@@ -90,6 +92,7 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                                 width={SCENE_WIDTH}
                                 height={SCENE_WIDTH / 5}
                                 hue={SELECTED_THEME.baseHue}
+                                name={""}
                                 id={"base"}
                                 key={"base"}
                                 onClick={this.handleClick}
@@ -149,6 +152,7 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                         width={boxWidth}
                         height={boxHeight}
                         hue={this.props.hue}
+                        name={box.name}
                         id={box.id}
                         key={box.id}
                         data={box.data}
@@ -165,7 +169,7 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
 
     class Box extends React.Component<BoxProps> {
         render() {
-            const boxTextDiv = this.props.data ? <div className="jurassic-unix__box-text">{this.props.id}</div> : undefined;
+            const dataDisplay = this.props.data ? <DataDisplay data={this.props.data}></DataDisplay> : undefined;
             return (
                 <PositionedContainer position={this.props.position}>
                     <div
@@ -180,17 +184,26 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                     >
                         {this.props.children}
                         <div className="jurassic-unix__box-side jurassic-unix__box-top">
-                            {boxTextDiv}
+                            {dataDisplay}
                         </div>
                         <div className="jurassic-unix__box-side jurassic-unix__box-back"></div>
                         <div className="jurassic-unix__box-side jurassic-unix__box-front"></div>
                         <div className="jurassic-unix__box-side jurassic-unix__box-right"></div>
                         <div className="jurassic-unix__box-side jurassic-unix__box-left"></div>
                         <div className="jurassic-unix__box-side jurassic-unix__box-bottom"></div>
-                        <div className="jurassic-unix__box-label">{this.props.id}</div>
+                        <div className="jurassic-unix__box-label">{this.props.name}</div>
                     </div>
                 </PositionedContainer>
             );   
+        }
+    }
+
+    class DataDisplay extends React.Component<DataDisplayProps>{
+        // TODO: Display data differently for each kind of object
+        render() {
+            const data: any = this.props.data||{};
+            return <div className="jurassic-unix__box-text">{Object.keys(data).map(key =>
+                <div>{capitalize(key) + ": " + data[key]}</div>)}</div>;
         }
     }
 

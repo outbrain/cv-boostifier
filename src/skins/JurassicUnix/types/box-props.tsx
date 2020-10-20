@@ -8,6 +8,7 @@ export interface BoxProps{
     height: number,
     hue: number,
     id: string,
+    name: string,
     data?:
         Basics |
         Profile | 
