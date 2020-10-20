@@ -27,7 +27,8 @@ export class BackTo90s extends Component<any, IProfileProps> {
     }
     render() {
         const {basics, skills, work, education, references, projects, publications, languages} = this.props.profile;
-
+        const lastIndex = this.props.profile.basics.label.lastIndexOf("at");
+        const labelTitle = this.props.profile.basics.label.substring(0, lastIndex);
         return (
 
             <div className="BackTo90s-skin">
@@ -100,7 +101,7 @@ export class BackTo90s extends Component<any, IProfileProps> {
                     <section className="main-section">
                         <span className="blue-triangle"></span>
                         <h1>{basics?.name}</h1>
-                        <h4>{basics?.label}</h4>
+                        <h4>{(labelTitle) ? labelTitle : basics?.label}</h4>
 
                         <div className="about-circle">
                             <img src={OuterCircle} className='outer'/>
