@@ -11,6 +11,9 @@ import CenterCircle from './images/about-center-circle.png';
 import OuterCircle from './images/about-outer-circle.svg';
 import {Work90s} from "./components/Work90s";
 import {Edu90s} from "./components/Edu90s";
+import {Skills90s} from "./components/Skills90s";
+import {Lang90s} from "./components/Lang90s";
+import {Ref90s} from "./components/Ref90s";
 
 
 export class BackTo90s extends Component<any, IProfileProps> {
@@ -128,9 +131,7 @@ export class BackTo90s extends Component<any, IProfileProps> {
                     {
                         //Put work experience component here
                         (work || []).length > 0 &&
-                        <section>
-                            <Work90s {...work} />
-                        </section>
+                        <Work90s {...work} />
                     }
                     {
                         (education || []).length > 0 &&
@@ -138,53 +139,15 @@ export class BackTo90s extends Component<any, IProfileProps> {
                     }
                     {
                         (skills || []).length > 0 &&
-                        <section>
-                            <h3>Skills</h3>
-                            <div className="skills">
-                                {
-                                    (skills || []).map((skill: any) => {
-                                        return (
-                                            <span key={skill.name}>{skill.name}</span>
-                                        )
-                                    })
-                                }
-                            </div>
-                        </section>
+                        <Skills90s {...skills} />
                     }
                     {
                         (languages || []).length > 0 &&
-                        <section>
-                            <h2>Languages</h2>
-                            <ul>
-                                {
-                                    (languages || []).map((language: any) => {
-                                        return (
-                                            <li key={language.language}>
-                                                {language.language} - {language.fluency}
-                                            </li>
-                                        );
-                                    })
-                                }
-                            </ul>
-                        </section>
+                        <Lang90s {...languages} />
                     }
                     {
                         (references || []).length > 0 &&
-                        <section>
-                            <h2>References</h2>
-                            <ul>
-                                {
-                                    (references || []).map((reference: any) => {
-                                        return (
-                                            <li key={reference.name}>
-                                                <h4>{reference.name}</h4>
-                                                <p>{reference.reference}</p>
-                                            </li>
-                                        );
-                                    })
-                                }
-                            </ul>
-                        </section>
+                        <Ref90s {...references} />
                     }
                 </main>
             </div>

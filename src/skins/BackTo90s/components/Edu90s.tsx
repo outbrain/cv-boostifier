@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './Edu90s.scss';
-import {Work} from "../../../models";
+import IconBg from '../images/edu-bg-icons.svg';
 
 interface IEduProfile {
     eduObj?: any[];
@@ -21,6 +21,7 @@ export class Edu90s extends Component<IEduProfile, any> {
         return (
 
                 <section className="edu-section">
+                    <img src={IconBg} alt="" className="icon-bg"/>
                     <div className="edu-top">
                         <img src="images/giphy.gif" className="animated-gif" />
                         <div className="marquee">
@@ -46,7 +47,7 @@ export class Edu90s extends Component<IEduProfile, any> {
 
 
                             return (
-                                <div>
+                                <div className="edu-container">
                                     <article key={ix} className={`eduItem ${!this.isEven(ix) ? 'odd': ''}`}>
                                         <div className={`edu-date ${!this.isEven(ix) ? 'left': ''}`}>{`${startYear[0]} - ${endYear[0]}`}</div>
                                         {/*<hgroup>*/}
@@ -67,6 +68,8 @@ export class Edu90s extends Component<IEduProfile, any> {
                             );
                         })
                     }
+                    <img src={IconBg} alt="" className="icon-bg reverse"/>
+
                 </section>
         );
     }

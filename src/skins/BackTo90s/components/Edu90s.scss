@@ -1,11 +1,40 @@
 
 .edu-section{
   background: #E0DCFA url(../images/edu-bg.svg);
-
+  position: relative;
   .edu-top{
     background: url(../images/tree.svg) repeat-x;
     padding-top: 8vw;
     margin-bottom: 8vw;
+  }
+  .icon-bg {
+    position: absolute;
+    right: 8vw;
+    top: 19vw;
+    &.reverse {
+      position: absolute;
+      right: auto;
+      left: 8vw;
+      top: 55vw;
+      transform: scaleX(-1);
+    }
+  }
+  .edu-container {
+
+    &::after {
+      content: '';
+      background: url(../images/dots.svg) no-repeat;
+      height: 90px;
+      width: 10px;
+      margin: 1.8vw auto;
+      display: block;
+      text-align: center;
+
+    }
+    &:last-child::after {
+      background: none;
+      content: '';
+    }
   }
   .marquee {
     margin: 0 auto;
@@ -13,7 +42,8 @@
     overflow: hidden;
     box-sizing: border-box;
     width: 100%;
-
+    border-bottom: 5px solid black;
+    background: #FFFFFF;
   }
 
   .marquee .marquee-group {
@@ -21,15 +51,14 @@
     padding-left: 100%;
     /* show the marquee just outside the paragraph */
     will-change: transform;
-    animation: marquee 30s linear infinite;
-    border-bottom: 5px solid black;
-    background: #FFFFFF;
+    animation: marquee 20s linear infinite;
+
 
     span {
       font-family: "Arkipelago", Arial;
       font-size: 60px;
       font-weight: normal;
-      margin-right: 120px;
+      margin-right: 220px;
       &:before {
         content: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='36px' height='28px' viewBox='0 0 36 28' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3EGroup 25%3C/title%3E%3Cdefs%3E%3Crect id='path-1' x='0' y='0' width='1440' height='1449'%3E%3C/rect%3E%3Cpolygon id='path-3' points='0.000321176471 -4.56419216e-15 28.1806659 -4.56419216e-15 28.1806659 20.9789901 0.000321176471 20.9789901'%3E%3C/polygon%3E%3C/defs%3E%3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='Artboard-Copy-2' transform='translate(-303.000000, -2288.000000)'%3E%3Crect id='Rectangle' fill='%23E0DCFA' x='0' y='1999.85806' width='1440' height='1449'%3E%3C/rect%3E%3Cg id='tiles' transform='translate(0.000000, 1999.858062)'%3E%3Cmask id='mask-2' fill='white'%3E%3Cuse xlink:href='%23path-1'%3E%3C/use%3E%3C/mask%3E%3Cg id='Mask'%3E%3C/g%3E%3Cg id='Group-16' opacity='0.299897693' mask='url(%23mask-2)'%3E%3Cg transform='translate(-680.000000, 3.000000)' id='Group-3641' fill='%23000000'%3E%3Cpolygon id='Fill-1047' points='990.105149 293.6024 1074.55785 293.6024 1074.55785 293.155489 990.105149 293.155489'%3E%3C/polygon%3E%3Cpolygon id='Fill-1049' points='1010.99345 314.493683 1011.44156 314.493683 1011.44156 230.039196 1010.99345 230.039196'%3E%3C/polygon%3E%3Cpolygon id='Fill-1051' points='990.105149 293.6024 990.476979 293.6024 990.476979 293.155489 990.105149 293.155489'%3E%3C/polygon%3E%3Cpolygon id='Fill-1254' points='989.730638 293.6024 990.105149 293.6024 990.105149 293.155489 989.730638 293.155489'%3E%3C/polygon%3E%3Cpolygon id='Fill-1256' points='905.652152 293.6024 990.104851 293.6024 990.104851 293.155489 905.652152 293.155489'%3E%3C/polygon%3E%3C/g%3E%3C/g%3E%3C/g%3E%3Cg id='Group-14-Copy' transform='translate(304.850499, 2124.696587)'%3E%3Cg id='Group-25' transform='translate(-0.000000, 164.000000)'%3E%3Crect id='Rectangle' stroke='%23000000' stroke-width='2' fill='%23FFFFFF' x='1.77635684e-15' y='0.303413222' width='25.325669' height='25.325669'%3E%3C/rect%3E%3Cg id='Group-3' transform='translate(4.215742, 0.000000)'%3E%3Cmask id='mask-4' fill='white'%3E%3Cuse xlink:href='%23path-3'%3E%3C/use%3E%3C/mask%3E%3Cg id='Clip-2'%3E%3C/g%3E%3Cpath d='M27.8684824,2.57557835 L25.6048306,0.311926588 C25.1911553,-0.104318118 24.5141153,-0.104318118 24.0991553,0.311926588 L10.5339459,13.877136 L4.08086824,7.37523953 C3.66590824,6.96027953 2.99272235,6.96027953 2.57390824,7.37523953 L0.311541176,9.63760659 C-0.103418824,10.0512819 -0.103418824,10.7308913 0.311541176,11.147136 L7.48919294,18.3748913 L7.50846353,18.4070089 L9.07580471,19.9730654 L9.43809176,20.3340678 L9.7734,20.6706607 C10.1857906,21.0817666 10.8654,21.0817666 11.28036,20.6706607 L27.8684824,4.08253835 C28.2847271,3.66757835 28.2847271,2.99053835 27.8684824,2.57557835' id='Fill-1' fill='%23478AFE' mask='url(%23mask-4)'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
       }
@@ -48,21 +77,6 @@
   }
 
 
-  /* Respect user preferences about animations */
-
-  @media (prefers-reduced-motion: reduce) {
-    .marquee {
-      white-space: normal
-    }
-    .marquee span {
-      animation-iteration-count: 1;
-      animation-duration: 0.01;
-      /* instead of animation: none, so an animationend event is
-       * still available, if previously attached.
-       */
-      padding-left: 0;
-    }
-  }
   article{
     max-width: 785px;
     margin: 0 auto;
@@ -80,7 +94,7 @@
       margin-bottom:2vw;
       margin-left:2vw;
       &.left {
-        margin-left: 23vw;
+        margin-left: 20vw;
       }
     }
     .edu-details {
@@ -88,14 +102,14 @@
       border-bottom: 5px solid #000;
       padding: 1.3vw;
       text-align: left;
-      width: 56%;
       &.left {
-        margin-left: 23vw;
+        margin-left: 20vw;
       }
       h2 {
         font-size: 52px;
         font-weight: bold;
         text-transform: uppercase;
+        max-width: 50%;
       }
       li {
         list-style: none;
@@ -113,6 +127,7 @@
         left: -5vw;
         right: auto;
       }
+
     }
     &.eduItem {
       background-color: #0FBFED;
@@ -124,13 +139,6 @@
       }
     }
   }
-  .dots {
-    background: url(../images/dots.svg) no-repeat;
-    height: 90px;
-    width: 10px;
-    margin: 1.8vw auto;
-    display: block;
-    text-align: center;
-  }
+
 
 }
