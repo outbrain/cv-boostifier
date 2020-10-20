@@ -38,6 +38,13 @@ export class Edu90s extends Component<IEduProfile, any> {
                             const startYear = educationItem.startDate.split('-');
                             const endYear = educationItem.startDate.split('-');
 
+                            const courseItems = (educationItem.courses || []).map((course: string) => {
+                                return (
+                                    <li key={course}>{course}</li>
+                                );
+                            })
+
+
                             return (
                                 <div>
                                     <article key={ix} className={`eduItem ${!this.isEven(ix) ? 'odd': ''}`}>
@@ -49,16 +56,11 @@ export class Edu90s extends Component<IEduProfile, any> {
                                         <div className={`edu-details ${!this.isEven(ix) ? 'left': ''}`}>
                                             <h2>{educationItem.institution}</h2>
                                             <h4>{educationItem.studyType}</h4>
+                                            {
+                                                (educationItem.studyType) ? educationItem.studyType : courseItems
+                                            }
                                         </div>
-                                        {/*<ul>*/}
-                                        {/*    {*/}
-                                        {/*        (educationItem.courses || []).map((course: string) => {*/}
-                                        {/*            return (*/}
-                                        {/*                <li key={course}>{course}</li>*/}
-                                        {/*            );*/}
-                                        {/*        })*/}
-                                        {/*    }*/}
-                                        {/*</ul>*/}
+
                                     </article>
                                     <div className="dots"></div>
                                 </div>
