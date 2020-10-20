@@ -40,16 +40,16 @@ export class Edu90s extends Component<IEduProfile, any> {
                             const startYear = educationItem.startDate.split('-');
                             const endYear = educationItem.startDate.split('-');
 
-                            const courseItems = (educationItem.courses || []).map((course: string) => {
+                            const courseItems = (educationItem.courses || []).map((course: string, key: number) => {
                                 return (
-                                    <li key={course}>{course}</li>
+                                    <li key={key}>{course}</li>
                                 );
                             })
 
 
                             return (
-                                <div className="edu-container">
-                                    <article key={ix} className={`eduItem ${!this.isEven(ix) ? 'odd': ''}`}>
+                                <div className="edu-container" key={ix}>
+                                    <article className={`eduItem ${!this.isEven(ix) ? 'odd': ''}`}>
                                         <div className={`edu-date ${!this.isEven(ix) ? 'left': ''}`}>{`${startYear[0]} - ${endYear[0]}`}</div>
                                         {/*<hgroup>*/}
                                         {/*    <h4>{educationItem.studyType}, {educationItem.area}, {educationItem.institution}</h4>*/}
