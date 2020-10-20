@@ -80,6 +80,27 @@ export function mapBoxData(root: any): BoxData[] {
     return result;
 }
 
+function getItemName(item: any): string {
+    // TODO: figure out a nicer way to get the box name
+
+    // The box name is in one of these attributes, depending on what kind of data we have:
+    /*Award=>awarder
+        Education=>area
+        Interest=>name
+        Language=>language
+        Project=>name
+        Publication=>name
+        Reference=>name
+        Skill=>name
+        Volunteer=>organization
+        Work=>name
+        Profile=>network*/
+
+    const nameAttr: string|undefined = ['awarder', 'area', 'name', 'language', 'name', 'organization', 'network'].find(nameAttr=>item[nameAttr]!==undefined);
+
+    return nameAttr?item[nameAttr]:'';
+}
+
 function mapBoxDataChildren(root: any, boxKey: string, boxName: string): BoxData | null {
     if (isPrimitive(root)) {
         return null;
@@ -100,7 +121,8 @@ function mapBoxDataChildren(root: any, boxKey: string, boxName: string): BoxData
         };
         root.forEach(item => {
             const childBoxKey = boxKey + '-' + root.indexOf(item);
-            const childNode = mapBoxDataChildren(item, childBoxKey, boxName);
+            const itemName = getItemName(item)
+            const childNode = mapBoxDataChildren(item, childBoxKey, itemName);
             if (childNode) {
                 node.children.push(childNode);
             }
@@ -124,7 +146,7 @@ function mapBoxDataChildren(root: any, boxKey: string, boxName: string): BoxData
 
     if (!hasProperties && childrenKeys.length === 1) {
         const childBoxKey = boxKey + '-' + childrenKeys[0];
-        return mapBoxDataChildren(root[childrenKeys[0]], childBoxKey + '-' + 0, boxName);
+        return mapBoxDataChildren(root[childrenKeys[0]], childBoxKey + '-' + 0, "");
     }
 
     const node: BoxData = {
@@ -137,7 +159,7 @@ function mapBoxDataChildren(root: any, boxKey: string, boxName: string): BoxData
         const childBoxKey = boxKey + '-' + 0;
         node.children.push({
             id: childBoxKey,
-            name: boxName,
+            name: "Info",
             data: root,
             children: [],
         });
