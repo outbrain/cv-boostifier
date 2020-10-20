@@ -12,21 +12,8 @@ export function BasicsComponent(props: {
   const MOUNTS_STARTING_OFFSET = 0.9;
 
   return (
-    <div className="lvl-basics sky-day">
-      <div className=" slide mountains one">
-        <div
-          className="mountains-far"
-          style={{
-            backgroundPositionX: utils.moveElement(
-              props.screenSize * MOUNTS_STARTING_OFFSET,
-              props.scrollLeft,
-              MOUNTS_MOVEMENT_RATIO
-            ),
-          }}
-        ></div>
-        <div className="sky">
-          <div className="clouds2"></div>
-        </div>
+    <div className="lvl-basics">
+      <div className=" slide">
         <div className="heading user-details">
           <h1>{props.data?.name}</h1>
           <h2>{props.data?.label}</h2>

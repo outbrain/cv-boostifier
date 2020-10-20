@@ -16,8 +16,8 @@
 
 .sky{
   height: 50%;
-  width: inherit;
-  position: relative;
+  width: 100%;
+  position: absolute;
   background: url("../../assets/game_background_1/layers/clouds_1.png") repeat;
   //background-size: contain;
   transform-style: preserve-3d;

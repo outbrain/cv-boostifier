@@ -1,7 +1,7 @@
 import React , {useEffect, useRef} from 'react';
 
 export function Figure(props: {scrollLeft: number, isFemale: boolean}) {
-    const FIGURE_CHANGE_RATE = 50;
+    const FIGURE_CHANGE_RATE = 10;
 
     const prevScrollRef = useRef(0);
     useEffect(() => {prevScrollRef.current = props.scrollLeft;})

@@ -8,6 +8,7 @@ import { SkillsComponent } from "./components/Skills/Skills";
 import { WorkComponent } from "./components/Work/Work";
 import { ReferencesComponent } from "./components/References/ReferencesComponent";
 import { Floor } from "./components/Floor/Floor";
+import {utils} from "./utils/Utils";
 
 export function Adventure(props: PropsWithChildren<IProfileProps>) {
   const {
@@ -23,7 +24,8 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
   const [scrollLeft, setScrollLeft] = useState(0);
   const [scrollTop, setScrollTop] = useState(0);
   const [screenSize, setScreenSize] = useState(0);
-
+  const MOUNTS_MOVEMENT_RATIO = 0.1;
+  const MOUNTS_STARTING_OFFSET = 0.9;
   const handleScroll = () => {
     const containerElement = document.getElementById("scrollWrapper");
     const leftScroll =
@@ -45,18 +47,29 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
         className="adventure outer-wrapper"
         onScroll={handleScroll}
       >
-        <div className="wrapper">
-          {basics !== undefined ? (
-            <BasicsComponent
-              data={basics}
-              screenSize={screenSize}
-              scrollLeft={scrollLeft}
-              scrollTop={scrollTop}
-            />
-          ) : (
-            <div />
-          )}
-          {/* {education !== undefined ? (
+        <div className="wrapper sky-day">
+          <div className="mountains-far full-width"  style={{
+            backgroundPositionX: utils.moveElement(
+              screenSize * MOUNTS_STARTING_OFFSET,
+              scrollLeft,
+              MOUNTS_MOVEMENT_RATIO
+            ),
+          }}>
+            <div className="mountains">
+              <div className="sky">
+                <div className="clouds2"></div>
+              </div>
+              {basics !== undefined ? (
+              <BasicsComponent
+                data={basics}
+                screenSize={screenSize}
+                scrollLeft={scrollLeft}
+                scrollTop={scrollTop}
+              />
+            ) : (
+              <div/>
+            )}
+              {/* {education !== undefined ? (
             <EducationComponent
               education={education}
               screenSize={screenSize}
@@ -66,7 +79,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
           ) : (
             <div />
           )} */}
-          {/* {references !== undefined ? (
+              {/* {references !== undefined ? (
             <ReferencesComponent
               references={[...references,...references,...references]}
               screenSize={screenSize}
@@ -76,27 +89,31 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
           ) : (
             <div className="undefiend-projects"/>
           )} */}
-          {work !== undefined ? (
-            <WorkComponent
-              data={work}
-              screenSize={screenSize}
-              scrollLeft={scrollLeft}
-              scrollTop={scrollTop}
-            />
-          ) : (
-            <div />
-          )}
-           {skills !== undefined ? <SkillsComponent data={skills} screenSize={screenSize} scrollLeft={scrollLeft} scrollTop={scrollTop}/> : <div/> }
-          <section className="skills"></section>
-          <section className="lvl-awards slide"></section>
-          <section className="lvl-interests slide"></section>
-          <section className="languages"></section>
-          <section className="meta"></section>
-          <section className="projects"></section>
-          <section className="publications"></section>
-          <section className="volunteer"></section>
-          <section className="work"></section>
-          <Floor worldSize={20000}/>
+              {work !== undefined ? (
+                <WorkComponent
+                  data={work}
+                  screenSize={screenSize}
+                  scrollLeft={scrollLeft}
+                  scrollTop={scrollTop}
+                />
+              ) : (
+                <div/>
+              )}
+              {skills !== undefined ?
+                <SkillsComponent data={skills} screenSize={screenSize} scrollLeft={scrollLeft} scrollTop={scrollTop}/> :
+                <div/>}
+              <section className="skills"></section>
+              <section className="lvl-awards slide"></section>
+              <section className="lvl-interests slide"></section>
+              <section className="languages"></section>
+              <section className="meta"></section>
+              <section className="projects"></section>
+              <section className="publications"></section>
+              <section className="volunteer"></section>
+              <section className="work"></section>
+              <Floor worldSize={20000}/>
+          </div>
+        </div>
         </div>
       </div>
     </div>
