@@ -9,15 +9,20 @@ import Ammo from "ammojs-typed";
 import {attachRenderers, iframeCV} from "./3dCV.helper";
 
 export function Basic3d(props: PropsWithChildren<IProfileProps>) {
+    let openLinkFlag = true;
     const developerName = props.profile.basics?.name || '';
+    const emailLink = props.profile.basics?.email || '';
+    const twitterLink = props.profile.basics?.profiles?.find(profile => profile.network?.toLowerCase() === "twitter")?.url || '';
+    const linkedinLink = props.profile.basics?.profiles?.find(profile => profile.network?.toLowerCase() === "linkedin")?.url || '';
+    const githubLink = props.profile.basics?.profiles?.find(profile => profile.network?.toLowerCase() === "github")?.url || '';
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
 
     function rotateCamera(ballPosition: { position:  THREE.Vector3; }) {
-        // console.log("x: " + ballPosition.position.x, "y: " + ballPosition.position.y, "z: " + ballPosition.position.z)
+        console.log("x: " + ballPosition.position.x, "y: " + ballPosition.position.y, "z: " + ballPosition.position.z)
         let camPosistion = new THREE.Vector3(camera.position.x, camera.position.y, camera.position.z);
         let targetPos;
-        if (ballPosition.position.z > 50 ) {
+        if (ballPosition.position.z > 62) {
             targetPos = new THREE.Vector3(ballPosition.position.x, ballPosition.position.y, ballPosition.position.z + 60);
         } else
         if (ballPosition.position.x > 25 && ballPosition.position.x < 55 && ballPosition.position.z < -10 ) {
@@ -32,6 +37,28 @@ export function Basic3d(props: PropsWithChildren<IProfileProps>) {
         camPosistion.lerp(targetPos, 0.033);
         camera.position.copy(camPosistion);
         camera.lookAt(ballPosition.position);
+    }
+
+    function checkLinksToOpen(ballPosition: { position:  THREE.Vector3; }) {
+        if(ballPosition.position.z > 48) {
+            openLinkFlag = true;
+        }
+        if (ballPosition.position.x > 26 && ballPosition.position.x < 29 &&  ballPosition.position.z > 43.2 &&  ballPosition.position.z < 43.5 && emailLink && openLinkFlag ) {
+            openLinkFlag = false;
+            window.open(`mailto:${emailLink}`);
+        }
+        if (ballPosition.position.x > 37 && ballPosition.position.x < 39 &&  ballPosition.position.z > 43.2 &&  ballPosition.position.z < 43.5 && twitterLink && openLinkFlag ) {
+            openLinkFlag = false;
+            window.open(twitterLink);
+        }
+        if (ballPosition.position.x > 48 && ballPosition.position.x < 50 &&  ballPosition.position.z > 43.2 &&  ballPosition.position.z < 43.5 && linkedinLink && openLinkFlag ) {
+            openLinkFlag = false;
+            window.open(linkedinLink);
+        }
+        if (ballPosition.position.x > 59 && ballPosition.position.x < 61 &&  ballPosition.position.z > 43.2 &&  ballPosition.position.z < 43.5 && githubLink && openLinkFlag ) {
+            openLinkFlag = false;
+            window.open(githubLink);
+        }
     }
 
     function onWindowResize() {
@@ -131,6 +158,7 @@ export function Basic3d(props: PropsWithChildren<IProfileProps>) {
             rotateCamera(ballObject);
             rendererCss.render( sceneCss, camera );
             rendererWebgl.render( sceneWebgl, camera );
+            checkLinksToOpen(ballObject);
             requestAnimationFrame( animate );
         }
 
@@ -297,7 +325,7 @@ export function Basic3d(props: PropsWithChildren<IProfileProps>) {
         }
 
         function createLink(link: string,image: string, backgroundColor: string, posX: number, posY: number, posZ: number) {
-            let cubeGeometry = new THREE.BoxGeometry( 6, 6, 2,  );
+            let cubeGeometry = new THREE.BoxGeometry( 6, 6, 2);
             let scale = {x: 6, y: 6, z: 2};
             let cubeSide = [
                 new THREE.MeshStandardMaterial({
@@ -486,7 +514,7 @@ export function Basic3d(props: PropsWithChildren<IProfileProps>) {
             let localInertia = new Ammo.btVector3(0, 0, 0);
             let motionState = new Ammo.btDefaultMotionState(transform);
             let colShape = new Ammo.btBoxShape(new Ammo.btVector3(scale.x * 0.5, scale.y * 0.5, scale.z * 0.5));
-            colShape.setMargin(0.05);
+            colShape.setMargin(0.1);
             colShape.calculateLocalInertia(mass, localInertia);
             let rbInfo = new Ammo.btRigidBodyConstructionInfo(mass, motionState, colShape, localInertia);
             let body = new Ammo.btRigidBody(rbInfo);
@@ -498,21 +526,25 @@ export function Basic3d(props: PropsWithChildren<IProfileProps>) {
         function setupLinks(): void {
             const baseXpose = 27;
             const xDelta = 11;
-            const emailLink = props.profile.basics?.email || '';
-            const twitterLink = props.profile.basics?.profiles?.find(profile => profile.network?.toLowerCase() === "twitter")?.url || '';
-            const linkedinLink = props.profile.basics?.profiles?.find(profile => profile.network?.toLowerCase() === "linkedin")?.url || '';
-            const githubLink = props.profile.basics?.profiles?.find(profile => profile.network?.toLowerCase() === "github")?.url || '';
             if (emailLink) {
                createLink(`mailto:${emailLink}`,'mail.png','#D44638', baseXpose, 3, 40);
+               createWallXAxis(baseXpose - 3, 2.5, 42 , 0.125, 5, 5 );
+               createWallXAxis(baseXpose + 3, 2.5, 42 , 0.125, 5, 5 );
             }
             if (twitterLink) {
                 createLink(twitterLink,'twitter.png','#1DA1F2', baseXpose + xDelta , 3, 40);
+                createWallXAxis(baseXpose + xDelta - 3, 2.5, 42 , 0.125, 5, 5 );
+                createWallXAxis(baseXpose + xDelta + 3, 2.5, 42 , 0.125, 5, 5 );
             }
             if (linkedinLink) {
                 createLink(linkedinLink,'linkedin.png','#2867B2', baseXpose + (2*xDelta) , 3, 40);
+                createWallXAxis(baseXpose + (2*xDelta) - 3, 2.5, 42 , 0.125, 5, 5 );
+                createWallXAxis(baseXpose + (2*xDelta) + 3, 2.5, 42 , 0.125, 5, 5 );
             }
             if (githubLink) {
                 createLink(githubLink,'github.png','black', baseXpose + (3*xDelta) , 3, 40);
+                createWallXAxis(baseXpose + (3*xDelta) - 3, 2.5, 42 , 0.125, 5, 5 );
+                createWallXAxis(baseXpose + (3*xDelta) + 3, 2.5, 42 , 0.125, 5, 5 );
             }
         }
 
