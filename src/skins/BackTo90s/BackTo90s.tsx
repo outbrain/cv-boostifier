@@ -1,10 +1,9 @@
-import React, {Component, PropsWithChildren} from 'react';
+import React, {Component} from 'react';
 import './BackTo90s.scss';
-import {IProfileProps, Work} from '../../models';
+import {IProfileProps} from '../../models';
 import CardSideBg from './images/card-side.svg';
 import LocIcon from './images/loc-icon.svg';
 import PhoneIcon from './images/phone-icon.svg';
-import PlayIcon from './images/play-icon.svg';
 import EmailIcon from './images/mail-icon.svg';
 import ProfilePicture from './images/profile-picture.svg';
 import CenterCircle from './images/about-center-circle.png';
@@ -17,16 +16,14 @@ import {Ref90s} from "./components/Ref90s";
 
 
 export class BackTo90s extends Component<any, IProfileProps> {
-    constructor(props: any) {
-        super(props);
-    }
+
     readMore() {
 
         console.log('clicked read more', );
 
     }
     render() {
-        const {basics, skills, work, education, references, projects, publications, languages} = this.props.profile;
+        const {basics, skills, work, education, references, languages} = this.props.profile;
         const lastIndex = this.props.profile.basics.label.lastIndexOf("at");
         const labelTitle = this.props.profile.basics.label.substring(0, lastIndex);
         return (
@@ -75,7 +72,7 @@ export class BackTo90s extends Component<any, IProfileProps> {
                                             (basics?.profiles || []).map((profile: any, ix: number) => {
                                                 return (
                                                     <p key={ix}>
-                                                        <span className={profile.network}><a href={profile.url}><img src={`images/${profile.network}.png`} /></a></span>
+                                                        <span className={profile.network}><a href={profile.url}><img alt="" src={`images/${profile.network}.png`} /></a></span>
                                                     </p>
                                                 );
                                             })
@@ -104,8 +101,8 @@ export class BackTo90s extends Component<any, IProfileProps> {
                         <h4>{(labelTitle) ? labelTitle : basics?.label}</h4>
 
                         <div className="about-circle">
-                            <img src={OuterCircle} className='outer'/>
-                            <img src={CenterCircle} className='center'/>
+                            <img alt="" src={OuterCircle} className='outer'/>
+                            <img alt="" src={CenterCircle} className='center'/>
                         </div>
 
                         <div className="main-description">
@@ -156,4 +153,5 @@ export class BackTo90s extends Component<any, IProfileProps> {
         );
     }
 }
+
 

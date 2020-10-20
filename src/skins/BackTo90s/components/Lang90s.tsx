@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './Lang90s.scss';
-import IconBg from '../images/edu-bg-icons.svg';
 
 interface ILangProfile {
     langObj?: any[];

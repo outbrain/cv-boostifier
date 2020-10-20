@@ -24,7 +24,7 @@ export class Edu90s extends Component<IEduProfile, any> {
                 <section className="edu-section">
                     <img src={IconBg} alt="" className="icon-bg"/>
                     <div className="edu-top">
-                        <img src={Giphy} className="animated-gif" />
+                        <img alt="" src={Giphy} className="animated-gif" />
                         <div className="marquee">
                             <div className="marquee-group">
                                 <span>Education</span>

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './Skills90s.scss';
-import IconBg from '../images/edu-bg-icons.svg';
 
 interface ISkillsProfile {
     skillsObj?: any[];

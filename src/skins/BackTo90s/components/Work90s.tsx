@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './Work90s.scss';
-import {Work} from "../../../models";
 
 interface IWorkProfile {
     workObj?: any[];
