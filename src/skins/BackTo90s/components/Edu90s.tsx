@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './Edu90s.scss';
 import IconBg from '../images/edu-bg-icons.svg';
+import Giphy from '../images/giphy.gif';
 
 interface IEduProfile {
     eduObj?: any[];
@@ -23,7 +24,7 @@ export class Edu90s extends Component<IEduProfile, any> {
                 <section className="edu-section">
                     <img src={IconBg} alt="" className="icon-bg"/>
                     <div className="edu-top">
-                        <img src="images/giphy.gif" className="animated-gif" />
+                        <img src={Giphy} className="animated-gif" />
                         <div className="marquee">
                             <div className="marquee-group">
                                 <span>Education</span>
