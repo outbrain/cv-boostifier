@@ -44,6 +44,19 @@
     width: 300px;
   }
 }
+@keyframes rotate {
+  from {
+    transform: rotate(-30deg);
+  }
+
+  50% {
+    transform: rotate(30deg);
+  }
+
+  to {
+    transform: rotate(-30deg);
+  }
+}
 
 //section {
 //  position: relative;
@@ -65,6 +78,25 @@
    transform: scale(1.2);
     transform-origin: center;
 
+  }
+}
+
+.education {
+  position: relative;
+  &:hover {
+    .boom {
+      opacity: 1;
+      animation-iteration-count: infinite;
+      animation-duration: 1.5s;
+      animation-name: rotate;
+    }
+  }
+  .boom {
+    opacity: 0;
+    width: 260px;
+    bottom: -103px;
+    position: absolute;
+    right: 0;
   }
 }
 

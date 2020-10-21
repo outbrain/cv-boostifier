@@ -193,7 +193,8 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
 
         {
           (education || []).length > 0 &&
-          <section className="bg-yellow">
+          <section className="bg-yellow education">
+            <img src={require(`./images/boom.png`)} className="boom" alt=""/>
             <h2>Education</h2>
             {
               (education || []).map((educationItem, ix) => {
