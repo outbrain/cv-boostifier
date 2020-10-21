@@ -59,6 +59,13 @@
   }
 }
 
+.education-img:hover {
+  img {
+   min-height: 600px;
+    min-width:600px;
+  }
+}
+
 .cartoon-image {
   display: flex;
   align-items: center;

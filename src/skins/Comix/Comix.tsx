@@ -7,7 +7,7 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
   const {basics, skills, work, education, references, projects, publications, languages} = props.profile;
 
   return (
-    <div className="comics-skin">
+    <div className="comics-skin male">
       <div className="basics-info">
         <img src={require(`./images/pow.png`)} className="pow" alt="pow"/>
         <div className="profile-image">
