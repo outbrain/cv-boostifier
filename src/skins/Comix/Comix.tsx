@@ -4,13 +4,13 @@ import {IProfileProps} from '../../models';
 
 export function Comix(props: PropsWithChildren<IProfileProps>) {
   const {basics, skills, work, education, references, projects, publications, languages} = props.profile;
-  
+
   return (
     <div className="comics-skin">
       <div className="basics-info">
         <img src={require(`./images/pow.png`)} className="pow" alt="pow"/>
         <div className="profile-image">
-          <img src={require(`./images/comix-woman.png`)} className="profile-pic" alt={basics?.name} />
+          <img src={require(`./images/comix-woman.png`)} className="profile-pic" alt={basics?.name}/>
           <div className="speech-bubble">
             <img src={require(`./images/speech-bubble-cloud-rotate.png`)} className="speech-bubble-cloud" alt="pow"/>
             <span>Hello world... ;)</span>
@@ -20,7 +20,7 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
           <header>
             {
               basics?.picture &&
-              <img src={basics?.picture} alt={basics?.name} />
+              <img src={basics?.picture} alt={basics?.name}/>
             }
             <h1 className="name">{basics?.name}</h1>
             <h4>{basics?.label}</h4>
@@ -102,6 +102,7 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
             </p>
           </section>
         }
+
         {
           (work || []).length > 0 &&
           <section className="experience">
@@ -130,8 +131,19 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
             }
           </section>
         }
-        <section className="section-img bg-black">
-          <img src={require(`./images/experience-female.png`)} alt={basics?.name} />
+        <section className="section-img bg-black experience-image">
+          <img src={require(`./images/experience-female.png`)} alt={basics?.name}/>
+          <div className="speech-bubble-2">
+            <img src={require(`./images/speech-bubble-2.png`)} className="" alt="pow"/>
+            <div className="nerdy-joke">
+              <div className="question">
+                Q: What is a programmer's favourite hangout place?
+              </div>
+              <div className="answer">
+                A: Foo Bar
+              </div>
+            </div>
+          </div>
         </section>
         {
           (projects || []).length > 0 &&
@@ -162,7 +174,7 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
           </section>
         }
         <section className="section-img education-img">
-          <img src={require(`./images/education-female.png`)} alt={basics?.name} />
+          <img src={require(`./images/education-female.png`)} alt={basics?.name}/>
         </section>
         {
           (education || []).length > 0 &&
@@ -196,15 +208,15 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
           <section className="bg-light-blue">
             <h2>Languages</h2>
             <ul>
-            {
-              (languages || []).map((language) => {
-                return (
-                  <li key={language.language}>
-                    {language.language} - {language.fluency}
-                  </li>
-                );
-              })
-            }
+              {
+                (languages || []).map((language) => {
+                  return (
+                    <li key={language.language}>
+                      {language.language} - {language.fluency}
+                    </li>
+                  );
+                })
+              }
             </ul>
           </section>
         }
@@ -213,16 +225,16 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
           <section className="bg-purple">
             <h2>References</h2>
             <ul>
-            {
-              (references || []).map((reference) => {
-                return (
-                  <li key={reference.name}>
-                    <h4>{reference.name}</h4>
-                    <p>{reference.reference}</p>
-                  </li>
-                );
-              })
-            }
+              {
+                (references || []).map((reference) => {
+                  return (
+                    <li key={reference.name}>
+                      <h4>{reference.name}</h4>
+                      <p>{reference.reference}</p>
+                    </li>
+                  );
+                })
+              }
             </ul>
           </section>
         }
@@ -231,17 +243,17 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
           <section>
             <h2>Publications</h2>
             <ul>
-            {
-              (publications || []).map((publication, ix) => {
-                return (
-                  <li key={ix}>
-                    <h4>{publication.name}, {publication.publisher}</h4>
-                    <p>{publication.summary}</p>
-                    <p><a href={publication.website}>{publication.website}</a></p>
-                  </li>
-                );
-              })
-            }
+              {
+                (publications || []).map((publication, ix) => {
+                  return (
+                    <li key={ix}>
+                      <h4>{publication.name}, {publication.publisher}</h4>
+                      <p>{publication.summary}</p>
+                      <p><a href={publication.website}>{publication.website}</a></p>
+                    </li>
+                  );
+                })
+              }
             </ul>
           </section>
         }

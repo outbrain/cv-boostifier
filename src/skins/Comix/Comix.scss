@@ -24,6 +24,10 @@
   }
 }
 
+//section {
+//  position: relative;
+//}
+
 .comics-skin {
   font-family: 'Coming Soon', cursive;
   $min-width: 700px;
@@ -82,6 +86,7 @@
         }
       }
       .speech-bubble {
+        z-index: 10;
         position: absolute;
         bottom: -96px;
         left: 230px;
@@ -136,6 +141,7 @@
         }
       }
       section {
+        position: relative;
         margin-bottom: $default-margin;
         h3 {
           font-weight: $font-weight-bold;
@@ -147,6 +153,38 @@
       }
     }
   }
+
+  .experience-image {
+    position: relative;
+    &:hover {
+      .speech-bubble-2 {
+        opacity: 1;
+      }
+    }
+    .speech-bubble-2 {
+      opacity: 0;
+      position: absolute;
+      left: 76px;
+      top: -188px;
+      img {
+        width: 325px !important;
+      }
+      .nerdy-joke {
+        position: absolute;
+        top: 90px;
+        left: 40px;
+        width: 205px;
+        .question  {
+          padding-bottom: 10px;
+        }
+        .answer {
+          padding-left: 40px;
+        }
+      }
+    }
+  }
+
+
   main.main-info {
     display: flex;
     flex-wrap: wrap;
