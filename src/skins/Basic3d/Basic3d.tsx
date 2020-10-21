@@ -7,6 +7,7 @@ import {WebGLRenderer} from "three";
 import {CSS3DRenderer} from "three/examples/jsm/renderers/CSS3DRenderer";
 import Ammo from "ammojs-typed";
 import {attachRenderers, iframeCV} from "./3dCV.helper";
+import {GLTFLoader} from "three/examples/jsm/loaders/GLTFLoader";
 
 export function Basic3d(props: PropsWithChildren<IProfileProps>) {
     let openLinkFlag = true;
@@ -19,7 +20,7 @@ export function Basic3d(props: PropsWithChildren<IProfileProps>) {
     const mouse = new THREE.Vector2();
 
     function rotateCamera(ballPosition: { position:  THREE.Vector3; }) {
-        console.log("x: " + ballPosition.position.x, "y: " + ballPosition.position.y, "z: " + ballPosition.position.z)
+        // console.log("x: " + ballPosition.position.x, "y: " + ballPosition.position.y, "z: " + ballPosition.position.z)
         let camPosistion = new THREE.Vector3(camera.position.x, camera.position.y, camera.position.z);
         let targetPos;
         if (ballPosition.position.z > 62) {
@@ -38,6 +39,22 @@ export function Basic3d(props: PropsWithChildren<IProfileProps>) {
         camera.position.copy(camPosistion);
         camera.lookAt(ballPosition.position);
     }
+
+    function loadModel() {
+        const loader = new GLTFLoader();
+        loader.load('model.gltf', (gltf) => {
+            gltf.scene.traverse(c => {
+                c.castShadow = true;
+                c.receiveShadow = false;
+                c.position.x = 12;
+                c.position.y = -16;
+                c.position.z = -20;
+                c.scale.setScalar(3);
+            });
+            sceneWebgl.add(gltf.scene);
+        });
+    }
+
 
     function checkLinksToOpen(ballPosition: { position:  THREE.Vector3; }) {
         if(ballPosition.position.z > 48) {
@@ -567,6 +584,7 @@ export function Basic3d(props: PropsWithChildren<IProfileProps>) {
         create3dName(developerName)
         setupLinks();
         setupMarbles();
+        loadModel();
         animate();
     });
 
