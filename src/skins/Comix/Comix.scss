@@ -56,6 +56,14 @@
   .bg-purple {
     background: $purple;
   }
+  .bg-black {
+    //display: flex;
+    background: black;
+  }
+
+  .experience-image {
+    display: flex;
+  }
 
   .basics-info {
     display: flex;
@@ -65,20 +73,37 @@
     max-height: 450px;
     background: $yellow;
     position: relative;
-    .image-profile-container {
-      position: relative;
-      img.speech-bubble-cloud {
+
+    .profile-image {
+      max-width: 450px;
+      &:hover {
+        .speech-bubble {
+          opacity: 1;
+        }
+      }
+      .speech-bubble {
         position: absolute;
-        width: 200px;
+        bottom: -96px;
+        left: 230px;
+        opacity: 0;
+        img.speech-bubble-cloud {
+          width: 300px;
+        }
+        span {
+          position: absolute;
+          top: 103px;
+          left: 57px;
+          font-size: 31px;
+        }
       }
     }
-    img.speech-bubble-cloud {
-      position: absolute;
-      width: 200px;
-    }
+
     img.profile-pic {
       height: 100%;
       border-right: $default-border;
+      &:hover {
+
+      }
     }
     img.pow {
       //opacity: 0;
@@ -136,6 +161,10 @@
       width: 49%;
       &.section-img {
         padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: black;
         img {
           width: 100%;
         }

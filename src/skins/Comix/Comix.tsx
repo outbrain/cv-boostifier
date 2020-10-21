@@ -9,8 +9,13 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
     <div className="comics-skin">
       <div className="basics-info">
         <img src={require(`./images/pow.png`)} className="pow" alt="pow"/>
-        <img src={require(`./images/comix-woman.png`)} className="profile-pic" alt={basics?.name} />
-        <img src={require(`./images/speech-bubble-cloud.png`)} className="speech-bubble-cloud" alt="pow"/>
+        <div className="profile-image">
+          <img src={require(`./images/comix-woman.png`)} className="profile-pic" alt={basics?.name} />
+          <div className="speech-bubble">
+            <img src={require(`./images/speech-bubble-cloud-rotate.png`)} className="speech-bubble-cloud" alt="pow"/>
+            <span>Hello world... ;)</span>
+          </div>
+        </div>
         <aside className="basics-content">
           <header>
             {
@@ -125,7 +130,7 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
             }
           </section>
         }
-        <section className="section-img experience-imge">
+        <section className="section-img bg-black">
           <img src={require(`./images/experience-female.png`)} alt={basics?.name} />
         </section>
         {
