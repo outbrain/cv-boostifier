@@ -106,6 +106,7 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
         {
           (work || []).length > 0 &&
           <section className="experience">
+            <img src={require(`./images/wow.png`)} className="wow" alt="wow"/>
             <h2>Experience</h2>
             {
               (work || []).map((workItem, ix) => {
