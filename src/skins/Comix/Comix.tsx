@@ -259,7 +259,7 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
         }
         {
           (publications || []).length > 0 &&
-          <section className="bg-pink">
+          <section className="bg-orange-red">
             <h2>Publications</h2>
             <ul>
               {
