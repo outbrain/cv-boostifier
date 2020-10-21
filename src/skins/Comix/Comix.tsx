@@ -2,7 +2,6 @@ import React, {PropsWithChildren, useState} from 'react';
 import './Comix.scss';
 import {IProfileProps} from '../../models';
 import {Image, Transformation} from 'cloudinary-react';
-import {bool} from 'prop-types'
 
 export function Comix(props: PropsWithChildren<IProfileProps>) {
   const {basics, skills, work, education, references, projects, publications, languages} = props.profile;

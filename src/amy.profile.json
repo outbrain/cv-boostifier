@@ -1,0 +1,109 @@
+{
+  "basics": {
+    "name": "Amy Farrah",
+    "label": "Neuobiologist",
+    "picture": "https://topicimages.mrowl.com/large/sumanthchandu/the_big_bang_theory/cast/amy/amy_farrah_fowler_1.jpg",
+    "email": "amy.farrah@gmail.com",
+    "phone": "(912) 555-4321",
+    "website": "http://richardhendricks.com",
+    "summary": "Amy is from Glendale, California. She also has a doctorate degree in neurobiology from Harvard University, inspired by actor Mayim Bialik's own doctorate.",
+    "location": {
+      "address": "2712 Broadway St",
+      "postalCode": "CA 94115",
+      "city": "Glendale",
+      "countryCode": "US",
+      "region": "California"
+    },
+    "profiles": [
+      {
+        "network": "Twitter",
+        "username": "neutralthoughts",
+        "url": ""
+      },
+      {
+        "network": "SoundCloud",
+        "username": "dandymusicnl",
+        "url": "https://soundcloud.com/dandymusicnl"
+      }
+    ]
+  },
+  "work": [
+    {
+      "company": "Harvard",
+      "position": "Researcher",
+      "website": "http://piedpiper.com",
+      "startDate": "2013-12-01",
+      "endDate": "2014-12-01",
+      "summary": "Very Smart Things",
+      "highlights": [
+        "map the human brain"
+      ]
+    }
+  ],
+  "volunteer": [
+
+  ],
+  "education": [
+    {
+      "institution": "Harvard",
+      "area": "Neuroscience",
+      "studyType": "Bachelor",
+      "startDate": "2011-06-01",
+      "endDate": "2014-01-01",
+      "gpa": "4.0",
+      "courses": [
+        "DB1101 - brain",
+        "CS2011 - more brain"
+      ]
+    }
+  ],
+  "awards": [
+
+  ],
+  "publications": [
+    {
+      "name": "the brain",
+      "publisher": "Hooli",
+      "releaseDate": "2014-10-01",
+      "website": "http://en.wikipedia.org/wiki/Silicon_Valley_(TV_series)",
+      "summary": "how the brain works."
+    }
+  ],
+  "skills": [
+    {
+      "name": "biology",
+      "level": "Master",
+      "keywords": [
+
+      ]
+    },
+    {
+      "name": "chemistry",
+      "level": "Master",
+      "keywords": [
+
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native speaker"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Wildlife",
+      "keywords": [
+        "Ferrets",
+        "Unicorns"
+      ]
+    }
+  ],
+  "references": [
+    {
+      "name": "Erlich Bachman",
+      "reference": "It is my pleasure to recommend Amy, his performance working as a consultant for Main St. Company proved that he will be a valuable addition to any company."
+    }
+  ]
+}
