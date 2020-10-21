@@ -7,6 +7,23 @@
   justify-content: center;
 }
 
+@keyframes slideBottomTop {
+  from {
+    right: 0;
+    bottom: 0;
+  }
+
+  50% {
+    bottom: 200px;
+    right: 30px;
+  }
+
+  to {
+    right: 0;
+    bottom: 0;
+  }
+}
+
 .comics-skin {
   font-family: 'Coming Soon', cursive;
   $min-width: 700px;
@@ -29,6 +46,17 @@
   flex-direction: column;
   position: relative;
   margin: 30px;
+
+  .bg-yellow {
+    background: $yellow;
+  }
+  .bg-light-blue {
+    background: $light-blue;
+  }
+  .bg-purple {
+    background: $purple;
+  }
+
   .basics-info {
     display: flex;
     border: $default-border;
@@ -36,9 +64,38 @@
     min-height: 250px;
     max-height: 450px;
     background: $yellow;
-    img {
+    position: relative;
+    .image-profile-container {
+      position: relative;
+      img.speech-bubble-cloud {
+        position: absolute;
+        width: 200px;
+      }
+    }
+    img.speech-bubble-cloud {
+      position: absolute;
+      width: 200px;
+    }
+    img.profile-pic {
       height: 100%;
       border-right: $default-border;
+    }
+    img.pow {
+      //opacity: 0;
+      position: absolute;
+      width: 300px;
+      right: 0;
+      bottom: 0;
+      animation-iteration-count: 3;
+      animation-duration: 1s;
+      animation-name: slideBottomTop;
+    }
+    &:hover {
+      img.pow {
+        animation-iteration-count: infinite;
+        animation-duration: 1s;
+        animation-name: slideBottomTop;
+      }
     }
     .basics-content {
       padding-left: 30px;
@@ -77,6 +134,12 @@
       border: $default-border;
       margin: 15px 0;
       width: 49%;
+      &.section-img {
+        padding: 0;
+        img {
+          width: 100%;
+        }
+      }
     }
     .summary {
       width: 100%;

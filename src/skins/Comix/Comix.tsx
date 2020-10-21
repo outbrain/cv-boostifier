@@ -2,13 +2,15 @@ import React, {PropsWithChildren} from 'react';
 import './Comix.scss';
 import {IProfileProps} from '../../models';
 
-export function Comix(props: PropsWithChildren<IProfileProps>) {/
+export function Comix(props: PropsWithChildren<IProfileProps>) {
   const {basics, skills, work, education, references, projects, publications, languages} = props.profile;
   
   return (
     <div className="comics-skin">
       <div className="basics-info">
-        <img src={require(`./images/comix-woman.png`)} alt={basics?.name} />
+        <img src={require(`./images/pow.png`)} className="pow" alt="pow"/>
+        <img src={require(`./images/comix-woman.png`)} className="profile-pic" alt={basics?.name} />
+        <img src={require(`./images/speech-bubble-cloud.png`)} className="speech-bubble-cloud" alt="pow"/>
         <aside className="basics-content">
           <header>
             {
@@ -123,9 +125,12 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {/
             }
           </section>
         }
+        <section className="section-img experience-imge">
+          <img src={require(`./images/experience-female.png`)} alt={basics?.name} />
+        </section>
         {
           (projects || []).length > 0 &&
-          <section>
+          <section className="bg-purple">
             <h2>Projects</h2>
             {
               (projects || []).map((project) => {
@@ -151,9 +156,12 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {/
             }
           </section>
         }
+        <section className="section-img education-img">
+          <img src={require(`./images/education-female.png`)} alt={basics?.name} />
+        </section>
         {
           (education || []).length > 0 &&
-          <section>
+          <section className="bg-yellow">
             <h2>Education</h2>
             {
               (education || []).map((educationItem, ix) => {
@@ -180,7 +188,7 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {/
         }
         {
           (languages || []).length > 0 &&
-          <section>
+          <section className="bg-light-blue">
             <h2>Languages</h2>
             <ul>
             {
@@ -197,7 +205,7 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {/
         }
         {
           (references || []).length > 0 &&
-          <section>
+          <section className="bg-purple">
             <h2>References</h2>
             <ul>
             {
