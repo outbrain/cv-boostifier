@@ -221,19 +221,22 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
         }
         {
           (languages || []).length > 0 &&
-          <section className="bg-light-blue">
-            <h2>Languages</h2>
-            <ul>
-              {
-                (languages || []).map((language) => {
-                  return (
-                    <li key={language.language}>
-                      {language.language} - {language.fluency}
-                    </li>
-                  );
-                })
-              }
-            </ul>
+          <section className="bg-light-blue languages">
+            <img src={require(`./images/bubble-bg.jpg`)} className="bubble-bg" alt="pow"/>
+            <div className="text-wrapper">
+              <h2>Languages</h2>
+              <ul>
+                {
+                  (languages || []).map((language) => {
+                    return (
+                      <li key={language.language}>
+                        {language.language} - {language.fluency}
+                      </li>
+                    );
+                  })
+                }
+              </ul>
+            </div>
           </section>
         }
         {
