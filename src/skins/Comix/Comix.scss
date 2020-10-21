@@ -58,6 +58,7 @@
   }
 }
 
+
 //section {
 //  position: relative;
 //}
@@ -180,6 +181,8 @@
   font-family: 'Coming Soon', cursive;
   $min-width: 700px;
   $yellow: #fed716;
+  $orange: orange;
+  $orange-red: orangered;
   $pink: #da1c5b;
   $pink2: #ef018c;
   $pink3: #b62f8c;
@@ -199,18 +202,52 @@
   position: relative;
   margin: 30px;
 
+
+  @keyframes changeColor {
+    from {
+      color: $red
+    }
+    10% {
+      color: $pink2
+    }
+    20% {
+      color: $pink3
+    }
+    30% {
+      color: $purple
+    }
+    40% {
+      color: $light-blue
+    }
+    50% {
+      color: $green
+    }
+    70% {
+      color: $yellow
+    }
+    80% {
+      color: $orange
+    }
+    90% {
+      color: $orange-red
+    }
+    to {
+      width: $red;
+    }
+  }
+
   .select-gender {
     display: flex;
     button {
       width: 150px;
-      background: orangered;
+      background: $orange-red;
       height: 70px;
       margin: 20px;
       border-radius: 20px;
       border: 3px solid black;
       outline: none;
       &.male {
-        background: orange;
+        background: $orange;
       }
       &:hover {
         color: white
@@ -445,6 +482,9 @@
           color: red;
           font-weight: 600;
           padding-left: 30px;
+          animation-iteration-count: infinite;
+          animation-duration: 1.5s;
+          animation-name: changeColor;
         }
       }
     }
