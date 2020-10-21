@@ -56,13 +56,15 @@
   img {
     top: 0;
     position: absolute;
+    transition: transform 0.7s ease-in;
   }
 }
 
 .education-img:hover {
   img {
-   min-height: 600px;
-    min-width:600px;
+   transform: scale(1.2);
+    transform-origin: center;
+
   }
 }
 
