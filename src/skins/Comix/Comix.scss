@@ -472,6 +472,7 @@
       top: -56px;
       width: 330px;
       right: -39px;
+      z-index: 5;
       img {
         width: 100%;
         transform: scaleX(-1);
@@ -482,9 +483,11 @@
         left: 95px;
         display: flex;
         flex-direction: column;
+        z-index: 10;
         .hire {
           color: red;
           font-weight: 600;
+          font-size: 22px;
           padding-left: 30px;
           animation-iteration-count: infinite;
           animation-duration: 1.5s;
