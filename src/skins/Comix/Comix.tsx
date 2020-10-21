@@ -25,10 +25,6 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
         </div>
         <aside className="basics-content">
           <header>
-            {
-              // basics?.picture &&
-              // <img src={basics?.picture} alt={basics?.name}/>
-            }
             <h1 className="name">{basics?.name}</h1>
             <h4>{basics?.label}</h4>
           </header>
@@ -181,11 +177,20 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
             }
           </section>
         }
-        <section className="section-img education-img">
-          {<img src={require(`./images/${isFemale? 'education-female.png' : 'education-male.png'}`)} className="profile-pic" alt=""/>}
+        <div className="education-img-wrapper">
+          <section className="section-img education-img">
+            {<img src={require(`./images/${isFemale? 'education-female.png' : 'education-male.png'}`)} className="profile-pic" alt=""/>}
+          </section>
+          <div className="speech-bubble-square">
+            <img src={require(`./images/speech-bubble-square.png`)} className="speech-bubble-square" alt=""/>
+            <div className="bubble-text">
+              <span>{`if (youLookingForAwesome) { `}</span>
+              <span className="hire">{`this.hireMe(); `}</span>
+              <span>{`}`}</span>
+            </div>
+          </div>
+        </div>
 
-          {/*<img src={require(`./images/education-female.png`)} alt={basics?.name}/>*/}
-        </section>
         {
           (education || []).length > 0 &&
           <section className="bg-yellow">

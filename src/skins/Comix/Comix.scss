@@ -382,5 +382,41 @@
     }
   }
 
+  .education-img-wrapper {
+    width: 49%;
+    position: relative;
+    section {
+      width: 100% !important;
+    }
+    &:hover {
+      .speech-bubble-square {
+        opacity: 1;
+      }
+    }
+    .speech-bubble-square {
+      opacity: 0;
+      position: absolute;
+      top: -56px;
+      width: 330px;
+      right: -39px;
+      img {
+        width: 100%;
+        transform: scaleX(-1);
+      }
+      .bubble-text{
+        position: absolute;
+        top: 35px;
+        left: 95px;
+        display: flex;
+        flex-direction: column;
+        .hire {
+          color: red;
+          font-weight: 600;
+          padding-left: 30px;
+        }
+      }
+    }
+  }
+
 }
 
