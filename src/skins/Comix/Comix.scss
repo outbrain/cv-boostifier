@@ -72,6 +72,29 @@
   justify-content: center;
   position: relative;
   height: 380px;
+  &:hover {
+    .bazinga-2 {
+      opacity: 0;
+    }
+    .bazinga {
+      opacity: 1;
+    }
+  }
+  .bazinga-2 {
+    position: absolute;
+    width: 250px;
+    z-index: 10;
+    left: -54px;
+    top: -67px;
+  }
+  .bazinga {
+    opacity: 0;
+    position: absolute;
+    width: 250px;
+    z-index: 10;
+    right: -54px;
+    top: -67px;
+  }
   .baloon-bg {
     position: absolute;
     top: 0;
@@ -109,7 +132,7 @@
     }
   }
 
-  .profile-image-container:hover{
+  &:hover{
     .profile-image-regular{
       opacity: 0;
     }

@@ -260,6 +260,8 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
           </section>
         }
         <section className="bg-light-blue cartoon-image" >
+          <img src={require(`./images/bazinga-2.png`)} className="bazinga-2" alt="pow"/>
+          <img src={require(`./images/bazinga.png`)} className="bazinga" alt="pow"/>
           <img src={require(`./images/baloon-bg.jpg`)} className="baloon-bg" alt="pow"/>
           <div className="profile-image-container">
 
