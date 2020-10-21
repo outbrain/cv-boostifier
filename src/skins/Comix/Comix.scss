@@ -59,6 +59,34 @@
   }
 }
 
+.cartoon-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 380px;
+  .baloon-bg {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .profile-image-container {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    img {
+      max-width: 530px !important;
+    }
+  }
+}
 
 .comics-skin {
   font-family: 'Coming Soon', cursive;
