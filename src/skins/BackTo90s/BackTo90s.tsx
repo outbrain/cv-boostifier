@@ -54,7 +54,6 @@ export class BackTo90s extends Component<any, IProfileProps> {
 
 
                         </div>
-                        <div className="color-background"></div>
                     </section>
 
 
@@ -62,7 +61,9 @@ export class BackTo90s extends Component<any, IProfileProps> {
                     {
                         //Put work experience component here
                         (work || []).length > 0 &&
-                        <Work90s {...work} />
+                            <div className={"work-section"} >
+                                <Work90s {...work} />
+                            </div>
                     }
                     {
                         (education || []).length > 0 &&
