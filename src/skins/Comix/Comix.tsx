@@ -1,6 +1,7 @@
 import React, {PropsWithChildren} from 'react';
 import './Comix.scss';
 import {IProfileProps} from '../../models';
+import {Image, Transformation} from 'cloudinary-react';
 
 export function Comix(props: PropsWithChildren<IProfileProps>) {
   const {basics, skills, work, education, references, projects, publications, languages} = props.profile;
@@ -19,8 +20,8 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
         <aside className="basics-content">
           <header>
             {
-              basics?.picture &&
-              <img src={basics?.picture} alt={basics?.name}/>
+              // basics?.picture &&
+              // <img src={basics?.picture} alt={basics?.name}/>
             }
             <h1 className="name">{basics?.name}</h1>
             <h4>{basics?.label}</h4>
@@ -257,7 +258,21 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
             </ul>
           </section>
         }
+        <section className="bg-light-blue">
+          <Image className="profile-image" cloudName="dgfwxhzgo"  publicId={basics?.picture} type="fetch">
+            {/*<Transformation effect="cartoonify" />*/}
+            {/*<Transformation effect="cartoonify:30:80" />*/}
+            {/*<Transformation effect="cartoonify:100:bw" />*/}
+            <Transformation effect="cartoonify" />
+            <Transformation radius="max" />
+            <Transformation effect="outline:100" color="#29a9e1" />
+            <Transformation background="#29a9e1" />
+
+
+          </Image>
+        </section>
       </main>
+
     </div>
   );
 }
