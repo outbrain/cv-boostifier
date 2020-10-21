@@ -49,6 +49,17 @@
 //  position: relative;
 //}
 
+.education-img {
+  position: relative;
+  min-height: 500px;
+  overflow: hidden;
+  img {
+    top: 0;
+    position: absolute;
+  }
+}
+
+
 .comics-skin {
   font-family: 'Coming Soon', cursive;
   $min-width: 700px;
