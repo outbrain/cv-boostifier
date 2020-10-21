@@ -54,12 +54,17 @@ export class BackTo90s extends Component<any, any> {
                             <div className={`extra-summary  ${readMoreClass}`}>
                                 {basics?.summary}
                             </div>
+
                         }
-                        <div className={`read-more`}  onClick={this.readMore.bind(this)}>
-                            {
-                                basics?.summary && basics?.summary.length > 255 ? 'Read more' : 'Read less'
-                            }
-                        </div>
+                        {
+                            basics?.summary &&
+                            <div className={`read-more`}  onClick={this.readMore.bind(this)}>
+                                {
+                                    basics?.summary && basics?.summary.length > 255 ? 'Read more' : 'Read less'
+                                }
+                            </div>
+                        }
+
 
 
                     </div>
