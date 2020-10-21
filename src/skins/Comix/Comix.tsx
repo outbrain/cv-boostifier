@@ -242,7 +242,7 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
         }
         {
           (publications || []).length > 0 &&
-          <section>
+          <section className="bg-pink">
             <h2>Publications</h2>
             <ul>
               {
@@ -262,9 +262,12 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
         <section className="bg-light-blue cartoon-image" >
           <img src={require(`./images/baloon-bg.jpg`)} className="baloon-bg" alt="pow"/>
           <div className="profile-image-container">
-            <Image className="profile-image" cloudName="dgfwxhzgo"  publicId={basics?.picture} type="fetch">
+
+            <Image className="profile-image-cartoon" cloudName="dgfwxhzgo"  publicId={basics?.picture} type="fetch">
               <Transformation effect="cartoonify" />
               {/*<Transformation effect="colorize:50" color="blue"/>*/}
+            </Image>
+            <Image className="profile-image-regular" cloudName="dgfwxhzgo"  publicId={basics?.picture} type="fetch">
             </Image>
           </div>
 
