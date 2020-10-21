@@ -158,6 +158,25 @@
   position: relative;
   margin: 30px;
 
+  .select-gender {
+    display: flex;
+    button {
+      width: 150px;
+      background: orangered;
+      height: 70px;
+      margin: 20px;
+      border-radius: 20px;
+      border: 3px solid black;
+      outline: none;
+      &.male {
+        background: orange;
+      }
+      &:hover {
+        color: white
+      }
+    }
+  }
+
   .bg-yellow {
     background: $yellow;
   }

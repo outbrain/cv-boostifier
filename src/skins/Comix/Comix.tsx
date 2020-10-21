@@ -1,17 +1,24 @@
-import React, {PropsWithChildren} from 'react';
+import React, {PropsWithChildren, useState} from 'react';
 import './Comix.scss';
 import {IProfileProps} from '../../models';
 import {Image, Transformation} from 'cloudinary-react';
+import {bool} from 'prop-types'
 
 export function Comix(props: PropsWithChildren<IProfileProps>) {
   const {basics, skills, work, education, references, projects, publications, languages} = props.profile;
 
+  const [isFemale, setIsFemale] = useState(true);
+
   return (
     <div className="comics-skin">
+      <div className="select-gender">
+        <button type="button" onClick={() => setIsFemale(true)}>Female</button>
+        <button type="button" onClick={() => setIsFemale(false)} className="male">Male</button>
+      </div>
       <div className="basics-info">
         <img src={require(`./images/pow.png`)} className="pow" alt="pow"/>
         <div className="profile-image">
-          <img src={require(`./images/comix-woman.png`)} className="profile-pic" alt={basics?.name}/>
+          {<img src={require(`./images/${isFemale? 'comix-woman.png' : 'comix-man.jpg'}`)} className="profile-pic" alt={basics?.name}/>}
           <div className="speech-bubble">
             <img src={require(`./images/speech-bubble-cloud-rotate.png`)} className="speech-bubble-cloud" alt="pow"/>
             <span>Hello world... ;)</span>
@@ -134,7 +141,7 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
           </section>
         }
         <section className="section-img bg-black experience-image">
-          <img src={require(`./images/experience-female.png`)} alt={basics?.name}/>
+          {<img src={require(`./images/${isFemale? 'experience-female.png' : 'experience-male.png'}`)} className="profile-pic" alt=""/>}
           <div className="speech-bubble-2">
             <img src={require(`./images/speech-bubble-2.png`)} className="" alt="pow"/>
             <div className="nerdy-joke">
@@ -176,7 +183,9 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
           </section>
         }
         <section className="section-img education-img">
-          <img src={require(`./images/education-female.png`)} alt={basics?.name}/>
+          {<img src={require(`./images/${isFemale? 'education-female.png' : 'education-male.png'}`)} className="profile-pic" alt=""/>}
+
+          {/*<img src={require(`./images/education-female.png`)} alt={basics?.name}/>*/}
         </section>
         {
           (education || []).length > 0 &&
@@ -280,4 +289,5 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
 
     </div>
   );
+
 }
