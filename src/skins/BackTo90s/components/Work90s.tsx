@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import './Work90s.scss';
-import {Work} from "../../../models";
 
 interface IWorkProfile {
     workObj?: any[];
@@ -22,19 +21,28 @@ export class Work90s extends Component<IWorkProfile, any> {
                 <h2>Career</h2>
                 <div className="career-slider-holder">
                     <div className="building-image"></div>
-                    <div className="card-slider">
+                    <div className="card-slider-wrapper">
+                        <div className="card-slider">
 
-                        {
-                            (Object.values(this.state.workObj) || []).map((workItem: any) => {
-                                return(
-                                    <ul>
-                                        <li className="company"> <span>Work</span> {workItem.company}</li>
-                                        <li className="dates">{workItem.startDate} - {workItem.endDate}</li>
-                                        <li className="position"> <span>Position</span> {workItem.position}</li>
-                                    </ul>
-                                )
-                            })
-                        }
+                            {
+                                (Object.values(this.state.workObj) || []).map((workItem: any) => {
+                                    return(
+                                        <ul>
+                                            <li className="company item-holder"> <span className="item-title">Work</span> <span>{workItem.company}</span></li>
+                                            <li className="dates"><div className="dates-inner">{workItem.startDate} - {workItem.endDate}</div></li>
+                                            <li className="position item-holder"> <span className="item-title">Position</span> {workItem.position}</li>
+                                        </ul>
+                                    )
+                                })
+                            }
+                        </div>
+                        <div className="card-slider-controls">
+                            <div className="indexes">indexes</div>
+                            <div className="buttons">
+                                <div className="button left">left</div>
+                                <div className="button right">right</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

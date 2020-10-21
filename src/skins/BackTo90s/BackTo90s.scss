@@ -187,12 +187,76 @@
       padding: 10px;
       box-sizing: border-box;
       display: grid;
-      grid-template-columns: auto auto;
+      grid-template-columns: 23% 68%;
 
       .building-image {
         background-image: url("./images/career-card-building.png");
         background-repeat: no-repeat;
       }
+      .card-slider-wrapper{
+        overflow-x: hidden;
+        width: 495px;
+
+        .card-slider {
+          display: flex;
+          width: 10000px;
+
+          ul {
+            width: 495px;
+            height: auto;
+            margin-right: 50px;
+
+            li {
+
+              &.item-holder {
+                display: grid;
+                grid-template-columns: 30% 70%;
+                border: 2px solid #000;
+
+                .item-title {
+                  background-color: #000;
+                  color: #fff;
+                  padding: 6px;
+                }
+              }
+              &.position {
+                position: relative;
+                margin: 25px 0;
+
+                &::before {
+                  content: url('./images/career-card-slider-position-hand.png');
+                  position: absolute;
+                  top: -20px;
+                  left: 125px;
+                }
+              }
+
+
+
+              &.dates {
+                background-color: #EE6513;
+                padding: 8px 0 0 0;
+
+                .dates-inner {
+                  background-color: #478AFE;
+                  background-image: url("./images/career-card-slider-dates-arrow.svg");
+                  background-repeat: no-repeat;
+                  color: #fff;
+                  background-position: 10px center;
+                  padding: 6px 6px 6px 39%;
+                  box-sizing: border-box;
+                  text-align: left;
+                  border: 2px solid #000;
+                }
+
+              }
+
+            }
+          }
+        }
+
+      }
+
     }
   }
 
