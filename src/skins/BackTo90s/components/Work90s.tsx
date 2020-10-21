@@ -25,9 +25,9 @@ export class Work90s extends Component<IWorkProfile, any> {
                         <div className="card-slider">
 
                             {
-                                (Object.values(this.state.workObj) || []).map((workItem: any) => {
+                                (Object.values(this.state.workObj) || []).map((workItem: any, i: number) => {
                                     return(
-                                        <ul>
+                                        <ul key={i}>
                                             <li className="company item-holder"> <span className="item-title">Work</span> <span>{workItem.company}</span></li>
                                             <li className="dates"><div className="dates-inner">{workItem.startDate} - {workItem.endDate}</div></li>
                                             <li className="position item-holder"> <span className="item-title">Position</span> {workItem.position}</li>

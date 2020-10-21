@@ -24,7 +24,9 @@ export class Edu90s extends Component<IEduProfile, any> {
                 <section className="edu-section">
                     <img src={IconBg} alt="" className="icon-bg"/>
                     <div className="edu-top">
-                        <img alt="" src={Giphy} className="animated-gif" />
+                        <div className={"animated-gif"} >
+                            <img alt="" src={Giphy} />
+                        </div>
                         <div className="marquee">
                             <div className="marquee-group">
                                 <span>Education</span>
@@ -57,10 +59,11 @@ export class Edu90s extends Component<IEduProfile, any> {
                                         {/*</hgroup>*/}
                                         <div className={`edu-details ${!this.isEven(ix) ? 'left': ''}`}>
                                             <h2>{educationItem.institution}</h2>
-                                            <h4>{educationItem.studyType}</h4>
+                                            <ul>
                                             {
                                                 (educationItem.studyType) ? educationItem.studyType : courseItems
                                             }
+                                            </ul>
                                         </div>
 
                                     </article>

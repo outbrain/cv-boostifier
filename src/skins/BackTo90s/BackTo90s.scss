@@ -6,14 +6,13 @@
   background-color: #E3E7ED;
   width: 100%;
   margin:0 auto;
-  //padding: 0 4vw;
   font-family: 'Oswald', Arial;
   position: relative;
   text-align: center;
   background-position: center bottom;
   background-size: 100% ;
   background-repeat: no-repeat;
-  background-image: url('./images/basic-bg.png');
+  background-image: url('./images/basic-bg-whole.png');
   .top-card {
     margin: 0 auto;
     max-width: 70vw;
@@ -71,14 +70,11 @@
       }
     }
   }
-  .main-section {
-    position: relative;
+
+  .user-info {
     padding-bottom: 4vw;
-    background-image: url(./images/basic-bg-top.png);
-    background-size: contain;
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-clip: padding-box;
+    position: relative;
+
     h1 {
       font-size: 110px;
       font-weight: 700;
@@ -108,6 +104,32 @@
       z-index: 3;
       white-space: nowrap;
     }
+
+
+
+    .about-circle {
+      position: absolute;
+      left: 9vw;
+      top: 25vw;
+      z-index: 1;
+      .outer {
+        animation-name: spin;
+        animation-duration: 10000ms;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+      .center{
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 50%);
+      }
+
+    }
+  }
+
+  .main-section {
+    background: url('./images/basic-bg-whole.png') no-repeat;
+    background-size: 100%;
     .main-description {
       display: block;
       padding: 0vw 26vw 6vw;
@@ -127,13 +149,17 @@
       }
       .extra-summary {
         overflow: hidden;
-        height: 109px;
+        max-height: 7.7vw;
         text-align: center;
         display: block;
+        transform-origin: top;
+        transition: max-height 1ms ease;
         &.visible {
           overflow: visible;
-          transition: 0.3s all ease;
-          height: 100%;
+          max-height: 100%;
+          transform-origin: top;
+          transition: max-height 1ms ease;
+
         }
 
       }
@@ -142,34 +168,18 @@
         font-size: 1.44vw;
         text-decoration: underline;
         padding-top: 15px;
-
+        cursor: pointer;
       }
     }
-    .about-circle {
-      position: absolute;
-      left: 9vw;
-      bottom: 4vw;
-      .outer {
-        animation-name: spin;
-        animation-duration: 10000ms;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-      }
-      .center{
-        position: absolute;
-        left: 50%;
-        transform: translate(-50%, 50%);
-      }
-
-    }
-
-
   }
-
   .work-section {
     background-size: 100% ;
     background-repeat: no-repeat;
-    background-image: url('./images/basic-bg.png');
+    //background-image: url('./images/basic-bg.png');
+    padding-top: 9.4vw;
+    padding-bottom: 30vw;
+    z-index: 1;
+    position: relative;
   }
 }
 
