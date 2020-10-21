@@ -63,20 +63,26 @@ export class Work90s extends Component<IWorkProfile, any> {
 
                         <div className="card-slider-controls">
                             <div className="indexes">
-                                <ul>
-                                {
-                                    (Object.values(this.state.workObj) || []).map((workItem: any, index: number) => {
-                                        return(
-                                                <li onClick={this.goToSlide.bind(this, index)} key={index}> + </li>
-                                        )
-                                    })
+                                {Object.values(this.state.workObj).length > 1 &&
+                                    <ul>
+                                        {
+                                            (Object.values(this.state.workObj) || []).map((workItem: any, index: number) => {
+                                                return(
+                                                    <li onClick={this.goToSlide.bind(this, index)} key={index}> + </li>
+                                                )
+                                            })
+                                        }
+                                    </ul>
                                 }
-                                </ul>
                             </div>
-                            <div className="buttons">
-                                <div className="button left" onClick={this.prevItem.bind(this)}><img src={CareerCardArrowLeft} alt=""/></div>
-                                <div className="button right" onClick={this.nextItem.bind(this)} data-button-click="-1"><img src={CareerCardArrowRight} alt=""/></div>
-                            </div>
+                            {Object.values(this.state.workObj).length > 1 &&
+                                <div className="buttons">
+                                    <div className="button left" onClick={this.prevItem.bind(this)}><img
+                                        src={CareerCardArrowLeft} alt=""/></div>
+                                    <div className="button right" onClick={this.nextItem.bind(this)} data-button-click="-1">
+                                        <img src={CareerCardArrowRight} alt=""/></div>
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>

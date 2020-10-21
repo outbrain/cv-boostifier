@@ -6,10 +6,13 @@
   background-color: #E3E7ED;
   width: 100%;
   margin:0 auto;
-  //padding: 0 4vw;
   font-family: 'Oswald', Arial;
   position: relative;
   text-align: center;
+  background-position: center bottom;
+  background-size: 100% ;
+  background-repeat: no-repeat;
+  background-image: url('./images/basic-bg-whole.png');
   .top-card {
     margin: 0 auto;
     max-width: 70vw;
@@ -67,13 +70,17 @@
       }
     }
   }
-  .main-section {
+
+  .user-info {
+    padding-bottom: 4vw;
     position: relative;
+
     h1 {
       font-size: 110px;
       font-weight: 700;
       position: relative;
       z-index: 1;
+      margin-top: 2vw;
     }
     .blue-triangle{
       background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='290px' height='205px' viewBox='0 0 290 205' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3EFill 1%3C/title%3E%3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cpolygon id='Fill-1' fill='%230FBFED' points='0.86601318 0.4986875 142.636719 205 289.133987 20.6941242'%3E%3C/polygon%3E%3C/g%3E%3C/svg%3E");
@@ -97,42 +104,14 @@
       z-index: 3;
       white-space: nowrap;
     }
-    .main-description {
-      display: block;
-      padding: 0vw 26vw;
-      text-align: center;
-      font-size: 1.65vw;
 
-      .main-divider {
-        background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='86px' height='43px' viewBox='0 0 86 43' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3EGroup 3%3C/title%3E%3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='Artboard-Copy-2' transform='translate(-677.000000, -512.000000)'%3E%3Crect id='Rectangle' fill='%23E3E7ED' x='0' y='0' width='1440' height='900'%3E%3C/rect%3E%3Cg id='Group-3' transform='translate(677.000000, 512.968750)'%3E%3Cpolygon id='Rectangle' fill='%23000000' points='0 7.03125 85.2734375 7.28861416e-14 76.3725926 41.03125 0 41.03125'%3E%3C/polygon%3E%3Cpath d='M11.3687555,30.2805155 C10.5052518,30.2262089 9.66262411,29.8424133 9.04510586,29.1422673 C7.81050732,27.7416834 7.94495987,25.605625 9.34539783,24.3708805 L21.8251059,13.3683987 C23.2256898,12.1339462 25.3617482,12.2682527 26.5964927,13.6685447 L34.983938,23.1821214 L44.7845219,14.5418294 C46.1851059,13.3073768 48.3211643,13.4416834 49.5559088,14.8421214 L57.943354,24.355698 L67.4569307,15.9682527 C68.8573686,14.7336542 70.993573,14.8681068 72.2283175,16.2683987 C73.4629161,17.6689827 73.3284635,19.8050411 71.9281716,21.0397856 L59.8786825,31.6628513 C58.4782445,32.8973038 56.3421862,32.7629973 55.1072956,31.3627053 L46.7199964,21.8491286 L36.9194124,30.4894206 C35.5188285,31.7238732 33.3827701,31.5895666 32.1478796,30.1892746 L23.7605803,20.675698 L13.8166387,29.4424133 C13.1163467,30.0596396 12.2322591,30.3348221 11.3687555,30.2805155' id='Fill-1' fill='%23FFC91E'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        height: 42px;
-        position: relative;
-        display: block;
-        text-align: center;
-        background-repeat: no-repeat;
-        background-position: center;
-        margin-bottom: 2vw;
-      }
-      .extra-summary {
-        overflow: hidden;
-        height: 140px;
-        &.visible {
-          overflow: visible;
-          transition: 0.3s all ease;
-          height: 100%;
-        }
 
-      }
-      .read-more {
-        color: #EE6513;
-        font-size: 1.44vw;
-        text-decoration: underline;
-        padding-top: 15px;
 
-      }
-    }
     .about-circle {
       position: absolute;
+      left: 9vw;
+      top: 25vw;
+      z-index: 1;
       .outer {
         animation-name: spin;
         animation-duration: 10000ms;
@@ -146,15 +125,62 @@
       }
 
     }
-    .color-background {
-      background: url(/images/colorful-bg.png);
-      background-repeat: no-repeat;
-      background-size: cover;
-      width: 100%;
-    }
-
   }
 
+  .main-section {
+    background: url('./images/basic-bg-whole.png') no-repeat;
+    background-size: 100%;
+    .main-description {
+      display: block;
+      padding: 0vw 26vw 6vw;
+      text-align: center;
+      font-size: 1.65vw;
+
+
+      .main-divider {
+        background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='86px' height='43px' viewBox='0 0 86 43' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Ctitle%3EGroup 3%3C/title%3E%3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='Artboard-Copy-2' transform='translate(-677.000000, -512.000000)'%3E%3Crect id='Rectangle' fill='%23E3E7ED' x='0' y='0' width='1440' height='900'%3E%3C/rect%3E%3Cg id='Group-3' transform='translate(677.000000, 512.968750)'%3E%3Cpolygon id='Rectangle' fill='%23000000' points='0 7.03125 85.2734375 7.28861416e-14 76.3725926 41.03125 0 41.03125'%3E%3C/polygon%3E%3Cpath d='M11.3687555,30.2805155 C10.5052518,30.2262089 9.66262411,29.8424133 9.04510586,29.1422673 C7.81050732,27.7416834 7.94495987,25.605625 9.34539783,24.3708805 L21.8251059,13.3683987 C23.2256898,12.1339462 25.3617482,12.2682527 26.5964927,13.6685447 L34.983938,23.1821214 L44.7845219,14.5418294 C46.1851059,13.3073768 48.3211643,13.4416834 49.5559088,14.8421214 L57.943354,24.355698 L67.4569307,15.9682527 C68.8573686,14.7336542 70.993573,14.8681068 72.2283175,16.2683987 C73.4629161,17.6689827 73.3284635,19.8050411 71.9281716,21.0397856 L59.8786825,31.6628513 C58.4782445,32.8973038 56.3421862,32.7629973 55.1072956,31.3627053 L46.7199964,21.8491286 L36.9194124,30.4894206 C35.5188285,31.7238732 33.3827701,31.5895666 32.1478796,30.1892746 L23.7605803,20.675698 L13.8166387,29.4424133 C13.1163467,30.0596396 12.2322591,30.3348221 11.3687555,30.2805155' id='Fill-1' fill='%23FFC91E'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        height: 42px;
+        position: relative;
+        display: block;
+        text-align: center;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin-bottom: 1vw;
+      }
+      .extra-summary {
+        overflow: hidden;
+        max-height: 7.7vw;
+        text-align: center;
+        display: block;
+        transform-origin: top;
+        transition: max-height 1ms ease;
+        &.visible {
+          overflow: visible;
+          max-height: 100%;
+          transform-origin: top;
+          transition: max-height 1ms ease;
+
+        }
+
+      }
+      .read-more {
+        color: #EE6513;
+        font-size: 1.44vw;
+        text-decoration: underline;
+        padding-top: 15px;
+        cursor: pointer;
+      }
+    }
+  }
+  .work-section {
+    background-size: 100% ;
+    background-repeat: no-repeat;
+    //background-image: url('./images/basic-bg.png');
+    padding-top: 9.4vw;
+    padding-bottom: 30vw;
+    z-index: 1;
+    position: relative;
+  }
 }
 
 @keyframes spin {

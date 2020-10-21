@@ -11,58 +11,69 @@ import {Lang90s} from "./components/Lang90s";
 import {Ref90s} from "./components/Ref90s";
 
 
-export class BackTo90s extends Component<any, IProfileProps> {
-
-    readMore() {
-
-        console.log('clicked read more', );
+export class BackTo90s extends Component<any, any> {
+    constructor(props: any) {
+        super(props);
+        this.state = {
+            readLess: true
+        }
+    }
+    readMore(): any {
+        this.setState({readLess: !this.state.readLess})
 
     }
     render() {
         const {basics, skills, work, education, references, languages} = this.props.profile;
         const lastIndex = this.props.profile.basics.label.lastIndexOf("at");
         const labelTitle = this.props.profile.basics.label.substring(0, lastIndex);
+        let readMoreClass = this.state.readLess ? "" : "visible";
+
 
         return (
 
             <div className="BackTo90s-skin">
                     <Basic90s basics={basics} />
 
-                    <section className="main-section">
-                        <span className="blue-triangle"></span>
-                        <h1>{basics?.name}</h1>
-                        <h4>{(labelTitle) ? labelTitle : basics?.label}</h4>
-
+                    <section className="user-info">
                         <div className="about-circle">
                             <img alt="" src={OuterCircle} className='outer'/>
                             <img alt="" src={CenterCircle} className='center'/>
                         </div>
+                        <span className="blue-triangle"></span>
+                        <h1>{basics?.name}</h1>
+                        <h4>{(labelTitle) ? labelTitle : basics?.label}</h4>
 
-                        <div className="main-description">
-                            <span className="main-divider"></span>
-                            {
-                                basics?.summary &&
-                                <div className={`extra-summary `}>
-                                    {basics?.summary}
-                                </div>
-                            }
-                            <div className="read-more" onClick={()=>this.readMore()}>
+                    </section>
+
+
+                <main className={"main-section"}>
+                    <div className="main-description">
+                        <span className="main-divider"></span>
+                        {
+                            basics?.summary &&
+                            <div className={`extra-summary  ${readMoreClass}`}>
+                                {basics?.summary}
+                            </div>
+
+                        }
+                        {
+                            basics?.summary &&
+                            <div className={`read-more`}  onClick={this.readMore.bind(this)}>
                                 {
                                     basics?.summary && basics?.summary.length > 255 ? 'Read more' : 'Read less'
                                 }
                             </div>
+                        }
 
 
-                        </div>
-                        <div className="color-background"></div>
-                    </section>
 
-
-                <main>
+                    </div>
                     {
                         //Put work experience component here
                         (work || []).length > 0 &&
-                        <Work90s {...work} />
+                            <div className={"work-section"} >
+                                <Work90s {...work} />
+                            </div>
                     }
                     {
                         (education || []).length > 0 &&
