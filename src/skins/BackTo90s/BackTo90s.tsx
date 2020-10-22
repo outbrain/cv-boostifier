@@ -77,14 +77,7 @@ export class BackTo90s extends Component<any, any> {
                         (skills || []).length > 0 &&
                         <Skills90s {...skills} />
                     }
-                    {
-                        (languages || []).length > 0 &&
-                        <Lang90s {...languages} />
-                    }
-                    {
-                        (references || []).length > 0 &&
-                        <Ref90s {...references} />
-                    }
+
                 </main>
             </div>
 
