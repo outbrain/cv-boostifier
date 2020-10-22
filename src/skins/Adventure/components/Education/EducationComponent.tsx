@@ -8,6 +8,7 @@ export function EducationComponent(props: {
   scrollLeft: number;
   scrollTop: number;
 }) {
+
   const listItems = props.data.map((education: Education, index) => {
     return (
       <div key={index} className="slide">
@@ -24,7 +25,7 @@ export function EducationComponent(props: {
             {education?.gpa && <span>GPA: {education?.gpa}</span>}
           </div>
         </div>
-        {education?.courses && education.courses.length && (
+        {education?.courses && education.courses.length > 0 && (
           <div className="courses half-box">
             <div className="name">Courses</div>
             {education.courses.map((course, indexA) => (
@@ -41,7 +42,7 @@ export function EducationComponent(props: {
       <div>
         <h1>Education</h1>
       </div>
-      <div>{listItems}</div>;
+      <div className="flex-container">{listItems}</div>;
     </div>
   );
 }

@@ -33,7 +33,7 @@ export function WorkComponent(props: {
       <div>
         <h1>Experience</h1>
       </div>
-      <div>{listItems}</div>;
+      <div className="flex-container">{listItems}</div>;
     </div>
   );
 }

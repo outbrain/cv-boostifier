@@ -1,5 +1,6 @@
 import React from "react";
 import { Language } from "../../../../models";
+import { utils } from "../../utils/Utils";
 
 export function LanguageComponent(props: {
   data: Language[];
@@ -8,6 +9,7 @@ export function LanguageComponent(props: {
   scrollTop: number;
 }) {
   const languages = props.data;
+  console.log(languages);
 
   return (
     <div>
@@ -18,11 +20,11 @@ export function LanguageComponent(props: {
       <div className="half-slide">
         <div className="half-box ">
           {languages &&
-            languages.length &&
+            languages.length > 0 &&
             languages.map((language: Language, index: number) => (
               <li key={index} className="space-between">
-                <div className="dates margin-right"> {language.language}</div>
-                <div className="summary"> {language.fluency}</div>
+                <div className="dates margin-right"> {utils.mapLanguageCodeToName(language?.language)}</div>
+                <div className="summary"> {language?.fluency}</div>
               </li>
             ))}
         </div>

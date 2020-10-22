@@ -1,4 +1,22 @@
 @import "assets/styles/styles.scss";
+.slide {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  margin-right: 50px;
+  display: inline-block;
+  min-width: 150px;
+}
+.half-slide {
+  @extend .slide;
+  width: 70vw;
+}
+.mini-slide {
+  @extend .slide;
+  width: 40vw;
+}
+
+
 
 .outer-wrapper {
   width: 100vh;
@@ -16,20 +34,10 @@
     display: flex;
     position: relative;
     flex-direction: row;
-    width: 1200vw;
+    width: fit-content;
     transform: rotate(90deg) translateY(-100vh);
     transform-origin: top left;
 
-    .slide {
-      width: 100vw;
-      height: 100vh;
-      position: relative;
-      margin-right: 50px;
-    }
-    .half-slide {
-      @extend .slide;
-      width: 70vw;
-    }
     &.sky-day {
       background: linear-gradient(
         to bottom,
@@ -94,6 +102,10 @@
 
 ::-webkit-scrollbar {
   display: none;
+}
+
+.summary {
+  white-space: pre-line;
 }
 
 // .sky {
@@ -200,7 +212,14 @@ a {
   color: white;
 }
 
-
 .opacity-0 {
   opacity: 0;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.intro {
+  width: 150vw;
 }

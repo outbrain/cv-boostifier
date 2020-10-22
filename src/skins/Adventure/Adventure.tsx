@@ -92,7 +92,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                   scrollTop={scrollTop}
                 />
               )}
-              {education && education.length && (
+              {education && education.length > 0 && (
                 <EducationComponent
                   data={education}
                   screenSize={screenSize}
@@ -100,7 +100,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                   scrollTop={scrollTop}
                 />
               )}
-              {references && references.length && (
+              {references && references.length > 0 && (
                 <ReferenceComponent
                   data={references}
                   screenSize={screenSize}
@@ -108,7 +108,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                   scrollTop={scrollTop}
                 />
               )}
-              {work && work.length && (
+              {work && work.length > 0 && (
                 <WorkComponent
                   data={work}
                   screenSize={screenSize}
@@ -116,16 +116,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                   scrollTop={scrollTop}
                 />
               )}
-              {skills && skills.length && (
-                <SkillsComponent
-                  data={skills}
-                  screenSize={screenSize}
-                  scrollLeft={scrollLeft}
-                  scrollTop={scrollTop}
-                  title="Skills"
-                />
-              )}
-              {awards && awards.length && (
+              {awards && awards.length > 0 && (
                 <AwardComponent
                   data={awards}
                   screenSize={screenSize}
@@ -133,7 +124,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                   scrollTop={scrollTop}
                 />
               )}
-              {interests && interests.length && (
+              {interests && interests.length > 0 && (
                 <SkillsComponent
                   data={interests}
                   screenSize={screenSize}
@@ -142,7 +133,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                   title="Interests"
                 />
               )}
-              {languages && languages.length && (
+              {languages && languages.length > 0 && (
                 <LanguageComponent
                   data={languages}
                   screenSize={screenSize}
@@ -150,7 +141,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                   scrollTop={scrollTop}
                 />
               )}
-              {projects && projects.length && (
+              {projects && projects.length > 0 && (
                 <ProjectComponent
                   data={projects}
                   screenSize={screenSize}
@@ -158,7 +149,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                   scrollTop={scrollTop}
                 />
               )}
-              {publications && publications.length && (
+              {publications && publications.length > 0 && (
                 <PublicationComponent
                   data={publications}
                   screenSize={screenSize}
@@ -166,7 +157,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                   scrollTop={scrollTop}
                 />
               )}
-              {volunteer && volunteer.length && (
+              {volunteer && volunteer.length > 0 && (
                 <VolunteerComponent
                   data={volunteer}
                   screenSize={screenSize}
@@ -174,6 +165,16 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                   scrollTop={scrollTop}
                 />
               )}
+              {skills && skills.length > 0 && (
+                <SkillsComponent
+                  data={skills}
+                  screenSize={screenSize}
+                  scrollLeft={scrollLeft}
+                  scrollTop={scrollTop}
+                  title="Skills"
+                />
+              )}
+              <div className="half-slide"></div>
               <Floor scrollLeft={scrollLeft} worldSize={screenSize} />
             </div>
           </div>

@@ -9,7 +9,7 @@ export function BasicsComponent(props: {
 }) {
   return (
     <div className="basics">
-      <div className="slide">
+      <div className="slide intro">
         <div className="heading user-details">
           <h1>{props.data?.name}</h1>
           <h2>{props.data?.label}</h2>

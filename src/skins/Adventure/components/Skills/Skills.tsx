@@ -9,21 +9,23 @@ export function SkillsComponent(props: {
   scrollTop: number;
   title: string;
 }) {
+  console.log(props.data);
+  
   return (
     <div>
       <div>
         <h1>{props.title}</h1>
       </div>
-
+      <div className="flex-container">
       {(props.data as Skill[]).map((skill: Skill, index) => (
-        <div key={index} className="half-slide">
+        <div key={index} className="mini-slide">
           <div className="box ">
             <div className="space-between name">
               <div className="margin-right">{skill?.name}</div>
               <div>{skill?.level}</div>
             </div>
             {skill.keywords &&
-              skill.keywords.length &&
+              skill.keywords.length > 0 &&
               skill.keywords.map((keyword: string, keywordIndex: number) => (
                 <li key={keywordIndex} className="summary">
                   {keyword}
@@ -32,6 +34,7 @@ export function SkillsComponent(props: {
           </div>
         </div>
       ))}
+      </div>
     </div>
   );
 }

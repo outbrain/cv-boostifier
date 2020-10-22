@@ -39,7 +39,7 @@ export function VolunteerComponent(props: {
       <div>
         <h1>Volunteer Experience</h1>
       </div>
-      <div>{listItems}</div>;
+      <div className="flex-container">{listItems}</div>;
     </div>
   );
 }

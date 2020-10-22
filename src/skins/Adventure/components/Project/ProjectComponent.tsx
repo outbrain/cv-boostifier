@@ -31,5 +31,5 @@ export function ProjectComponent(props: {
     );
   });
 
-  return <div>{listItems}</div>;
+  return <div className="flex-container">{listItems}</div>;
 }

@@ -1,5 +1,7 @@
+import { isoLangs } from "./languages";
+
 export class Utils {
-  constructor() {}
+  // constructor() {}
   monthNames = [
     "January",
     "February",
@@ -22,10 +24,20 @@ export class Utils {
   ) => startingPosition - speedRatio * scrollPosition;
 
   getMonthName(date: Date): string {
-    return this.monthNames[date.getDate()];
+    console.log(date.getMonth());
+    console.log(this.monthNames[date.getMonth()]);
+
+    return this.monthNames[date.getMonth()];
+  }
+
+  mapLanguageCodeToName(languageCode: string = ""): string {
+    return isoLangs[languageCode]?.name || languageCode;
   }
 
   formatDate(dateStr: string = ""): string {
+    if (!dateStr || dateStr.length < 3) {
+      return "";
+    }
     const date = new Date(dateStr);
     return `${this.getMonthName(date)} ${date.getFullYear()}`;
   }
