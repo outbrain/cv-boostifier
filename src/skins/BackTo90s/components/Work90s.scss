@@ -5,6 +5,7 @@
   width: 795px;
   height: 555px;
   margin: 0 auto;
+  padding: 54px 0 0 0;
 
   h2 {
     font-family: 'Arkipelago', Arial;
@@ -14,7 +15,7 @@
 
   .career-slider-holder {
     border: 5px solid #000;
-    width: 95%;
+    width: 90%;
     margin: 0 auto;
     padding: 10px;
     box-sizing: border-box;
@@ -26,6 +27,8 @@
       background-repeat: no-repeat;
     }
     .card-slider-wrapper{
+      margin: 35px 0 0 0;
+
       .card-slider-inner {
         overflow-x: hidden;
         width: 495px;
@@ -46,6 +49,7 @@
                 display: grid;
                 grid-template-columns: 30% 70%;
                 border: 2px solid #000;
+                align-items: baseline;
 
                 .item-title {
                   background-color: #000;
@@ -95,10 +99,37 @@
       .card-slider-controls {
         display: grid;
         grid-template-columns: 300px 195px;
+        align-items: center;
+        margin: 15px 0 0 0;
+
+        .indexes {
+          ul{
+            display: flex;
+            justify-content: start;
+
+            li{
+              width: 20px;
+              height: 20px;
+              border: 2px solid #000;
+              margin-right: 10px;
+              cursor: pointer;
+
+              &.activeIndex {
+                background-color: #FFC91E;
+              }
+
+            }
+
+          }
+        }
 
         .buttons {
           display: grid;
           grid-template-columns: auto auto;
+
+          .button {
+            cursor: pointer;
+          }
         }
       }
 
