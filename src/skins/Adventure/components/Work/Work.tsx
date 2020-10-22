@@ -16,13 +16,11 @@ export function WorkComponent(props: {
             {utils.formatDate(work?.startDate)} -{" "}
             {utils.formatDate(work?.endDate) || "Present"}
           </div>
-          <div className="name space-between">
-            {work?.position} @ {work?.company}
-            <div className="website">
-              <a href={work?.website} target="_blank" rel="noopener noreferrer">
-                {work?.website}
-              </a>
-            </div>
+          <div className="name">
+            {work?.position} at{" "}
+            <a href={work?.website} target="_blank" rel="noopener noreferrer">
+              {work?.company}
+            </a>
           </div>
           <div className="summary">{work?.summary}</div>
         </div>

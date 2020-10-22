@@ -35,6 +35,9 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
   const FAR_MOUNTS_MOVEMENT_RATIO = -0.9;
   const MOUNTS_MOVEMENT_RATIO = -0.5;
 
+  const hasCollection = (collection: any): boolean =>
+    collection && collection.length > 0;
+
   const handleScroll = () => {
     const containerElement = document.getElementById("scrollWrapper");
     const leftScroll =
@@ -50,7 +53,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
 
   return (
     <div className="adventure-skin">
-      <Figure scrollLeft={scrollLeft / 3} isFemale={true} />
+      <Figure scrollLeft={scrollLeft} isFemale={true} />
       <div
         id="scrollWrapper"
         className="adventure outer-wrapper"
@@ -88,7 +91,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                   scrollTop={scrollTop}
                 />
               )}
-              {education && (
+              {education && education.length && (
                 <EducationComponent
                   data={education}
                   screenSize={screenSize}
@@ -96,7 +99,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                   scrollTop={scrollTop}
                 />
               )}
-              {references && (
+              {references && references.length && (
                 <ReferenceComponent
                   data={references}
                   screenSize={screenSize}
@@ -104,7 +107,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                   scrollTop={scrollTop}
                 />
               )}
-              {work && (
+              {work && work.length && (
                 <WorkComponent
                   data={work}
                   screenSize={screenSize}
@@ -112,7 +115,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                   scrollTop={scrollTop}
                 />
               )}
-              {skills && (
+              {skills && skills.length && (
                 <SkillsComponent
                   data={skills}
                   screenSize={screenSize}
@@ -121,7 +124,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                   title="Skills"
                 />
               )}
-              {awards && (
+              {awards && awards.length && (
                 <AwardComponent
                   data={awards}
                   screenSize={screenSize}
@@ -129,7 +132,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                   scrollTop={scrollTop}
                 />
               )}
-              {interests && (
+              {interests && interests.length && (
                 <SkillsComponent
                   data={interests}
                   screenSize={screenSize}
@@ -138,7 +141,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                   title="Interests"
                 />
               )}
-              {languages && (
+              {languages && languages.length && (
                 <LanguageComponent
                   data={languages}
                   screenSize={screenSize}
@@ -146,7 +149,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                   scrollTop={scrollTop}
                 />
               )}
-              {projects && (
+              {projects && projects.length && (
                 <ProjectComponent
                   data={projects}
                   screenSize={screenSize}
@@ -154,7 +157,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                   scrollTop={scrollTop}
                 />
               )}
-              {publications && (
+              {publications && publications.length && (
                 <PublicationComponent
                   data={publications}
                   screenSize={screenSize}
@@ -162,7 +165,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                   scrollTop={scrollTop}
                 />
               )}
-              {volunteer && (
+              {volunteer && volunteer.length && (
                 <VolunteerComponent
                   data={volunteer}
                   screenSize={screenSize}
@@ -170,7 +173,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                   scrollTop={scrollTop}
                 />
               )}
-              <Floor worldSize={20000} />
+              <Floor scrollLeft={scrollLeft} worldSize={screenSize} />
             </div>
           </div>
         </div>
