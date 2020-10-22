@@ -124,8 +124,18 @@
                   calc(var(--box-height) - var(--box-length) / 5),
                   calc(var(--box-length) * 7 / 6)
   );
+  display: flex;
+  align-items: end;
+  justify-content: center;
   text-align: center;
   font-family: monospace;
+}
+
+.jurassic-unix__box-label--smallfont {
+  font-size: calc(var(--box-length) / 12);
+  transform: translate3d(0px, calc(var(--box-height) - var(--box-length) / 4), calc(var(--box-length) * 7 / 6));
+  height: calc(var(--box-length) / 5);
+  align-items: flex-end;
 }
 
 .jurassic-unix__box-text{

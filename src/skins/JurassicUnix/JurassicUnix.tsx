@@ -170,6 +170,7 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
     class Box extends React.Component<BoxProps> {
         render() {
             const dataDisplay = this.props.data ? <DataDisplay data={this.props.data}></DataDisplay> : undefined;
+            const labelClass: string = "jurassic-unix__box-label" + (this.props.name.length>9?' jurassic-unix__box-label--smallfont':'')
             return (
                 <PositionedContainer position={this.props.position}>
                     <div
@@ -191,7 +192,7 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                         <div className="jurassic-unix__box-side jurassic-unix__box-right"></div>
                         <div className="jurassic-unix__box-side jurassic-unix__box-left"></div>
                         <div className="jurassic-unix__box-side jurassic-unix__box-bottom"></div>
-                        <div className="jurassic-unix__box-label">{this.props.name}</div>
+                        <div className={labelClass}>{this.props.name}</div>
                     </div>
                 </PositionedContainer>
             );   
