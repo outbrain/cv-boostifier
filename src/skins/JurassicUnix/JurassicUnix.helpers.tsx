@@ -64,15 +64,32 @@ export function isPrimitive(value: any) {
     return value !== Object(value);
 }
 
+function isPrimitiveProperty(prop: any) {
+    return !Array.isArray(prop) && isPrimitive(prop)
+}
+
+function isCompoundProperty(prop: any) {
+    return !Array.isArray(prop) && !isPrimitive(prop)
+}
+
+function isCompoundArray(prop: any) {
+    return Array.isArray(prop) && prop.length > 0 && !isPrimitive(prop[0])
+}
+
 export function capitalize(str: string) {
-    return `${str.charAt(0).toUpperCase()}${str.slice(1)}`;
+    const spaced: string = str.split('').reduce((newString, nextChar)=>newString+(isUpperCase(nextChar)?(' '+nextChar.toLowerCase()):nextChar), '');
+    return `${spaced.charAt(0).toUpperCase()}${spaced.slice(1)}`;
+}
+
+function isUpperCase(char: string){
+    return char === char.toUpperCase() && char !== char.toLowerCase();
 }
 
 export function mapBoxData(root: any): BoxData[] {
     let result: BoxData[] = [];
     const keys = Object.keys(root)
     keys.forEach((key) => {
-        const node = mapBoxDataChildren(root[key], key + '-' + keys.indexOf(key), capitalize(key))
+        const node: BoxData|null = mapBoxDataChildren(root[key], key + '-' + keys.indexOf(key), capitalize(key))
         if (node) {
             result.push(node);
         }
@@ -85,7 +102,7 @@ function getItemName(item: any): string {
 
     // The box name is in one of these attributes, depending on what kind of data we have:
     /*Award=>awarder
-        Education=>area
+        Education=>area or studyType
         Interest=>name
         Language=>language
         Project=>name
@@ -96,7 +113,7 @@ function getItemName(item: any): string {
         Work=>name
         Profile=>network*/
 
-    const nameAttr: string|undefined = ['awarder', 'area', 'name', 'language', 'name', 'organization', 'network'].find(nameAttr=>item[nameAttr]!==undefined);
+    const nameAttr: string|undefined = ['awarder', 'area', 'studyType', 'name', 'language', 'name', 'organization', 'network'].find(nameAttr=>item[nameAttr]!==undefined);
 
     return nameAttr?item[nameAttr]:'';
 }
@@ -132,8 +149,8 @@ function mapBoxDataChildren(root: any, boxKey: string, boxName: string): BoxData
     }
 
     const keys = Object.keys(root);
-    const hasProperties = keys.some(key => {return !Array.isArray(root[key])});
-    const childrenKeys = keys.filter(key => {return Array.isArray(root[key]) && root[key].length > 0 && !isPrimitive(root[key][0])});
+    const hasProperties = keys.some(key => isPrimitiveProperty(root[key]));
+    const childrenKeys = keys.filter(key => (isCompoundProperty(root[key]) || isCompoundArray(root[key])));
 
     if (hasProperties && childrenKeys.length === 0) {
         return {
@@ -146,7 +163,8 @@ function mapBoxDataChildren(root: any, boxKey: string, boxName: string): BoxData
 
     if (!hasProperties && childrenKeys.length === 1) {
         const childBoxKey = boxKey + '-' + childrenKeys[0];
-        return mapBoxDataChildren(root[childrenKeys[0]], childBoxKey + '-' + 0, "");
+        const onlyChild = root[childrenKeys[0]];
+        return mapBoxDataChildren(onlyChild, childBoxKey + '-' + 0, getItemName(onlyChild));
     }
 
     const node: BoxData = {
@@ -156,11 +174,14 @@ function mapBoxDataChildren(root: any, boxKey: string, boxName: string): BoxData
     };
 
     if (hasProperties) {
-        const childBoxKey = boxKey + '-' + 0;
+        const propsBoxKey = boxKey + '-' + 0;
+        const dataWithoutChildren={...root}
+        childrenKeys.forEach(key=>delete dataWithoutChildren[key]); // We are going to add childrenKeys as separate boxes, so we can remove them from here
+
         node.children.push({
-            id: childBoxKey,
+            id: propsBoxKey,
             name: "Info",
-            data: root,
+            data: dataWithoutChildren,
             children: [],
         });
     }
