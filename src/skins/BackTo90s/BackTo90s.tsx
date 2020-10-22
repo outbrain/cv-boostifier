@@ -42,7 +42,6 @@ export class BackTo90s extends Component<any, any> {
                         <span className="blue-triangle"></span>
                         <h1>{basics?.name}</h1>
                         <h4>{(labelTitle) ? labelTitle : basics?.label}</h4>
-
                     </section>
 
 
@@ -54,17 +53,12 @@ export class BackTo90s extends Component<any, any> {
                             <div className={`extra-summary  ${readMoreClass}`}>
                                 {basics?.summary}
                             </div>
-
                         }
-                        {
-                            basics?.summary &&
-                            <div className={`read-more`}  onClick={this.readMore.bind(this)}>
-                                {
-                                    basics?.summary && basics?.summary.length > 255 ? 'Read more' : 'Read less'
-                                }
-                            </div>
-                        }
-
+                        <div className={`read-more`}  onClick={this.readMore.bind(this)}>
+                            {
+                                basics?.summary && basics?.summary.length > 255 ? 'Read more' : 'Read less'
+                            }
+                        </div>
 
 
                     </div>
