@@ -7,6 +7,8 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
   const {basics, skills, work, education, references, projects, publications, languages} = props.profile;
 
   const [isFemale, setIsFemale] = useState(true);
+  const femaleImage = "https://topicimages.mrowl.com/large/sumanthchandu/the_big_bang_theory/cast/amy/amy_farrah_fowler_1.jpg"
+  const maleImage = "https://images-na.ssl-images-amazon.com/images/I/41QsidVac-L._AC_.jpg"
 
   return (
     <div className="comics-skin">
@@ -282,11 +284,11 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
           <img src={require(`./images/baloon-bg.jpg`)} className="baloon-bg" alt="pow"/>
           <div className="profile-image-container">
 
-            <Image className="profile-image-cartoon" cloudName="dgfwxhzgo"  publicId={basics?.picture} type="fetch">
+            <Image className="profile-image-cartoon" cloudName="dgfwxhzgo"  publicId={basics?.picture || isFemale ? femaleImage : maleImage  } type="fetch">
               <Transformation effect="cartoonify" />
               {/*<Transformation effect="colorize:50" color="blue"/>*/}
             </Image>
-            <Image className="profile-image-regular" cloudName="dgfwxhzgo"  publicId={basics?.picture} type="fetch">
+            <Image className="profile-image-regular" cloudName="dgfwxhzgo"  publicId={basics?.picture || isFemale ? femaleImage : maleImage} type="fetch">
             </Image>
           </div>
 
