@@ -42,7 +42,7 @@ export function SkinsView() {
           {skins.map(s => getSkinEl(s))}
         </div>
         <div className="skin-preview">
-          {selectedSkin && <CvViewer skin={selectedSkin}></CvViewer> }
+          {selectedSkin && <CvViewer skin={selectedSkin} mode="edit"></CvViewer> }
         </div>
       </div>
     </div>

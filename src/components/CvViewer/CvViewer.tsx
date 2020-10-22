@@ -11,14 +11,14 @@ const DynamicComponent = loadable((props: any) => import(`../../skins/${props.na
   });
 
 export const CvViewer = (props: any) => {
-  let {skin} = props;
+  let {skin, mode} = props;
   const skinContext = useContext(SkinContext);
   if (!skin) {
     skin = skinContext.skin;
   }
   const profileContext = useContext(ProfileContext);
   return (
-    <div className="cv-viewer-wrapper">
+    <div className={`cv-viewer-wrapper skin-${skin.name} mode-${mode}`}>
       <DynamicComponent name={skin.component} profile={profileContext.profile} />
     </div>
   )

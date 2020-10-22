@@ -24,7 +24,11 @@ pre#style-text .selector .key { color: #c66c75; }
 pre#style-text .key           { color: #c7ccd4; }
 pre#style-text .value         { color: #d5927b; }
 
-.cv-viewer-wrapper {
+.cv-viewer-wrapper.skin-CssTyper.mode-view {
+    max-height: 100vh;
+}
+
+.cv-viewer-wrapper.skin-CssTyper.mode-edit {
     height: 100%;
 }
 
@@ -41,6 +45,7 @@ pre#style-text .value         { color: #d5927b; }
     width: 100%;
     display: flex;
 }
+
 
 
 /**********************************************/
