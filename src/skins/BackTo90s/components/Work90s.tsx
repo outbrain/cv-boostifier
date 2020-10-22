@@ -4,6 +4,11 @@ import './Work90s.scss';
 import CareerCardArrowRight from '../images/career-card-slider-arrow-right.png';
 import CareerCardArrowLeft from '../images/career-card-slider-arrow-left.png';
 
+import BlueFloppyDisk from '../images/blue-floppy-disk.svg';
+import PinkFloppyDisk from '../images/pink-floppy-disk.svg';
+import YellowFloppyDisk from '../images/yellow-floppy-disk.svg';
+
+
 interface IWorkProfile {
     workObj?: any[];
     slideNumber?: number;
@@ -40,8 +45,18 @@ export class Work90s extends Component<IWorkProfile, any> {
     render() {
 
         return (
-
             <div className="career-card">
+
+                <img src={BlueFloppyDisk} alt="" className="floppy-disk blue1"/>
+                <img src={BlueFloppyDisk} alt="" className="floppy-disk blue2"/>
+
+                <img src={PinkFloppyDisk} alt="" className="floppy-disk pink1"/>
+                <img src={PinkFloppyDisk} alt="" className="floppy-disk pink2"/>
+                <img src={PinkFloppyDisk} alt="" className="floppy-disk pink3"/>
+
+                <img src={YellowFloppyDisk} alt="" className="floppy-disk yellow1"/>
+                <img src={YellowFloppyDisk} alt="" className="floppy-disk yellow2"/>
+
                 <h2>Career</h2>
                 <div className="career-slider-holder">
                     <div className="building-image"></div>

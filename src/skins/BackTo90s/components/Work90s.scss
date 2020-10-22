@@ -6,6 +6,35 @@
   height: 555px;
   margin: 0 auto;
   padding: 54px 0 0 0;
+  position: relative;
+
+
+  .floppy-disk {
+    display: block;
+    position: absolute;
+    z-index: -1;
+
+    &.blue1 { top: -82px; left: -242px; animation: sideways 1s infinite; }
+    &.blue2 { top: 280px; right: -76px; animation: sideways 1.5s infinite;}
+
+    &.pink1 { top: 80px; left: -90px; animation: sideways 1.5s infinite;}
+    &.pink2 { top: 491px; left: -115px; animation: sideways 1s infinite;}
+    &.pink3 { top: 0px; right: -225px; animation: sideways 1.5s infinite;}
+
+    &.yellow1 { top: 261px; left: -283px; animation: sideways 1s infinite;}
+    &.yellow2 { top: 430px; right: -262px; animation: sideways 1s infinite;}
+
+  }
+
+
+  @keyframes sideways {
+    0% { transform:rotate(-45deg); }
+    25% { transform:rotate(45deg); }
+    50% { transform:rotate(45deg); }
+    100% { transform:rotate(-45deg); }
+  }
+
+
 
   h2 {
     font-family: 'Arkipelago', Arial;
