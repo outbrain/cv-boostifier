@@ -28,7 +28,7 @@
     }
     .half-slide {
       @extend .slide;
-      width: 50vw;
+      width: 70vw;
     }
     &.sky-day {
       background: linear-gradient(
@@ -198,4 +198,9 @@
 
 a {
   color: white;
+}
+
+
+.opacity-0 {
+  opacity: 0;
 }

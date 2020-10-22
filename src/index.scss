@@ -1,14 +1,14 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -22,7 +22,6 @@ a {
   display: flex;
 }
 
-
 .btn {
   font-size: 14px;
   white-space: nowrap;
@@ -31,7 +30,6 @@ a {
   border-radius: 3px;
   border: 1px solid #cbcace;
   display: inline-block;
-
 }
 
 .btn:hover {
@@ -52,4 +50,56 @@ a {
 .view-title > span {
   font-size: 40px;
   color: #999;
+}
+
+.scroll-message {
+  position: fixed;
+  left: 89vw;
+  bottom: 115px;
+  z-index: 1;
+  width: fit-content;
+  font-size: 15px;
+  font-weight: 300;
+  opacity: 1;
+  transition: 3s;
+}
+
+.icon-scroll,
+.icon-scroll:before {
+  position: absolute;
+  left: 50%;
+}
+.icon-scroll {
+  margin-top: 10px;
+  width: 30px;
+  height: 50px;
+  border: 2px solid #fff;
+  border-radius: 25px;
+  z-index: 1;
+}
+@media (max-width: 767px) {
+  .icon-scroll {
+    position: relative;
+  }
+}
+.icon-scroll:before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  margin-left: -4px;
+  top: 8px;
+  border-radius: 4px;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-name: scroll;
+}
+@keyframes scroll {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(26px);
+  }
 }

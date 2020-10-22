@@ -17,7 +17,7 @@ export function EducationComponent(props: {
             {utils.formatDate(education?.endDate) || "Present"}
           </div>
           <div className="name">
-            {education?.area} @ {education?.institution}
+            {education?.area} at {education?.institution}
           </div>
           <div className="dates space-between">
             {education?.studyType && <span>{education?.studyType}</span>}

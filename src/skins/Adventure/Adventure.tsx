@@ -35,9 +35,6 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
   const FAR_MOUNTS_MOVEMENT_RATIO = -0.9;
   const MOUNTS_MOVEMENT_RATIO = -0.5;
 
-  const hasCollection = (collection: any): boolean =>
-    collection && collection.length > 0;
-
   const handleScroll = () => {
     const containerElement = document.getElementById("scrollWrapper");
     const leftScroll =
@@ -53,6 +50,10 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
 
   return (
     <div className="adventure-skin">
+      <div className={`scroll-message ${scrollLeft > 500 ? "opacity-0" : ""}`}>
+        <div>scroll down to proceed</div>
+        <div className="icon-scroll"></div>
+      </div>
       <Figure scrollLeft={scrollLeft} isFemale={true} />
       <div
         id="scrollWrapper"

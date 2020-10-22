@@ -16,7 +16,7 @@ export function SkillsComponent(props: {
       </div>
 
       {(props.data as Skill[]).map((skill: Skill, index) => (
-        <div key={index} className="slide">
+        <div key={index} className="half-slide">
           <div className="box ">
             <div className="space-between name">
               <div className="margin-right">{skill?.name}</div>

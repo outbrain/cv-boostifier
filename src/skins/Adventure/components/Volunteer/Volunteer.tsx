@@ -17,7 +17,7 @@ export function VolunteerComponent(props: {
             {utils.formatDate(volunteer?.endDate) || "Present"}
           </div>
           <div className="name">
-            {volunteer?.position} @ {volunteer?.organization}
+            {volunteer?.position} at {volunteer?.organization}
             <div className="website">
               <a
                 href={volunteer?.url}
