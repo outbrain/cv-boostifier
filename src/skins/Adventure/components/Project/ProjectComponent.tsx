@@ -8,8 +8,6 @@ export function ProjectComponent(props: {
   scrollLeft: number;
   scrollTop: number;
 }) {
-  console.log(props.data);
-
   const listItems = props.data.map((project: Project, index) => {
     return (
       <div key={index} className="slide">
@@ -28,19 +26,7 @@ export function ProjectComponent(props: {
               See project
             </a>
           </div>
-          {/* <div className="dates space-between">
-            {education?.studyType && <span>{education?.studyType}</span>}
-            {education?.gpa && <span>GPA: {education?.gpa}</span>}
-          </div> */}
         </div>
-        {/* {education?.courses && education.courses.length && (
-          <div className="courses box">
-            <div className="name">Courses</div>
-            {education.courses.map((course, indexA) => (
-              <div key={indexA}>{course}</div>
-            ))}
-          </div>
-        )} */}
       </div>
     );
   });

@@ -32,8 +32,9 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
   const [scrollLeft, setScrollLeft] = useState(0);
   const [scrollTop, setScrollTop] = useState(0);
   const [screenSize, setScreenSize] = useState(0);
-  const MOUNTS_MOVEMENT_RATIO = 0.1;
-  const MOUNTS_STARTING_OFFSET = 0.9;
+  const FAR_MOUNTS_MOVEMENT_RATIO = -0.9;
+  const MOUNTS_MOVEMENT_RATIO = -0.5;
+
   const handleScroll = () => {
     const containerElement = document.getElementById("scrollWrapper");
     const leftScroll =
@@ -49,7 +50,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
 
   return (
     <div className="adventure-skin">
-      <Figure scrollLeft={scrollLeft} isFemale={true} />
+      <Figure scrollLeft={scrollLeft / 3} isFemale={true} />
       <div
         id="scrollWrapper"
         className="adventure outer-wrapper"
@@ -60,13 +61,22 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
             className="mountains-far full-width"
             style={{
               backgroundPositionX: utils.moveElement(
-                screenSize * MOUNTS_STARTING_OFFSET,
+                0,
                 scrollLeft,
-                MOUNTS_MOVEMENT_RATIO
+                FAR_MOUNTS_MOVEMENT_RATIO
               ),
             }}
           >
-            <div className="mountains">
+            <div
+              className="mountains"
+              style={{
+                backgroundPositionX: utils.moveElement(
+                  0,
+                  scrollLeft,
+                  MOUNTS_MOVEMENT_RATIO
+                ),
+              }}
+            >
               <div className="sky">
                 <div className="clouds2"></div>
               </div>

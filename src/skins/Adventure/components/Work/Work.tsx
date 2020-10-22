@@ -16,7 +16,7 @@ export function WorkComponent(props: {
             {utils.formatDate(work?.startDate)} -{" "}
             {utils.formatDate(work?.endDate) || "Present"}
           </div>
-          <div className="name">
+          <div className="name space-between">
             {work?.position} @ {work?.company}
             <div className="website">
               <a href={work?.website} target="_blank" rel="noopener noreferrer">

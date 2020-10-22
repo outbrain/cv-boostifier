@@ -25,9 +25,9 @@ export function SkillsComponent(props: {
             {skill.keywords &&
               skill.keywords.length &&
               skill.keywords.map((keyword: string, keywordIndex: number) => (
-                <div key={keywordIndex} className="summary">
+                <li key={keywordIndex} className="summary">
                   {keyword}
-                </div>
+                </li>
               ))}
           </div>
         </div>

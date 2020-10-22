@@ -8,7 +8,6 @@ export function LanguageComponent(props: {
   scrollTop: number;
 }) {
   const languages = props.data;
-  console.log(languages);
 
   return (
     <div>
@@ -16,15 +15,15 @@ export function LanguageComponent(props: {
         <h1>Languages</h1>
       </div>
 
-      <div className="slide">
+      <div className="half-slide">
         <div className="half-box ">
           {languages &&
             languages.length &&
             languages.map((language: Language, index: number) => (
-              <div key={index} className="space-between dates">
-                <div className="margin-right"> {language.language}</div>
-                <div> {language.fluency}</div>
-              </div>
+              <li key={index} className="space-between">
+                <div className="dates margin-right"> {language.language}</div>
+                <div className="summary"> {language.fluency}</div>
+              </li>
             ))}
         </div>
       </div>

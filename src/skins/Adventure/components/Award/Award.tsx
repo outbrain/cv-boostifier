@@ -8,7 +8,6 @@ export function AwardComponent(props: {
   scrollLeft: number;
   scrollTop: number;
 }) {
-  console.log(props.data);
   return (
     <div>
       <div>
