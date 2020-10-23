@@ -5,7 +5,7 @@ export function Floor(props: { worldSize: number,scrollLeft:number }) {
   return (
     <div
       className="floor"
-      style={props.worldSize != 0 ? {
+      style={props.worldSize !== 0 ? {
         width: `${props.worldSize}px`,
         backgroundPositionX: utils.moveElement(
           0,
