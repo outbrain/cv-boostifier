@@ -16,7 +16,17 @@
   width: 40vw;
 }
 
-
+.gender-button {
+  position: fixed;
+  left: 50vw;
+  top: 100px;
+  z-index: 1;
+  width: fit-content;
+  font-size: 15px;
+  font-weight: 300;
+  opacity: 1;
+  transition: 3s;
+}
 
 .outer-wrapper {
   width: 100vh;

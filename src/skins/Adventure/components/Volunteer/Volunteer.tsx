@@ -1,5 +1,5 @@
 import React from "react";
-import { Volunteer, Work } from "../../../../models";
+import { Volunteer } from "../../../../models";
 import { utils } from "../../utils/Utils";
 
 export function VolunteerComponent(props: {

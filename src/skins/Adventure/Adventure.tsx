@@ -32,6 +32,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
   const [scrollLeft, setScrollLeft] = useState(0);
   const [scrollTop, setScrollTop] = useState(0);
   const [screenSize, setScreenSize] = useState(0);
+  const [isFemale, setIsFemale] = useState(true);
   const FAR_MOUNTS_MOVEMENT_RATIO = -0.9;
   const MOUNTS_MOVEMENT_RATIO = -0.5;
 
@@ -54,7 +55,11 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
         <div>scroll down to proceed</div>
         <div className="icon-scroll"></div>
       </div>
-      <Figure scrollLeft={scrollLeft} isFemale={true} />
+      <div className={`gender-button ${scrollLeft > 500 ? "opacity-0" : ""}`} role="group">
+        <button type="button" className="btn" onClick={() => setIsFemale(false)}>male</button>
+        <button type="button" className="btn" onClick={() => setIsFemale(true)}>female</button>
+      </div>
+      <Figure scrollLeft={scrollLeft} isFemale={isFemale} />
       <div
         id="scrollWrapper"
         className="adventure outer-wrapper"

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import { utils } from "../../utils/Utils";
 
 export function Floor(props: { worldSize: number,scrollLeft:number }) {
@@ -6,7 +6,7 @@ export function Floor(props: { worldSize: number,scrollLeft:number }) {
     <div
       className="floor"
       style={{
-        width: `${props.worldSize}px`,
+        width: `${props.worldSize !== 0 ? props.worldSize : 100000}px`,
         backgroundPositionX: utils.moveElement(
           0,
           props.scrollLeft,
