@@ -16,7 +16,8 @@ export function getPerspectiveFor(x: number, y: number, z: number, width: number
     if(perspectiveType===PerspectiveType.SIDE_VIEW){
         offset= { x: 0, y: width*0.4, z: -width*0.8 };
     } else{
-        offset= { x: 0, y: width*1.2, z: 0 };
+        const windowAspectRatio: number = window.innerWidth/window.innerHeight;
+        offset= { x: 0, y: width*Math.max(1, windowAspectRatio)*0.6, z: 0 };
     }
 
     return {viewPoint:addCoordinates(objectTopCentre, offset), perspectiveType};
