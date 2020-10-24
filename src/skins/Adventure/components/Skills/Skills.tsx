@@ -10,7 +10,15 @@ export function SkillsComponent(props: {
   title: string;
 }) {
   console.log(props.data);
-  
+  const getSectionElements = () => {
+    return (props.title === "Skills") ?
+        <div> 
+          <div className="blue-banner blue-banner-1"/>
+          <div className="blue-banner blue-banner-2"/>
+          <div className="blue-banner blue-banner-3"/>
+        </div>
+      : <div></div>
+  }
   return (
     <div>
       <div>
@@ -35,9 +43,9 @@ export function SkillsComponent(props: {
         </div>
       ))}
       </div>
-      <div className="blue-banner blue-banner-1"/>
-      <div className="blue-banner blue-banner-2"/>
-      <div className="blue-banner blue-banner-3"/>
+      { 
+        getSectionElements()
+      }
     </div>
   );
 }
