@@ -147,6 +147,10 @@
   float: right;
 }
 
+.jurassic-unix__box-text-picture img {
+  width: calc(var(--box-width) / 5);
+}
+
 /*THEMES*/
 /*theme-movie*/
 .jurassic-unix__wrapper.jurassic-unix__theme-movie {
