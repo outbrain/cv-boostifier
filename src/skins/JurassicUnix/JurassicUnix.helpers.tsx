@@ -57,10 +57,6 @@ export function addCoordinates(position1?: Coordinates, position2?: Coordinates)
     };
 }
 
-export function isBrowserFirefox() {
-    return false; // navigator.userAgent.includes("Firefox");
-}
-
 export function isPrimitive(value: any) {
     return value !== Object(value);
 }

@@ -7,7 +7,6 @@ import {BOX_MARGIN, HUE_INCREMENT, SCENE_WIDTH, SIZE_UNIT} from './JurassicUnix.
 import {BoxData} from './types/box-data';
 import {
     getPerspectiveFor,
-    isBrowserFirefox,
     addCoordinates,
     get3DTranslation,
     get3DRotation,
@@ -84,7 +83,7 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
                         <PositionedContainer
                             position={this.state.perspective.viewPoint}
                             viewRotation={this.state.perspective.perspectiveType===PerspectiveType.SIDE_VIEW?-35:-90}
-                            animated={!isBrowserFirefox()}
+                            animated={true}
                         >
                             <Box
                                 position={{ x: 0, y: 0, z: 0 }}
