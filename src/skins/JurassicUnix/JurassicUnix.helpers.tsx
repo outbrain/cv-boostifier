@@ -58,7 +58,7 @@ export function addCoordinates(position1?: Coordinates, position2?: Coordinates)
 }
 
 export function isBrowserFirefox() {
-    return navigator.userAgent.includes("Firefox");
+    return false; // navigator.userAgent.includes("Firefox");
 }
 
 export function isPrimitive(value: any) {

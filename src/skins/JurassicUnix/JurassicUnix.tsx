@@ -204,12 +204,12 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
         render() {
             const data: any = this.props.data||{};
             return <div className="jurassic-unix__box-text">{Object.keys(data).map(key =>
-                <div>{capitalize(key) + ": "}{this.formatProp(data[key])}</div>)}</div>;
+                <div key={key}>{capitalize(key) + ": "}{this.formatProp(data[key])}</div>)}</div>;
         }
 
         formatProp(prop: string): any{
             if(typeof prop === 'string' && prop.startsWith('http')){
-                return <a href={prop} target="_blank" onClick={e=> {
+                return <a href={prop} target="_blank" rel="noopener noreferrer" onClick={e=> {
                     e.stopPropagation();
                 }}>{prop}</a>;
             } else if(Array.isArray(prop)){
