@@ -143,6 +143,10 @@
   font-size: calc(var(--box-length) / 40);
 }
 
+.jurassic-unix__box-text-picture {
+  float: right;
+}
+
 /*THEMES*/
 /*theme-movie*/
 .jurassic-unix__wrapper.jurassic-unix__theme-movie {

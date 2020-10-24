@@ -203,8 +203,14 @@ export function JurassicUnix(props: PropsWithChildren<IProfileProps>) {
         // TODO: Display data differently for each kind of object
         render() {
             const data: any = this.props.data||{};
-            return <div className="jurassic-unix__box-text">{Object.keys(data).map(key =>
-                <div key={key}>{capitalize(key) + ": "}{this.formatProp(data[key])}</div>)}</div>;
+            return <div className="jurassic-unix__box-text">
+              {data.picture && <div className="jurassic-unix__box-text-picture"><img src={data.picture}></img></div>}
+              {Object.keys(data).map(key =>{
+                if(key!=='picture'){
+                  return <div key={key}>{capitalize(key) + ": "}{this.formatProp(data[key])}</div>
+                }
+                })}
+              </div>;
         }
 
         formatProp(prop: string): any{
