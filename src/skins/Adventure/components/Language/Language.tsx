@@ -29,6 +29,11 @@ export function LanguageComponent(props: {
             ))}
         </div>
       </div>
+
+      <div className="barrel barrel-1"/>
+      <div className="barrel barrel-2"/>
+      <div className="barrel barrel-3"/>
+      <div className="shelter"/>
     </div>
   );
 }
