@@ -1,35 +1,10 @@
 .floor {
-    width: 100%;
-    height: 60px;
+    height: 10vh;
     width: 100vw;
     background-image: url(../../assets/Tiles/surface8.png);
     background-size: contain;
     background-repeat: repeat;
     position: absolute;
     top: 95%;
-    z-index: 10;
-}
-
-.ramp-part-1 {
-    background-image: url(../../assets/Tiles/square.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 72px;
-    height: 72px;
-}
-
-.ramp-part-2 {
-    background-image: url(../../assets/Tiles/square2.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 72px;
-    height: 72px;
-}
-
-.ramp-general {
-    display: flex;
-    left: 0.4%;
-    bottom: 40px;
-    position: absolute;
     z-index: 10;
 }

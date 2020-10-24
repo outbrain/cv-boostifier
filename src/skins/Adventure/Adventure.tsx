@@ -129,15 +129,6 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                   scrollTop={scrollTop}
                 />
               )}
-              {interests && interests.length > 0 && (
-                <SkillsComponent
-                  data={interests}
-                  screenSize={screenSize}
-                  scrollLeft={scrollLeft}
-                  scrollTop={scrollTop}
-                  title="Interests"
-                />
-              )}
               {languages && languages.length > 0 && (
                 <LanguageComponent
                   data={languages}

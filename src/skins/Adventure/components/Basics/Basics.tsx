@@ -23,6 +23,7 @@ export function BasicsComponent(props: {
           </div>
         </div>
       </div>
+      <div className="raft"/>
     </div>
   );
 }

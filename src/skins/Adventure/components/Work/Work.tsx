@@ -34,6 +34,8 @@ export function WorkComponent(props: {
         <h1>Experience</h1>
       </div>
       <div className="flex-container">{listItems}</div>;
+      <div className="log-spike-wall"/>
+      <div className="log-cabin"/>
     </div>
   );
 }

@@ -43,6 +43,7 @@ export function EducationComponent(props: {
         <h1>Education</h1>
       </div>
       <div className="flex-container">{listItems}</div>;
+      <div className="campfire"/>
     </div>
   );
 }

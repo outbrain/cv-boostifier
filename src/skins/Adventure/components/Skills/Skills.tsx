@@ -35,6 +35,9 @@ export function SkillsComponent(props: {
         </div>
       ))}
       </div>
+      <div className="blue-banner blue-banner-1"/>
+      <div className="blue-banner blue-banner-2"/>
+      <div className="blue-banner blue-banner-3"/>
     </div>
   );
 }
