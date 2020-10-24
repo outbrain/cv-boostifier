@@ -171,7 +171,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                 />
               )}
               <div className="half-slide"></div>
-              <Floor scrollLeft={scrollLeft} worldSize={screenSize} />
+              <Floor worldSize={screenSize} />
             </div>
           </div>
         </div>
