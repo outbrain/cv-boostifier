@@ -32,9 +32,9 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
   const [scrollLeft, setScrollLeft] = useState(0);
   const [scrollTop, setScrollTop] = useState(0);
   const [screenSize, setScreenSize] = useState(0);
+  const FAR_MOUNTS_MOVEMENT_RATIO = 0.1;
+  const MOUNTS_MOVEMENT_RATIO = 0.2;
   const [isFemale, setIsFemale] = useState(true);
-  const FAR_MOUNTS_MOVEMENT_RATIO = -0.9;
-  const MOUNTS_MOVEMENT_RATIO = -0.5;
 
   const handleScroll = () => {
     const containerElement = document.getElementById("scrollWrapper");
