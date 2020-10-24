@@ -10,7 +10,6 @@ export function Figure(props: {scrollLeft: number, isFemale: boolean}) {
     const getCharacterGender = (isFemale: boolean) : string => isFemale ? "girl" : "boy";
     const getFigureImageCount = (isFemale: boolean) : number => isFemale ? 20 : 15;
     const getFigureDirection = (scrollPrevPosition: number, scrollCurrentPosition: number) : string  => scrollPrevPosition / FIGURE_CHANGE_RATE <= scrollCurrentPosition / FIGURE_CHANGE_RATE ? "forward" : "backward";
-
+        
     return <div id="Figure" className={`${getFigureDirection(prevScrollRef.current, props.scrollLeft)} ${getCharacterGender(props.isFemale)} ${getImageByScroll(props.scrollLeft, props.isFemale)}`}></div>
-
 }
