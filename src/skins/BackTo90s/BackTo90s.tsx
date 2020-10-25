@@ -54,12 +54,12 @@ export class BackTo90s extends Component<any, any> {
                                 {basics?.summary}
                             </div>
                         }
-                        <div className={`read-more`}  onClick={this.readMore.bind(this)}>
-                            {
-                                basics?.summary && basics?.summary.length > 255 ? 'Read more' : 'Read less'
-                            }
-                        </div>
-
+                        {
+                            basics?.summary &&
+                                <div className={`read-more`}  onClick={this.readMore.bind(this)}>
+                                    { basics?.summary.length > 255 ? 'Read more' : 'Read less' }
+                                </div>
+                        }
 
                     </div>
                     {
@@ -75,7 +75,7 @@ export class BackTo90s extends Component<any, any> {
                     }
                     {
                         (skills || []).length > 0 &&
-                        <Skills90s {...skills} />
+                        <Skills90s skillsObj={skills} langObj={languages} />
                     }
 
                 </main>

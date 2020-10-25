@@ -6,6 +6,7 @@ import SkillsCardArrowRight from "../images/skills-slider-arrow-right.png";
 
 interface ISkillsProfile {
     skillsObj?: any[];
+    langObj?: any[];
 }
 
 export class Skills90s extends Component<ISkillsProfile, any> {
@@ -13,44 +14,54 @@ export class Skills90s extends Component<ISkillsProfile, any> {
     constructor(props: ISkillsProfile) {
         super(props);
         this.state = {
-            skillsObj: this.props,
+            skillsObj: this.props.skillsObj,
+            langObj: this.props.langObj,
             slideNumber: 0
         }
     }
     nextItem(): any{
-        var current = this.state.slideNumber;
-        var next = current + 1;
+        const current = this.state.slideNumber;
+        let next = current + 1;
         if (next > this.state.skillsObj.length - 1) {
             next = 0;
         }
-        //this.state.slideNumber = next;
-        console.log('next', next)
+
         this.goToSlide(next);
     }
 
     prevItem(): any{
-        var current = this.state.slideNumber;
-        var prev = current - 1;
+        const current = this.state.slideNumber;
+        let prev = current - 1;
         if (prev < 0) {
             prev = this.state.skillsObj.length - 1;
         }
-        //this.state.slideNumber = prev;
-        console.log('prev', prev)
-
         this.goToSlide(prev);
     }
-
 
     goToSlide(index: number){
         this.setState({slideNumber: index});
     }
     render() {
+        console.log('this.state.langObj', this.state.langObj);
         return (
 
 
             <section className="skills-section">
                 <h2>Check Out My <span>Skills</span></h2>
                 <img src={arrows} className={"skills-arrows"}/>
+                <div className="lang-wrapper">
+                    <h4>I Speak the Following Languages: <span></span></h4>
+                    <div className="typewriter">
+                    {
+                        (Object.values(this.state.langObj) || []).map((langItem: any, index: number) => {
+
+                            return(
+                                <div className="typewriter-text" key={index}>{langItem.language}</div>
+                            )
+                        })
+                    }
+                    </div>
+                </div>
 
                 <div className="skills-slider-wrapper">
                     <div className="skills-slider-inner">
