@@ -50,14 +50,15 @@
 
     &.sky {
       z-index: 0;
-      transition: 30s;
     }
-    &.day {
-      background: rgba(73, 226, 237, 1);
-    }
-    &.night {
-      background: #fa7601;
-    }
+
+    //     &.day {
+    //   background: rgba(73, 226, 237, 1);
+    // }
+    // &.night {
+    //   background: #fdbc21;
+    // }
+
     .full-width {
       width: 100%;
     }
@@ -70,15 +71,16 @@
     }
 
     .mountains-far {
+      position: relative;
       background-size: auto 100vh;
       background-repeat: repeat-x;
       background-image: url("assets/game_background_1/layers/rocks_1.png");
       //transform: scale(0.8);
     }
-    .night {
-      background: url("assets/game_background_3/layers/sky.png");
-      z-index: 0;
-    }
+    // .night {
+    //   background: url("assets/game_background_3/layers/sky.png");
+    //   z-index: 0;
+    // }
     .ground-night {
       background: url("assets/game_background_3/layers/ground_1.png");
       background-size: auto 100vh;
@@ -143,7 +145,7 @@
   transform-style: preserve-3d;
   animation-timing-function: linear;
   background: url("./assets/game_background_1/layers/clouds_1.png") repeat 0 0;
-
+  filter: saturate(0);
   animation: animatedBackground 500s linear infinite;
   z-index: -1;
 
@@ -158,6 +160,8 @@
     left: 1%;
     transform: translateZ(1px);
     transform-origin: 100% 50%;
+    filter: saturate(0);
+    opacity: 0.2;
   }
 
   @keyframes animatedBackground {
@@ -242,4 +246,46 @@ a {
 
 .intro {
   width: 150vw;
+}
+
+.sky-wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  transition: 20s;
+  z-index: -1;
+}
+.day {
+  background: linear-gradient(
+    to bottom,
+    rgba(73, 226, 237, 1) 0%,
+    rgba(242, 230, 202, 1) 100%
+  );
+}
+.night {
+  background: linear-gradient(
+    to bottom,
+    rgba(253, 188, 33, 1) 0%,
+    rgba(242, 230, 202, 1) 100%
+  );
+}
+
+.sky-day {
+  .day {
+    opacity: 1;
+  }
+  .night {
+    opacity: 0;
+  }
+}
+
+.sky-night {
+  .day {
+    opacity: 0;
+  }
+  .night {
+    opacity: 1;
+  }
 }

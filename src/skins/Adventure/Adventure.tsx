@@ -78,10 +78,12 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
         onScroll={handleScroll}
       >
         <div
-          className={`wrapper sky day ${
-            scrollLeft > screenSize / 2 ? "night" : ""
+          className={`wrapper sky-day ${
+            scrollLeft > screenSize / 2 ? "sky-night" : ""
           }`}
         >
+          <div className="sky-wrapper day"></div>
+          <div className="sky-wrapper night"></div>
           <div
             className="mountains-far full-width"
             style={{
