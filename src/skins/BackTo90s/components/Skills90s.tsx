@@ -16,7 +16,8 @@ export class Skills90s extends Component<ISkillsProfile, any> {
         this.state = {
             skillsObj: this.props.skillsObj,
             langObj: this.props.langObj,
-            slideNumber: 0
+            slideNumber: 0,
+            width: 50
         }
     }
     nextItem(): any{
@@ -39,10 +40,15 @@ export class Skills90s extends Component<ISkillsProfile, any> {
     }
 
     goToSlide(index: number){
-        this.setState({slideNumber: index});
+        this.setState({slideNumber: index, width: Math.random() * 180});
     }
     render() {
-        console.log('this.state.langObj', this.state.langObj);
+        // console.log('this.state.langObj', this.state.langObj);
+
+        const styles: { [key: string]: React.CSSProperties } = {
+            width: this.state.width
+        };
+
         return (
 
 
@@ -71,11 +77,17 @@ export class Skills90s extends Component<ISkillsProfile, any> {
                                 {
                                     (Object.values(this.state.skillsObj) || []).map((skillsItem: any, index: number) => {
                                         return(
-                                            <span key={index} className={`${this.state.slideNumber == index ? 'selected': ''}`}>{skillsItem.name}</span>
+                                            <div>
+                                                <span key={index} className={`${this.state.slideNumber == index ? 'selected': ''}`}>{skillsItem.name}</span>
+                                            </div>
                                         )
                                     })
                                 }
+
+
+
                             </div>
+                            <span className={'skill-bar'} style={styles}></span>
                         </div>
                     </div>
                     {Object.values(this.state.skillsObj).length > 1 &&

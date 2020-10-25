@@ -147,22 +147,35 @@
         background-position: center;
         margin-bottom: 1vw;
       }
-      .extra-summary {
+
+
+      .extra-summary-wrapper{
         overflow: hidden;
-        max-height: 7.7vw;
-        text-align: center;
-        display: block;
-        transform-origin: top;
-        transition: max-height 1ms ease;
-        &.visible {
-          overflow: visible;
-          max-height: 100%;
-          transform-origin: top;
-          transition: max-height 1ms ease;
+        transition: height 0.5s ease;
+        height: 7.7vw;
+
+        .extra-summary {
+          //overflow: hidden;
+          height: auto;
+          text-align: center;
+          display: block;
+          //transform-origin: top;
+          //transition: max-height 1ms ease;
+
+          &.visible {
+            //overflow: visible;
+            //max-height: 100%;
+            //transform-origin: top;
+            //transition: max-height 1ms ease;
+
+          }
 
         }
 
       }
+
+
+
       .read-more {
         color: #EE6513;
         font-size: 1.44vw;

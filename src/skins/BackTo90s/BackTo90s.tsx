@@ -15,18 +15,38 @@ export class BackTo90s extends Component<any, any> {
     constructor(props: any) {
         super(props);
         this.state = {
-            readLess: true
+            readLess: true,
+            height: 0
         }
+
+
     }
     readMore(): any {
-        this.setState({readLess: !this.state.readLess})
+
+        this.setState(
+        {
+            readLess: !this.state.readLess,
+            height: document.querySelector('.extra-summary')
+        })
 
     }
     render() {
         const {basics, skills, work, education, references, languages} = this.props.profile;
         const lastIndex = this.props.profile.basics.label.lastIndexOf("at");
         const labelTitle = this.props.profile.basics.label.substring(0, lastIndex);
+
         let readMoreClass = this.state.readLess ? "" : "visible";
+
+        let extraHeight = this.state.height;
+
+        const styles: { [key: string]: React.CSSProperties } = {
+            height: !(readMoreClass) ? '7.7vw' : extraHeight.clientHeight
+        };
+
+        console.log(extraHeight.clientHeight);
+
+
+
 
 
         return (
@@ -50,14 +70,16 @@ export class BackTo90s extends Component<any, any> {
                         <span className="main-divider"></span>
                         {
                             basics?.summary &&
-                            <div className={`extra-summary  ${readMoreClass}`}>
-                                {basics?.summary}
+                            <div className={`extra-summary-wrapper  ${readMoreClass}`} style={styles}>
+                                <div className={`extra-summary`}>
+                                    {basics?.summary}
+                                </div>
                             </div>
                         }
                         {
                             basics?.summary &&
                                 <div className={`read-more`}  onClick={this.readMore.bind(this)}>
-                                    { basics?.summary.length > 255 ? 'Read more' : 'Read less' }
+                                    { readMoreClass ? 'Read less' : 'Read more' }
                                 </div>
                         }
 

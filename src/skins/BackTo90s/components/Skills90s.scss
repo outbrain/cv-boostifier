@@ -112,7 +112,7 @@
             &:after {
               content: '';
               height: 10px;
-              width: 175px;
+              //width: 175px;
               background-color: white;
               display: block;
               margin: 0 auto;
@@ -132,6 +132,17 @@
             display: block;
             margin: 7px auto 0;
           }
+
+
+        }
+        .skill-bar{
+          height: 10px;
+          width: 175px;
+          background-color: white;
+          display: block;
+          position: relative;
+          left: 48px;
+          top: -10px;
         }
       }
 
