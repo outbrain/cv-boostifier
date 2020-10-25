@@ -47,7 +47,6 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
     setScrollLeft(leftScroll);
     setScrollTop(topScroll);
     setScreenSize(screenSize);
-    console.log({ screenSize, leftScroll });
   };
 
   return (
@@ -81,6 +80,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
           className={`wrapper sky-day ${
             scrollLeft > screenSize / 2 ? "sky-night" : ""
           }`}
+          style={{ width: screenSize || "100vw" }}
         >
           <div className="sky-wrapper day"></div>
           <div className="sky-wrapper night"></div>

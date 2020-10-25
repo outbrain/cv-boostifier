@@ -47,17 +47,11 @@
     width: fit-content;
     transform: rotate(90deg) translateY(-100vh);
     transform-origin: top left;
+    height: 100%;
 
     &.sky {
       z-index: 0;
     }
-
-    //     &.day {
-    //   background: rgba(73, 226, 237, 1);
-    // }
-    // &.night {
-    //   background: #fdbc21;
-    // }
 
     .full-width {
       width: 100%;
@@ -71,10 +65,12 @@
     }
 
     .mountains-far {
-      position: relative;
+      position: absolute;
       background-size: auto 100vh;
       background-repeat: repeat-x;
       background-image: url("assets/game_background_1/layers/rocks_1.png");
+      width: auto;
+      height: auto;
       //transform: scale(0.8);
     }
     // .night {
