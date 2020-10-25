@@ -9,7 +9,6 @@ export function LanguageComponent(props: {
   scrollTop: number;
 }) {
   const languages = props.data;
-  console.log(languages);
 
   return (
     <div>

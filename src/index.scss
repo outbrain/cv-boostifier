@@ -26,10 +26,11 @@ a {
   font-size: 14px;
   white-space: nowrap;
   padding: 2px 15px;
-  cursor: pointer;
   border-radius: 3px;
-  border: 1px solid #cbcace;
+  text-transform: capitalize;
+  border: 1px solid white;
   display: inline-block;
+  margin-right: 5px;
 }
 
 .btn:hover {

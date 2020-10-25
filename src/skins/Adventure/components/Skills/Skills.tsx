@@ -9,7 +9,6 @@ export function SkillsComponent(props: {
   scrollTop: number;
   title: string;
 }) {
-  console.log(props.data);
   const getSectionElements = () => {
     return (props.title === "Skills") ?
         <div> 

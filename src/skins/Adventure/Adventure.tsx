@@ -32,8 +32,8 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
   const [scrollLeft, setScrollLeft] = useState(0);
   const [scrollTop, setScrollTop] = useState(0);
   const [screenSize, setScreenSize] = useState(0);
-  const FAR_MOUNTS_MOVEMENT_RATIO = 0.1;
-  const MOUNTS_MOVEMENT_RATIO = 0.2;
+  const FAR_MOUNTS_MOVEMENT_RATIO = -0.95;
+  const MOUNTS_MOVEMENT_RATIO = 0.1;
   const [isFemale, setIsFemale] = useState(true);
 
   const handleScroll = () => {
@@ -47,6 +47,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
     setScrollLeft(leftScroll);
     setScrollTop(topScroll);
     setScreenSize(screenSize);
+    console.log({ screenSize, leftScroll });
   };
 
   return (
@@ -55,9 +56,20 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
         <div>scroll down to proceed</div>
         <div className="icon-scroll"></div>
       </div>
-      <div className={`gender-button ${scrollLeft > 500 ? "opacity-0" : ""}`} role="group">
-        <button type="button" className="btn" onClick={() => setIsFemale(false)}>male</button>
-        <button type="button" className="btn" onClick={() => setIsFemale(true)}>female</button>
+      <div
+        className={`gender-button ${scrollLeft > 500 ? "opacity-0" : ""}`}
+        role="group"
+      >
+        <button
+          type="button"
+          className="btn"
+          onClick={() => setIsFemale(false)}
+        >
+          male
+        </button>
+        <button type="button" className="btn" onClick={() => setIsFemale(true)}>
+          female
+        </button>
       </div>
       <Figure scrollLeft={scrollLeft} isFemale={isFemale} />
       <div
@@ -65,7 +77,11 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
         className="adventure outer-wrapper"
         onScroll={handleScroll}
       >
-        <div className="wrapper sky-day">
+        <div
+          className={`wrapper sky day ${
+            scrollLeft > screenSize / 2 ? "night" : ""
+          }`}
+        >
           <div
             className="mountains-far full-width"
             style={{
@@ -97,7 +113,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                   scrollTop={scrollTop}
                 />
               )}
-              {interests && (
+              {interests && interests.length > 0 && (
                 <SkillsComponent
                   data={interests}
                   screenSize={screenSize}

@@ -1,10 +1,10 @@
 .floor {
-    height: 10vh;
+    height: 100px;
     width: 100vw;
     background-image: url(../../assets/Tiles/surface8.png);
     background-size: contain;
     background-repeat: repeat;
-    position: absolute;
-    top: 95%;
+    position: fixed;
+    bottom:  0%;
     z-index: 10;
 }

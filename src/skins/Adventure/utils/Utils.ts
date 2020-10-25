@@ -24,9 +24,6 @@ export class Utils {
   ) => startingPosition - speedRatio * scrollPosition;
 
   getMonthName(date: Date): string {
-    console.log(date.getMonth());
-    console.log(this.monthNames[date.getMonth()]);
-
     return this.monthNames[date.getMonth()];
   }
 
