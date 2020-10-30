@@ -14,6 +14,7 @@ import { LanguageComponent } from "./components/Language/Language";
 import { ProjectComponent } from "./components/Project/ProjectComponent";
 import { PublicationComponent } from "./components/Publication/Publication";
 import { VolunteerComponent } from "./components/Volunteer/Volunteer";
+import {ContentComponent} from "./components/Content/Contact";
 
 export function Adventure(props: PropsWithChildren<IProfileProps>) {
   const {
@@ -32,7 +33,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
   const [scrollLeft, setScrollLeft] = useState(0);
   const [scrollTop, setScrollTop] = useState(0);
   const [screenSize, setScreenSize] = useState(0);
-  const FAR_MOUNTS_MOVEMENT_RATIO = -0.95;
+  const FAR_MOUNTS_MOVEMENT_RATIO = 0.2;
   const MOUNTS_MOVEMENT_RATIO = 0.1;
   const [isFemale, setIsFemale] = useState(true);
 
@@ -197,7 +198,14 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
                   title="Skills"
                 />
               )}
-              <div className="half-slide"></div>
+              {basics && (
+                <ContentComponent
+                  data={basics}
+                  screenSize={screenSize}
+                  scrollLeft={scrollLeft}
+                  scrollTop={scrollTop}/>
+              ) }
+
               <Floor worldSize={screenSize} />
             </div>
           </div>
