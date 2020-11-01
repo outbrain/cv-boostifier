@@ -9,7 +9,7 @@ export function ContentComponent(props: { data: Basics, screenSize: number, scro
 
   return (
 
-    <div className="lvl-contact night">
+    <div className="lvl-contact">
       <div>
       </div>
       <div className=" ground-night" >
