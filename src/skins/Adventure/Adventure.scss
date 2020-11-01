@@ -1,4 +1,10 @@
 @import "assets/styles/styles.scss";
+
+.sky {
+  z-index: 0;
+  transition: opacity 5s;
+}
+
 .slide {
   width: 100vw;
   height: 100vh;
@@ -49,10 +55,6 @@
     transform-origin: top left;
     height: 100%;
 
-    &.sky {
-      z-index: 0;
-    }
-
     .full-width {
       width: 100%;
     }
@@ -71,10 +73,10 @@
       background-image: url("assets/game_background_1/layers/rocks_1.png");
       //transform: scale(0.8);
     }
-     .night {
-       background: url("assets/game_background_3/layers/sky.png");
-       z-index: 0;
-     }
+    .night {
+      background: url("assets/game_background_3/layers/sky.png");
+      //  z-index: 0;
+    }
     .ground-night {
       background: url("assets/game_background_3/layers/ground_1.png");
       background-size: auto 100vh;
@@ -281,5 +283,9 @@ a {
   }
   .night {
     opacity: 1;
+  }
+
+  .sky {
+    opacity: 0;
   }
 }
