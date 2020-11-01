@@ -19,23 +19,27 @@ export function ContentComponent(props: { data: Basics, screenSize: number, scro
         </div>
       </div>
       <div className="heading contact">
-        <h1>Contact</h1>
+
       </div>
       <div className="heading contact-list">
-        <div><img src={props.data.picture} height={100} width={100}  alt={props.data.name}/></div>
-        <ul>
-          <li className="skill-item">{props.data?.name}</li>
-          <li className="skill-item">{props.data?.email}</li>
-          <li className="skill-item">{props.data?.phone}</li>
-          <li className="skill-item">{props.data?.picture}</li>
-          <li className="skill-item">{props.data?.picture}</li>
-          <li className="skill-item">{props.data?.url}</li>
-        </ul>
-        {props.data.profiles && props.data.profiles.length > 0 &&
-          props.data.profiles.map((profile, index) => {
-            return  <div className="link-item" key={index}><a href={profile.url}>{profile.network}</a></div>
-          })
-        }
+          <h1>Contact</h1>
+          {props.data.picture &&
+          <div>
+              <img className="user-image" src={props.data.picture} height={150} width={150} alt={props.data.name}/>
+          </div>}
+        <div className="details">
+          <ul>
+            <li className="skill-item">{props.data?.name}</li>
+            <li className="skill-item">{props.data?.email}</li>
+            <li className="skill-item">{props.data?.phone}</li>
+            <li className="skill-item">{props.data?.url}</li>
+          </ul>
+        <div>{props.data.profiles && props.data.profiles.length > 0 &&
+        props.data.profiles.map((profile, index) => {
+          return <div className="link-item" key={index}><a href={profile.url}>{profile.network}</a></div>
+        })
+        }</div>
+        </div>
       </div>
       <div className="cabin"/>
       <div className="rock"></div>
