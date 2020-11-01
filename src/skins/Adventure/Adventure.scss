@@ -74,7 +74,7 @@
       //transform: scale(0.8);
     }
     .night {
-      background: url("assets/game_background_3/layers/sky.png");
+      //background: url("assets/game_background_3/layers/sky.png");
       //  z-index: 0;
     }
     .ground-night {
@@ -261,11 +261,8 @@ a {
   );
 }
 .night {
-  background: linear-gradient(
-    to bottom,
-    rgba(253, 188, 33, 1) 0%,
-    rgba(242, 230, 202, 1) 100%
-  );
+  background: url("./assets/game_background_3/layers/sky.png");
+
 }
 
 .sky-day {
