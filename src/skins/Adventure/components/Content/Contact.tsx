@@ -31,7 +31,7 @@ export function ContentComponent(props: { data: Basics, screenSize: number, scro
           <li className="skill-item">{props.data?.picture}</li>
           <li className="skill-item">{props.data?.url}</li>
         </ul>
-        {props.data.profiles &&
+        {props.data.profiles && props.data.profiles.length > 0 &&
           props.data.profiles.map((profile, index) => {
             return  <div className="link-item" key={index}><a href={profile.url}>{profile.network}</a></div>
           })
