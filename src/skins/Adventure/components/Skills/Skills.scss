@@ -1,9 +1,10 @@
       .skills{
-        display: flex;
+        display: inline-flex;
         height: 50%;
         flex-flow: column;
-        width: 100vw;
+        width: 400vw;
         flex-wrap: wrap;
+        justify-content: space-evenly;
       }
       .blue-banner {
         position: fixed;

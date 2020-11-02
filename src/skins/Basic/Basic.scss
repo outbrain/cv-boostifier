@@ -162,12 +162,9 @@
     }
 
     .skills {
-      display: inline-flex;
-      height: 50%;
-      flex-flow: column;
-      width: 400vw;
+      display: flex;
       flex-wrap: wrap;
-      justify-content: space-evenly;
+      cursor: default;
 
       > * {
         font-size: 14px;
