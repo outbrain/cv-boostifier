@@ -13,7 +13,7 @@
   align-items: flex-start;
   flex-wrap: wrap;
   word-break: break-word;
-  
+
   $lead-color: #124c41;
   $sidebar-width: 400px;
   $breakpoint: 800px;
@@ -162,9 +162,12 @@
     }
 
     .skills {
-      display: flex;
+      display: inline-flex;
+      height: 50%;
+      flex-flow: column;
+      width: 400vw;
       flex-wrap: wrap;
-      cursor: default;
+      justify-content: space-evenly;
 
       > * {
         font-size: 14px;

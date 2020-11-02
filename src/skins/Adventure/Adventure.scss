@@ -191,8 +191,7 @@
   width: fit-content;
   font-size: 20px;
   @extend .styled-background;
-  position: absolute;
-  top: 0;
+
 }
 .half-box {
   @extend .box;
