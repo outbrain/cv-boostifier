@@ -1,4 +1,11 @@
-
+      .skills{
+        display: inline-flex;
+        height: 50%;
+        flex-flow: column;
+        width: 400vw;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+      }
       .blue-banner {
         position: fixed;
         background-image: url("../../assets/objects/Banner_01_Blue.png");
