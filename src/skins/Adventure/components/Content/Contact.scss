@@ -1,34 +1,34 @@
-.lvl-contact{
+.lvl-contact {
   position: relative;
-  ul{
+  ul {
     display: flex;
     flex-flow: column;
     flex-wrap: wrap;
     position: relative;
     padding: 10px;
-    li.skill-item{
+    li.skill-item {
       font-size: 2.6em;
       padding: 8px;
     }
   }
-  .link-item{
+  .link-item {
     font-size: 2rem;
     padding: 8px;
     text-decoration: underline;
   }
 
-  .cabin {
+  .trees-trick {
     position: absolute;
-    background-image: url("../../assets/game_background_3/layers/ground_3.png");
+    background-image: url(/cv-boostifier/static/media/ground_3.4d607fc7.png);
     background-repeat: no-repeat;
     background-size: contain;
-    height: 100vh;
-    top: 15vh;
+    height: 120vh;
+    top: 0vh;
     right: 11px;
-    left: -4%;
+    left: -3%;
     z-index: 6;
   }
-  .rock{
+  .rock {
     position: absolute;
     background-image: url("../../assets/objects/Rock_01.png");
     background-repeat: no-repeat;
@@ -39,6 +39,4 @@
     left: -5%;
     z-index: 6;
   }
-
-
 }
