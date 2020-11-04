@@ -68,7 +68,7 @@ export function ReturnOfTheCV(props: PropsWithChildren<IProfileProps>) {
           return out;
         };
 
-        let stars = makeStars(10000);
+        let stars = makeStars(1000);
 
         const clear = () => {
           canvasContext.fillStyle = "black";
