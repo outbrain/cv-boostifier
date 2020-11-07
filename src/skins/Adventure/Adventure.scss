@@ -191,7 +191,6 @@
   width: fit-content;
   font-size: 20px;
   @extend .styled-background;
-
 }
 .half-box {
   @extend .box;
@@ -214,9 +213,10 @@
 }
 
 .courses {
-  top: 25vh;
+  top: 27vh;
   max-height: 50vh;
   overflow: auto;
+  position: absolute;
 }
 .margin-right {
   margin-right: 20px;
@@ -261,7 +261,6 @@ a {
 }
 .night {
   background: url("./assets/game_background_3/layers/sky.png");
-
 }
 
 .sky-day {

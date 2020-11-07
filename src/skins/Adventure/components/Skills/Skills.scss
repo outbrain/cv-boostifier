@@ -1,30 +1,35 @@
-      .skills{
-        display: inline-flex;
-        height: 50%;
-        flex-flow: column;
-        width: 400vw;
-        flex-wrap: wrap;
-        justify-content: space-evenly;
-      }
-      .blue-banner {
-        position: fixed;
-        background-image: url("../../assets/objects/Banner_01_Blue.png");
-        background-repeat: no-repeat;
-        background-size: contain;
-        width: 270px;
-        height: 600px;
-        top: 70vh;
-        z-index: 5;
-      }
+.skills {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  grid-gap: 20px 200px;
+  margin-right: 500px;
+  grid-template-rows: repeat(3, 150px);
 
-      .blue-banner-1 {
-        margin-left: 200px;
-      }
+  .summary {
+    margin-right: 5px;
+    display: inline-block;
+  }
+}
+.blue-banner {
+  position: fixed;
+  background-image: url("../../assets/objects/Banner_01_Blue.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 270px;
+  height: 600px;
+  top: 70vh;
+  z-index: 5;
+}
 
-      .blue-banner-2 {
-        margin-left: 400px;
-      }
+.blue-banner-1 {
+  margin-left: 200px;
+}
 
-      .blue-banner-3 {
-        margin-left: 600px;
-      }
+.blue-banner-2 {
+  margin-left: 400px;
+}
+
+.blue-banner-3 {
+  margin-left: 600px;
+}
