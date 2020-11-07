@@ -71,7 +71,7 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
           female
         </button>
       </div>
-      <Figure scrollLeft={scrollLeft} isFemale={isFemale} />
+      <Figure scrollLeft={scrollLeft} isFemale={isFemale} isJumping={false} />
       <div
         id="scrollWrapper"
         className="adventure outer-wrapper"
