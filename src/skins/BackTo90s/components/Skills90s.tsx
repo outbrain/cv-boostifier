@@ -54,7 +54,7 @@ export class Skills90s extends Component<ISkillsProfile, any> {
 
             <section className="skills-section">
                 <h2>Check Out My <span>Skills</span></h2>
-                <img src={arrows} className={"skills-arrows"}/>
+                <img src={arrows} alt="" className={"skills-arrows"}/>
                 <div className="lang-wrapper">
                     <h4>I Speak the Following Languages: <span></span></h4>
                     <div className="typewriter">
@@ -78,7 +78,7 @@ export class Skills90s extends Component<ISkillsProfile, any> {
                                     (Object.values(this.state.skillsObj) || []).map((skillsItem: any, index: number) => {
                                         return(
                                             <div>
-                                                <span key={index} className={`${this.state.slideNumber == index ? 'selected': ''}`}>{skillsItem.name}</span>
+                                                <span key={index} className={`${this.state.slideNumber === index ? 'selected': ''}`}>{skillsItem.name}</span>
                                             </div>
                                         )
                                     })
