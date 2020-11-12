@@ -1,0 +1,72 @@
+@font-face {
+    font-family: 'Oswald';
+    src: url('Oswald-Bold.eot');
+    src: url('Oswald-Bold.eot?#iefix') format('embedded-opentype'),
+    url('Oswald-Bold.woff2') format('woff2'),
+    url('Oswald-Bold.woff') format('woff'),
+    url('Oswald-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('Oswald-Light.eot');
+    src: url('Oswald-Light.eot?#iefix') format('embedded-opentype'),
+    url('Oswald-Light.woff2') format('woff2'),
+    url('Oswald-Light.woff') format('woff'),
+    url('Oswald-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('Oswald-ExtraLight.eot');
+    src: url('Oswald-ExtraLight.eot?#iefix') format('embedded-opentype'),
+    url('Oswald-ExtraLight.woff2') format('woff2'),
+    url('Oswald-ExtraLight.woff') format('woff'),
+    url('Oswald-ExtraLight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('Oswald-Medium.eot');
+    src: url('Oswald-Medium.eot?#iefix') format('embedded-opentype'),
+    url('Oswald-Medium.woff2') format('woff2'),
+    url('Oswald-Medium.woff') format('woff'),
+    url('Oswald-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('Oswald-SemiBold.eot');
+    src: url('Oswald-SemiBold.eot?#iefix') format('embedded-opentype'),
+    url('Oswald-SemiBold.woff2') format('woff2'),
+    url('Oswald-SemiBold.woff') format('woff'),
+    url('Oswald-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Oswald';
+    src: url('Oswald-Regular.eot');
+    src: url('Oswald-Regular.eot?#iefix') format('embedded-opentype'),
+    url('Oswald-Regular.woff2') format('woff2'),
+    url('Oswald-Regular.woff') format('woff'),
+    url('Oswald-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
