@@ -1,184 +1,186 @@
-.backward{
-  -webkit-transform: scaleX(-1) translate(-50%, -50%);
-  transform: scaleX(-1) translate(90%, -50%);
-}
+.adventure-skin {
+  .backward{
+    -webkit-transform: scaleX(-1) translate(-50%, -50%);
+    transform: scaleX(-1) translate(90%, -50%);
+  }
 
-.forward{
-  -webkit-transform: scaleX(1) translate(-50%, -50%);
-  transform: scaleX(1) translate(-50%, -50%);
-}
+  .forward{
+    -webkit-transform: scaleX(1) translate(-50%, -50%);
+    transform: scaleX(1) translate(-50%, -50%);
+  }
 
-.girl {
-  height: 150px;
-  width: 150px;
-  position: fixed;
-  bottom: -35px;
-  left: 50%;
-  z-index: 100;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
+  .girl {
+    height: 150px;
+    width: 150px;
+    position: fixed;
+    bottom: -35px;
+    left: 50%;
+    z-index: 100;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 
-.image-girl-0 {
-  background-image: url("../../assets/Girl/Walk/Walk_0.png");
-}
-.image-girl-1 {
-  background-image: url("../../assets//Girl/Walk/Walk_1.png");
-}
-.image-girl-2 {
-  background-image: url("../../assets//Girl/Walk/Walk_2.png");
-}
-.image-girl-3 {
-  background-image: url("../../assets//Girl/Walk/Walk_3.png");
-}
-.image-girl-4 {
-  background-image: url("../../assets//Girl/Walk/Walk_4.png");
-}
-.image-girl-5 {
-  background-image: url("../../assets//Girl/Walk/Walk_5.png");
-}
-.image-girl-6 {
-  background-image: url("../../assets//Girl/Walk/Walk_6.png");
-}
-.image-girl-7 {
-  background-image: url("../../assets//Girl/Walk/Walk_7.png");
-}
-.image-girl-8 {
-  background-image: url("../../assets//Girl/Walk/Walk_8.png");
-}
-.image-girl-9 {
-  background-image: url("../../assets//Girl/Walk/Walk_9.png");
-}
-.image-girl-10 {
-  background-image: url("../../assets//Girl/Walk/Walk_10.png");
-}
-.image-girl-11 {
-  background-image: url("../../assets//Girl/Walk/Walk_11.png");
-}
-.image-girl-12 {
-  background-image: url("../../assets//Girl/Walk/Walk_12.png");
-}
-.image-girl-13 {
-  background-image: url("../../assets//Girl/Walk/Walk_13.png");
-}
-.image-girl-14 {
-  background-image: url("../../assets//Girl/Walk/Walk_14.png");
-}
-.image-girl-15 {
-  background-image: url("../../assets//Girl/Walk/Walk_15.png");
-}
-.image-girl-16 {
-  background-image: url("../../assets//Girl/Walk/Walk_16.png");
-}
-.image-girl-17 {
-  background-image: url("../../assets//Girl/Walk/Walk_17.png");
-}
-.image-girl-18 {
-  background-image: url("../../assets//Girl/Walk/Walk_18.png");
-}
-.image-girl-19 {
-  background-image: url("../../assets//Girl/Walk/Walk_19.png");
-}
+  .image-girl-0 {
+    background-image: url("../../assets/Girl/Walk/Walk_0.png");
+  }
+  .image-girl-1 {
+    background-image: url("../../assets//Girl/Walk/Walk_1.png");
+  }
+  .image-girl-2 {
+    background-image: url("../../assets//Girl/Walk/Walk_2.png");
+  }
+  .image-girl-3 {
+    background-image: url("../../assets//Girl/Walk/Walk_3.png");
+  }
+  .image-girl-4 {
+    background-image: url("../../assets//Girl/Walk/Walk_4.png");
+  }
+  .image-girl-5 {
+    background-image: url("../../assets//Girl/Walk/Walk_5.png");
+  }
+  .image-girl-6 {
+    background-image: url("../../assets//Girl/Walk/Walk_6.png");
+  }
+  .image-girl-7 {
+    background-image: url("../../assets//Girl/Walk/Walk_7.png");
+  }
+  .image-girl-8 {
+    background-image: url("../../assets//Girl/Walk/Walk_8.png");
+  }
+  .image-girl-9 {
+    background-image: url("../../assets//Girl/Walk/Walk_9.png");
+  }
+  .image-girl-10 {
+    background-image: url("../../assets//Girl/Walk/Walk_10.png");
+  }
+  .image-girl-11 {
+    background-image: url("../../assets//Girl/Walk/Walk_11.png");
+  }
+  .image-girl-12 {
+    background-image: url("../../assets//Girl/Walk/Walk_12.png");
+  }
+  .image-girl-13 {
+    background-image: url("../../assets//Girl/Walk/Walk_13.png");
+  }
+  .image-girl-14 {
+    background-image: url("../../assets//Girl/Walk/Walk_14.png");
+  }
+  .image-girl-15 {
+    background-image: url("../../assets//Girl/Walk/Walk_15.png");
+  }
+  .image-girl-16 {
+    background-image: url("../../assets//Girl/Walk/Walk_16.png");
+  }
+  .image-girl-17 {
+    background-image: url("../../assets//Girl/Walk/Walk_17.png");
+  }
+  .image-girl-18 {
+    background-image: url("../../assets//Girl/Walk/Walk_18.png");
+  }
+  .image-girl-19 {
+    background-image: url("../../assets//Girl/Walk/Walk_19.png");
+  }
 
-.boy {
-  height: 200px;
-  width: 110px;
-  position: fixed;
-  bottom: -85px;
-  left: 50%;
-  z-index: 100;
-  background-size: contain;
-  background-repeat: no-repeat;
-}
+  .boy {
+    height: 200px;
+    width: 110px;
+    position: fixed;
+    bottom: -85px;
+    left: 50%;
+    z-index: 100;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 
-.image-boy-0 {
-  background-image: url("../../assets/Boy/Walk/Walk_0.png");
-}
-.image-boy-1 {
-  background-image: url("../../assets//Boy/Walk/Walk_1.png");
-}
-.image-boy-2 {
-  background-image: url("../../assets//Boy/Walk/Walk_2.png");
-}
-.image-boy-3 {
-  background-image: url("../../assets//Boy/Walk/Walk_3.png");
-}
-.image-boy-4 {
-  background-image: url("../../assets//Boy/Walk/Walk_4.png");
-}
-.image-boy-5 {
-  background-image: url("../../assets//Boy/Walk/Walk_5.png");
-}
-.image-boy-6 {
-  background-image: url("../../assets//Boy/Walk/Walk_6.png");
-}
-.image-boy-7 {
-  background-image: url("../../assets//Boy/Walk/Walk_7.png");
-}
-.image-boy-8 {
-  background-image: url("../../assets//Boy/Walk/Walk_8.png");
-}
-.image-boy-9 {
-  background-image: url("../../assets//Boy/Walk/Walk_9.png");
-}
-.image-boy-10 {
-  background-image: url("../../assets//Boy/Walk/Walk_10.png");
-}
-.image-boy-11 {
-  background-image: url("../../assets//Boy/Walk/Walk_11.png");
-}
-.image-boy-12 {
-  background-image: url("../../assets//Boy/Walk/Walk_12.png");
-}
-.image-boy-13 {
-  background-image: url("../../assets//Boy/Walk/Walk_13.png");
-}
-.image-boy-14 {
-  background-image: url("../../assets//Boy/Walk/Walk_14.png");
-}
+  .image-boy-0 {
+    background-image: url("../../assets/Boy/Walk/Walk_0.png");
+  }
+  .image-boy-1 {
+    background-image: url("../../assets//Boy/Walk/Walk_1.png");
+  }
+  .image-boy-2 {
+    background-image: url("../../assets//Boy/Walk/Walk_2.png");
+  }
+  .image-boy-3 {
+    background-image: url("../../assets//Boy/Walk/Walk_3.png");
+  }
+  .image-boy-4 {
+    background-image: url("../../assets//Boy/Walk/Walk_4.png");
+  }
+  .image-boy-5 {
+    background-image: url("../../assets//Boy/Walk/Walk_5.png");
+  }
+  .image-boy-6 {
+    background-image: url("../../assets//Boy/Walk/Walk_6.png");
+  }
+  .image-boy-7 {
+    background-image: url("../../assets//Boy/Walk/Walk_7.png");
+  }
+  .image-boy-8 {
+    background-image: url("../../assets//Boy/Walk/Walk_8.png");
+  }
+  .image-boy-9 {
+    background-image: url("../../assets//Boy/Walk/Walk_9.png");
+  }
+  .image-boy-10 {
+    background-image: url("../../assets//Boy/Walk/Walk_10.png");
+  }
+  .image-boy-11 {
+    background-image: url("../../assets//Boy/Walk/Walk_11.png");
+  }
+  .image-boy-12 {
+    background-image: url("../../assets//Boy/Walk/Walk_12.png");
+  }
+  .image-boy-13 {
+    background-image: url("../../assets//Boy/Walk/Walk_13.png");
+  }
+  .image-boy-14 {
+    background-image: url("../../assets//Boy/Walk/Walk_14.png");
+  }
 
-.jump-image-boy-0 {
-  background-image: url("../../assets/Boy/Jump/Jump_15.png");
-}
-.jump-image-boy-1 {
-  background-image: url("../../assets//Boy/Jump/Jump_1.png");
-}
-.jump-image-boy-2 {
-  background-image: url("../../assets//Boy/Jump/Jump_2.png");
-}
-.jump-image-boy-3 {
-  background-image: url("../../assets//Boy/Jump/Jump_3.png");
-}
-.jump-image-boy-4 {
-  background-image: url("../../assets//Boy/Jump/Jump_4.png");
-}
-.jump-image-boy-5 {
-  background-image: url("../../assets//Boy/Jump/Jump_5.png");
-}
-.jump-image-boy-6 {
-  background-image: url("../../assets//Boy/Jump/Jump_6.png");
-}
-.jump-image-boy-7 {
-  background-image: url("../../assets//Boy/Jump/Jump_7.png");
-}
-.jump-image-boy-8 {
-  background-image: url("../../assets//Boy/Jump/Jump_8.png");
-}
-.jump-image-boy-9 {
-  background-image: url("../../assets//Boy/Jump/Jump_9.png");
-}
-.jump-image-boy-10 {
-  background-image: url("../../assets//Boy/Jump/Jump_10.png");
-}
-.jump-image-boy-11 {
-  background-image: url("../../assets//Boy/Jump/Jump_11.png");
-}
-.jump-image-boy-12 {
-  background-image: url("../../assets//Boy/Jump/Jump_12.png");
-}
-.jump-image-boy-13 {
-  background-image: url("../../assets//Boy/Jump/Jump_13.png");
-}
-.jump-image-boy-14 {
-  background-image: url("../../assets//Boy/Jump/Jump_14.png");
+  .jump-image-boy-0 {
+    background-image: url("../../assets/Boy/Jump/Jump_15.png");
+  }
+  .jump-image-boy-1 {
+    background-image: url("../../assets//Boy/Jump/Jump_1.png");
+  }
+  .jump-image-boy-2 {
+    background-image: url("../../assets//Boy/Jump/Jump_2.png");
+  }
+  .jump-image-boy-3 {
+    background-image: url("../../assets//Boy/Jump/Jump_3.png");
+  }
+  .jump-image-boy-4 {
+    background-image: url("../../assets//Boy/Jump/Jump_4.png");
+  }
+  .jump-image-boy-5 {
+    background-image: url("../../assets//Boy/Jump/Jump_5.png");
+  }
+  .jump-image-boy-6 {
+    background-image: url("../../assets//Boy/Jump/Jump_6.png");
+  }
+  .jump-image-boy-7 {
+    background-image: url("../../assets//Boy/Jump/Jump_7.png");
+  }
+  .jump-image-boy-8 {
+    background-image: url("../../assets//Boy/Jump/Jump_8.png");
+  }
+  .jump-image-boy-9 {
+    background-image: url("../../assets//Boy/Jump/Jump_9.png");
+  }
+  .jump-image-boy-10 {
+    background-image: url("../../assets//Boy/Jump/Jump_10.png");
+  }
+  .jump-image-boy-11 {
+    background-image: url("../../assets//Boy/Jump/Jump_11.png");
+  }
+  .jump-image-boy-12 {
+    background-image: url("../../assets//Boy/Jump/Jump_12.png");
+  }
+  .jump-image-boy-13 {
+    background-image: url("../../assets//Boy/Jump/Jump_13.png");
+  }
+  .jump-image-boy-14 {
+    background-image: url("../../assets//Boy/Jump/Jump_14.png");
+  }
 }

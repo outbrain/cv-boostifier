@@ -1,10 +1,12 @@
-.floor {
-  height: 40px;
-  width: 100vw;
-  background-image: url(../../assets/Tiles/surface8.png);
-  background-size: 70px;
-  background-repeat: repeat;
-  position: absolute;
-  bottom: 0%;
-  z-index: 10;
+.adventure-skin {
+  .floor {
+    height: 40px;
+    width: 100vw;
+    background-image: url(../../assets/Tiles/surface8.png);
+    background-size: 70px;
+    background-repeat: repeat;
+    position: absolute;
+    bottom: 0%;
+    z-index: 10;
+  }
 }
