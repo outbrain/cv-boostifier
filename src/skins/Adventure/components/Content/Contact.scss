@@ -1,0 +1,42 @@
+.lvl-contact {
+  position: relative;
+  ul {
+    display: flex;
+    flex-flow: column;
+    flex-wrap: wrap;
+    position: relative;
+    padding: 10px;
+    li.skill-item {
+      font-size: 2.6em;
+      padding: 8px;
+    }
+  }
+  .link-item {
+    font-size: 2rem;
+    padding: 8px;
+    text-decoration: underline;
+  }
+
+  .trees-trick {
+    position: absolute;
+    background-image: url("../../assets/game_background_3/layers/ground_3.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 120vh;
+    top: 0;
+    right: 11px;
+    left: -4%;
+    z-index: 6;
+  }
+  .rock {
+    position: absolute;
+    background-image: url("../../assets/objects/Rock_01.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 239px;
+    height: 168px;
+    bottom: -16px;
+    left: -5%;
+    z-index: 6;
+  }
+}
