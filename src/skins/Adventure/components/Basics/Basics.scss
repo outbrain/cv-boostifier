@@ -1,0 +1,17 @@
+.adventure-skin {
+  .basics {
+    display: flex;
+  }
+
+  .raft {
+    position: absolute;
+    background-image: url("../../assets/objects/Raft_01_Blue.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 400px;
+    height: 400px;
+    top: 65vh;
+    left: 90vw;
+    z-index: 5;
+  }
+}

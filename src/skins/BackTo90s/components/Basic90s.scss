@@ -1,0 +1,119 @@
+.basic-section{
+  margin: 40px 0 0 0;
+  .card-box{
+    margin: 0 auto;
+    width: 69.5vw;
+    max-width: 1024px;
+    border: solid 0.5vw #000000;
+    text-align: center;
+    padding: 0 13.7vw 0 13.7vw;
+    position: relative;
+    &:after,
+    &:before{
+      position: absolute;
+      display: inline-block;
+      height: 100%;
+      width: 13.7vw;
+      max-width: 200px;
+      top:0;
+      background-repeat: repeat-y;
+      background-position: left top;
+      background-size: 100% auto;
+      background-image: url('../images/card-side.svg');
+      content: "";
+    }
+    &:after{
+      left: 0;
+    }
+    &:before{
+      right: -1px;
+      transform: scale(-1, 1);
+    }
+    .social-links{
+      position: absolute;
+      display: inline-block;
+      width: 5vw;
+      left: -113px;
+      top: 40px;
+      .social{
+        display: block;
+        background-size: 100% auto;
+        background-position: center;
+        height: 5vw;
+        max-width: 47px;
+        max-height: 47px;
+        margin: 0 0 20px 0;
+        &.twitter{
+          background-image: url("../images/twitter.svg");
+        }
+        &.linkedin{
+          background-image: url("../images/linkedin.svg");
+        }
+        &.soundcloud{
+          background-image: url("../images/soundcloud.svg");
+        }
+      }
+    }
+    .card-box-container{
+      .row-details{
+        display: flex;
+        flex-direction: row;
+        &:first-child{
+          border-bottom: solid 0.5vw #000000;
+          margin: 0 0 1vw 0;
+        }
+        .detail{
+          flex: 1 1 45%;
+          position: relative;
+          padding: 3vw 0 1.25vw 0;
+          margin: 0 0 0 5vw;
+          &:first-child{
+            margin: 0 5vw 0 0;
+          }
+          &:before{
+            content: "";
+            position: absolute;
+            display: inline-block;
+            width: 1.5em;
+            height: 1.5em;
+            left: 50%;
+            top: 0.8vw;
+            margin: 0 0 0 -0.5em;
+            background-size: auto 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+          &.location:before{
+            background-image: url('../images/loc-icon.svg');
+          }
+          &.email:before{
+            background-image: url('../images/mail-icon.svg');
+          }
+          &.phone:before{
+            background-image: url('../images/phone-icon.svg');
+          }
+          &.website:before{
+            background-image: url('../images/play-icon.svg');
+          }
+        }
+      }
+      .profile-image{
+        position: absolute;
+        border-radius: 50%;
+        border: solid 0.3vw #000000;
+        background-image: url("../images/profile-image.svg");
+        background-position: center;
+        width: 11.5vw;
+        height: 11.5vw;
+        display: inline-block;
+        left: 50%;
+        top: 50%;
+        margin: -5.75vw 0 0 -5.75vw;
+        background-repeat: no-repeat;
+        background-color: #FF89BB;
+        background-size: 100% auto;
+      }
+    }
+  }
+}
+

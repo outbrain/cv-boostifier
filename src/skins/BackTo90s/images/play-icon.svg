@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="24px" viewBox="0 0 18 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Group 6</title>
+    <defs>
+        <polygon id="path-1" points="0 0.03068 17.9132 0.03068 17.9132 21.9556094 0 21.9556094"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-Copy-2" transform="translate(-524.000000, -165.000000)">
+            <g id="Group-6" transform="translate(524.000000, 165.000000)">
+                <path d="M11.049924,19.110632 L9.375604,19.947792 L11.127364,23.451632 C11.360204,23.917152 11.923924,24.100192 12.383204,23.870312 C12.845764,23.639392 13.033124,23.076872 12.801844,22.614512 L11.049924,19.110632 Z" id="Fill-1" fill="#000000"></path>
+                <g id="Group-5" transform="translate(0.000000, 0.009320)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Clip-4"></g>
+                    <path d="M17.53924,12.248912 L1.49772,0.217872 C1.21412,0.004992 0.83468,-0.029048 0.51764,0.129632 C0.20052,0.287992 0,0.612312 0,0.966632 L0,21.018472 C0,21.713672 0.73316,22.166712 1.35452,21.855752 L17.39604,13.835032 C18.0182,13.524112 18.095,12.665872 17.53924,12.248912" id="Fill-3" fill="#000000" mask="url(#mask-2)"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

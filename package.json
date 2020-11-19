@@ -16,6 +16,7 @@
     "ammojs-typed": "^1.0.6",
     "three": "^0.120.1",
     "ascii-table": "0.0.9",
+    "cloudinary-react": "^1.6.7",
     "copy-to-clipboard": "^3.2.0",
     "faunadb": "^2.9.4",
     "jsoneditor": "^7.2.1",
@@ -26,6 +27,7 @@
     "react-dropzone": "^10.1.10",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.3",
+    "react-slick": "^0.27.12",
     "react-toastify": "^5.4.1",
     "swagger-ui-react": "^3.24.0",
     "typescript": "^3.9.7"

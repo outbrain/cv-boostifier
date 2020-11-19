@@ -1,0 +1,171 @@
+.career-card {
+
+  background-image: url("../images/career-card-frame.png");
+  background-repeat: no-repeat;
+  width: 795px;
+  height: 555px;
+  margin: 0 auto;
+  padding: 54px 0 0 0;
+  position: relative;
+
+
+  .floppy-disk {
+    display: block;
+    position: absolute;
+    z-index: -1;
+
+    &.blue1 { top: -82px; left: -242px; animation: sideways 1s infinite; }
+    &.blue2 { top: 280px; right: -76px; animation: sideways 1.5s infinite;}
+
+    &.pink1 { top: 80px; left: -90px; animation: sideways 1.5s infinite;}
+    &.pink2 { top: 491px; left: -115px; animation: sideways 1s infinite;}
+    &.pink3 { top: 0px; right: -225px; animation: sideways 1.5s infinite;}
+
+    &.yellow1 { top: 261px; left: -283px; animation: sideways 1s infinite;}
+    &.yellow2 { top: 430px; right: -262px; animation: sideways 1s infinite;}
+
+  }
+
+
+  @keyframes sideways {
+    0% { transform:rotate(-45deg); }
+    25% { transform:rotate(45deg); }
+    50% { transform:rotate(45deg); }
+    100% { transform:rotate(-45deg); }
+  }
+
+
+
+  h2 {
+    font-family: 'Arkipelago', Arial;
+    font-size: 94px;
+    font-weight: bold;
+  }
+
+  .career-slider-holder {
+    border: 5px solid #000;
+    width: 90%;
+    margin: 0 auto;
+    padding: 10px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 23% 68%;
+
+    .building-image {
+      background-image: url("../images/career-card-building.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    .card-slider-wrapper{
+      margin: 35px 0 0 0;
+
+      .card-slider-inner {
+        overflow-x: hidden;
+        width: 495px;
+
+        .card-slider {
+          display: flex;
+          width: 10000px;
+          transition: transform 1s ease;
+
+          ul {
+            width: 495px;
+            height: auto;
+            margin-right: 50px;
+
+            li {
+
+              &.item-holder {
+                display: grid;
+                grid-template-columns: 30% 70%;
+                border: 2px solid #000;
+                align-items: baseline;
+
+                .item-title {
+                  background-color: #000;
+                  color: #fff;
+                  padding: 6px;
+                }
+              }
+              &.position {
+                position: relative;
+                margin: 25px 0;
+
+                &::before {
+                  content: url('../images/career-card-slider-position-hand.png');
+                  position: absolute;
+                  top: -20px;
+                  left: 125px;
+                }
+              }
+
+
+
+              &.dates {
+                background-color: #EE6513;
+                padding: 8px 0 0 0;
+
+                .dates-inner {
+                  background-color: #478AFE;
+                  background-image: url("../images/career-card-slider-dates-arrow.svg");
+                  background-repeat: no-repeat;
+                  color: #fff;
+                  background-position: 10px center;
+                  padding: 6px 6px 6px 39%;
+                  box-sizing: border-box;
+                  text-align: left;
+                  border: 2px solid #000;
+                }
+
+              }
+
+            }
+          }
+        }
+
+      }
+
+
+      .card-slider-controls {
+        display: grid;
+        grid-template-columns: 300px 195px;
+        align-items: center;
+        margin: 15px 0 0 0;
+
+        .indexes {
+          ul{
+            display: flex;
+            justify-content: flex-start;
+
+            li{
+              width: 20px;
+              height: 20px;
+              border: 2px solid #000;
+              margin-right: 10px;
+              cursor: pointer;
+
+              &.activeIndex {
+                background-color: #FFC91E;
+              }
+
+            }
+
+          }
+        }
+
+        .buttons {
+          display: grid;
+          grid-template-columns: auto auto;
+
+          .button {
+            cursor: pointer;
+          }
+        }
+      }
+
+    }
+
+  }
+}
+
+
