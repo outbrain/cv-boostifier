@@ -1,0 +1,26 @@
+.cv-viewer-wrapper.skin-Basic3d {
+  .rendererClass {
+    display: block;
+    background-color: transparent;
+    width: 100%;
+  }
+}
+
+.rendererClass {
+  display: none;
+}
+
+.css, .webgl {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0; left: 0;
+}
+
+.webgl {
+  pointer-events: none;
+}
+
+.css {
+  z-index: 1;
+}

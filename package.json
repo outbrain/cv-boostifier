@@ -13,6 +13,8 @@
     "@types/swagger-ui-react": "^3.23.0",
     "ace-builds": "^1.4.7",
     "alasql": "^0.5.1",
+    "ammojs-typed": "^1.0.6",
+    "three": "^0.120.1",
     "ascii-table": "0.0.9",
     "cloudinary-react": "^1.6.7",
     "copy-to-clipboard": "^3.2.0",
