@@ -14,32 +14,56 @@ import {
 import {ToastContainer} from 'react-toastify';
 import {consoleLogo} from './console-logo';
 import {Header} from './components/Header/Header';
+
+function isViewer(): boolean {
+  const { hash } = document.location;
+
+  if (!hash) {
+    return false;
+  }
+
+  if (hash.length < 100) {
+    return false;
+  }
+
+  return true;
+}
+
 const App: React.FC = () => {
   console.log(consoleLogo, 'font-size: 12px; color: #EE6412');
-  const viewMode = !!document.location.hash;
+
+  const viewMode = isViewer();
+
   return (
     <SkinProvider>
       <ProfileProvider>
         <ToastContainer/>
-        {viewMode && <CvViewer mode='view'/>}
-        {!viewMode && <Router basename={process.env.PUBLIC_URL}>
-            <Switch>
-              <Route exact path="/">
-                <HomeView />
-              </Route>
-              <Route path="/profile">
-                <Header />
-                <ProfileView />
-              </Route>
-              <Route path="/skins">
-                <Header />
-                <SkinsView />
-              </Route>
-              <Route path="/viewer">
-                <CvViewer mode="view"/>
-              </Route>
-            </Switch>
-        </Router>}
+          {
+            viewMode && 
+            <CvViewer mode='view'/>
+          }
+          {
+            !viewMode && 
+            <Router basename={process.env.PUBLIC_URL}>
+              <Switch>
+                <Route exact path="/">
+                  <Header />
+                  <HomeView />
+                </Route>
+                <Route path="/profile">
+                  <Header />
+                  <ProfileView />
+                </Route>
+                <Route path="/skins">
+                  <Header />
+                  <SkinsView />
+                </Route>
+                <Route path="/viewer">
+                  <CvViewer mode="view"/>
+                </Route>
+              </Switch>
+            </Router>
+          }
       </ProfileProvider>
     </SkinProvider>
   );
