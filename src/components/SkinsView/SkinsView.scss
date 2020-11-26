@@ -20,6 +20,32 @@
     border-right: 1px solid #ccc;
     max-height: calc(100vh - 250px);
     overflow: auto;
+
+    .skin {
+        margin: 10px;
+        width: 270px;
+        height: 350px;
+        border-radius: 2px;
+        background-color: #fff;
+        border: 1px solid rgba(208,208,208,.5);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        &.skin-selected {
+            border: 1px solid #666;
+        }
+    
+        > img {
+            height: 200px;
+            width: 100%;
+            padding: 10px;
+        }
+    }
+    
+    .skin.active {
+        border: 2px solid #666;
+    }
 }
 
 .skin-preview {
@@ -29,32 +55,6 @@
     overflow: auto;
     border: 2px solid #000;
     max-height: calc(100vh - 280px);
-}
-
-.skin {
-    margin: 10px;
-    width: 270px;
-    height: 350px;
-    border-radius: 2px;
-    background-color: #fff;
-    border: 1px solid rgba(208,208,208,.5);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    &.skin-selected {
-        border: 1px solid #666;
-    }
-}
-
-.skin > img {
-    height: 200px;
-    width: 100%;
-    padding: 10px;
-}
-
-.skin.active {
-    border: 2px solid #666;
 }
 
 .skin-details {
