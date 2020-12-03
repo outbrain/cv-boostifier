@@ -1,16 +1,62 @@
-import React , {useEffect, useRef} from 'react';
+import React, { useEffect, useRef } from "react";
 
-export function Figure(props: {scrollLeft: number, isFemale: boolean, isJumping: boolean}) {
-    const FIGURE_CHANGE_RATE = 30;
+Array.from({ length: 20 }).map(
+  (_v, index) =>
+    (new Image().src = require(`../../assets/Girl/Walk/Walk_${index}.png`))
+);
+Array.from({ length: 15 }).map(
+  (_v, index) =>
+    (new Image().src = require(`../../assets/Boy/Walk/Walk_${index}.png`))
+);
 
-    const prevScrollRef = useRef(0);
-    useEffect(() => {prevScrollRef.current = props.scrollLeft;})
+export function Figure(props: {
+  scrollLeft: number;
+  isFemale: boolean;
+  isJumping: boolean;
+}) {
+  const FIGURE_CHANGE_RATE = 30;
 
-    const getImageByScroll = (scrollPosition : number, isFemale: boolean, isJumping: boolean) : string => `${getCharacterJumping(isJumping)}image-${getCharacterGender(isFemale)}-${Math.round(scrollPosition / FIGURE_CHANGE_RATE) % getFigureImageCount(isFemale)}`;
-    const getCharacterGender = (isFemale: boolean) : string => isFemale ? "girl" : "boy";
-    const getFigureImageCount = (isFemale: boolean) : number => isFemale ? 20 : 15;
-    const getCharacterJumping = (isJumping: boolean) : string => isJumping ? "jump-" : "";
-    const getFigureDirection = (scrollPrevPosition: number, scrollCurrentPosition: number) : string  => scrollPrevPosition / FIGURE_CHANGE_RATE <= scrollCurrentPosition / FIGURE_CHANGE_RATE ? "forward" : "backward";
-        
-    return <div id="Figure" className={`${getFigureDirection(prevScrollRef.current, props.scrollLeft)} ${getCharacterGender(props.isFemale)} ${getImageByScroll(props.scrollLeft, props.isFemale, props.isJumping)}`}></div>
+  const prevScrollRef = useRef(0);
+  useEffect(() => {
+    prevScrollRef.current = props.scrollLeft;
+  });
+
+  const getImageByScroll = (
+    scrollPosition: number,
+    isFemale: boolean,
+    isJumping: boolean
+  ): string =>
+    `${getCharacterJumping(isJumping)}image-${getCharacterGender(isFemale)}-${
+      Math.round(scrollPosition / FIGURE_CHANGE_RATE) %
+      getFigureImageCount(isFemale)
+    }`;
+
+  const getCharacterGender = (isFemale: boolean): string =>
+    isFemale ? "girl" : "boy";
+  const getFigureImageCount = (isFemale: boolean): number =>
+    isFemale ? 20 : 15;
+  const getCharacterJumping = (isJumping: boolean): string =>
+    isJumping ? "jump-" : "";
+  const getFigureDirection = (
+    scrollPrevPosition: number,
+    scrollCurrentPosition: number
+  ): string =>
+    scrollPrevPosition / FIGURE_CHANGE_RATE <=
+    scrollCurrentPosition / FIGURE_CHANGE_RATE
+      ? "forward"
+      : "backward";
+
+  return (
+    <div
+      id="Figure"
+      className={`${getFigureDirection(
+        prevScrollRef.current,
+        props.scrollLeft
+      )} ${getCharacterGender(props.isFemale)} ${getImageByScroll(
+        props.scrollLeft,
+        props.isFemale,
+        props.isJumping
+      )}`}
+    ></div>
+  );
 }

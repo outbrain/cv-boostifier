@@ -1,10 +1,10 @@
 .adventure-skin {
-  .backward{
+  .backward {
     -webkit-transform: scaleX(-1) translate(-50%, -50%);
     transform: scaleX(-1) translate(90%, -50%);
   }
 
-  .forward{
+  .forward {
     -webkit-transform: scaleX(1) translate(-50%, -50%);
     transform: scaleX(1) translate(-50%, -50%);
   }
@@ -18,6 +18,26 @@
     z-index: 100;
     background-size: contain;
     background-repeat: no-repeat;
+    content: url("../../assets/Girl/Walk/Walk_0.png")
+      url("../../assets/Girl/Walk/Walk_1.png")
+      url("../../assets/Girl/Walk/Walk_2.png")
+      url("../../assets/Girl/Walk/Walk_3.png")
+      url("../../assets/Girl/Walk/Walk_4.png")
+      url("../../assets/Girl/Walk/Walk_5.png")
+      url("../../assets/Girl/Walk/Walk_6.png")
+      url("../../assets/Girl/Walk/Walk_7.png")
+      url("../../assets/Girl/Walk/Walk_8.png")
+      url("../../assets/Girl/Walk/Walk_9.png")
+      url("../../assets/Girl/Walk/Walk_10.png")
+      url("../../assets/Girl/Walk/Walk_11.png")
+      url("../../assets/Girl/Walk/Walk_12.png")
+      url("../../assets/Girl/Walk/Walk_13.png")
+      url("../../assets/Girl/Walk/Walk_14.png")
+      url("../../assets/Girl/Walk/Walk_15.png")
+      url("../../assets/Girl/Walk/Walk_16.png")
+      url("../../assets/Girl/Walk/Walk_17.png")
+      url("../../assets/Girl/Walk/Walk_18.png")
+      url("../../assets/Girl/Walk/Walk_19.png");
   }
 
   .image-girl-0 {
@@ -90,6 +110,21 @@
     z-index: 100;
     background-size: contain;
     background-repeat: no-repeat;
+    content: url("../../assets/Boy/Walk/Walk_0.png")
+      url("../../assets/Boy/Walk/Walk_1.png")
+      url("../../assets/Boy/Walk/Walk_2.png")
+      url("../../assets/Boy/Walk/Walk_3.png")
+      url("../../assets/Boy/Walk/Walk_4.png")
+      url("../../assets/Boy/Walk/Walk_5.png")
+      url("../../assets/Boy/Walk/Walk_6.png")
+      url("../../assets/Boy/Walk/Walk_7.png")
+      url("../../assets/Boy/Walk/Walk_8.png")
+      url("../../assets/Boy/Walk/Walk_9.png")
+      url("../../assets/Boy/Walk/Walk_10.png")
+      url("../../assets/Boy/Walk/Walk_11.png")
+      url("../../assets/Boy/Walk/Walk_12.png")
+      url("../../assets/Boy/Walk/Walk_13.png")
+      url("../../assets/Boy/Walk/Walk_14.png");
   }
 
   .image-boy-0 {

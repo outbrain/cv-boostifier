@@ -146,7 +146,8 @@
     z-index: -1;
 
     .clouds2 {
-      background: url("./assets/game_background_1/layers/clouds_2.png") no-repeat;
+      background: url("./assets/game_background_1/layers/clouds_2.png")
+        no-repeat;
       background-size: contain;
       position: absolute;
       max-height: 293px;
@@ -254,9 +255,9 @@
   }
   .day {
     background: linear-gradient(
-                    to bottom,
-                    rgba(73, 226, 237, 1) 0%,
-                    rgba(242, 230, 202, 1) 100%
+      to bottom,
+      rgba(73, 226, 237, 1) 0%,
+      rgba(242, 230, 202, 1) 100%
     );
   }
   .night {
@@ -285,7 +286,6 @@
     }
   }
 
-
   .scroll-message {
     position: fixed;
     left: 89vw;
@@ -296,6 +296,12 @@
     font-weight: 300;
     opacity: 1;
     transition: 3s;
+  }
+
+  .btn {
+    border-color: #fff;
+    outline: none;
+    color: #fff;
   }
 
   .icon-scroll,
@@ -338,4 +344,3 @@
     }
   }
 }
-
