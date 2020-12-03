@@ -62,3 +62,18 @@ body {
     }
   }
 }
+
+.view-title {
+  font-family: $secondary-font;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 32px;
+  line-height: 45px;
+  color: $turquoise;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.wizard-view {
+  padding: 50px 0;
+}
