@@ -1,14 +1,5 @@
 import React, { useEffect, useRef } from "react";
 
-Array.from({ length: 20 }).map(
-  (_v, index) =>
-    (new Image().src = require(`../../assets/Girl/Walk/Walk_${index}.png`))
-);
-Array.from({ length: 15 }).map(
-  (_v, index) =>
-    (new Image().src = require(`../../assets/Boy/Walk/Walk_${index}.png`))
-);
-
 export function Figure(props: {
   scrollLeft: number;
   isFemale: boolean;
