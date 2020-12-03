@@ -1,10 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import './HomeView.scss';
 import {SkinContext} from '../../context/SkinContext';
 import {Link} from 'react-router-dom';
+import { ISkin } from '../../skins/models';
+import { Popup } from '../Popup/Popup';
+import { CvViewer } from '../CvViewer/CvViewer';
 
 export function HomeView() {
   const {skins} = useContext(SkinContext);
+  const [selectedSkin, setSelectedSkin] = useState<ISkin | null>(null);
+  const [previewPopupOpened, setPreviewPopupOpened] = useState(false);
 
   function makeId(length = 6) {
     var result           = '';
@@ -15,6 +20,12 @@ export function HomeView() {
     }
     return result;
  }
+
+ const openPreview = (e: any, s: ISkin) => {
+  e.stopPropagation();
+  setSelectedSkin(s);
+  setPreviewPopupOpened(true);
+}
   
   return (
     <div className="home-view">
@@ -46,7 +57,10 @@ export function HomeView() {
               <div className="skin" key={`skin_${skin.name}`}>
                 <img src={require(`../../skins/${skin.component}/preview.png`)} alt=""/>
                 <footer className="skin-meta">
-                  <h4>{skin.displayName}</h4>
+                  <h4>
+                    {skin.displayName}
+                    <button title="Preview" style={{ backgroundImage: `url(${require('../../images/union.png')})`}} onClick={(e) => openPreview(e, skin)}></button>
+                  </h4>
                   <p>By&nbsp;
                     {skin.createdBy?.map((by) => (
                       by.link ? <a key={`by_${makeId()}`} href={by.link} target="_blank" rel="noopener noreferrer">{by.name}</a> : <span key={`by_${makeId()}`}>{by.name}</span>
@@ -81,6 +95,17 @@ export function HomeView() {
       <section id="faq" className="wrapper center">
         <h3>FAQ</h3>
       </section>
+      {
+        previewPopupOpened && 
+        <Popup
+          closeButtonImage={<img src={require('../../images/close-blue.png')} alt="" />}
+          closeCallback={() => setPreviewPopupOpened(false)}
+          show={previewPopupOpened}
+          className="preview-skin-popup"
+        >
+          <CvViewer skin={selectedSkin} mode="edit"></CvViewer> 
+        </Popup>
+      }
     </div>
   );
 }
