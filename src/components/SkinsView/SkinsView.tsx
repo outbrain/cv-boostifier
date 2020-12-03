@@ -2,7 +2,6 @@ import React, {useContext, useState} from 'react';
 import './SkinsView.scss';
 import {SkinContext} from '../../context/SkinContext';
 import {ISkin} from '../../skins/models';
-import {ShareCv} from '../ShareCv/ShareCv';
 import {CvViewer} from '../CvViewer/CvViewer';
 import { WizardSteps } from '../WizardSteps/WizardSteps';
 import { Link } from 'react-router-dom';
@@ -10,7 +9,7 @@ import { ProfileEditor } from '../ProfileEditor/ProfileEditor';
 import { ProfileContext } from '../../context/ProfileContext';
 import { Popup } from '../Popup/Popup';
 export function SkinsView() {
-  const {skins, skin, setSkin} = useContext(SkinContext);
+  const {skins, setSkin} = useContext(SkinContext);
   const [selectedSkin, setSelectedSkin] = useState<ISkin | null>(null);
   const [showEditor, setShowEditor] = useState(false);
   const [previewPopupOpened, setPreviewPopupOpened] = useState(false);
@@ -48,9 +47,6 @@ export function SkinsView() {
             ))}
           </p>
         </footer>
-        <div className="skin-btn" onClick={() => setSkinAndContext(skin)}>
-          <ShareCv skin={skin} />
-        </div>
       </div>
     );
   };
@@ -69,7 +65,7 @@ export function SkinsView() {
       </div>
       {
         selectedSkin &&
-        <Link className="button primary floating" to="/share">I'm ready to get my awesome CV</Link>
+        <Link className="button primary floating" to="/wizard/share">I'm ready to get my awesome CV</Link>
       }
       <Popup
         closeButtonImage={<img src={require('../../images/close-white.png')} alt="" />}

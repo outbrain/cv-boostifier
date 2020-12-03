@@ -27,7 +27,7 @@ export function Header() {
         </Link>
         <nav className="flex">
           <NavLink activeClassName={history.location.hash || history.location.pathname !== '/' ? '' : 'active'} to="/">Home</NavLink>
-          <NavLink activeClassName="active" to="/profile">Create</NavLink>
+          <NavLink activeClassName="active" to="/wizard">CV Maker</NavLink>
           <Link className={isActiveHash(null, '#take-a-tour') ? 'active' : ''} to="/#take-a-tour">Take a Tour</Link>
           <Link className={isActiveHash(null, '#how-it-works') ? 'active' : ''} to="/#how-it-works">How it Works</Link>
           <Link className={isActiveHash(null, '#faq') ? 'active' : ''} to="/#faq">FAQ</Link>

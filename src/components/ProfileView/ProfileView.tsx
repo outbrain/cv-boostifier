@@ -56,8 +56,8 @@ export function ProfileView() {
         <p>* CV Boostifier supports the <a href="https://jsonresume.org/" target="_blank" rel="noopener noreferrer">JSON Resume</a> format</p>
         <LinkedinImport />
         <div className="buttons-wrapper">
-          <Link className={`button primary ${!uploadedName ? 'disabled' : ''}`} to={'/skins'}>Show me the money</Link>
-          <Link className="button" to={'/skins'}>I prefer the hard way, without data</Link>
+          <Link className={`button primary ${!uploadedName ? 'disabled' : ''}`} to={'/wizard/skins'}>Show me the money</Link>
+          <Link className="button" to={'/wizard/skins'}>I prefer the hard way, without data</Link>
         </div>
       </div>
       <div className="file-upload-wrapper">

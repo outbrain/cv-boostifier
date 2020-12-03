@@ -5,11 +5,13 @@ import {CvViewer} from './components/CvViewer/CvViewer';
 import {HomeView} from './components/HomeView/HomeView';
 import {SkinsView} from './components/SkinsView/SkinsView';
 import {ProfileView} from './components/ProfileView/ProfileView';
+import {ShareView} from './components/ShareView/ShareView';
 import 'react-toastify/dist/ReactToastify.min.css';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
+  Route, 
+  Redirect
 } from 'react-router-dom';
 import {ToastContainer} from 'react-toastify';
 import {consoleLogo} from './console-logo';
@@ -50,17 +52,22 @@ const App: React.FC = () => {
                   <Header />
                   <HomeView />
                 </Route>
-                <Route path="/profile">
+                <Route path="/wizard/profile">
                   <Header />
                   <ProfileView />
                 </Route>
-                <Route path="/skins">
+                <Route path="/wizard/skins">
                   <Header />
                   <SkinsView />
+                </Route>
+                <Route path="/wizard/share">
+                  <Header />
+                  <ShareView />
                 </Route>
                 <Route path="/viewer">
                   <CvViewer mode="view"/>
                 </Route>
+                <Redirect from="/wizard" to="/wizard/profile" />
               </Switch>
             </Router>
           }

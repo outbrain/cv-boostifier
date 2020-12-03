@@ -30,7 +30,7 @@ export function HomeView() {
   return (
     <div className="home-view">
       <section id="hero" className="wrapper center">
-        <h1>CV <br />Boostifier</h1>
+        <h1 className="crazy-title">CV <br />Boostifier</h1>
         <h2>Make your CV cool again!</h2>
         <div className="hero-copy">
           <p>
@@ -46,7 +46,7 @@ export function HomeView() {
           </p>
         </div>
         <div className="buttons-wrapper">
-          <Link className="button primary" to="/profile">Make My CV Cool!</Link>
+          <Link className="button primary" to="/wizard/profile">Make My CV Cool!</Link>
         </div>
       </section>
       <section id="take-a-tour" className="wrapper center">
