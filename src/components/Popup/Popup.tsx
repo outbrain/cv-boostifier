@@ -30,39 +30,6 @@ if (!isSSR) {
   }
 }
 
-const inIframe = (): boolean => {
-  if (isSSR) {
-    return false;
-  }
-  try {
-    return window?.self !== window?.top;
-  } catch (e) {
-    return true;
-  }
-}
-
-let parentTopScroll: number = 0;
-let parentWindowHeight: number = 0;
-
-// Listen to messages from Common Ninja SDK
-if (inIframe()) {
-  window?.addEventListener('message', (e) => {
-    try {
-      const message = JSON.parse(e.data);
-  
-      switch(message.type) {
-        case 'COMMONNINJA_PARENT_WINDOW_SCROLL':
-          parentTopScroll = message.fromTop;
-          if (message.windowHeight) {
-            parentWindowHeight = message.windowHeight;
-          }
-          break;
-        default:
-      }
-    } catch(e) {}
-  });
-}
-
 class PortalPopup extends Component<IPortalPopupProps> {
   private el: HTMLElement;
 
@@ -93,28 +60,6 @@ export class Popup extends Component<IPopupProps> {
 
     if (!this.props.show) {
       return null;
-    }
-    
-    // If popup is inside of an iframe, 
-    // and the iframe is bigger than the viewport, set a relative to parent top position
-    if (inIframe()) {
-      const margin = 20;
-
-      try {
-        if (window?.self.innerHeight > window?.top.innerHeight) {
-          const scrollTop = window?.top.pageYOffset || window?.top.document?.documentElement.scrollTop;
-          style.top = `${scrollTop + margin}px`;
-          style.transform = 'translate(-50%, 0)';
-        }
-      } catch (e) {
-        // console.log('Could not set top position to popup.', e.message);
-        // Fallback to post messaging method
-        if (window?.self.innerHeight > parentWindowHeight) {
-          const scrollTop = parentTopScroll < 0 ? Math.abs(parentTopScroll) : 0;
-          style.top = `${scrollTop + margin}px`;
-          style.transform = 'translate(-50%, 0)';
-        }
-      }
     }
 
     return (
