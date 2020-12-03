@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import './HomeView.scss';
 import {SkinContext} from '../../context/SkinContext';
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import { ISkin } from '../../skins/models';
 import { Popup } from '../Popup/Popup';
 import { CvViewer } from '../CvViewer/CvViewer';
@@ -10,6 +10,7 @@ export function HomeView() {
   const {skins} = useContext(SkinContext);
   const [selectedSkin, setSelectedSkin] = useState<ISkin | null>(null);
   const [previewPopupOpened, setPreviewPopupOpened] = useState(false);
+  const history = useHistory();
 
   function makeId(length = 6) {
     var result           = '';
@@ -27,14 +28,24 @@ export function HomeView() {
     setPreviewPopupOpened(true);
   }
 
-  // useEffect(() => {
-  //   if (document.location.hash) {
-  //     const elm = document.querySelector(document.location.hash);
-  //     if (elm) {
-  //       elm.scrollIntoView();
-  //     }
-  //   }
-  // }, []);
+  useEffect(() => {
+    history.listen(() => {
+      let elm = document.querySelector('body');
+      if (document.location.hash) {
+        elm = document.querySelector(document.location.hash);
+      }
+      
+      if (elm) {
+        window.setTimeout(() => {
+          elm?.scrollIntoView({
+            behavior: 'smooth',
+            inline: 'start'
+          });
+        }, 50);
+      }
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   
   return (
     <div className="home-view special-bg">
@@ -52,7 +63,7 @@ export function HomeView() {
             <li>Have you ever dreamed about letting recruiters and team leaders to learn about your resume by running SQL queries / playing a game / looking at an HTML page building itself? (Probably no.)</li>
           </ul>
           <p>
-            If the answer to one of the above is either (<strong>YES</strong> || <strong>MAYBE</strong>), click the link below, and prepared to be amazed:
+            If the answer to one of the above is either (<strong>YES</strong> || <strong>MAYBE</strong>), <br />click the button below, and prepared to be amazed:
           </p>
         </div>
         <div className="buttons-wrapper">
