@@ -40,11 +40,7 @@ export function ProfileView() {
     noKeyboard: true
   });
   return (
-    <div className="wizard-view profile-view" {...getRootProps()}>
-      <div className="file-upload-wrapper">
-        <input {...getInputProps()} />
-        {isDragActive && <div className="drag-active">Drop your JSON Resume here...</div>}
-      </div>
+    <div className="wizard-view profile-view wrapper" {...getRootProps()}>
       <WizardSteps activeStep={1} />
       <div className="profile-wrapper">
         <h3 className="view-title">Set your Data</h3>
@@ -63,7 +59,10 @@ export function ProfileView() {
           <Link className={`button primary ${!uploadedName ? 'disabled' : ''}`} to={'/skins'}>Show me the money</Link>
           <Link className="button" to={'/skins'}>I prefer the hard way, without data</Link>
         </div>
-        {/* {showEditor &&<div className="profile-editor"><ProfileEditor profile={profileContext.profile}/></div>} */}
+      </div>
+      <div className="file-upload-wrapper">
+        <input {...getInputProps()} />
+        {isDragActive && <div className="drag-active">Drop your JSON Resume here...</div>}
       </div>
     </div>
   );

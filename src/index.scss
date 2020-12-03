@@ -15,7 +15,7 @@ body {
 }
 
 .wrapper {
-  max-width: 1200px;
+  max-width: 1400px;
   width: 100%;
   margin: 0 auto;
   position: relative;
@@ -42,6 +42,7 @@ body {
   display: inline-block;
   background: #fff;
   color: $blue;
+  outline: 0;
 
   &:hover {
     background: $blue;;
