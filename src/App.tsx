@@ -16,6 +16,7 @@ import {
 import {ToastContainer} from 'react-toastify';
 import {consoleLogo} from './console-logo';
 import {Header} from './components/Header/Header';
+import {Footer} from './components/Footer/Footer';
 
 function isViewer(): boolean {
   const { hash } = document.location;
@@ -51,18 +52,22 @@ const App: React.FC = () => {
                 <Route exact path="/">
                   <Header />
                   <HomeView />
+                  <Footer />
                 </Route>
                 <Route path="/wizard/profile">
                   <Header />
                   <ProfileView />
+                  <Footer />
                 </Route>
                 <Route path="/wizard/skins">
                   <Header />
                   <SkinsView />
+                  <Footer />
                 </Route>
                 <Route path="/wizard/share">
                   <Header />
                   <ShareView />
+                  <Footer />
                 </Route>
                 <Route path="/viewer">
                   <CvViewer mode="view"/>

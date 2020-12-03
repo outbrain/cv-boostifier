@@ -40,29 +40,32 @@ export function ProfileView() {
     noKeyboard: true
   });
   return (
-    <div className="wizard-view profile-view wrapper" {...getRootProps()}>
-      <WizardSteps activeStep={1} />
-      <div className="profile-wrapper">
-        <h3 className="view-title">Set your Data</h3>
-        <div className="profile-edit-drop-msg">
-          {
-            uploadedName ? 
-            `${uploadedName}.json` :
-            <>
-              <button onClick={open}>Click here</button> to upload your JSON file or just drop it anywhere on this page
-            </>
-          }
+    <div className="wizard-view profile-view special-bg" {...getRootProps()}>
+      <div className="character"></div>
+      <div className="wrapper">
+        <WizardSteps activeStep={1} />
+        <div className="profile-wrapper">
+          <h3 className="view-title">Set your Data</h3>
+          <div className="profile-edit-drop-msg">
+            {
+              uploadedName ? 
+              `${uploadedName}.json` :
+              <>
+                <button onClick={open}>Click here</button> to upload your JSON file or just drop it anywhere on this page
+              </>
+            }
+          </div>
+          <p>* CV Boostifier supports the <a href="https://jsonresume.org/" target="_blank" rel="noopener noreferrer">JSON Resume</a> format</p>
+          <LinkedinImport />
+          <div className="buttons-wrapper">
+            <Link className={`button primary ${!uploadedName ? 'disabled' : ''}`} to={'/wizard/skins'}>Show me the money</Link>
+            <Link className="button" to={'/wizard/skins'}>I prefer the hard way, without data</Link>
+          </div>
         </div>
-        <p>* CV Boostifier supports the <a href="https://jsonresume.org/" target="_blank" rel="noopener noreferrer">JSON Resume</a> format</p>
-        <LinkedinImport />
-        <div className="buttons-wrapper">
-          <Link className={`button primary ${!uploadedName ? 'disabled' : ''}`} to={'/wizard/skins'}>Show me the money</Link>
-          <Link className="button" to={'/wizard/skins'}>I prefer the hard way, without data</Link>
+        <div className="file-upload-wrapper">
+          <input {...getInputProps()} />
+          {isDragActive && <div className="drag-active">Drop your JSON Resume here...</div>}
         </div>
-      </div>
-      <div className="file-upload-wrapper">
-        <input {...getInputProps()} />
-        {isDragActive && <div className="drag-active">Drop your JSON Resume here...</div>}
       </div>
     </div>
   );

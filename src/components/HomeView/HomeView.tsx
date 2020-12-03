@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './HomeView.scss';
 import {SkinContext} from '../../context/SkinContext';
 import {Link} from 'react-router-dom';
@@ -19,17 +19,27 @@ export function HomeView() {
        result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
- }
+  }
 
- const openPreview = (e: any, s: ISkin) => {
-  e.stopPropagation();
-  setSelectedSkin(s);
-  setPreviewPopupOpened(true);
-}
+  const openPreview = (e: any, s: ISkin) => {
+    e.stopPropagation();
+    setSelectedSkin(s);
+    setPreviewPopupOpened(true);
+  }
+
+  // useEffect(() => {
+  //   if (document.location.hash) {
+  //     const elm = document.querySelector(document.location.hash);
+  //     if (elm) {
+  //       elm.scrollIntoView();
+  //     }
+  //   }
+  // }, []);
   
   return (
-    <div className="home-view">
+    <div className="home-view special-bg">
       <section id="hero" className="wrapper center">
+        <div className="character"></div>
         <h1 className="crazy-title">CV <br />Boostifier</h1>
         <h2>Make your CV cool again!</h2>
         <div className="hero-copy">

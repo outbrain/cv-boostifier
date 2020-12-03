@@ -21,7 +21,7 @@ export function ShareView(props: PropsWithChildren<any>) {
     try {
       const link = await getCvLink(profileContext, skin.name);
       copy(link);
-      toast.info('Share link copied clipboard!');
+      toast.info('Share link copied to clipboard!');
     }
     catch (err) {
       toast.error('Failed creating link :(');
@@ -31,28 +31,31 @@ export function ShareView(props: PropsWithChildren<any>) {
   };
 
   return (
-    <div className="wizard-view share-view wrapper center">
-      <WizardSteps activeStep={3} />
-      <h2 className="crazy-title">Woo Hoo You Rock</h2>
-      <div className="share-preview">
-        <img src={require(`../../skins/${skin.component}/preview.png`)} alt=""/>
-        <footer className="skin-meta">
-          <h4>{skin.displayName}</h4>
-          <p>By&nbsp;
-            {skin.createdBy?.map((by, ix) => (
-              by.link ? <a key={`by_${by.name}_${ix}}`} href={by.link} target="_blank" rel="noopener noreferrer">{by.name}</a> : <span key={`by_${by.name}_${ix}}`}>{by.name}</span>
-            ))}
-          </p>
-        </footer>
+    <div className="wizard-view share-view special-bg center">
+      <div className="character"></div>
+      <div className="wrapper">
+        <WizardSteps activeStep={3} />
+        <h2 className="crazy-title">Woo Hoo You Rock</h2>
+        <div className="share-preview">
+          <img src={require(`../../skins/${skin.component}/preview.png`)} alt=""/>
+          <footer className="skin-meta">
+            <h4>{skin.displayName}</h4>
+            <p>By&nbsp;
+              {skin.createdBy?.map((by, ix) => (
+                by.link ? <a key={`by_${by.name}_${ix}}`} href={by.link} target="_blank" rel="noopener noreferrer">{by.name}</a> : <span key={`by_${by.name}_${ix}}`}>{by.name}</span>
+              ))}
+            </p>
+          </footer>
+        </div>
+        <p className="share-info">
+          You’ve selected the "<strong>{skin.displayName}</strong>” skin,<br />
+          your data is already inside, now everything is ready to find your next dream job! <br />
+          All you have left to do is to send your awesome CV, <br />
+          and expect a lot of responses!
+        </p>
+        {loading && <div className="share-loading"></div>}
+        <button className="button primary" onClick={copyLink} title="Copy link">Copy link to clipboard</button>
       </div>
-      <p className="share-info">
-        You’ve selected the "<strong>{skin.displayName}</strong>” skin,<br />
-        your data is already inside, now everything is ready to find your next dream job! <br />
-        All you have left to do is to send your awesome CV, <br />
-        and expect a lot of responses!
-      </p>
-      {loading && <div className="share-loading"></div>}
-      <button className="button primary" onClick={copyLink} title="Copy link">Copy link to clipboard</button>
     </div>
   );
 }

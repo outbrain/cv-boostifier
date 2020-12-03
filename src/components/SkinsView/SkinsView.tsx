@@ -52,21 +52,23 @@ export function SkinsView() {
   };
 
   return (
-    <div className="wizard-view skins-view wrapper">
-      <WizardSteps activeStep={2} />
-      <div className="title-wrapper flex">
-        <h3 className="view-title">
-          Pick a Skin
-        </h3>
-        <button className="button secondary" onClick={() => setShowEditor(true)}>Edit Data</button>
+    <div className="wizard-view special-bg">
+      <div className="skins-view wrapper">
+        <WizardSteps activeStep={2} />
+        <div className="title-wrapper flex">
+          <h3 className="view-title">
+            Pick a Skin
+          </h3>
+          <button className="button secondary" onClick={() => setShowEditor(true)}>Edit Data</button>
+        </div>
+        <div className="skins">
+          {skins.map(s => getSkinEl(s))}
+        </div>
+        {
+          selectedSkin &&
+          <Link className="button primary floating" to="/wizard/share">I'm ready to get my awesome CV</Link>
+        }
       </div>
-      <div className="skins">
-        {skins.map(s => getSkinEl(s))}
-      </div>
-      {
-        selectedSkin &&
-        <Link className="button primary floating" to="/wizard/share">I'm ready to get my awesome CV</Link>
-      }
       <Popup
         closeButtonImage={<img src={require('../../images/close-white.png')} alt="" />}
         closeCallback={() => setShowEditor(false)}
@@ -75,17 +77,14 @@ export function SkinsView() {
       >
         <ProfileEditor profile={profileContext.profile}/>
       </Popup>
-      {
-        previewPopupOpened && 
-        <Popup
-          closeButtonImage={<img src={require('../../images/close-blue.png')} alt="" />}
-          closeCallback={() => setPreviewPopupOpened(false)}
-          show={previewPopupOpened}
-          className="preview-skin-popup"
-        >
-          <CvViewer skin={selectedSkin} mode="edit"></CvViewer> 
-        </Popup>
-      }
+      <Popup
+        closeButtonImage={<img src={require('../../images/close-blue.png')} alt="" />}
+        closeCallback={() => setPreviewPopupOpened(false)}
+        show={previewPopupOpened}
+        className="preview-skin-popup"
+      >
+        <CvViewer skin={selectedSkin} mode="edit"></CvViewer> 
+      </Popup>
     </div>
   );
 }
