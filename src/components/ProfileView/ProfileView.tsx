@@ -1,12 +1,12 @@
 import React, {useCallback, useContext, useState} from 'react';
 import './ProfileView.scss';
-import {ProfileEditor} from '../ProfileEditor/ProfileEditor';
 import {LinkedinImport} from '../LinkedinImport/LinkedinImport';
 import {ProfileContext} from '../../context/ProfileContext';
 import {Resume} from '../../models';
 import {useDropzone} from 'react-dropzone';
 import {toast} from 'react-toastify';
 import {Link} from 'react-router-dom';
+import { WizardSteps } from '../WizardSteps/WizardSteps';
 
 export function ProfileView() {
   const [uploadedName, setUploadedName] = useState('');
@@ -45,6 +45,7 @@ export function ProfileView() {
         <input {...getInputProps()} />
         {isDragActive && <div className="drag-active">Drop your JSON Resume here...</div>}
       </div>
+      <WizardSteps activeStep={1} />
       <div className="profile-wrapper">
         <h3 className="view-title">Set your Data</h3>
         <div className="profile-edit-drop-msg">

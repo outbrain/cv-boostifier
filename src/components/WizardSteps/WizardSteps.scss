@@ -1,0 +1,56 @@
+@import '../../vars';
+
+.wizard-steps-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  width: 300px;
+  margin-bottom: 40px;
+
+  .step {
+      flex: 1;
+      position: relative;
+      text-align: center;
+      font-size: 14px;
+      line-height: 16px;
+      font-weight: 300;
+
+      &:first-child, &:nth-child(2) {
+          &::after {
+              content: '';
+              width: 40%;
+              border-bottom: 1px dashed $turquoise;
+              position: absolute;
+              left: 80%;
+              top: 18px;
+          }
+      }
+
+      h2 {
+          font-family: $secondary-font;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 16px;
+          letter-spacing: 0.08em;
+          box-shadow: 0px 0 0 2px #A3A3A3;
+          color: #A3A3A3;
+          border-radius: 50em;
+          display: inline-block;
+          padding: 12.5px 0;
+          width: 40px;
+          height: 40px;
+          margin: 0 0 8px;
+      }
+
+      &.active {
+        color: $turquoise;
+        font-weight: 500;
+        
+        h2 {
+          box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.12);
+          color: #FFFFFF;
+          background: linear-gradient(180deg, #66BEC7 0%, #96D9E0 100%);
+        }
+      }
+  }
+}
