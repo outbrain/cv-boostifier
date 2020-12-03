@@ -51,6 +51,8 @@
     height: 200px;
     width: 100%;
     padding: 10px;
+    object-fit: cover;
+    object-position: center left;
 }
 
 .skin.active {
