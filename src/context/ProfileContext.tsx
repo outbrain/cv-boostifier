@@ -15,7 +15,8 @@ const decodeProfile = (profileStr: string) => JSON.parse(unescape(atob(profileSt
 const ProfileContext = createContext({} as IProfileContext);
 
 function ProfileProvider(props: PropsWithChildren<any>) {
-  const profileStr = (document.location.hash || '').substring(1);
+  const urlParams = new URLSearchParams(document.location.search);
+  const profileStr = urlParams.get('data');
   let profileObj = null;
   if (profileStr) {
     try {

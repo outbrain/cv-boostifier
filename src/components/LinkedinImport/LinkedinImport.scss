@@ -1,49 +1,39 @@
-.linkedin-btn {
-    position: fixed;
-    bottom: 20px;
-    right: 100px;
-    outline: none;
-    z-index: 100;
-    border: solid 1px #ccc;
-    border-radius: 50%;
-    opacity: .7;
-    background: white;
-    display: flex;
-}
+@import '../../vars';
 
-.linkedin-btn:hover {
-    opacity: 1;
-}
+.linkedin-tutorial {
+    margin: 30px 0;
 
-.import-title {
-    color: #666;
-    font-size: 28px;
-    margin-top: 60px;
-}
+    .view-title {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 24px;
 
-ol {
-    list-style: none;
-    counter-reset: my-counter;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    margin: 0;
-    padding: 0;
-}
-ol li {
-    counter-increment: my-counter;
-    display: flex;
-    margin-bottom: 5px;
-    align-items: center;
-}
-ol li::before {
-    content: counter(my-counter);
-    font-size: 40px;
-    margin-right: 10px;
-    font-weight: bold;
-    color: #666;
-}
+        img {
+            height: 30px;
+            margin-right: 10px;
+        }
+    }
 
-ol > li > button {
-    color: #0d5aa7;
+    ol {
+        list-style: none;
+        counter-reset: my-counter;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        margin: 20px 0 0;
+        padding: 0;
+    }
+
+    ol li {
+        display: flex;
+        margin-bottom: 20px;
+        align-items: center;
+    }
+
+    button {
+        color: $turquoise;
+        text-decoration: underline;
+        outline: none;
+    }
 }

@@ -1,11 +1,22 @@
+.profile-editor-popup.popup {
+    .popup-content {
+        background-color: transparent;
+        padding-top: 70px;
+        width: 70%;
+        height: 70vh;
+    }
+
+    .close-popup {
+        left: 50%;
+        transform: translateX(-50%) scale(0.6);
+        top: 0;
+    }
+}
+
 .jsoneditor-tree {
-    max-height: 500px;
+    max-height: 80vh;
 }
 
 .jsoneditor-menu {
     display: none;
-}
-
-.jsoneditor.jsoneditor-mode-code {
-    border-color: #ccc;
 }
