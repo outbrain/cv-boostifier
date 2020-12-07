@@ -1,3 +1,5 @@
+@import '../../vars';
+
 .share-view {
     h2 {
         font-size: 90px;
@@ -95,6 +97,52 @@
                     }
                 }
             } 
+        }
+
+        .social-toolbar {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            color: #fff;
+            font-size: 13px;
+            padding: 10px;
+            z-index: 10;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            > span {
+                margin-right: 5px;
+            }
+
+            > button {
+                margin-left: 10px;
+                font-size: 16px;
+                line-height: 16px;
+                background: $turquoise;
+                border-radius: 50em;
+                width: 30px;
+                height: 30px;
+                opacity: 0.9;
+                transition: opacity 0.2s ease;
+
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .url-shortener-copy {
+        font-size: 14px;
+        margin-top: 20px;
+        
+        a {
+            color: $pink;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
 }

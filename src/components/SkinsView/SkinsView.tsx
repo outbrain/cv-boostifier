@@ -34,7 +34,7 @@ export function SkinsView() {
       createdBy.push({ name: 'Unknown' });
     }
     return (
-      <div key={s.name} className={"skin " + ((s === selectedSkin) ? " skin-selected" : "")} onClick={() => setSkinAndContext(s.name === selectedSkin?.name ? null : s)}>
+      <div key={s.name} className={"skin " + ((s === selectedSkin) ? " skin-selected" : "")} title="Click to select" onClick={() => setSkinAndContext(s.name === selectedSkin?.name ? null : s)}>
         <img src={require(`../../skins/${s.component}/preview.png`)} alt=""/>
         <footer className="skin-meta">
           <h4>

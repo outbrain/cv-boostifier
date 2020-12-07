@@ -46,7 +46,7 @@ export function ProfileView() {
         <WizardSteps activeStep={1} />
         <div className="profile-wrapper">
           <h3 className="view-title">Set your Data</h3>
-          <div className="profile-edit-drop-msg">
+          <div className={`profile-edit-drop-msg ${uploadedName ? 'post-upload' : ''}`}>
             {
               uploadedName ? 
               `${uploadedName}.json` :

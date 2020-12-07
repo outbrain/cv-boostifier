@@ -92,8 +92,13 @@ export function HomeView() {
             ))
           }
         </div>
-        <div className="buttons-wrapper">
-          <a className="button" href="https://github.com/outbrain/cv-boostifier/blob/master/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Add Your Skin</a>
+        <div className="contribution-copy">
+          <p>
+            Are you a Frontend Developer? Do you want to contribute your own skin to CV Boostifier?
+          </p>
+          <p>
+            Check out our <a href="https://github.com/outbrain/cv-boostifier/blob/master/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">contribution guide</a>.
+          </p>
         </div>
       </section>
       <section id="how-it-works" className="wrapper center">

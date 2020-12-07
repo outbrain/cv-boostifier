@@ -26,6 +26,19 @@
     margin-bottom: 15px;
     font-size: 20px;
     width: 840px;
+    position: relative;
+
+    &.post-upload::after {
+        content: '';
+        position: absolute;
+        right: 30px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 30px;
+        height: 30px;
+        background: url(../../images/v-turquoise.png) no-repeat center center;
+        background-size: contain;
+    }
 
     > button {
         color: $turquoise;

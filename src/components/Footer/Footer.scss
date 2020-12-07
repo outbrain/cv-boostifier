@@ -6,4 +6,12 @@
     padding: 20px 0;
     font-size: 16px;
     margin-top: 80px;
+
+    a {
+        color: $turquoise;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }

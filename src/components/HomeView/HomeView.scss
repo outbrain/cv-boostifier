@@ -162,6 +162,17 @@
             } 
         }
     }
+
+}
+
+.contribution-copy {
+    a {
+        color: $pink;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }
 
 #how-it-works {

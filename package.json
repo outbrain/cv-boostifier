@@ -5,6 +5,8 @@
   "homepage": "cv-boostifier",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.32",
+    "@fortawesome/react-fontawesome": "^0.1.13",
     "@loadable/component": "^5.13.2",
     "@types/jest": "24.0.21",
     "@types/node": "12.12.0",

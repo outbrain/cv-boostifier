@@ -42,7 +42,7 @@
           margin: 0 0 8px;
       }
 
-      &.active {
+      &.active, &.done {
         color: $turquoise;
         font-weight: 500;
         
@@ -50,6 +50,28 @@
           box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.12);
           color: #FFFFFF;
           background: linear-gradient(180deg, #66BEC7 0%, #96D9E0 100%);
+        }
+      }
+
+      &.done {
+        h2 {
+          position: relative;
+
+          span {
+            opacity: 0;
+          }
+
+          &::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: url(../../images/v-white.png) no-repeat center center;
+            background-size: contain;
+          }
         }
       }
   }
