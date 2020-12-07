@@ -120,6 +120,7 @@ export function HomeView() {
       </section>
       <section id="faq" className="wrapper center">
         <h3>FAQ</h3>
+        <div className="commonninja_component" comp-type="faq" comp-id="584d358d-64bf-4d3d-9a5d-302ce1554910"></div>
       </section>
       {
         previewPopupOpened && 
