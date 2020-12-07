@@ -1,6 +1,5 @@
 import React, {PropsWithChildren, useContext, useState} from 'react';
 import copy from 'copy-to-clipboard';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './ShareView.scss';
 import {encodeProfile, IProfileContext, ProfileContext} from '../../context/ProfileContext';
 import { toast } from 'react-toastify';
