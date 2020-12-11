@@ -17,9 +17,14 @@ export const CvViewer = (props: any) => {
     skin = skinContext.skin;
   }
   const profileContext = useContext(ProfileContext);
+
   return (
     <div className={`cv-viewer-wrapper skin-${skin.name} mode-${mode}`}>
-      <DynamicComponent name={skin.component} profile={profileContext.profile} />
+      <DynamicComponent name={skin.component}
+                        profile={profileContext.profile}
+                        config={profileContext.config}
+                        onConfigChanged={profileContext.setConfig}
+                        mode={mode} />
     </div>
   )
 };

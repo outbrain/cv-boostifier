@@ -353,5 +353,8 @@ export interface Work {
 
 
 export interface IProfileProps {
-  profile: Resume
+  profile: Resume;
+  config?: any;
+  mode?: string;
+  onConfigChanged?: (config: any) => void;
 }

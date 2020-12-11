@@ -17,6 +17,7 @@ export function SkinsView() {
   
   const setSkinAndContext = (s: ISkin | null) => {
     setSelectedSkin(s);
+    profileContext.setConfig({});
     if (s) {
       setSkin(s);
     }

@@ -1,13 +1,14 @@
 import React, {PropsWithChildren, useContext, useState} from 'react';
 import copy from 'copy-to-clipboard';
 import './ShareView.scss';
-import {encodeProfile, IProfileContext, ProfileContext} from '../../context/ProfileContext';
+import {encodeProfile, encodeConfig, IProfileContext, ProfileContext} from '../../context/ProfileContext';
 import { toast } from 'react-toastify';
 import { SkinContext } from '../../context/SkinContext';
 import { WizardSteps } from '../WizardSteps/WizardSteps';
 export const getCvLink = async (profileContext: IProfileContext, skin: string): Promise<string> => {
   const data = encodeProfile(profileContext.profile);
-  const link = `${document.location.origin}/cv-boostifier/viewer?skin=${skin}&data=${data}`;
+  const config = encodeConfig(profileContext.config);
+  const link = `${document.location.origin}/cv-boostifier/viewer?skin=${skin}&data=${data}&config=${config}`;
   return link;
 };
 
