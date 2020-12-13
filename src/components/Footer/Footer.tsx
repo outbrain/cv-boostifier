@@ -12,7 +12,7 @@ export function Footer() {
         </p>
         <p className="credits">
           A project by <a href="https://github.com/tsachis">Tsachi Shushan</a> & <a href="https://github.com/dsternlicht">Daniel Sternlicht</a><br />
-          Designed by <a href="https://medium.com/@yanivstern/pow-84eba3d90925">Yaniv Stern</a>
+          Designed by <a href="http://www.linkedin.com/in/yaniv-stern-3655375a">Yaniv Stern</a>
         </p>
       </div>
     </footer>

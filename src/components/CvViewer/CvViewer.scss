@@ -1,8 +1,28 @@
+@import '../../vars';
+
 .cv-viewer-wrapper {
     width: 100%;
     min-height: 100%;
     display: flex;
     position: relative;
+
+    .credits {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        background: rgba(255,255,255,0.85);
+        font-family: $main-font;
+        padding: 6px 15px;
+        box-shadow: -2px -2px 3px rgba(0,0,0,0.1);
+        z-index: 999;
+        font-size: 13px;
+        border-radius: 10px 0 0 0;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background: rgba(255,255,255,0.98);
+        }
+    }
 }
 
 .back-btn {

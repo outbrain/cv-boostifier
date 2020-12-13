@@ -38,46 +38,56 @@ const App: React.FC = () => {
   const viewMode = isViewer();
 
   return (
-    <SkinProvider>
-      <ProfileProvider>
-        <ToastContainer/>
-          {
-            viewMode && 
-            <CvViewer mode='view'/>
-          }
-          {
-            !viewMode && 
-            <Router basename={process.env.PUBLIC_URL}>
-              <Switch>
-                <Route exact path="/">
-                  <Header />
-                  <HomeView />
-                  <Footer />
-                </Route>
-                <Route path="/wizard/profile">
-                  <Header />
-                  <ProfileView />
-                  <Footer />
-                </Route>
-                <Route path="/wizard/skins">
-                  <Header />
-                  <SkinsView />
-                  <Footer />
-                </Route>
-                <Route path="/wizard/share">
-                  <Header />
-                  <ShareView />
-                  <Footer />
-                </Route>
-                <Route path="/viewer">
-                  <CvViewer mode="view"/>
-                </Route>
-                <Redirect from="/wizard" to="/wizard/profile" />
-              </Switch>
-            </Router>
-          }
-      </ProfileProvider>
-    </SkinProvider>
+    <div className="app">
+      <SkinProvider>
+        <ProfileProvider>
+          <ToastContainer/>
+            {
+              viewMode && 
+              <CvViewer mode='view'/>
+            }
+            {
+              !viewMode && 
+              <Router basename={process.env.PUBLIC_URL}>
+                <Switch>
+                  <Route exact path="/">
+                    <div className="editor">
+                      <Header />
+                      <HomeView />
+                      <Footer />
+                    </div>
+                  </Route>
+                  <Route path="/wizard/profile">
+                    <div className="editor">
+                      <Header />
+                      <ProfileView />
+                      <Footer />
+                    </div>
+                  </Route>
+                  <Route path="/wizard/skins">
+                    <div className="editor">
+                      <Header />
+                      <SkinsView />
+                      <Footer />
+                    </div>
+                  </Route>
+                  <Route path="/wizard/share">
+                    <div className="editor">
+                      <Header />
+                      <ShareView />
+                      <Footer />
+                    </div>
+                  </Route>
+                  <Route path="/viewer">
+                    <CvViewer mode="view"/>
+                  </Route>
+                  <Redirect from="/wizard" to="/wizard/profile" />
+                </Switch>
+              </Router>
+            }
+        </ProfileProvider>
+      </SkinProvider>
+    </div>
   );
 };
 

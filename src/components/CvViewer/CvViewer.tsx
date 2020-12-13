@@ -20,11 +20,16 @@ export const CvViewer = (props: any) => {
 
   return (
     <div className={`cv-viewer-wrapper skin-${skin.name} mode-${mode}`}>
-      <DynamicComponent name={skin.component}
-                        profile={profileContext.profile}
-                        config={profileContext.config}
-                        onConfigChanged={profileContext.setConfig}
-                        mode={mode} />
+      <DynamicComponent 
+        name={skin.component}
+        profile={profileContext.profile}
+        config={profileContext.config}
+        onConfigChanged={profileContext.setConfig}
+        mode={mode} 
+      />
+      <a className="credits" href="https://outbrain.github.io/cv-boostifier/" target="_blank" rel="noopener noreferrer">
+        Proudly created with <strong>CV Boostifier</strong>
+      </a>
     </div>
   )
 };
