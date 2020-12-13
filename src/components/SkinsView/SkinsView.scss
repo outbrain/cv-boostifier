@@ -6,7 +6,7 @@
     padding-bottom: 100px;
 
     .floating.button {
-        position: fixed;
+        position: sticky;
         bottom: 40px;
         left: 50%;
         transform: translateX(-50%);
