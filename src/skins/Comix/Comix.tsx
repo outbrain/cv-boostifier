@@ -5,17 +5,20 @@ import {Image, Transformation} from 'cloudinary-react';
 
 export function Comix(props: PropsWithChildren<IProfileProps>) {
   const {basics, skills, work, education, references, projects, publications, languages} = props.profile;
-
-  const [isFemale, setIsFemale] = useState(true);
+  const initialIsFemale = props.config?.isFemale ?? true;
+  const [isFemale, setIsFemale] = useState(initialIsFemale);
   const femaleImage = "https://topicimages.mrowl.com/large/sumanthchandu/the_big_bang_theory/cast/amy/amy_farrah_fowler_1.jpg"
   const maleImage = "https://images-na.ssl-images-amazon.com/images/I/41QsidVac-L._AC_.jpg"
-
+  const genderChange = (isFem: boolean) => {
+    setIsFemale(isFem);
+    props.onConfigChanged && props.onConfigChanged({ isFemale: isFem });
+  }
   return (
     <div className="comics-skin">
-      <div className="select-gender">
-        <button type="button" onClick={() => setIsFemale(true)}>Female</button>
-        <button type="button" onClick={() => setIsFemale(false)} className="male">Male</button>
-      </div>
+      {props.mode === 'edit' && <div className="select-gender">
+        <button type="button" onClick={() => genderChange(true)}>Female</button>
+        <button type="button" onClick={() => genderChange(false)} className="male">Male</button>
+      </div>}
       <div className="basics-info">
         <img src={require(`./images/pow.png`)} className="pow" alt="pow"/>
         <div className="profile-image">

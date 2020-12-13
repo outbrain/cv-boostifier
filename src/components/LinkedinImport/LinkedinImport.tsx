@@ -17,16 +17,18 @@ export function LinkedinImport() {
   };
 
   return (
-    <>
-      <div className="import-title">How to import your CV data from Linkedin</div>
+    <div className="linkedin-tutorial">
+      <div className="view-title">
+        <img src={require('../../images/linkedin.png')} alt="LinkedIn logo" />
+        <span>How to import your CV data from Linkedin</span>
+      </div>
       <ol>
-        <li><button onClick={copyLink}>Click here</button>&nbsp;to copy the code snippet to your your clipboard</li>
-        <li>Go to your Linkedin profile page (make sure you're logged in)</li>
-        <li>Open devtools and paste the code snippet in the console tab</li>
-        <li>Run it. You should see a downloaded file named json-resume.json</li>
-        <li>Drag the file back to this window</li>
+        <li>1.&nbsp;<button onClick={copyLink}>Click here</button>&nbsp;to copy the code snippet to your your clipboard</li>
+        <li>2.&nbsp;Go to your Linkedin profile page (make sure you're logged in)</li>
+        <li>3.&nbsp;Open devtools and paste the code snippet in the console tab</li>
+        <li>4.&nbsp;Run it. You should see a downloaded file named json-resume.json</li>
+        <li>5.&nbsp;Drag the file back to this window</li>
       </ol>
-      <button className='linkedin-btn' onClick={copyLink}></button>
-    </>
+    </div>
   );
 }

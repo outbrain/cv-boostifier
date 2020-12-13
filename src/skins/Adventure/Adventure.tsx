@@ -35,8 +35,12 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
   const [screenSize, setScreenSize] = useState(0);
   const FAR_MOUNTS_MOVEMENT_RATIO = -0.95;
   const MOUNTS_MOVEMENT_RATIO = 0.1;
-  const [isFemale, setIsFemale] = useState(true);
-
+  const initialIsFemale = props.config?.isFemale ?? true;
+  const [isFemale, setIsFemale] = useState(initialIsFemale);
+  const genderChange = (isFem: boolean) => {
+    setIsFemale(isFem);
+    props.onConfigChanged && props.onConfigChanged({ isFemale: isFem });
+  }
   const handleScroll = () => {
     const containerElement = document.getElementById("scrollWrapper");
     const leftScroll =
@@ -56,21 +60,21 @@ export function Adventure(props: PropsWithChildren<IProfileProps>) {
         <div>scroll down to proceed</div>
         <div className="icon-scroll"></div>
       </div>
-      <div
+      {props.mode === 'edit' && <div
         className={`gender-button ${scrollLeft > 500 ? "opacity-0" : ""}`}
         role="group"
       >
         <button
           type="button"
           className="btn"
-          onClick={() => setIsFemale(false)}
+          onClick={() => genderChange(false)}
         >
           male
         </button>
-        <button type="button" className="btn" onClick={() => setIsFemale(true)}>
+        <button type="button" className="btn" onClick={() => genderChange(true)}>
           female
         </button>
-      </div>
+      </div>}
       <Figure scrollLeft={scrollLeft} isFemale={isFemale} isJumping={false} />
       <div
         id="scrollWrapper"
