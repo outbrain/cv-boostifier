@@ -39,9 +39,7 @@
     "build": "npm run generate-skins && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "generate-skins": "node generate-skins.js",
-    "copy-404": "cp build/index.html build/404.html ",
-    "deploy": "npm run build && npm run copy-404 && gh-pages -d build"
+    "generate-skins": "node generate-skins.js"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -59,7 +57,6 @@
     ]
   },
   "devDependencies": {
-    "@types/loadable__component": "^5.13.0",
-    "gh-pages": "^2.1.1"
+    "@types/loadable__component": "^5.13.0"
   }
 }
