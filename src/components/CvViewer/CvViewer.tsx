@@ -27,7 +27,7 @@ export const CvViewer = (props: any) => {
         onConfigChanged={profileContext.setConfig}
         mode={mode} 
       />
-      <a className="credits" href="https://outbrain.github.io/cv-boostifier/" target="_blank" rel="noopener noreferrer">
+      <a className="credits" href={`${document.location.origin}/`} target="_blank" rel="noopener noreferrer">
         Proudly created with <strong>CV Boostifier</strong>
       </a>
     </div>

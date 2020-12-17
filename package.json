@@ -2,7 +2,6 @@
   "name": "cv-boostifier",
   "version": "0.1.0",
   "private": true,
-  "homepage": "cv-boostifier",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
     "@fortawesome/fontawesome-svg-core": "^1.2.32",

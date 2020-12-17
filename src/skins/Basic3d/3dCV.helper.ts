@@ -36,7 +36,7 @@ export const iframeCV = function ( x: number, y: number, z: number, profile: Res
   iframe.style.width = '900px';
   iframe.style.height = '1100px';
   iframe.style.border = '0px';
-  iframe.src =[ 'https://outbrain.github.io/cv-boostifier/viewer?skin=Basic#' + encodeProfile(profile)].join( '' );
+  iframe.src =[ `${document.location.origin}/viewer?skin=Basic#` + encodeProfile(profile)].join( '' );
   div.appendChild( iframe );
   const object = new CSS3DObject( div );
 

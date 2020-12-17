@@ -8,7 +8,7 @@ import { WizardSteps } from '../WizardSteps/WizardSteps';
 export const getCvLink = async (profileContext: IProfileContext, skin: string): Promise<string> => {
   const data = encodeProfile(profileContext.profile);
   const config = encodeConfig(profileContext.config);
-  const link = `${document.location.origin}/cv-boostifier/viewer?skin=${skin}&data=${data}&config=${config}`;
+  const link = `${document.location.origin}/viewer?skin=${skin}&data=${data}&config=${config}`;
   return link;
 };
 
