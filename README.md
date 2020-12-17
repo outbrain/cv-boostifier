@@ -8,7 +8,7 @@ Developers & engineers - this one is for you!
 
 If the answer to one of the above is either **YES** || **MAYBE**, click the link below, and prepared to be amazed:
 
-[Start here](https://outbrain.github.io/cv-boostifier/)
+[Start here](https://cvboostifier.dev)
 
 ### Got Some Skills?
 
