@@ -1,3 +1,9 @@
+<p  align="center">
+
+<img  src="https://raw.githubusercontent.com/outbrain/cv-boostifier/master/screenshots/screenshot_1.png?raw=true"  alt="CV Boostifier"/>
+
+</p>
+
 # CV Boostifier - Make Your CV Cool Again!
 
 Developers & engineers - this one is for you!
@@ -14,6 +20,6 @@ If the answer to one of the above is either **YES** || **MAYBE**, click the link
 
 Let's help other developers to get a job.
 
-We invite everyone who want to contribute to the project to join!
+We invite everyone who want to contribute to the project to join and develop more skins!
 
 See our [contribution guide](CONTRIBUTING.md).
