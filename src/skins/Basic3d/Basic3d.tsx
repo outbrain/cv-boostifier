@@ -42,7 +42,7 @@ export function Basic3d(props: PropsWithChildren<IProfileProps>) {
 
     function loadModel() {
         const loader = new GLTFLoader();
-        loader.load('model.gltf', (gltf) => {
+        loader.load('/model.gltf', (gltf) => {
             gltf.scene.traverse(c => {
                 c.castShadow = true;
                 c.receiveShadow = false;
@@ -449,7 +449,7 @@ export function Basic3d(props: PropsWithChildren<IProfileProps>) {
             let quat = {x: 0, y: 0, z: 0, w: 1};
             let mass = 0.3 ;
             const loader = new THREE.FontLoader();
-            loader.load('helvetiker_regular.typeface.json', function (helvetiker) {
+            loader.load('/helvetiker_regular.typeface.json', function (helvetiker) {
                 const geometry = new THREE.TextGeometry(letter, {
                     font: helvetiker,
                     size: 0.8,

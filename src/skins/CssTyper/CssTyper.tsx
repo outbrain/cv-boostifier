@@ -138,11 +138,6 @@ function run(profile: Resume) {
 
 .ct-output {
     display: block;
-    width: 100%;
-    height: 100%;
-    background: #fff;
-    color: #333;
-    overflow: auto;
 }
 
 /*
@@ -173,7 +168,8 @@ function run(profile: Resume) {
 }
 
 /*
- * That's better. Now let's add some styles to the body
+ * That's better. 
+ * Now let's add some styles to the body
  */
 
 .ct-body {
@@ -249,7 +245,8 @@ section aside {
 }
 
 /*
- * So far so good. Now the work section needs some touch...
+ * So far so good. 
+ * Now the work section needs some touch...
  */
 
 .work-details {
@@ -297,7 +294,8 @@ section aside {
 }
 
 /*
- *  skills are important, let's make them a bit prettier
+ * Skills are important, 
+ * let's make them a bit prettier
  */
 .ct-section-body-skills {
     display: flex;
@@ -319,8 +317,9 @@ section aside {
  *  Much better now, isn't it?
  *
  *
- *  *** This skin was inspired by the awesome work
- *     of Jake Albaugh (https://codepen.io/jakealbaugh)
+ *  *** This skin was inspired 
+ *  by the awesome work of Jake Albaugh 
+ *  (https://codepen.io/jakealbaugh)
  */
 
   `;

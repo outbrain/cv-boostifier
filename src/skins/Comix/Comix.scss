@@ -346,6 +346,9 @@
     }
     .basics-content {
       padding-left: 30px;
+      width: 100%;
+      max-height: 430px;
+      overflow: auto;
       header {
         .name {
           font-family: 'Bangers', cursive;
@@ -406,6 +409,12 @@
     }
   }
 
+  section {
+    h2, h3 {
+      font-weight: bolder;
+      font-size: 18px;
+    }
+  }
 
   main.main-info {
     display: flex;
@@ -505,11 +514,8 @@
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    img {
-      position: absolute;
-      width: 100%;
-      top: -75px;
-    }
+    background: url(./images/bubble-bg.jpg);
+    background-size: cover;
     .text-wrapper {
       z-index: 10;
     }

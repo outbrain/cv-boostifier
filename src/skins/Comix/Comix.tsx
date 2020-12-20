@@ -227,7 +227,6 @@ export function Comix(props: PropsWithChildren<IProfileProps>) {
         {
           (languages || []).length > 0 &&
           <section className="bg-light-blue languages">
-            <img src={require(`./images/bubble-bg.jpg`)} className="bubble-bg" alt="pow"/>
             <div className="text-wrapper">
               <h2>Languages</h2>
               <ul>
