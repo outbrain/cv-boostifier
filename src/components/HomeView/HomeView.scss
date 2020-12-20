@@ -15,6 +15,12 @@
         margin: 0 0 40px;
         letter-spacing: 0.040em;
     }
+
+    .gh-buttons {
+        > * {
+            margin: 0 5px;
+        }   
+    }
 }
 
 #hero {

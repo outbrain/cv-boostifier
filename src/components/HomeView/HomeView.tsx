@@ -5,6 +5,7 @@ import {Link, useHistory} from 'react-router-dom';
 import { ISkin } from '../../skins/models';
 import { Popup } from '../Popup/Popup';
 import { CvViewer } from '../CvViewer/CvViewer';
+import GitHubButton from 'react-github-btn';
 
 export function HomeView() {
   const {skins} = useContext(SkinContext);
@@ -51,6 +52,10 @@ export function HomeView() {
     <div className="home-view special-bg">
       <section id="hero" className="wrapper center">
         <div className="character"></div>
+        <div className="gh-buttons">
+          <GitHubButton href="https://github.com/outbrain/cv-boostifier" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star outbrain/cv-boostifier on GitHub">Star</GitHubButton>
+          <GitHubButton href="https://github.com/outbrain/cv-boostifier/fork" data-icon="octicon-repo-forked" data-size="large" data-show-count="true" aria-label="Fork outbrain/cv-boostifier on GitHub">Fork</GitHubButton>
+        </div>
         <h1 className="crazy-title">CV <br />Boostifier</h1>
         <h2>Make your CV cool again!</h2>
         <div className="hero-copy">
