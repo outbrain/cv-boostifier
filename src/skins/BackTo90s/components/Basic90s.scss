@@ -103,12 +103,12 @@
         border: solid 0.3vw #000000;
         background-image: url("../images/profile-image.svg");
         background-position: center;
-        width: 11.5vw;
-        height: 11.5vw;
+        width: 7.5vw;
+        height: 7.5vw;
         display: inline-block;
         left: 50%;
         top: 50%;
-        margin: -5.75vw 0 0 -5.75vw;
+        transform: translate(-50%,-50%);
         background-repeat: no-repeat;
         background-color: #FF89BB;
         background-size: 100% auto;

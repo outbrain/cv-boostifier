@@ -77,7 +77,7 @@ export class Skills90s extends Component<ISkillsProfile, any> {
                                 {
                                     (Object.values(this.state.skillsObj) || []).map((skillsItem: any, index: number) => {
                                         return(
-                                            <div>
+                                            <div key={`skil_${skillsItem.name}`}>
                                                 <span key={index} className={`${this.state.slideNumber === index ? 'selected': ''}`}>{skillsItem.name}</span>
                                             </div>
                                         )

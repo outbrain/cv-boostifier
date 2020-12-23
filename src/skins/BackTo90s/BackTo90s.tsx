@@ -39,12 +39,6 @@ export class BackTo90s extends Component<any, any> {
             height: !(readMoreClass) ? '7.7vw' : extraHeight.clientHeight
         };
 
-        console.log(extraHeight.clientHeight);
-
-
-
-
-
         return (
 
             <div className="BackTo90s-skin">
