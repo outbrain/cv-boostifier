@@ -90,7 +90,7 @@ export function ShareView(props: PropsWithChildren<any>) {
         </p>
         {loading && <div className="share-loading"></div>}
         <button className="button primary" onClick={copyLink} title="Copy link">Copy link to clipboard</button>
-        <p className="url-shortener-copy">We know, it's a very long url. To make it a bit more pretty, <br />use a url shortener service such as <a href="https://www.shorturl.at/" target="_blank" rel="noopener noreferrer">https://www.shorturl.at/</a></p>
+        <p className="url-shortener-copy">We know, it's a very long url. To make it a bit more pretty, <br />use a url shortener service such as <a href="https://tinyurl.com/" target="_blank" rel="noopener noreferrer">https://tinyurl.com/</a></p>
       </div>
     </div>
   );
