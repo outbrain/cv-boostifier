@@ -1,3 +1,6 @@
+.cv-viewer-wrapper.skin-Sql.mode-view {
+    min-height: 100vh;
+}
 #term-wrapper {
     flex-grow: 1;
 }
@@ -17,5 +20,4 @@
     content: 'mysql> ';
     position: absolute;
     left: 0;
-
 }

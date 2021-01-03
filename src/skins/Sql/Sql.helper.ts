@@ -1,3 +1,4 @@
+
 export const createDb = (alasql: any, resume: any) => {
   const db = new alasql.Database();
   Object.keys(resume).forEach(table => {

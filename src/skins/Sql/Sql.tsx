@@ -38,8 +38,10 @@ export function Sql(props: PropsWithChildren<IProfileProps>) {
                 command = command.substr(0, hasBackslahG)
               }
               res = profileDb.current.exec(command);
-              const keys = Object.keys(res[0]) || ['N/A'];
-
+              const keys = res[0] && Object.keys(res[0]);
+              if (!keys && ! res.length) {
+                resolve('query returned no data');
+              }
               if (hasBackslahG > 0) {
                 let i=0;
                 const output = res.map((row:any)=> {
