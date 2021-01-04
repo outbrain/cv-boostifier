@@ -26,6 +26,7 @@ export function SkinsView() {
   const openPreview = (e: any, s: ISkin) => {
     e.stopPropagation();
     setSkinAndContext(s);
+    (window as any).gtag('event', 'skin_preview', { skinName: s.name });
     setPreviewPopupOpened(true);
   }
 

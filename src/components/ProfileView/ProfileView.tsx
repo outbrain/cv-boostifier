@@ -24,7 +24,11 @@ export function ProfileView() {
           throw new Error('Wrong resume format');
         }
         setUploadedName(resume.basics.name);
+        (window as any).gtag('event', 'cv_upload', {
+          userName: resume.basics.name
+        });
         profileContext.setProfile(resume);
+
         toast.info(`Data imported successfully for '${resume.basics.name}'`);
       } catch (err) {
         console.error(err);

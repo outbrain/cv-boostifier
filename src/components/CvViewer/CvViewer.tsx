@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import './CvViewer.scss';
 import loadable from '@loadable/component';
 import {ProfileContext} from '../../context/ProfileContext';
@@ -17,7 +17,15 @@ export const CvViewer = (props: any) => {
     skin = skinContext.skin;
   }
   const profileContext = useContext(ProfileContext);
-
+  useEffect(() => {
+    console.log(mode, profileContext, skin)
+    if (mode === 'view' && skin && profileContext) {
+      (window as any).gtag('event', 'cv_view', {
+        userName: profileContext?.profile?.basics?.name,
+        skinName: skin.name
+      });
+    }
+  }, [mode, profileContext, skin]);
   return (
     <div className={`cv-viewer-wrapper skin-${skin.name} mode-${mode}`}>
       <DynamicComponent 
