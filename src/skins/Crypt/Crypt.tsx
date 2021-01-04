@@ -34,7 +34,7 @@ export function Crypt(props: PropsWithChildren<IProfileProps>) {
   key = ((crypto.createHash('sha256').update(basics?.name || "Anonymous").digest().readUInt16BE(0) - value) % 676 + 676 ) % 676
 
   return (
-    <div className="basic-skin">
+    <div className="crypt-skin">
       <main>
       Enter key: <input type='password' name='key' onChange={update}/>
 
