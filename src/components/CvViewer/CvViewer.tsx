@@ -18,7 +18,6 @@ export const CvViewer = (props: any) => {
   }
   const profileContext = useContext(ProfileContext);
   useEffect(() => {
-    console.log(mode, profileContext, skin)
     if (mode === 'view' && skin && profileContext) {
       (window as any).gtag('event', 'cv_view', {
         userName: profileContext?.profile?.basics?.name,
