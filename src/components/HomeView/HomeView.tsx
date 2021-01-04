@@ -65,7 +65,7 @@ export function HomeView() {
           <ul>
             <li>Have you always wanted to have an online CV that looks cool?</li>
             <li>Do you want your CV to shine above other candidates?</li>
-            <li>Have you ever dreamed about letting recruiters and team leaders to learn about your resume by running SQL queries / playing a game / looking at an HTML page building itself? (Probably no.)</li>
+            <li>Have you ever dreamed about letting recruiters and team leaders learn about your resume by running SQL queries / playing a game / looking at an HTML page building itself? (Probably no.)</li>
           </ul>
           <p>
             If the answer to one of the above is either (<strong>YES</strong> || <strong>MAYBE</strong>), <br />click the button below, and prepared to be amazed:
