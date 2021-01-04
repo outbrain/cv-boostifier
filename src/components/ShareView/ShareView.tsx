@@ -22,7 +22,7 @@ export function ShareView(props: PropsWithChildren<any>) {
       const link = await getCvLink(profileContext, skin.name);
       copy(link);
       (window as any).gtag('event', 'cv_link_copy', {
-        userName: profileContext?.profile?.basics?.name,
+        userName: btoa(profileContext?.profile?.basics?.name || ''),
         skinName: skin.name
       });
       toast.info('Share link copied to clipboard!');
@@ -37,7 +37,7 @@ export function ShareView(props: PropsWithChildren<any>) {
   async function share(shareType: 'facebook' | 'twitter' | 'email') {
     let url = await getCvLink(profileContext, skin.name);
     (window as any).gtag('event', 'cv_link_share', {
-      userName: profileContext?.profile?.basics?.name,
+      userName: btoa(profileContext?.profile?.basics?.name || ''),
       skinName: skin.name,
       shareType: shareType
     });

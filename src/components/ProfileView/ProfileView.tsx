@@ -25,7 +25,7 @@ export function ProfileView() {
         }
         setUploadedName(resume.basics.name);
         (window as any).gtag('event', 'cv_upload', {
-          userName: resume.basics.name
+          userName: btoa(resume.basics.name || '')
         });
         profileContext.setProfile(resume);
 

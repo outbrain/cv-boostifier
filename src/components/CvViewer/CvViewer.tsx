@@ -20,7 +20,7 @@ export const CvViewer = (props: any) => {
   useEffect(() => {
     if (mode === 'view' && skin && profileContext) {
       (window as any).gtag('event', 'cv_view', {
-        userName: profileContext?.profile?.basics?.name,
+        userName: btoa(profileContext?.profile?.basics?.name || ''),
         skinName: skin.name
       });
     }
