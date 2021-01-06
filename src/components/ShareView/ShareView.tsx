@@ -5,6 +5,7 @@ import {encodeProfile, encodeConfig, IProfileContext, ProfileContext} from '../.
 import { toast } from 'react-toastify';
 import { SkinContext } from '../../context/SkinContext';
 import { WizardSteps } from '../WizardSteps/WizardSteps';
+import {getHashCode} from "../../utils";
 export const getCvLink = async (profileContext: IProfileContext, skin: string): Promise<string> => {
   const data = encodeProfile(profileContext.profile);
   const config = encodeConfig(profileContext.config);
@@ -22,7 +23,7 @@ export function ShareView(props: PropsWithChildren<any>) {
       const link = await getCvLink(profileContext, skin.name);
       copy(link);
       (window as any).gtag('event', 'cv_link_copy', {
-        userName: btoa(profileContext?.profile?.basics?.name || ''),
+        hashCode: getHashCode(profileContext?.profile?.basics?.name || ''),
         skinName: skin.name
       });
       toast.info('Share link copied to clipboard!');
@@ -37,7 +38,7 @@ export function ShareView(props: PropsWithChildren<any>) {
   async function share(shareType: 'facebook' | 'twitter' | 'email') {
     let url = await getCvLink(profileContext, skin.name);
     (window as any).gtag('event', 'cv_link_share', {
-      userName: btoa(profileContext?.profile?.basics?.name || ''),
+      hashCode: getHashCode(profileContext?.profile?.basics?.name || ''),
       skinName: skin.name,
       shareType: shareType
     });

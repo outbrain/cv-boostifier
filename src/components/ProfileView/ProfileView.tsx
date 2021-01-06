@@ -7,6 +7,7 @@ import {useDropzone} from 'react-dropzone';
 import {toast} from 'react-toastify';
 import {Link} from 'react-router-dom';
 import { WizardSteps } from '../WizardSteps/WizardSteps';
+import {getHashCode} from "../../utils";
 
 export function ProfileView() {
   const [uploadedName, setUploadedName] = useState('');
@@ -25,7 +26,7 @@ export function ProfileView() {
         }
         setUploadedName(resume.basics.name);
         (window as any).gtag('event', 'cv_upload', {
-          userName: btoa(resume.basics.name || '')
+          hashCode: getHashCode(resume.basics.name || '')
         });
         profileContext.setProfile(resume);
 

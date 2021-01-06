@@ -3,6 +3,7 @@ import './CvViewer.scss';
 import loadable from '@loadable/component';
 import {ProfileContext} from '../../context/ProfileContext';
 import {SkinContext} from '../../context/SkinContext';
+import {getHashCode} from "../../utils";
 
 const DynamicComponent = loadable((props: any) => import(`../../skins/${props.name}/${props.name}`), {
     resolveComponent: (module, props) => module[props.name],
@@ -20,7 +21,7 @@ export const CvViewer = (props: any) => {
   useEffect(() => {
     if (mode === 'view' && skin && profileContext) {
       (window as any).gtag('event', 'cv_view', {
-        userName: btoa(profileContext?.profile?.basics?.name || ''),
+        hashCode: getHashCode(profileContext?.profile?.basics?.name || ''),
         skinName: skin.name
       });
     }
