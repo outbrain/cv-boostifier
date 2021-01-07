@@ -25,7 +25,10 @@
 
 #hero {
   h1 {
-    font-size: 130px;
+    font-size: 3em;
+    @media (min-width: $md) {
+      font-size: 130px;
+    }
     line-height: 160px;
     margin: 0 0 10px;
   }
@@ -39,7 +42,10 @@
 
   .hero-copy {
     margin: 10px auto 0;
-    max-width: 50%;
+    max-width: 75%;
+    @media (min-width: $md) {
+      max-width: 50%;
+    }
     font-size: 18px;
 
     p {
@@ -77,6 +83,13 @@
 }
 
 .skins-gallery {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+  @media (min-width: $md) {
+    display: flex;
+  }
+
   justify-content: space-around;
   margin-bottom: 40px;
 

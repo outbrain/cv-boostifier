@@ -107,7 +107,7 @@ export function HomeView() {
       </section>
       <section id="take-a-tour" className="wrapper center">
         <h3>Take a Tour</h3>
-        <div className="skins-gallery flex">
+        <div className="skins-gallery">
           {skins.slice(0, 4).map((skin) => (
             <div className="skin" key={`skin_${skin.name}`}>
               <img

@@ -50,8 +50,13 @@ body {
     z-index: 1;
     left: 50%;
     transform: translateX(100%);
-    top: 50px;
+    top: 90px;
+    @media (min-width: $md) {
+      top: 50px;
+    }
+
     width: 20vw;
+
     height: 80vh;
     background: url("./images/geek.png") top center no-repeat;
     background-size: contain;
