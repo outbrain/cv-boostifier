@@ -200,7 +200,10 @@
 }
 
 #how-it-works {
-  width: 50%;
+  width: 90%;
+  @media (min-width: $md) {
+    width: 50%;
+  }
 
   .steps-wrapper {
     justify-content: space-around;
