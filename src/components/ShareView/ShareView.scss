@@ -1,148 +1,159 @@
-@import '../../vars';
+@import "../../vars";
 
 .share-view {
-    h2 {
-        font-size: 90px;
-        line-height: 110px;
-        margin: 0 0 10px;
+  h2 {
+    font-size: 90px;
+    line-height: 110px;
+    margin: 0 0 10px;
+  }
+
+  .share-info {
+    margin: auto;
+    width: 90%;
+    margin-bottom: 40px;
+  }
+
+  .share-preview {
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
+    border-radius: 8px;
+    position: relative;
+    height: 300px;
+    width: 90%;
+    @media (min-width: $md) {
+      width: 70%;
+    }
+    margin: 20px auto 40px;
+    text-align: left;
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
     }
 
-    .share-info {
-        margin-bottom: 40px;
-    }
+    .skin-meta {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      color: #fff;
+      padding: 10px;
+      width: 100%;
 
-    .share-preview {
-        background: #FFFFFF;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.12);
-        border-radius: 8px;
+      > * {
         position: relative;
-        height: 300px;
-        width: 70%;
-        margin: 20px auto 40px;
-        text-align: left;
+        z-index: 2;
+      }
 
-        img {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .skin-meta {
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            color: #fff;
-            padding: 10px;
-            width: 100%;
-
-            > * {
-                position: relative;
-                z-index: 2;
-            }
-
-            &::before {
-                content: '';
-                background: rgb(255,255,255);
-                background: linear-gradient(0deg,rgba(0,0,0,.85),rgba(0,0,0,.38) 22.5%,rgba(0,0,0,0));
-                width: 100%;
-                height: 300%;
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                z-index: 0;
-                pointer-events: none;
-                border-radius: 0 0 8px 8px;
-            }
-        }
-
-        h4 {
-            font-size: 16px;
-            font-weight: 700;
-            position: relative;
-
-            button {
-                position: absolute;
-                right: 0;
-                top: 7px;
-                width: 14px;
-                height: 14px;
-                background-size: contain;
-                cursor: pointer;
-                z-index: 10;
-                opacity: 0.9;
-                transition: opacity 0.2s ease;
-
-                &:hover {
-                    opacity: 1;
-                }
-            }
-        }
-
-        p {
-            font-size: 12px;
-            line-height: 1.3em;
-
-            a:hover {
-                text-decoration: underline;
-            }
-
-            a, span {
-                &:not(:last-child) {
-                    &::after {
-                        content: ', ';
-                    }
-                }
-            } 
-        }
-
-        .social-toolbar {
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            color: #fff;
-            font-size: 13px;
-            padding: 10px;
-            z-index: 10;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-
-            > span {
-                margin-right: 5px;
-            }
-
-            > button {
-                margin-left: 10px;
-                font-size: 16px;
-                line-height: 16px;
-                background: $turquoise;
-                border-radius: 50em;
-                width: 30px;
-                height: 30px;
-                opacity: 0.9;
-                transition: opacity 0.2s ease;
-
-                &:hover {
-                    opacity: 1;
-                }
-            }
-        }
+      &::before {
+        content: "";
+        background: rgb(255, 255, 255);
+        background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.85),
+          rgba(0, 0, 0, 0.38) 22.5%,
+          rgba(0, 0, 0, 0)
+        );
+        width: 100%;
+        height: 300%;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        z-index: 0;
+        pointer-events: none;
+        border-radius: 0 0 8px 8px;
+      }
     }
 
-    .url-shortener-copy {
-        font-size: 14px;
-        margin-top: 20px;
-        
-        a {
-            color: $pink;
+    h4 {
+      font-size: 16px;
+      font-weight: 700;
+      position: relative;
 
-            &:hover {
-                text-decoration: underline;
-            }
+      button {
+        position: absolute;
+        right: 0;
+        top: 7px;
+        width: 14px;
+        height: 14px;
+        background-size: contain;
+        cursor: pointer;
+        z-index: 10;
+        opacity: 0.9;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+          opacity: 1;
         }
+      }
     }
+
+    p {
+      font-size: 12px;
+      line-height: 1.3em;
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      a,
+      span {
+        &:not(:last-child) {
+          &::after {
+            content: ", ";
+          }
+        }
+      }
+    }
+
+    .social-toolbar {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      color: #fff;
+      font-size: 13px;
+      padding: 10px;
+      z-index: 10;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      > span {
+        margin-right: 5px;
+      }
+
+      > button {
+        margin-left: 10px;
+        font-size: 16px;
+        line-height: 16px;
+        background: $turquoise;
+        border-radius: 50em;
+        width: 30px;
+        height: 30px;
+        opacity: 0.9;
+        transition: opacity 0.2s ease;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  .url-shortener-copy {
+    font-size: 14px;
+    margin-top: 20px;
+
+    a {
+      color: $pink;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
 }
