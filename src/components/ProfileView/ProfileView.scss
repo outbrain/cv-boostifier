@@ -1,16 +1,26 @@
 @import "../../vars";
 
 .profile-view {
-  width: 100%;
+  width: 95vw;
+  margin: auto;
+  @media (min-width: $md) {
+    width: 100vw;
+    margin: 0;
+  }
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 
   .buttons-wrapper {
+    display: flex;
+    gap: 10px;
+    @media (max-width: $md) {
+      flex-direction: column;
+      justify-content: center;
+    }
     a {
-      margin-right: 10px;
-
+      text-align: center;
       &.disabled {
         opacity: 0.3;
         pointer-events: none;
@@ -25,7 +35,9 @@
   border-radius: 8px;
   margin-bottom: 15px;
   font-size: 20px;
-  width: 840px;
+  @media (min-width: $md) {
+    width: 840px;
+  }
   position: relative;
 
   &.post-upload::after {
