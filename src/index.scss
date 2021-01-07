@@ -48,11 +48,12 @@ body {
   .character {
     position: absolute;
     z-index: 1;
-    left: 50%;
+    right: 25%;
     transform: translateX(100%);
-    top: 90px;
+    top: 125px;
     @media (min-width: $md) {
       top: 50px;
+      left: 50%;
     }
 
     width: 20vw;
