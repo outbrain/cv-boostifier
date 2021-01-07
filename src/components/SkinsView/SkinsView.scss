@@ -20,9 +20,11 @@
 
   .title-wrapper {
     justify-content: space-between;
+
     @media (max-width: $md) {
       padding-left: 10px;
     }
+
     .button {
       transform: scale(0.8);
       padding: 8px 20px;
