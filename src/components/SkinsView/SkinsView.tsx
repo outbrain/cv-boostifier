@@ -93,7 +93,7 @@ export function SkinsView() {
         </div>
         <div className="skins">{skins.map((s) => getSkinEl(s))}</div>
         {selectedSkin && (
-          <Link className="button primary floating" to="/wizard/share">
+          <Link className="button primary proceed" to="/wizard/share">
             I'm ready to get my awesome CV
           </Link>
         )}

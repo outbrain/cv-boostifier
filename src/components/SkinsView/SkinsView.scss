@@ -8,12 +8,14 @@
   flex-direction: column;
   justify-content: center;
 
-  .floating.button {
+  .button.proceed {
+    text-align: center;
+    margin: auto;
+    width: fit-content;
+
     @media (max-width: $md) {
       margin: 0 20px;
     }
-    margin: auto;
-    width: fit-content;
   }
 
   .title-wrapper {
