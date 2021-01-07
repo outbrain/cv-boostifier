@@ -1,8 +1,15 @@
 // Fonts
-$main-font: 'Roboto', sans-serif;
-$secondary-font: 'Geek a byte';
+$main-font: "Roboto", sans-serif;
+$secondary-font: "Geek a byte";
 
 // Colors
-$blue: #3A4F69;
-$turquoise: #66BEC7;
-$pink: #EA5F85;
+$blue: #3a4f69;
+$turquoise: #66bec7;
+$pink: #ea5f85;
+
+// Breakpoints
+$xs: 0;
+$sm: 600px;
+$md: 960px;
+$lg: 1280px - 16px;
+$xl: 1920px - 16px;
