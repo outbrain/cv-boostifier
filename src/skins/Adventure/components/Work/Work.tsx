@@ -18,13 +18,8 @@ export function WorkComponent(props: {
           </div>
           <div className="name">
             {work?.position} at{" "}
-<<<<<<< HEAD
-            <a href={work?.website} target="_blank" rel="noopener noreferrer">
-              {work?.company}
-=======
-            <a href={work?.url} target="_blank" rel="noopener noreferrer">
+            <a href={work?.website || (work as any)?.url} target="_blank" rel="noopener noreferrer">
               {work?.name}
->>>>>>> 6ea365a6de000306689ca5361edab37613b1e818
             </a>
           </div>
           <div className="summary">{work?.summary}</div>
