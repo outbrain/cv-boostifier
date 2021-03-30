@@ -2,8 +2,7 @@
 
 pre#style-text {
     height: 100%;
-    width: 30%;
-    max-width: 400px;
+    width: 400px;
     overflow: auto;
     background-color: #313744;
     color: #a6c3d4;
@@ -25,7 +24,7 @@ pre#style-text .key           { color: #c7ccd4; }
 pre#style-text .value         { color: #d5927b; }
 
 .cv-viewer-wrapper.skin-CssTyper.mode-view {
-    max-height: 100vh;
+    height: 100vh;
 }
 
 .cv-viewer-wrapper.skin-CssTyper.mode-edit {
@@ -35,6 +34,11 @@ pre#style-text .value         { color: #d5927b; }
 .ct-output {
     display: none;
     font-family: Lato, sans-serif;
+    width: calc(100% - 400px);
+    height: 100%;
+    background: #fff;
+    color: #333;
+    overflow: auto;
 }
 
 .ct-container {
