@@ -5,6 +5,18 @@
   transition: opacity 5s;
 }
 
+.mountains-far {
+  position: absolute;
+  background-size: auto 100vh;
+  background-repeat: repeat-x;
+  background-image: url("assets/game_background_1/layers/rocks_1.png");
+  //transform: scale(0.8);
+}
+
+.full-width {
+  width: 100%;
+}
+
 .slide {
   width: 100vw;
   height: 100vh;
@@ -55,9 +67,6 @@
     transform-origin: top left;
     height: 100%;
 
-    .full-width {
-      width: 100%;
-    }
     .mountains {
       display: flex;
       background: url("assets/game_background_1/layers/rocks_2.png");
@@ -66,13 +75,6 @@
       height: 100vh;
     }
 
-    .mountains-far {
-      position: absolute;
-      background-size: auto 100vh;
-      background-repeat: repeat-x;
-      background-image: url("assets/game_background_1/layers/rocks_1.png");
-      //transform: scale(0.8);
-    }
     .night {
       //background: url("assets/game_background_3/layers/sky.png");
       //  z-index: 0;
