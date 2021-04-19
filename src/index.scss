@@ -1,5 +1,5 @@
-@import './fonts/stylesheet.css';
-@import './vars';
+@import "./fonts/stylesheet.css";
+@import "./vars";
 
 * {
   outline: 0;
@@ -20,13 +20,14 @@ body {
   min-height: 100vh;
   width: 100vw;
   position: relative;
-  
+
   .special-bg {
     position: relative;
-  
-    &::before, &::after {
-      content: '';
-      background: url('./images/left-shape.png') -20% 100px no-repeat;
+
+    &::before,
+    &::after {
+      content: "";
+      background: url("./images/left-shape.png") -20% 100px no-repeat;
       background-size: 40%;
       width: 100%;
       height: 100%;
@@ -35,27 +36,33 @@ body {
       top: 0;
       z-index: 0;
     }
-  
+
     &::after {
-      background-image: url('./images/right-shape.png');
+      background-image: url("./images/right-shape.png");
       background-position-x: 120%;
       right: 0;
       left: auto;
     }
   }
-  
+
   .character {
     position: absolute;
     z-index: 1;
-    left: 50%;
+    right: 25%;
     transform: translateX(100%);
-    top: 50px;
+    top: 125px;
+    @media (min-width: $md) {
+      top: 50px;
+      left: 50%;
+    }
+
     width: 20vw;
+
     height: 80vh;
-    background: url('./images/geek.png') top center no-repeat;
+    background: url("./images/geek.png") top center no-repeat;
     background-size: contain;
   }
-  
+
   .wrapper {
     max-width: 1400px;
     width: 100%;
@@ -63,17 +70,17 @@ body {
     position: relative;
     z-index: 3;
   }
-  
+
   .center {
     text-align: center;
   }
-  
+
   .flex {
     display: flex;
     justify-content: flex-start;
     align-items: center;
   }
-  
+
   .button {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12);
     border-radius: 50em;
@@ -86,27 +93,27 @@ body {
     background: #fff;
     color: $blue;
     outline: 0;
-  
+
     &:hover {
-      background: $blue;;
+      background: $blue;
       color: #fff;
     }
-  
+
     &:disabled {
       opacity: 0.3;
     }
-  
+
     &.primary {
-      background: $blue;;
+      background: $blue;
       color: #fff;
-  
+
       &:hover {
         background: #fff;
         color: $blue;
       }
     }
   }
-  
+
   .view-title {
     font-family: $secondary-font;
     font-style: normal;
@@ -117,7 +124,7 @@ body {
     letter-spacing: 0.05em;
     margin-bottom: 10px;
   }
-  
+
   .crazy-title {
     font-weight: 400;
     font-family: $secondary-font;
@@ -125,7 +132,7 @@ body {
     text-shadow: 7px -6px 0 $blue;
     letter-spacing: 0.06em;
   }
-  
+
   .wizard-view {
     padding: 50px 0;
   }
