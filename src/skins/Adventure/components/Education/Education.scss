@@ -1,10 +1,12 @@
-.campfire {
-    position: fixed;
-    background-image: url("../../assets/objects/Campfire_Cooking_01.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 264px;
-    height: 264px;
-    top: 74vh;
-    z-index: 5;
+.adventure-skin {
+    .campfire {
+        position: fixed;
+        background-image: url("../../assets/objects/Campfire_Cooking_01.png");
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 264px;
+        height: 264px;
+        top: 74vh;
+        z-index: 5;
+    }
 }

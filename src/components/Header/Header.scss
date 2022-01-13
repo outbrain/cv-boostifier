@@ -1,23 +1,41 @@
+@import '../../vars';
+
 .header-wrapper {
-    position: fixed;
+    position: sticky;
     top: 0;
-    left: 0;
-    right: 0;
-    background: #eee;
-    height: 70px;
+    z-index: 10;
+    background: #fff;
     display: flex;
+    justify-content: flex-start;
     align-items: center;
+    border-bottom: 1px solid #C5C5C5;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.08);
+
+    nav {
+        flex: 1;
+        justify-content: center;
+
+        a {
+            font-size: 16px;
+            font-weight: 400;
+            color: #939393;
+            padding: 15px 20px 12px;
+            margin: 0 20px;
+            border-bottom: 3px solid transparent;
+
+            &:hover {
+                color: #656565;
+            }
+
+            &.active {
+                color: $turquoise;
+                border-bottom-color: $turquoise;
+            }
+        }
+    }
 }
 
 .header-logo {
-    margin-left: 10px;
-}
-
-.header-title {
-    font-size: 18px;
-    font-family: "Fira Mono";
-    margin-left: 18px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    color: #393e46;
+    width: 30px;
+    margin-right: 10px;
 }

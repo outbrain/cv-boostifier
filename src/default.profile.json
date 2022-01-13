@@ -18,7 +18,17 @@
       {
         "network": "Twitter",
         "username": "neutralthoughts",
-        "url": ""
+        "url": "http://www.twitter.com"
+      },
+      {
+        "network": "Linkedin",
+        "username": "richardLinkedin",
+        "url": "http://www.linkedin.com"
+      },
+      {
+        "network": "Github",
+        "username": "richardGithub",
+        "url": "http://www.github.com"
       },
       {
         "network": "SoundCloud",

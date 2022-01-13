@@ -1,106 +1,132 @@
+@import './fonts/stylesheet.css';
+@import './vars';
+
+* {
+  outline: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-a {
-  color: #0d5aa7;
-}
-
-#root {
-  width: 100vw;
-  min-height: 100vh;
-  display: flex;
-}
-
-.btn {
-  font-size: 14px;
-  white-space: nowrap;
-  padding: 2px 15px;
-  border-radius: 3px;
-  text-transform: capitalize;
-  border: 1px solid white;
-  display: inline-block;
-  margin-right: 5px;
-}
-
-.btn:hover {
-  border-color: #5465ab;
-  color: #5465ab;
-}
-
-.btn.btn-action {
-  background: #323c67;
-  color: #323c67;
-}
-
-.view-title {
-  font-size: 50px;
-  color: #666;
-}
-
-.view-title > span {
-  font-size: 40px;
-  color: #999;
-}
-
-.scroll-message {
-  position: fixed;
-  left: 89vw;
-  bottom: 115px;
-  z-index: 1;
-  width: fit-content;
-  font-size: 15px;
+.editor {
+  color: #858585;
+  font-size: 20px;
   font-weight: 300;
-  opacity: 1;
-  transition: 3s;
-}
-
-.icon-scroll,
-.icon-scroll:before {
-  position: absolute;
-  left: 50%;
-}
-.icon-scroll {
-  margin-top: 10px;
-  width: 30px;
-  height: 50px;
-  border: 2px solid #fff;
-  border-radius: 25px;
-  z-index: 1;
-}
-@media (max-width: 767px) {
-  .icon-scroll {
-    position: relative;
-  }
-}
-.icon-scroll:before {
-  content: "";
-  width: 8px;
-  height: 8px;
+  font-family: $main-font;
   background: #fff;
-  margin-left: -4px;
-  top: 8px;
-  border-radius: 4px;
-  animation-duration: 1.5s;
-  animation-iteration-count: infinite;
-  animation-name: scroll;
-}
-@keyframes scroll {
-  0% {
-    opacity: 1;
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  
+  .special-bg {
+    position: relative;
+  
+    &::before, &::after {
+      content: '';
+      background: url('./images/left-shape.png') -20% 100px no-repeat;
+      background-size: 40%;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 0;
+    }
+  
+    &::after {
+      background-image: url('./images/right-shape.png');
+      background-position-x: 120%;
+      right: 0;
+      left: auto;
+    }
   }
-  100% {
-    opacity: 0;
-    transform: translateY(26px);
+  
+  .character {
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    transform: translateX(100%);
+    top: 50px;
+    width: 20vw;
+    height: 80vh;
+    background: url('./images/geek.png') top center no-repeat;
+    background-size: contain;
+  }
+  
+  .wrapper {
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    z-index: 3;
+  }
+  
+  .center {
+    text-align: center;
+  }
+  
+  .flex {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  .button {
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.12);
+    border-radius: 50em;
+    padding: 12px 20px;
+    font-size: 20px;
+    font-weight: 700;
+    border: 1.5px solid $blue;
+    transition: all 0.2s ease;
+    display: inline-block;
+    background: #fff;
+    color: $blue;
+    outline: 0;
+  
+    &:hover {
+      background: $blue;;
+      color: #fff;
+    }
+  
+    &:disabled {
+      opacity: 0.3;
+    }
+  
+    &.primary {
+      background: $blue;;
+      color: #fff;
+  
+      &:hover {
+        background: #fff;
+        color: $blue;
+      }
+    }
+  }
+  
+  .view-title {
+    font-family: $secondary-font;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 45px;
+    color: $turquoise;
+    letter-spacing: 0.05em;
+    margin-bottom: 10px;
+  }
+  
+  .crazy-title {
+    font-weight: 400;
+    font-family: $secondary-font;
+    color: $turquoise;
+    text-shadow: 7px -6px 0 $blue;
+    letter-spacing: 0.06em;
+  }
+  
+  .wizard-view {
+    padding: 50px 0;
   }
 }

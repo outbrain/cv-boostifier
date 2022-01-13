@@ -1,59 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="apple-touch-icon" href="logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Mono:700%7CFira+Mono" media="all">
+    <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-J5XB5L06WX"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>CV Boostifier</title>
-    <style>
-      #root > svg {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-      }
-
-      @keyframes breath {
-        0% {
-          animation-timing-function: cubic-bezier(0.9647,0.2413,-0.0705,0.7911);
-          transform: scale(0.9099999999999999);
-        }
-        51% {
-          animation-timing-function: cubic-bezier(0.9226,0.2631,-0.0308,0.7628);
-          transform: scale(1.02994);
-        }
-        100% {
-          transform: scale(0.9099999999999999);
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root">
-      <svg xml:space="preserve" viewBox="0 0 100 100" y="0" x="0"
-           version="1.1" style="height: 20%; width: 20%; background: rgb(255, 255, 255);" width="128px" height="128px"><g class="ldl-scale" style="transform-origin: 50% 50%; transform: scale(0.8);"><g class="ldl-ani"><g class="ldl-layer"><g class="ldl-ani"><g><g class="ldl-layer"><g class="ldl-ani" style="transform: scale(0.91); transform-origin: 50px 50px; animation: 1.11111s linear -0.740741s infinite normal forwards running breath;"><path d="M73.6 77l-6.1-3.7L81.7 50 67.5 26.7l6.1-3.7L90 50z" fill="#333" style="fill: rgb(0, 172, 181);"></path></g></g></g></g></g><g
-              class="ldl-layer"><g class="ldl-ani"><g><g class="ldl-layer"><g class="ldl-ani" style="transform: scale(0.91); transform-origin: 50px 50px; animation: 1.11111s linear -0.925926s infinite normal forwards running breath;"><path d="M26.4 77L10 50l16.4-27 6.1 3.7L18.3 50l14.2 23.3z" fill="#333" style="fill: rgb(0, 172, 181);"></path></g></g></g></g></g><g
-              class="ldl-layer"><g class="ldl-ani"><g><g class="ldl-layer"><g class="ldl-ani" style="transform: scale(0.91); transform-origin: 50px 50px; animation: 1.11111s linear -1.11111s infinite normal forwards running breath;"><path d="M15 46.4h70v7.1H15z" fill="#333" transform="rotate(-73.764 50.001 50.001)" style="fill: rgb(0, 172, 181);"></path></g></g></g></g></g>
-        </g></g>
-      </svg>
-    </div>
-  </body>
+            gtag('config', 'G-J5XB5L06WX');
+        </script>
+        <meta charset="utf-8" />
+        <link rel="apple-touch-icon" sizes="57x57" href="%PUBLIC_URL%/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="%PUBLIC_URL%/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="%PUBLIC_URL%/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="%PUBLIC_URL%/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="%PUBLIC_URL%/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="%PUBLIC_URL%/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="%PUBLIC_URL%/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="%PUBLIC_URL%/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-icon-180x180.png">
+        <link rel="icon" href="%PUBLIC_URL%/favicon.png" />
+        <link rel="icon" type="image/png" sizes="192x192"  href="%PUBLIC_URL%/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="%PUBLIC_URL%/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png">
+        <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:image" content="%PUBLIC_URL%/og.png" />
+        <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+        <title>CV Boostifier - Make Your CV Cool Again!</title>
+        <meta name="description" content="CV Boostifier - An open source tool for creating cool CV online made for developers by developers.">
+        <meta name="keywords" content="CV Boostifier, CV Online, CV Creator, Cool CV, Resume Online, Resume for developers, CV for developers, Resume for software engineers, CV for software engineers, Online resume, Online CV, Cool CV creator, Cool resume">
+        <!-- Common Ninja FAQ Plugin  -->
+        <script src="https://cdn.commoninja.com/sdk/latest/commonninja.js" defer></script>
+    </head>
+    <body>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div id="root"></div>
+    </body>
 </html>

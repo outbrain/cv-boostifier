@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'Geek a byte';
+    src: url('Geekabyte.eot');
+    src: url('Geekabyte.eot?#iefix') format('embedded-opentype'),
+        url('Geekabyte.woff2') format('woff2'),
+        url('Geekabyte.woff') format('woff'),
+        url('Geekabyte.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
