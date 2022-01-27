@@ -33,7 +33,7 @@
     "react-toastify": "^5.4.1",
     "react-tooltip": "^4.2.11",
     "swagger-ui-react": "^3.24.0",
-    "three": "^0.120.1",
+    "three": "^0.137.0",
     "typescript": "^3.9.7"
   },
   "scripts": {
