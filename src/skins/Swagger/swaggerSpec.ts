@@ -22,7 +22,7 @@ export const getSpec = (resume: any) => {
 
   return {
     "swagger": "2.0",
-    "host": "https://cvboostifier.dev",
+    "host": "https://cv-boostifier.netlify.app",
     "basePath": "",
     "info": {
       "description": `Fully working Swagger API for ${name} Resume`,
