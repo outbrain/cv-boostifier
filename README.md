@@ -6,6 +6,8 @@
 
 # CV Boostifier - Make Your CV Cool Again!
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2c70be44-b96e-4ec3-a107-87d6ed35ce1c/deploy-status)](https://app.netlify.com/sites/cv-boostifier/deploys)
+
 Developers & engineers - this one is for you!
 
 * Have you always wanted to have an online CV that looks cool? 
