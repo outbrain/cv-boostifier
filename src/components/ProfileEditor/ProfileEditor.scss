@@ -1,26 +1,26 @@
 .profile-editor-popup.popup {
-    .popup-content {
-        background-color: transparent;
-        padding-top: 70px;
-        width: 70%;
-        height: 70vh;
-    }
+  .popup-content {
+    background-color: transparent;
+    padding-top: 70px;
+    width: 70%;
+    height: 70vh;
+  }
 
-    .close-popup {
-        left: 50%;
-        transform: translateX(-50%) scale(0.6);
-        top: 0;
-    }
+  .close-popup {
+    left: 50%;
+    transform: translateX(-50%) scale(0.6);
+    top: 0;
+  }
 }
 
 .jsoneditor {
-    height: 80vh !important;
+  height: 80vh !important;
 }
 
 .jsoneditor-tree {
-    max-height: 80vh;
+  max-height: 80vh;
 }
 
 .jsoneditor-menu {
-    display: none;
+  display: none;
 }
